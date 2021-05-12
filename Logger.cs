@@ -5,11 +5,11 @@ namespace EasyLogger
 {
     public class Logger
     {
-        private String path = "";
-        private String directoryName = "logs";
-        private String fileName = "log";
-        private String fileType = "txt";
-        private String dateFormate = "yyyy'/'MM'/'dd HH:mm:ss";
+        private string path = "";
+        private string directoryName = "logs";
+        private string fileName = "log";
+        private string fileType = "txt";
+        private string dateFormate = "yyyy'/'MM'/'dd HH:mm:ss";
 
         public Logger()
         {
@@ -37,70 +37,73 @@ namespace EasyLogger
             {
                 Console.WriteLine(e);
             }
-
-            createDirectory();
         }
 
-        public void write(String massage)
+        public void write(string massage)
         {
-            String filePath = path + "/" + directoryName + "/" + fileName + "." + fileType;
-            String logMassage = "[" + getCurrentTime() + "] " + massage + "\n";
-            try
+            if(Directory.Exists(path + "/" + directoryName))
             {
-                File.AppendAllText(filePath, logMassage);
+                string filePath = path + "/" + directoryName + "/" + fileName + "." + fileType;
+                string logMassage = "[" + getCurrentTime() + "] " + massage + "\n";
+                try
+                {
+                    File.AppendAllText(filePath, logMassage);
+                }
+                catch (ArgumentNullException e)
+                {
+                    Console.WriteLine(e);
+                }
+                catch (ArgumentException e)
+                {
+                    Console.WriteLine(e);
+                }
+                catch (PathTooLongException e)
+                {
+                    Console.WriteLine(e);
+                }
+                catch (DirectoryNotFoundException e)
+                {
+                    Console.WriteLine(e);
+                }
+                catch (IOException e)
+                {
+                    Console.WriteLine(e);
+                }
+                catch (UnauthorizedAccessException e)
+                {
+                    Console.WriteLine(e);
+                }
+                catch (NotSupportedException e)
+                {
+                    Console.WriteLine(e);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
             }
-            catch (ArgumentNullException e)
+            else
             {
-                Console.WriteLine(e);
+                createDirectory();
             }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (PathTooLongException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (DirectoryNotFoundException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (UnauthorizedAccessException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (NotSupportedException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-
         }
 
-        public void setDirectoryPath(String directoryPath)
+        public void changeDirectoryPath(string directoryPath)
         {
             path = directoryPath;
-            createDirectory();
         }
 
-        public void setCustomFileType(String type)
+        public void setCustomFileType(string type)
         {
             fileType = type;
         }
 
-        public void setCustomDateFormate(String formate)
+        public void setCustomDateFormate(string formate)
         {
             dateFormate = formate;
         }
 
-        private String getCurrentTime()
+        private string getCurrentTime()
         {
             DateTime systemTime = DateTime.Now;
             return systemTime.ToString(dateFormate);
@@ -108,10 +111,10 @@ namespace EasyLogger
 
         private void createDirectory()
         {
-            String directoryPath = path + "/" + directoryName;
+            string directoryPath = path + "/" + directoryName;
             try
             {
-                if (Directory.Exists(directoryPath) == false)
+                if (!Directory.Exists(directoryPath))
                 {
                     Directory.CreateDirectory(directoryPath);
                 }
@@ -145,7 +148,6 @@ namespace EasyLogger
                 Console.WriteLine(e);
             }
         }
-
 
     }
 }
