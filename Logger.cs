@@ -41,56 +41,59 @@ namespace EasyLogger
 
         public void write(string massage)
         {
-            if(Directory.Exists(path + "/" + directoryName))
-            {
-                string filePath = path + "/" + directoryName + "/" + fileName + "." + fileType;
-                string logMassage = "[" + getCurrentTime() + "] " + massage + "\n";
-                try
-                {
-                    File.AppendAllText(filePath, logMassage);
-                }
-                catch (ArgumentNullException e)
-                {
-                    Console.WriteLine(e);
-                }
-                catch (ArgumentException e)
-                {
-                    Console.WriteLine(e);
-                }
-                catch (PathTooLongException e)
-                {
-                    Console.WriteLine(e);
-                }
-                catch (DirectoryNotFoundException e)
-                {
-                    Console.WriteLine(e);
-                }
-                catch (IOException e)
-                {
-                    Console.WriteLine(e);
-                }
-                catch (UnauthorizedAccessException e)
-                {
-                    Console.WriteLine(e);
-                }
-                catch (NotSupportedException e)
-                {
-                    Console.WriteLine(e);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-            }
-            else
+            if(!Directory.Exists(path + "/" + directoryName))
             {
                 createDirectory();
             }
+
+            string filePath = path + "/" + directoryName + "/" + fileName + "." + fileType;
+            string logMassage = "[" + getCurrentTime() + "] " + massage + "\n";
+            try
+            {
+                File.AppendAllText(filePath, logMassage);
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e);
+            }
+            catch (PathTooLongException e)
+            {
+                Console.WriteLine(e);
+            }
+            catch (DirectoryNotFoundException e)
+            {
+                Console.WriteLine(e);
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e);
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                Console.WriteLine(e);
+            }
+            catch (NotSupportedException e)
+            {
+                Console.WriteLine(e);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
-        public void changeDirectoryPath(string directoryPath)
+        public void setCustomLogDirectoryName(string newDirectoryName)
         {
-            path = directoryPath;
+            directoryName = newDirectoryName;
+        }
+
+        public void setCustomLogDirectoryPath(string newDirectoryPath)
+        {
+            path = newDirectoryPath;
         }
 
         public void setCustomFileType(string type)
