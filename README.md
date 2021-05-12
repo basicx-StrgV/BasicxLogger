@@ -12,7 +12,7 @@ You can clone the repository and add EasyLogger to your existing solution in Vis
 using System;
 using EasyLogger;
 
-namespace Saple
+namespace Sample
 {
     class Program
     {
