@@ -101,6 +101,11 @@ namespace EasyLogger
             fileType = type;
         }
 
+        public void setCustomFileName(string newFileName)
+        {
+            fileName = newFileName;
+        }
+
         public void setCustomDateFormate(string formate)
         {
             dateFormate = formate;
