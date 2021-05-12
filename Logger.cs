@@ -5,33 +5,17 @@ namespace EasyLogger
 {
     public class Logger
     {
-        private string path = "";
-        private string directoryName = "logs";
-        private string fileName = "log";
-        private string fileType = "txt";
-        private string dateFormate = "yyyy'/'MM'/'dd HH:mm:ss";
+        public string logDirectoryPath { get; set; }
+        public string logDirectoryName { get; set; } = "Logs";
+        public string logFileName { get; set; } = "log";
+        public LogFileType logFileType { get; set; } = LogFileType.txt;
+        public string dateFormate { get; set; } = "yyyy'/'MM'/'dd HH:mm:ss";
 
         public Logger()
         {
             try
             {
-                path = Environment.CurrentDirectory;
-            }
-            catch (ArgumentNullException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch(DirectoryNotFoundException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch(IOException e)
-            {
-                Console.WriteLine(e);
+                logDirectoryPath = Environment.CurrentDirectory;
             }
             catch (Exception e)
             {
@@ -39,46 +23,12 @@ namespace EasyLogger
             }
         }
 
-        public void write(string massage)
+        public Logger(LogFileType logFileType)
         {
-            if(!Directory.Exists(path + "/" + directoryName))
-            {
-                createDirectory();
-            }
-
-            string filePath = path + "/" + directoryName + "/" + fileName + "." + fileType;
-            string logMassage = "[" + getCurrentTime() + "] " + massage + "\n";
             try
             {
-                File.AppendAllText(filePath, logMassage);
-            }
-            catch (ArgumentNullException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (PathTooLongException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (DirectoryNotFoundException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (UnauthorizedAccessException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (NotSupportedException e)
-            {
-                Console.WriteLine(e);
+                logDirectoryPath = Environment.CurrentDirectory;
+                this.logFileType = logFileType;
             }
             catch (Exception e)
             {
@@ -86,40 +36,158 @@ namespace EasyLogger
             }
         }
 
-        public void setCustomLogDirectoryName(string newDirectoryName)
+        public Logger(LogFileType logFileType, string logFileName)
         {
-            directoryName = newDirectoryName;
+            try
+            {
+                logDirectoryPath = Environment.CurrentDirectory;
+                this.logFileType = logFileType;
+                this.logFileName = logFileName;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
-        public void setCustomLogDirectoryPath(string newDirectoryPath)
+        public Logger(LogFileType logFileType, string logFileName, string logDirectoryName)
         {
-            path = newDirectoryPath;
+            try
+            {
+                logDirectoryPath = Environment.CurrentDirectory;
+                this.logFileType = logFileType;
+                this.logFileName = logFileName;
+                this.logDirectoryName = logDirectoryName;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
-        public void setCustomFileType(string type)
+        public Logger(LogFileType logFileType, string logFileName, string logDirectoryName, string logDirectoryPath)
         {
-            fileType = type;
+            try
+            {
+                this.logFileType = logFileType;
+                this.logFileName = logFileName;
+                this.logDirectoryName = logDirectoryName;
+                this.logDirectoryPath = logDirectoryPath;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
-        public void setCustomFileName(string newFileName)
+        public Logger(LogFileType logFileType, string logFileName, string logDirectoryName, string logDirectoryPath, string dateFormate)
         {
-            fileName = newFileName;
+            try
+            {
+                this.logFileType = logFileType;
+                this.logFileName = logFileName;
+                this.logDirectoryName = logDirectoryName;
+                this.logDirectoryPath = logDirectoryPath;
+                this.dateFormate = dateFormate;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
-        public void setCustomDateFormate(string formate)
+        public Logger(string logDirectoryName)
         {
-            dateFormate = formate;
+            try
+            {
+                logDirectoryPath = Environment.CurrentDirectory;
+                this.logDirectoryName = logDirectoryName;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        public Logger(string logDirectoryName, string logDirectoryPath)
+        {
+            try
+            {
+                this.logDirectoryName = logDirectoryName;
+                this.logDirectoryPath = logDirectoryPath;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        public Logger(string logDirectoryName, string logDirectoryPath, string dateFormate)
+        {
+            try
+            {
+                this.logDirectoryName = logDirectoryName;
+                this.logDirectoryPath = logDirectoryPath;
+                this.dateFormate = dateFormate;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        public Logger(string logFileName, string logDirectoryName, string logDirectoryPath, string dateFormate)
+        {
+            try
+            {
+                this.logFileName = logFileName;
+                this.logDirectoryName = logDirectoryName;
+                this.logDirectoryPath = logDirectoryPath;
+                this.dateFormate = dateFormate;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        public void write(string message)
+        { 
+            try
+            {
+                if (!Directory.Exists(logDirectoryPath + "/" + logDirectoryName))
+                {
+                    createDirectory();
+                }
+
+                string filePath = logDirectoryPath + "/" + logDirectoryName + "/" + logFileName + "." + logFileType;
+                string logMassage = "[" + getCurrentTime() + "] " + message + "\n";
+
+                File.AppendAllText(filePath, logMassage);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         private string getCurrentTime()
         {
-            DateTime systemTime = DateTime.Now;
-            return systemTime.ToString(dateFormate);
+            try
+            {
+                DateTime systemTime = DateTime.Now;
+                return systemTime.ToString(dateFormate);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                return "ERROR 0000/00/00 00:00:00";
+            }
         }
 
         private void createDirectory()
         {
-            string directoryPath = path + "/" + directoryName;
+            string directoryPath = logDirectoryPath + "/" + logDirectoryName;
             try
             {
                 if (!Directory.Exists(directoryPath))
@@ -127,35 +195,10 @@ namespace EasyLogger
                     Directory.CreateDirectory(directoryPath);
                 }
             }
-            catch (UnauthorizedAccessException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (ArgumentNullException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (PathTooLongException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (DirectoryNotFoundException e)
-            {
-                Console.WriteLine(e);
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine(e);
-            }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
         }
-
     }
 }
