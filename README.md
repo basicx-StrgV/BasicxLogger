@@ -6,7 +6,7 @@ or create the logger object with custom settings to create a custom log file.
  
 ## How to use
 
-You can clone the repository and add EasyLogger to your existing solution in VisualStudio
+You can clone the repository and add EasyLogger to your existing solution in VisualStudio.
 
 ### Namespaces
 
@@ -16,7 +16,7 @@ You can clone the repository and add EasyLogger to your existing solution in Vis
 
 ### Samples
 
-#### Default logger
+#### Default Logger
 ```cs
 using System;
 using EasyLogger;
@@ -45,7 +45,7 @@ namespace Sample
 }
 ```
 
-#### Custom logger
+#### Custom Logger
 ```cs
 using System;
 using EasyLogger;
