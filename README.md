@@ -16,7 +16,7 @@ You can clone the repository and add EasyLogger to your existing solution in Vis
 
 ### Samples
 
-####Default logger
+#### Default logger
 ```cs
 using System;
 using EasyLogger;
@@ -45,7 +45,7 @@ namespace Sample
 }
 ```
 
-####Custom logger
+#### Custom logger
 ```cs
 using System;
 using EasyLogger;
