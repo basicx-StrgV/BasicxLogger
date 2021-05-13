@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using EasyLogger.LoggerFile;
+using EasyLogger.LoggerDirectory;
 
 namespace EasyLogger
 {

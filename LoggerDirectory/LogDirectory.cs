@@ -1,4 +1,4 @@
-﻿namespace EasyLogger
+﻿namespace EasyLogger.LoggerDirectory
 {
     public class LogDirectory
     {

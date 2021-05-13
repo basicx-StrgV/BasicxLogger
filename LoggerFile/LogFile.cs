@@ -1,4 +1,4 @@
-﻿namespace EasyLogger
+﻿namespace EasyLogger.LoggerFile
 {
     public class LogFile
     {
