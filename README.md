@@ -6,7 +6,8 @@ or create the logger object with custom settings to create a custom log file.
  
 ## How to use
 
-You can clone the repository and add EasyLogger to your existing solution in VisualStudio.
+You can use the nuget package https://www.nuget.org/packages/BasicxLogger/
+or clone the repository and add BasicxLogger to your existing solution in VisualStudio.
 
 ### Namespaces
 
