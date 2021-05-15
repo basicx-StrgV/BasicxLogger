@@ -1,4 +1,4 @@
-﻿namespace EasyLogger.LoggerFile
+﻿namespace BasicxLogger.LoggerFile
 {
     public enum LogFileType
     {

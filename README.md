@@ -1,4 +1,4 @@
-# EasyLogger
+# BasicxLogger
 An easy to use logger for any C# project.
 
 You can just use the log method to create and write a default log file
@@ -10,16 +10,16 @@ You can clone the repository and add EasyLogger to your existing solution in Vis
 
 ### Namespaces
 
-- EasyLogger
-- EasyLogger.LoggerFile
-- EasyLogger.LoggerDirectory
+- BasicxLogger
+- BasicxLogger.LoggerFile
+- BasicxLogger.LoggerDirectory
 
 ### Samples
 
 #### Default Logger
 ```cs
 using System;
-using EasyLogger;
+using BasicxLogger;
 
 namespace Sample
 {
@@ -48,9 +48,9 @@ namespace Sample
 #### Custom Logger
 ```cs
 using System;
-using EasyLogger;
-using EasyLogger.LoggerFile;
-using EasyLogger.LoggerDirectory;
+using BasicxLogger;
+using BasicxLogger.LoggerFile;
+using BasicxLogger.LoggerDirectory;
 
 namespace Sample
 {
