@@ -13,6 +13,7 @@
  * **************************************************************************/
 using System;
 using System.IO;
+using BasicxLogger.Message;
 using BasicxLogger.LoggerFile;
 using BasicxLogger.LoggerDirectory;
 
@@ -20,28 +21,19 @@ namespace BasicxLogger
 {
     public class Logger
     {
-        public LogFile logFile { get; }
-        public LogDirectory logDirectory { get; }
-        public string dateFormate { get; } = "yyyy'/'MM'/'dd HH:mm:ss";
+        public LogFile logFile { get; } = new LogFile("log", LogFileType.txt);
+        public LogDirectory logDirectory { get; } = new LogDirectory(Environment.CurrentDirectory, "Logs");
+        public MessageFormat messageFormat { get; } = new MessageFormat(DateFormat.year_month_day, '/');
+
 
         public Logger()
         {
-            this.logFile = new LogFile("log", LogFileType.txt);
-            this.logDirectory = new LogDirectory(Environment.CurrentDirectory, "Logs");
             createDirectory();
         }
 
         public Logger(LogFile logFile)
         {
             this.logFile = logFile;
-            this.logDirectory = new LogDirectory(Environment.CurrentDirectory, "Logs");
-            createDirectory();
-        }
-
-        public Logger(LogDirectory logDirectory)
-        {
-            this.logFile = new LogFile("log", LogFileType.txt);
-            this.logDirectory = logDirectory;
             createDirectory();
         }
 
@@ -52,37 +44,103 @@ namespace BasicxLogger
             createDirectory();
         }
 
-        public Logger(string dateFormate)
+        public Logger(LogFile logFile, MessageFormat messageFormat)
         {
-            this.logFile = new LogFile("log", LogFileType.txt);
-            this.logDirectory = new LogDirectory(Environment.CurrentDirectory, "Logs");
-            this.dateFormate = dateFormate;
-            createDirectory();
-        }
-
-        public Logger(LogFile logFile, string dateFormate)
-        {
+            this.messageFormat = messageFormat;
             this.logFile = logFile;
-            this.logDirectory = new LogDirectory(Environment.CurrentDirectory, "Logs");
-            this.dateFormate = dateFormate;
             createDirectory();
         }
 
-        public Logger(LogDirectory logDirectory, string dateFormate)
+        public Logger(LogFile logFile, LogDirectory logDirectory, MessageFormat messageFormat)
         {
-            this.logFile = new LogFile("log", LogFileType.txt);
-            this.logDirectory = logDirectory;
-            this.dateFormate = dateFormate;
-            createDirectory();
-        }
-
-        public Logger(LogFile logFile, LogDirectory logDirectory, string dateFormate)
-        {
+            this.messageFormat = messageFormat;
             this.logFile = logFile;
             this.logDirectory = logDirectory;
-            this.dateFormate = dateFormate;
             createDirectory();
         }
+
+        public Logger(LogFile logFile, MessageFormat messageFormat, LogDirectory logDirectory)
+        {
+            this.messageFormat = messageFormat;
+            this.logFile = logFile;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+
+        public Logger(LogDirectory logDirectory)
+        {
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+
+        public Logger(LogDirectory logDirectory, LogFile logFile)
+        {
+            this.logFile = logFile;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+
+        public Logger(LogDirectory logDirectory, MessageFormat messageFormat)
+        {
+            this.messageFormat = messageFormat;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+
+        public Logger(LogDirectory logDirectory, LogFile logFile, MessageFormat messageFormat)
+        {
+            this.messageFormat = messageFormat;
+            this.logFile = logFile;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+
+        public Logger(LogDirectory logDirectory, MessageFormat messageFormat, LogFile logFile)
+        {
+            this.messageFormat = messageFormat;
+            this.logFile = logFile;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+
+        public Logger(MessageFormat messageFormat)
+        {
+            this.messageFormat = messageFormat;
+            createDirectory();
+        }
+
+        public Logger(MessageFormat messageFormat, LogFile logFile)
+        {
+            this.messageFormat = messageFormat;
+            this.logFile = logFile;
+            createDirectory();
+        }
+
+        public Logger(MessageFormat messageFormat, LogDirectory logDirectory)
+        {
+            this.messageFormat = messageFormat;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+
+        public Logger(MessageFormat messageFormat, LogFile logFile, LogDirectory logDirectory)
+        {
+            this.messageFormat = messageFormat;
+            this.logFile = logFile;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+
+        public Logger(MessageFormat messageFormat, LogDirectory logDirectory, LogFile logFile)
+        {
+            this.messageFormat = messageFormat;
+            this.logFile = logFile;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+
+        
+
 
         /// <summary>
         /// Writes the given message and the current time stamp to the log file.
@@ -102,15 +160,14 @@ namespace BasicxLogger
         {
             try
             {
-                if (!Directory.Exists(logDirectory.ToString()))
+                if (!Directory.Exists(logDirectory.directory))
                 {
                     createDirectory();
                 }
 
-                string filePath = logDirectory.ToString() + "/" + logFile.ToString();
                 string logMassage = "[" + getCurrentTime() + "] " + message + "\n";
 
-                File.AppendAllText(filePath, logMassage);
+                File.AppendAllText(logDirectory.directory + "/" + logFile.file, logMassage);
             }
             catch (Exception e)
             {
@@ -123,7 +180,7 @@ namespace BasicxLogger
             try
             {
                 DateTime systemTime = DateTime.Now;
-                return systemTime.ToString(dateFormate);
+                return systemTime.ToString(messageFormat.dateFormatString + (char)32 + messageFormat.timeFormatString);
             }
             catch(Exception)
             {
@@ -135,9 +192,9 @@ namespace BasicxLogger
         {
             try
             {
-                if (!Directory.Exists(logDirectory.ToString()))
+                if (!Directory.Exists(logDirectory.directory))
                 {
-                    Directory.CreateDirectory(logDirectory.ToString());
+                    Directory.CreateDirectory(logDirectory.directory);
                 }
             }
             catch (Exception e)

@@ -12,6 +12,7 @@ or clone the repository and add BasicxLogger to your existing solution in Visual
 ### Namespaces
 
 - BasicxLogger
+- BasicxLogger.Message;
 - BasicxLogger.LoggerFile
 - BasicxLogger.LoggerDirectory
 
@@ -19,7 +20,6 @@ or clone the repository and add BasicxLogger to your existing solution in Visual
 
 #### Default Logger
 ```cs
-using System;
 using BasicxLogger;
 
 namespace Sample
@@ -46,9 +46,8 @@ namespace Sample
 }
 ```
 
-#### Custom Logger
+#### Custom Logger (File, Directory)
 ```cs
-using System;
 using BasicxLogger;
 using BasicxLogger.LoggerFile;
 using BasicxLogger.LoggerDirectory;
@@ -73,6 +72,35 @@ namespace Sample
             /* 
               Output in the log file:
               [2021/05/13 00:25:38] SampleMessage
+            */
+        }
+    }
+}
+```
+
+#### Custom Logger (Message)
+```cs
+using BasicxLogger;
+using BasicxLogger.Message;
+
+namespace Sample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            loggingSample();
+        }
+
+        private static void loggingSample()
+        {
+            //Create a logger object
+            Logger logger = new Logger(new MessageFormat(DateFormat.day_month_year, '.'));
+            //Write a log message
+            logger.log("SampleMessage");
+            /* 
+              Output in the log file:
+              [13.05.2021 00:25:38] SampleMessage
             */
         }
     }
