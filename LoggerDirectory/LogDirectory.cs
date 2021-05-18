@@ -6,12 +6,11 @@
         public string name { get; }
         public string directory { get; }
 
-
         public LogDirectory(string path, string name)
         {
             this.path = path;
             this.name = name;
-            directory = path + "\\" + name;
+            directory = this.path + "\\" + this.name;
         }
     }
 }
