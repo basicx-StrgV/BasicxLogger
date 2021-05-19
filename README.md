@@ -40,7 +40,7 @@ namespace Sample
             /* 
               Path: C:\myProgramRunningDirectory\Logs\log.txt 
               Output in the log file:
-              [2021/05/13 00:25:38] SampleMessage
+              [2021/05/13 11:25:38] SampleMessage
             */
         }
     }
@@ -73,7 +73,7 @@ namespace Sample
             /* 
               Path: C:\Program Files\myProgramFolder\myLogFile.txt
               Output in the log file:
-              [2021/05/13 00:25:38] SampleMessage
+              [2021/05/13 11:25:38] SampleMessage
             */
         }
     }
@@ -103,7 +103,7 @@ namespace Sample
             /* 
               Path: C:\myProgramRunningDirectory\Logs\log.txt 
               Output in the log file:
-              [13.05.2021 00:25:38] SampleMessage
+              [13.05.2021 11:25:38] SampleMessage
             */
         }
     }

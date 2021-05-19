@@ -168,40 +168,7 @@ namespace BasicxLogger
 
                 string logMassage = "[" + getCurrentTime() + "] " + message + "\n";
 
-                File.AppendAllText(logDirectory.directory + "/" + logFile.file, logMassage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Writes the given message and the current time stamp to the log file.
-        /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        public void log(string message, Encoding encoding)
-        {
-            try
-            {
-                if (!Directory.Exists(logDirectory.directory))
-                {
-                    createDirectory();
-                }
-
-                string logMassage = "[" + getCurrentTime() + "] " + message + "\n";
-
-                File.AppendAllText(logDirectory.directory + "/" + logFile.file, logMassage, encoding);
+                File.AppendAllText(logDirectory.directory + "/" + logFile.file, logMassage, messageFormat.encoding);
             }
             catch (Exception e)
             {
