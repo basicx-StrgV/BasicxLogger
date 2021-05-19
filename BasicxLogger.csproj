@@ -10,21 +10,24 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
-    <PackageTags>logger</PackageTags>
-    <PackageReleaseNotes>- Added message customization</PackageReleaseNotes>
+    <PackageTags>logger, C#, .NET-Core</PackageTags>
+    <PackageReleaseNotes>- Added message customization
+- Added the option to add a tag to the message</PackageReleaseNotes>
     <Version>1.1.0</Version>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Misc\**" />
-    <EmbeddedResource Remove="Misc\**" />
-    <None Remove="Misc\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Remove=".gitattributes" />
     <None Remove=".gitignore" />
     <None Remove="LICENSE" />
+    <None Include="Misc\basicxLoggerIcon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="Misc\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

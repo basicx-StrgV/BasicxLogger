@@ -13,7 +13,6 @@
  * **************************************************************************/
 using System;
 using System.IO;
-using System.Text;
 using BasicxLogger.Message;
 using BasicxLogger.LoggerFile;
 using BasicxLogger.LoggerDirectory;
@@ -140,8 +139,6 @@ namespace BasicxLogger
             createDirectory();
         }
 
-        
-
 
         /// <summary>
         /// Writes the given message and the current time stamp to the log file.
@@ -176,12 +173,45 @@ namespace BasicxLogger
             }
         }
 
+        /// <summary>
+        /// Writes the given message with the given tag and the current time stamp to the log file.
+        /// </summary>
+        /// <remarks>
+        /// If the log file and/or directory is missing, the method will automatically create them.
+        /// </remarks>
+        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.UnauthorizedAccessException"></exception>
+        /// <exception cref="System.IO.IOException"></exception>
+        /// <exception cref="System.IO.PathTooLongException"></exception>
+        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
+        /// <exception cref="System.Security.SecurityException"></exception>
+        public void log(Tag messagTag, string message)
+        {
+            try
+            {
+                if (!Directory.Exists(logDirectory.directory))
+                {
+                    createDirectory();
+                }
+
+                string logMassage = "[" + getCurrentTime() + "] [" + messagTag + "] " + message + "\n";
+
+                File.AppendAllText(logDirectory.directory + "/" + logFile.file, logMassage, messageFormat.encoding);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         private string getCurrentTime()
         {
             try
             {
                 DateTime systemTime = DateTime.Now;
-                return systemTime.ToString(messageFormat.dateFormatString +  messageFormat.timeFormatString);
+                return systemTime.ToString(messageFormat.dateFormatString + (char)32 +  messageFormat.timeFormatString);
             }
             catch(Exception)
             {
