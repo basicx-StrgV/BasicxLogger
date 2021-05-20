@@ -16,6 +16,7 @@ using System.IO;
 using BasicxLogger.Message;
 using BasicxLogger.LoggerFile;
 using BasicxLogger.LoggerDirectory;
+using System.Collections.Generic;
 
 namespace BasicxLogger
 {
@@ -24,6 +25,9 @@ namespace BasicxLogger
         public LogFile logFile { get; } = new LogFile("log", LogFileType.txt);
         public LogDirectory logDirectory { get; } = new LogDirectory(Environment.CurrentDirectory, "Logs");
         public MessageFormat messageFormat { get; } = new MessageFormat(DateFormat.year_month_day, '/');
+
+
+        private Random randomGenerator = new Random();
 
 
         public Logger()
@@ -187,7 +191,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public void log(Tag messagTag, string message)
+        public void log(Tag messageTag, string message)
         {
             try
             {
@@ -196,9 +200,89 @@ namespace BasicxLogger
                     createDirectory();
                 }
 
-                string logMassage = "[" + getCurrentTime() + "] [" + messagTag + "] " + message + "\n";
+                string logMassage = "[" + getCurrentTime() + "] [" + messageTag + "] " + message + "\n";
 
                 File.AppendAllText(logDirectory.directory + "/" + logFile.file, logMassage, messageFormat.encoding);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Writes the given message, a message ID and the current time stamp to the log file.
+        /// </summary>
+        /// <remarks>
+        /// If the log file and/or directory is missing, the method will automatically create them.
+        /// </remarks>
+        /// <returns>
+        /// The message ID that was automatically assigned to the message
+        /// </returns>
+        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.UnauthorizedAccessException"></exception>
+        /// <exception cref="System.IO.IOException"></exception>
+        /// <exception cref="System.IO.PathTooLongException"></exception>
+        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
+        /// <exception cref="System.Security.SecurityException"></exception>
+        public string logID(string message)
+        {
+            try
+            {
+                if (!Directory.Exists(logDirectory.directory))
+                {
+                    createDirectory();
+                }
+
+                string id = generateID();
+
+                string logMassage = "[" + getCurrentTime() + "] [ID:" + id +"] " + message + "\n";
+
+                File.AppendAllText(logDirectory.directory + "/" + logFile.file, logMassage, messageFormat.encoding);
+
+                return id;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Writes the given message with the given tag, a message ID and the current time stamp to the log file.
+        /// </summary>
+        /// <remarks>
+        /// If the log file and/or directory is missing, the method will automatically create them.
+        /// </remarks>
+        /// <returns>
+        /// The message ID that was automatically assigned to the message
+        /// </returns>
+        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.UnauthorizedAccessException"></exception>
+        /// <exception cref="System.IO.IOException"></exception>
+        /// <exception cref="System.IO.PathTooLongException"></exception>
+        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
+        /// <exception cref="System.Security.SecurityException"></exception>
+        public string logID(Tag messageTag, string message)
+        {
+            try
+            {
+                if (!Directory.Exists(logDirectory.directory))
+                {
+                    createDirectory();
+                }
+
+                string id = generateID();
+
+                string logMassage = "[" + getCurrentTime() + "] [" + messageTag + "] [ID:" + id +"] " + message + "\n";
+
+                File.AppendAllText(logDirectory.directory + "/" + logFile.file, logMassage, messageFormat.encoding);
+
+                return id;
             }
             catch (Exception e)
             {
@@ -232,6 +316,25 @@ namespace BasicxLogger
             {
                 throw e;
             }
+        }
+    
+        private string generateID()
+        {
+            string id = "";
+
+            List<string> idParts = new List<string>();
+
+            while (idParts.Count != 10)
+            {
+                idParts.Add(randomGenerator.Next(0, 16).ToString("X"));
+            }
+
+            foreach (string part in idParts)
+            {
+                id = id + part;
+            }
+
+            return id;
         }
     }
 }
