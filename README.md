@@ -16,7 +16,7 @@ https://basicx-strgv.github.io/BasicxLogger/
 ### Namespaces
 
 - BasicxLogger
-- BasicxLogger.Message;
+- BasicxLogger.Message
 - BasicxLogger.LoggerFile
 - BasicxLogger.LoggerDirectory
 
