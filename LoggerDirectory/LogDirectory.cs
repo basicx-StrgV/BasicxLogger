@@ -1,4 +1,8 @@
-﻿namespace BasicxLogger.LoggerDirectory
+﻿//--------------------------------------------------//
+// Created by basicx-StrgV                          //
+// https://github.com/basicx-StrgV/BasicxLogger     //
+//--------------------------------------------------//
+namespace BasicxLogger.LoggerDirectory
 {
     public class LogDirectory
     {

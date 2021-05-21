@@ -22,14 +22,13 @@ namespace BasicxLogger
 {
     public class Logger
     {
+        //-Properties-----------------------------------------------------------------------------------
         public LogFile logFile { get; } = new LogFile("log", LogFileType.txt);
         public LogDirectory logDirectory { get; } = new LogDirectory(Environment.CurrentDirectory, "Logs");
         public MessageFormat messageFormat { get; } = new MessageFormat(DateFormat.year_month_day, '/');
+        //----------------------------------------------------------------------------------------------
 
-
-        private Random randomGenerator = new Random();
-
-
+        //-Constructors---------------------------------------------------------------------------------
         public Logger()
         {
             createDirectory();
@@ -142,14 +141,18 @@ namespace BasicxLogger
             this.logDirectory = logDirectory;
             createDirectory();
         }
+        //----------------------------------------------------------------------------------------------
 
-
+        //-Public-Methods-------------------------------------------------------------------------------
         /// <summary>
         /// Writes the given message and the current time stamp to the log file.
         /// </summary>
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
         /// </remarks>
+        /// <param name="message">
+        /// The message that will be writen to the file
+        /// </param>
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.NotSupportedException"></exception>
@@ -183,6 +186,12 @@ namespace BasicxLogger
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
         /// </remarks>
+        /// <param name="message">
+        /// The message that will be writen to the file
+        /// </param>
+        /// <param name="messageTag">
+        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+        /// </param>
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.NotSupportedException"></exception>
@@ -216,8 +225,15 @@ namespace BasicxLogger
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
         /// </remarks>
+        /// <param name="message">
+        /// The message that will be writen to the file
+        /// </param>
+        /// <param name="verifyMessageID">
+        /// Set to true if you want to make sure the message id is unique.
+        /// If set to true, the loging of the message may take longer depending on how big your log file is. 
+        /// </param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message
+        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
         /// </returns>
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
@@ -227,7 +243,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public string logID(string message)
+        public string logID(string message, bool verifyMessageID = false)
         {
             try
             {
@@ -237,6 +253,10 @@ namespace BasicxLogger
                 }
 
                 string id = generateID();
+                if (verifyMessageID)
+                {
+                    id = verifyID(id);
+                }
 
                 string logMassage = "[" + getCurrentTime() + "] [ID:" + id +"] " + message + "\n";
 
@@ -256,8 +276,18 @@ namespace BasicxLogger
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
         /// </remarks>
+        /// <param name="message">
+        /// The message that will be writen to the file
+        /// </param>
+        /// <param name="messageTag">
+        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+        /// </param>
+        /// <param name="verifyMessageID">
+        /// Set to true if you want to make sure the message id is unique.
+        /// If set to true, the loging of the message may take longer depending on how big your log file is. 
+        /// </param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message
+        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
         /// </returns>
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
@@ -267,7 +297,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public string logID(Tag messageTag, string message)
+        public string logID(Tag messageTag, string message, bool verifyMessageID = false)
         {
             try
             {
@@ -277,6 +307,10 @@ namespace BasicxLogger
                 }
 
                 string id = generateID();
+                if (verifyMessageID)
+                {
+                    id = verifyID(id);
+                }
 
                 string logMassage = "[" + getCurrentTime() + "] [" + messageTag + "] [ID:" + id +"] " + message + "\n";
 
@@ -289,7 +323,9 @@ namespace BasicxLogger
                 throw e;
             }
         }
+        //----------------------------------------------------------------------------------------------
 
+        //-Private-Methods------------------------------------------------------------------------------
         private string getCurrentTime()
         {
             try
@@ -326,7 +362,7 @@ namespace BasicxLogger
 
             while (idParts.Count != 10)
             {
-                idParts.Add(randomGenerator.Next(0, 16).ToString("X"));
+                idParts.Add(new Random().Next(0, 16).ToString("X"));
             }
 
             foreach (string part in idParts)
@@ -336,5 +372,23 @@ namespace BasicxLogger
 
             return id;
         }
+    
+        private string verifyID(string id)
+        {
+            string tempId = id;
+
+            if (File.Exists(logDirectory.directory + "/" + logFile.file))
+            {
+                string fileContent = File.ReadAllText(logDirectory.directory + "/" + logFile.file);
+
+                while (fileContent.Contains("ID:" + tempId))
+                {
+                    tempId = generateID();
+                }
+            }
+
+            return tempId;
+        }
+        //----------------------------------------------------------------------------------------------
     }
 }

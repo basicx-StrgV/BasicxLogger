@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['messageformat_22',['MessageFormat',['../a00059.html',1,'BasicxLogger::Message']]]
+  ['messageformat_23',['MessageFormat',['../a00049.html',1,'BasicxLogger::Message']]]
 ];

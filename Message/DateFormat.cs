@@ -1,4 +1,8 @@
-﻿namespace BasicxLogger.Message
+﻿//--------------------------------------------------//
+// Created by basicx-StrgV                          //
+// https://github.com/basicx-StrgV/BasicxLogger     //
+//--------------------------------------------------//
+namespace BasicxLogger.Message
 {
     public enum DateFormat
     {

@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿//--------------------------------------------------//
+// Created by basicx-StrgV                          //
+// https://github.com/basicx-StrgV/BasicxLogger     //
+//--------------------------------------------------//
+using System.Collections.Generic;
 using System.Text;
 
 namespace BasicxLogger.Message

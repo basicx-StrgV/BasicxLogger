@@ -7,7 +7,7 @@ or create the logger object with custom settings to create a custom log file.
 ## How to use
 
 You can use the nuget package https://www.nuget.org/packages/BasicxLogger/
-or clone the repository and add BasicxLogger to your existing solution in VisualStudio.
+or clone the repository https://github.com/basicx-StrgV/BasicxLogger and add BasicxLogger to your existing solution in VisualStudio.
 
 ### Documentation
 
