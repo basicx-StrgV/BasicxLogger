@@ -1,6 +1,6 @@
 # BasicxLogger
 
-![BasicxLogger](https://raw.githubusercontent.com/basicx-StrgV/BasicxLogger/develop/Misc/repositoryBanner.png)
+![BasicxLogger](https://i.imgur.com/U4jPEka.png)
 
 ## Features
 
