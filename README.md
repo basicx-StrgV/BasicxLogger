@@ -1,6 +1,6 @@
 # BasicxLogger
 
-![BasicxLogger](https://i.imgur.com/U4jPEka.png)
+![BasicxLogger](https://i.imgur.com/tXTU4gj.png)
 
 ## Features
 
