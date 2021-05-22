@@ -1,4 +1,3 @@
-# BasicxLogger
 
 ![BasicxLogger](https://i.imgur.com/tXTU4gj.png)
 
