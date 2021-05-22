@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: BasicxLogger</title>
+<title>BasicxLogger: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,12 +84,13 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title"><a class="el" href="a00026.html">BasicxLogger</a> </div>  </div>
+<div class="title">BasicxLogger Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="README"></a> An easy to use logger for any C# project.</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Features</h1>
+<div class="textblock"><p><a class="anchor" id="README"></a><img src="https://i.imgur.com/tXTU4gj.png" alt="BasicxLogger" class="inline" style="width:70%;height:70%;"/></p>
+<p><a href="https://github.com/basicx-StrgV/BasicxLogger/releases"><img src="https://img.shields.io/github/v/tag/basicx-StrgV/BasicxLogger?label=Version" alt="GitHub tag (latest by date)" class="inline"/></a> <a href="https://www.nuget.org/packages/BasicxLogger/"><img src="https://img.shields.io/nuget/dt/BasicxLogger?label=NuGet%20Downloads" alt="Nuget" class="inline"/></a></p>
+<h2><a class="anchor" id="autotoc_md0"></a>
+⭐ Features</h2>
 <ul>
 <li>Easy to use</li>
 <li>Can be used without configuration</li>
@@ -97,25 +98,15 @@ Features</h1>
 <li>Use tags to easier differentiate between different log messages</li>
 <li>Log messages with IDs to easier locate them in a big log file</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md2"></a>
-How to use</h1>
-<h2><a class="anchor" id="autotoc_md3"></a>
-NuGet package</h2>
+<h2><a class="anchor" id="autotoc_md1"></a>
+📦 NuGet package</h2>
 <p>You can get the nuget package here: <a href="https://www.nuget.org/packages/BasicxLogger/">https://www.nuget.org/packages/BasicxLogger/</a></p>
-<h2><a class="anchor" id="autotoc_md4"></a>
-Documentation</h2>
+<h2><a class="anchor" id="autotoc_md2"></a>
+📖 Documentation</h2>
 <p>You can finde the documentation here: <a href="https://basicx-strgv.github.io/BasicxLogger/">https://basicx-strgv.github.io/BasicxLogger/</a></p>
-<h2><a class="anchor" id="autotoc_md5"></a>
-Namespaces</h2>
-<ul>
-<li><a class="el" href="a00026.html">BasicxLogger</a></li>
-<li><a class="el" href="a00029.html">BasicxLogger.Message</a></li>
-<li><a class="el" href="a00028.html">BasicxLogger.LoggerFile</a></li>
-<li><a class="el" href="a00027.html">BasicxLogger.LoggerDirectory</a></li>
-</ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
-Samples</h2>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
+📋 Samples</h2>
+<h3><a class="anchor" id="autotoc_md4"></a>
 Default Logger</h3>
 <div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00026.html">BasicxLogger</a>;</div>
 <div class="line"> </div>
@@ -124,11 +115,6 @@ Default Logger</h3>
 <div class="line">    <span class="keyword">class </span>Program</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keyword">static</span> <span class="keywordtype">void</span> Main(<span class="keywordtype">string</span>[] args)</div>
-<div class="line">        {</div>
-<div class="line">            loggingSample();</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">void</span> loggingSample()</div>
 <div class="line">        {</div>
 <div class="line">            <span class="comment">//Create a logger object</span></div>
 <div class="line">            Logger logger = <span class="keyword">new</span> Logger();</div>
@@ -143,7 +129,7 @@ Default Logger</h3>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00026_html"><div class="ttname"><a href="a00026.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00021">Logger.cs:22</a></div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md5"></a>
 Custom Logger (File, Directory)</h3>
 <div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00026.html">BasicxLogger</a>;</div>
 <div class="line"><span class="keyword">using</span> <a class="code" href="a00026.html">BasicxLogger</a>.<a class="code" href="a00028.html">LoggerFile</a>;</div>
@@ -154,11 +140,6 @@ Custom Logger (File, Directory)</h3>
 <div class="line">    <span class="keyword">class </span>Program</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keyword">static</span> <span class="keywordtype">void</span> Main(<span class="keywordtype">string</span>[] args)</div>
-<div class="line">        {</div>
-<div class="line">            loggingSample();</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">void</span> loggingSample()</div>
 <div class="line">        {</div>
 <div class="line">            <span class="comment">//Create a logger object</span></div>
 <div class="line">            Logger logger = <span class="keyword">new</span> Logger(</div>
@@ -176,7 +157,7 @@ Custom Logger (File, Directory)</h3>
 <div class="line">}</div>
 <div class="ttc" id="aa00027_html"><div class="ttname"><a href="a00027.html">BasicxLogger.LoggerDirectory</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00005">LogDirectory.cs:6</a></div></div>
 <div class="ttc" id="aa00028_html"><div class="ttname"><a href="a00028.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00005">LogFile.cs:6</a></div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md9"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md6"></a>
 Custom Logger (Message)</h3>
 <div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00026.html">BasicxLogger</a>;</div>
 <div class="line"><span class="keyword">using</span> <a class="code" href="a00026.html">BasicxLogger</a>.<a class="code" href="a00029.html">Message</a>;</div>
@@ -186,11 +167,6 @@ Custom Logger (Message)</h3>
 <div class="line">    <span class="keyword">class </span>Program</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keyword">static</span> <span class="keywordtype">void</span> Main(<span class="keywordtype">string</span>[] args)</div>
-<div class="line">        {</div>
-<div class="line">            loggingSample();</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">void</span> loggingSample()</div>
 <div class="line">        {</div>
 <div class="line">            <span class="comment">//Create a logger object</span></div>
 <div class="line">            Logger logger = <span class="keyword">new</span> Logger(<span class="keyword">new</span> MessageFormat(DateFormat.day_month_year, <span class="charliteral">&#39;.&#39;</span>));</div>
