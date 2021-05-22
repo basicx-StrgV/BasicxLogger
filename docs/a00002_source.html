@@ -271,141 +271,152 @@ $(document).ready(function(){initNavTree('a00002_source.html',''); initResizable
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            }</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        }</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="a00037.html#ae949c862724262c84a71007840866944">  246</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00037.html#ae949c862724262c84a71007840866944">logID</a>(<span class="keywordtype">string</span> message, <span class="keywordtype">bool</span> verifyMessageID = <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        {</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                <span class="keywordflow">if</span> (!Directory.Exists(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a>))</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                    createDirectory();</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                }</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                <span class="keywordtype">string</span> <span class="keywordtype">id</span> = generateID();</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                <span class="keywordflow">if</span> (verifyMessageID)</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                {</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                    <span class="keywordtype">id</span> = verifyID(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                }</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                <span class="keywordtype">string</span> logMassage = <span class="stringliteral">&quot;[&quot;</span> + getCurrentTime() + <span class="stringliteral">&quot;] [ID:&quot;</span> + <span class="keywordtype">id</span> +<span class="stringliteral">&quot;] &quot;</span> + message + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                File.AppendAllText(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a> + <span class="stringliteral">&quot;/&quot;</span> + logFile.<a class="code" href="a00045.html#a13a70b589464992b47de26067b3ac460">file</a>, logMassage, messageFormat.<a class="code" href="a00049.html#af24f027443c8087eb71f4daf782696aa">encoding</a>);</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                <span class="keywordflow">return</span> id;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            }</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            {</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                <span class="keywordflow">throw</span> e;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            }</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        }</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="a00037.html#ae15e8833dcef641159bec94917578ae3">  300</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00037.html#ae15e8833dcef641159bec94917578ae3">logID</a>(Tag messageTag, <span class="keywordtype">string</span> message, <span class="keywordtype">bool</span> verifyMessageID = <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            {</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                <span class="keywordflow">if</span> (!Directory.Exists(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a>))</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                {</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                    createDirectory();</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                }</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                <span class="keywordtype">string</span> <span class="keywordtype">id</span> = generateID();</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                <span class="keywordflow">if</span> (verifyMessageID)</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                {</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                    <span class="keywordtype">id</span> = verifyID(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                }</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                <span class="keywordtype">string</span> logMassage = <span class="stringliteral">&quot;[&quot;</span> + getCurrentTime() + <span class="stringliteral">&quot;] [&quot;</span> + messageTag + <span class="stringliteral">&quot;] [ID:&quot;</span> + <span class="keywordtype">id</span> +<span class="stringliteral">&quot;] &quot;</span> + message + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="a00037.html#ae949c862724262c84a71007840866944">  247</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00037.html#ae949c862724262c84a71007840866944">logID</a>(<span class="keywordtype">string</span> message, <span class="keywordtype">bool</span> verifyMessageID = <span class="keyword">false</span>)</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        {</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            {</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                <span class="keywordflow">if</span> (!Directory.Exists(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a>))</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                    createDirectory();</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                }</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                <span class="keywordtype">string</span> <span class="keywordtype">id</span> = generateID();</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                <span class="keywordflow">if</span> (verifyMessageID)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                {</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                    <span class="keywordtype">id</span> = verifyID(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                }</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                <span class="keywordtype">string</span> logMassage = <span class="stringliteral">&quot;[&quot;</span> + getCurrentTime() + <span class="stringliteral">&quot;] [ID:&quot;</span> + <span class="keywordtype">id</span> +<span class="stringliteral">&quot;] &quot;</span> + message + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                File.AppendAllText(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a> + <span class="stringliteral">&quot;/&quot;</span> + logFile.<a class="code" href="a00045.html#a13a70b589464992b47de26067b3ac460">file</a>, logMassage, messageFormat.<a class="code" href="a00049.html#af24f027443c8087eb71f4daf782696aa">encoding</a>);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                <span class="keywordflow">return</span> id;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            }</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                <span class="keywordflow">throw</span> e;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        }</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="a00037.html#ae15e8833dcef641159bec94917578ae3">  302</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00037.html#ae15e8833dcef641159bec94917578ae3">logID</a>(Tag messageTag, <span class="keywordtype">string</span> message, <span class="keywordtype">bool</span> verifyMessageID = <span class="keyword">false</span>)</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        {</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            {</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                <span class="keywordflow">if</span> (!Directory.Exists(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a>))</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                    createDirectory();</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                <span class="keywordtype">string</span> <span class="keywordtype">id</span> = generateID();</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                <span class="keywordflow">if</span> (verifyMessageID)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                {</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                    <span class="keywordtype">id</span> = verifyID(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                }</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                File.AppendAllText(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a> + <span class="stringliteral">&quot;/&quot;</span> + logFile.<a class="code" href="a00045.html#a13a70b589464992b47de26067b3ac460">file</a>, logMassage, messageFormat.<a class="code" href="a00049.html#af24f027443c8087eb71f4daf782696aa">encoding</a>);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                <span class="keywordtype">string</span> logMassage = <span class="stringliteral">&quot;[&quot;</span> + getCurrentTime() + <span class="stringliteral">&quot;] [&quot;</span> + messageTag + <span class="stringliteral">&quot;] [ID:&quot;</span> + <span class="keywordtype">id</span> +<span class="stringliteral">&quot;] &quot;</span> + message + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                <span class="keywordflow">return</span> id;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            }</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            {</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                <span class="keywordflow">throw</span> e;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            }</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        }</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="comment">//----------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="comment">//-Private-Methods------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">string</span> getCurrentTime()</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        {</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            {</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                DateTime systemTime = DateTime.Now;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                <span class="keywordflow">return</span> systemTime.ToString(messageFormat.<a class="code" href="a00049.html#a6b36bbc479806363c8782900d73285f9">dateFormatString</a> + (<span class="keywordtype">char</span>)32 +  messageFormat.<a class="code" href="a00049.html#a9a9406be8b437293609bb59742b03d3d">timeFormatString</a>);</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            }</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            <span class="keywordflow">catch</span>(Exception)</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            {</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&quot;INVALID DATE FORMAT&quot;</span>;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            }</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        }</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> createDirectory()</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        {</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            {</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                <span class="keywordflow">if</span> (!Directory.Exists(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a>))</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                    Directory.CreateDirectory(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a>);</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                }</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            }</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            {</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                <span class="keywordflow">throw</span> e;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            }</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        }</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    </div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">string</span> generateID()</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        {</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            <span class="keywordtype">string</span> <span class="keywordtype">id</span> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            List&lt;string&gt; idParts = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                File.AppendAllText(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a> + <span class="stringliteral">&quot;/&quot;</span> + logFile.<a class="code" href="a00045.html#a13a70b589464992b47de26067b3ac460">file</a>, logMassage, messageFormat.<a class="code" href="a00049.html#af24f027443c8087eb71f4daf782696aa">encoding</a>);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                <span class="keywordflow">return</span> id;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            }</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            {</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                <span class="keywordflow">throw</span> e;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            }</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        }</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="comment">//----------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="comment">//-Private-Methods------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">string</span> getCurrentTime()</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        {</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            {</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                DateTime systemTime = DateTime.Now;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                <span class="keywordflow">return</span> systemTime.ToString(messageFormat.<a class="code" href="a00049.html#a6b36bbc479806363c8782900d73285f9">dateFormatString</a> + (<span class="keywordtype">char</span>)32 +  messageFormat.<a class="code" href="a00049.html#a9a9406be8b437293609bb59742b03d3d">timeFormatString</a>);</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            }</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            <span class="keywordflow">catch</span>(Exception)</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            {</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&quot;INVALID DATE FORMAT&quot;</span>;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            }</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        }</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> createDirectory()</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        {</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            {</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                <span class="keywordflow">if</span> (!Directory.Exists(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a>))</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                {</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                    Directory.CreateDirectory(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a>);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                }</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            }</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            {</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                <span class="keywordflow">throw</span> e;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            }</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        }</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    </div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">string</span> generateID()</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        {</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <span class="keywordtype">string</span> <span class="keywordtype">id</span> = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            <span class="keywordflow">while</span> (idParts.Count != 10)</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            {</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                idParts.Add(<span class="keyword">new</span> Random().Next(0, 16).ToString(<span class="stringliteral">&quot;X&quot;</span>));</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            }</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> part <span class="keywordflow">in</span> idParts)</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            {</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                <span class="keywordtype">id</span> = <span class="keywordtype">id</span> + part;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            }</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            <span class="keywordflow">return</span> id;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        }</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    </div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">string</span> verifyID(<span class="keywordtype">string</span> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        {</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            <span class="keywordtype">string</span> tempId = id;</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;            <span class="keywordtype">string</span> fileContent = File.ReadAllText(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a> + <span class="stringliteral">&quot;/&quot;</span> + logFile.<a class="code" href="a00045.html#a13a70b589464992b47de26067b3ac460">file</a>);</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;            <span class="keywordflow">while</span> (fileContent.Contains(<span class="stringliteral">&quot;ID:&quot;</span> + tempId))</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;            {</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                tempId = generateID();</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            }</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            <span class="keywordflow">return</span> tempId;</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        }</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="comment">//----------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    }</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;}</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            List&lt;string&gt; idParts = <span class="keyword">new</span> List&lt;string&gt;();</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            <span class="keywordflow">while</span> (idParts.Count != 10)</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            {</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                idParts.Add(<span class="keyword">new</span> Random().Next(0, 16).ToString(<span class="stringliteral">&quot;X&quot;</span>));</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            }</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> part <span class="keywordflow">in</span> idParts)</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            {</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                <span class="keywordtype">id</span> = <span class="keywordtype">id</span> + part;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            }</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            <span class="keywordflow">return</span> id;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        }</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    </div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">string</span> verifyID(<span class="keywordtype">string</span> <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        {</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;            {</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                <span class="keywordtype">string</span> tempId = id;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                <span class="keywordflow">if</span> (File.Exists(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a> + <span class="stringliteral">&quot;/&quot;</span> + logFile.<a class="code" href="a00045.html#a13a70b589464992b47de26067b3ac460">file</a>))</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;                {</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                    <span class="keywordtype">string</span> fileContent = File.ReadAllText(logDirectory.<a class="code" href="a00041.html#aa999f05361523ee7ac60227789a21687">directory</a> + <span class="stringliteral">&quot;/&quot;</span> + logFile.<a class="code" href="a00045.html#a13a70b589464992b47de26067b3ac460">file</a>);</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160; </div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                    <span class="keywordflow">while</span> (fileContent.Contains(<span class="stringliteral">&quot;ID:&quot;</span> + tempId))</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                    {</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                        tempId = generateID();</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                    }</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;                }</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; </div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                <span class="keywordflow">return</span> tempId;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            }</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            <span class="keywordflow">catch</span> (Exception)</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;            {</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                <span class="keywordflow">return</span> id;</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            }</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        }</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="comment">//----------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    }</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;}</div>
 <div class="ttc" id="aa00026_html"><div class="ttname"><a href="a00026.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00021">Logger.cs:22</a></div></div>
-<div class="ttc" id="aa00027_html"><div class="ttname"><a href="a00027.html">BasicxLogger.LoggerDirectory</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00001">LogDirectory.cs:2</a></div></div>
-<div class="ttc" id="aa00028_html"><div class="ttname"><a href="a00028.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00001">LogFile.cs:2</a></div></div>
-<div class="ttc" id="aa00029_html"><div class="ttname"><a href="a00029.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00001">DateFormat.cs:2</a></div></div>
+<div class="ttc" id="aa00027_html"><div class="ttname"><a href="a00027.html">BasicxLogger.LoggerDirectory</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00005">LogDirectory.cs:6</a></div></div>
+<div class="ttc" id="aa00028_html"><div class="ttname"><a href="a00028.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00005">LogFile.cs:6</a></div></div>
+<div class="ttc" id="aa00029_html"><div class="ttname"><a href="a00029.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00005">DateFormat.cs:6</a></div></div>
 <div class="ttc" id="aa00037_html"><div class="ttname"><a href="a00037.html">BasicxLogger.Logger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00023">Logger.cs:24</a></div></div>
 <div class="ttc" id="aa00037_html_a49d295a9cf191b8bb1af48969ff68e1c"><div class="ttname"><a href="a00037.html#a49d295a9cf191b8bb1af48969ff68e1c">BasicxLogger.Logger.log</a></div><div class="ttdeci">void log(Tag messageTag, string message)</div><div class="ttdoc">Writes the given message with the given tag and the current time stamp to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00203">Logger.cs:203</a></div></div>
 <div class="ttc" id="aa00037_html_aba02c7189498d3de94d951292859c0cb"><div class="ttname"><a href="a00037.html#aba02c7189498d3de94d951292859c0cb">BasicxLogger.Logger.log</a></div><div class="ttdeci">void log(string message)</div><div class="ttdoc">Writes the given message and the current time stamp to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00164">Logger.cs:164</a></div></div>
-<div class="ttc" id="aa00037_html_ae15e8833dcef641159bec94917578ae3"><div class="ttname"><a href="a00037.html#ae15e8833dcef641159bec94917578ae3">BasicxLogger.Logger.logID</a></div><div class="ttdeci">string logID(Tag messageTag, string message, bool verifyMessageID=false)</div><div class="ttdoc">Writes the given message with the given tag, a message ID and the current time stamp to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00300">Logger.cs:300</a></div></div>
-<div class="ttc" id="aa00037_html_ae949c862724262c84a71007840866944"><div class="ttname"><a href="a00037.html#ae949c862724262c84a71007840866944">BasicxLogger.Logger.logID</a></div><div class="ttdeci">string logID(string message, bool verifyMessageID=false)</div><div class="ttdoc">Writes the given message, a message ID and the current time stamp to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00246">Logger.cs:246</a></div></div>
-<div class="ttc" id="aa00041_html"><div class="ttname"><a href="a00041.html">BasicxLogger.LoggerDirectory.LogDirectory</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00003">LogDirectory.cs:4</a></div></div>
-<div class="ttc" id="aa00041_html_aa999f05361523ee7ac60227789a21687"><div class="ttname"><a href="a00041.html#aa999f05361523ee7ac60227789a21687">BasicxLogger.LoggerDirectory.LogDirectory.directory</a></div><div class="ttdeci">string directory</div><div class="ttdoc">Full directory path (path + name)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00016">LogDirectory.cs:16</a></div></div>
-<div class="ttc" id="aa00045_html"><div class="ttname"><a href="a00045.html">BasicxLogger.LoggerFile.LogFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00003">LogFile.cs:4</a></div></div>
-<div class="ttc" id="aa00045_html_a13a70b589464992b47de26067b3ac460"><div class="ttname"><a href="a00045.html#a13a70b589464992b47de26067b3ac460">BasicxLogger.LoggerFile.LogFile.file</a></div><div class="ttdeci">string file</div><div class="ttdoc">Full file name (name + file type : e.g. sample.txt)</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00016">LogFile.cs:16</a></div></div>
-<div class="ttc" id="aa00049_html"><div class="ttname"><a href="a00049.html">BasicxLogger.Message.MessageFormat</a></div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00006">MessageFormat.cs:7</a></div></div>
-<div class="ttc" id="aa00049_html_a6b36bbc479806363c8782900d73285f9"><div class="ttname"><a href="a00049.html#a6b36bbc479806363c8782900d73285f9">BasicxLogger.Message.MessageFormat.dateFormatString</a></div><div class="ttdeci">string dateFormatString</div><div class="ttdoc">Format string for the date (e.g. yyyy'-'MM'-'dd)</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00015">MessageFormat.cs:15</a></div></div>
-<div class="ttc" id="aa00049_html_a9a9406be8b437293609bb59742b03d3d"><div class="ttname"><a href="a00049.html#a9a9406be8b437293609bb59742b03d3d">BasicxLogger.Message.MessageFormat.timeFormatString</a></div><div class="ttdeci">string timeFormatString</div><div class="ttdoc">Format string for the time</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00023">MessageFormat.cs:23</a></div></div>
-<div class="ttc" id="aa00049_html_af24f027443c8087eb71f4daf782696aa"><div class="ttname"><a href="a00049.html#af24f027443c8087eb71f4daf782696aa">BasicxLogger.Message.MessageFormat.encoding</a></div><div class="ttdeci">Encoding encoding</div><div class="ttdoc">Encoding for the log message</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00027">MessageFormat.cs:27</a></div></div>
+<div class="ttc" id="aa00037_html_ae15e8833dcef641159bec94917578ae3"><div class="ttname"><a href="a00037.html#ae15e8833dcef641159bec94917578ae3">BasicxLogger.Logger.logID</a></div><div class="ttdeci">string logID(Tag messageTag, string message, bool verifyMessageID=false)</div><div class="ttdoc">Writes the given message with the given tag, a message ID and the current time stamp to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00302">Logger.cs:302</a></div></div>
+<div class="ttc" id="aa00037_html_ae949c862724262c84a71007840866944"><div class="ttname"><a href="a00037.html#ae949c862724262c84a71007840866944">BasicxLogger.Logger.logID</a></div><div class="ttdeci">string logID(string message, bool verifyMessageID=false)</div><div class="ttdoc">Writes the given message, a message ID and the current time stamp to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00247">Logger.cs:247</a></div></div>
+<div class="ttc" id="aa00041_html"><div class="ttname"><a href="a00041.html">BasicxLogger.LoggerDirectory.LogDirectory</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00007">LogDirectory.cs:8</a></div></div>
+<div class="ttc" id="aa00041_html_aa999f05361523ee7ac60227789a21687"><div class="ttname"><a href="a00041.html#aa999f05361523ee7ac60227789a21687">BasicxLogger.LoggerDirectory.LogDirectory.directory</a></div><div class="ttdeci">string directory</div><div class="ttdoc">Full directory path (path + name)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00020">LogDirectory.cs:20</a></div></div>
+<div class="ttc" id="aa00045_html"><div class="ttname"><a href="a00045.html">BasicxLogger.LoggerFile.LogFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00007">LogFile.cs:8</a></div></div>
+<div class="ttc" id="aa00045_html_a13a70b589464992b47de26067b3ac460"><div class="ttname"><a href="a00045.html#a13a70b589464992b47de26067b3ac460">BasicxLogger.LoggerFile.LogFile.file</a></div><div class="ttdeci">string file</div><div class="ttdoc">Full file name (name + file type : e.g. sample.txt)</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00020">LogFile.cs:20</a></div></div>
+<div class="ttc" id="aa00049_html"><div class="ttname"><a href="a00049.html">BasicxLogger.Message.MessageFormat</a></div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00010">MessageFormat.cs:11</a></div></div>
+<div class="ttc" id="aa00049_html_a6b36bbc479806363c8782900d73285f9"><div class="ttname"><a href="a00049.html#a6b36bbc479806363c8782900d73285f9">BasicxLogger.Message.MessageFormat.dateFormatString</a></div><div class="ttdeci">string dateFormatString</div><div class="ttdoc">Format string for the date (e.g. yyyy'-'MM'-'dd)</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00019">MessageFormat.cs:19</a></div></div>
+<div class="ttc" id="aa00049_html_a9a9406be8b437293609bb59742b03d3d"><div class="ttname"><a href="a00049.html#a9a9406be8b437293609bb59742b03d3d">BasicxLogger.Message.MessageFormat.timeFormatString</a></div><div class="ttdeci">string timeFormatString</div><div class="ttdoc">Format string for the time</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00027">MessageFormat.cs:27</a></div></div>
+<div class="ttc" id="aa00049_html_af24f027443c8087eb71f4daf782696aa"><div class="ttname"><a href="a00049.html#af24f027443c8087eb71f4daf782696aa">BasicxLogger.Message.MessageFormat.encoding</a></div><div class="ttdeci">Encoding encoding</div><div class="ttdoc">Encoding for the log message</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00031">MessageFormat.cs:31</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

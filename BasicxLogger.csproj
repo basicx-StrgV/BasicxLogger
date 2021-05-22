@@ -4,16 +4,16 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Company>-</Company>
     <Authors>basicx-StrgV</Authors>
-    <Description>An easy and simple logger</Description>
+    <Description>An easy and simple logger that can be fully customized</Description>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/basicx-StrgV/BasicxLogger</PackageProjectUrl>
+    <PackageProjectUrl>https://basicx-strgv.github.io/BasicxLogger/</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
-    <PackageTags>logger, C#, .NET-Core</PackageTags>
+    <PackageTags>logger, logging, C#, .NET-Core</PackageTags>
     <PackageReleaseNotes>- Added message customization
 - Added the option to add a tag to the message</PackageReleaseNotes>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -87,15 +87,25 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title"><a class="el" href="a00026.html">BasicxLogger</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="README"></a>An easy to use logger for any C# project.</p>
-<p>You can just use the log method to create and write a default log file or create the logger object with custom settings to create a custom log file.</p>
+<div class="textblock"><p><a class="anchor" id="README"></a> An easy to use logger for any C# project.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
+Features</h1>
+<ul>
+<li>Easy to use</li>
+<li>Can be used without configuration</li>
+<li>Fully customizable</li>
+<li>Use tags to easier differentiate between different log messages</li>
+<li>Log messages with IDs to easier locate them in a big log file</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md2"></a>
 How to use</h1>
-<p>You can use the nuget package <a href="https://www.nuget.org/packages/BasicxLogger/">https://www.nuget.org/packages/BasicxLogger/</a> or clone the repository and add <a class="el" href="a00026.html">BasicxLogger</a> to your existing solution in VisualStudio.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Documentation</h2>
-<p><a href="https://basicx-strgv.github.io/BasicxLogger/">https://basicx-strgv.github.io/BasicxLogger/</a></p>
 <h2><a class="anchor" id="autotoc_md3"></a>
+NuGet package</h2>
+<p>You can get the nuget package here: <a href="https://www.nuget.org/packages/BasicxLogger/">https://www.nuget.org/packages/BasicxLogger/</a></p>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Documentation</h2>
+<p>You can finde the documentation here: <a href="https://basicx-strgv.github.io/BasicxLogger/">https://basicx-strgv.github.io/BasicxLogger/</a></p>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Namespaces</h2>
 <ul>
 <li><a class="el" href="a00026.html">BasicxLogger</a></li>
@@ -103,9 +113,9 @@ Namespaces</h2>
 <li><a class="el" href="a00028.html">BasicxLogger.LoggerFile</a></li>
 <li><a class="el" href="a00027.html">BasicxLogger.LoggerDirectory</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Samples</h2>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md7"></a>
 Default Logger</h3>
 <div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00026.html">BasicxLogger</a>;</div>
 <div class="line"> </div>
@@ -133,7 +143,7 @@ Default Logger</h3>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00026_html"><div class="ttname"><a href="a00026.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00021">Logger.cs:22</a></div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md8"></a>
 Custom Logger (File, Directory)</h3>
 <div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00026.html">BasicxLogger</a>;</div>
 <div class="line"><span class="keyword">using</span> <a class="code" href="a00026.html">BasicxLogger</a>.<a class="code" href="a00028.html">LoggerFile</a>;</div>
@@ -164,9 +174,9 @@ Custom Logger (File, Directory)</h3>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00027_html"><div class="ttname"><a href="a00027.html">BasicxLogger.LoggerDirectory</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00001">LogDirectory.cs:2</a></div></div>
-<div class="ttc" id="aa00028_html"><div class="ttname"><a href="a00028.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00001">LogFile.cs:2</a></div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md7"></a>
+<div class="ttc" id="aa00027_html"><div class="ttname"><a href="a00027.html">BasicxLogger.LoggerDirectory</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00005">LogDirectory.cs:6</a></div></div>
+<div class="ttc" id="aa00028_html"><div class="ttname"><a href="a00028.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00005">LogFile.cs:6</a></div></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md9"></a>
 Custom Logger (Message)</h3>
 <div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00026.html">BasicxLogger</a>;</div>
 <div class="line"><span class="keyword">using</span> <a class="code" href="a00026.html">BasicxLogger</a>.<a class="code" href="a00029.html">Message</a>;</div>
@@ -194,7 +204,7 @@ Custom Logger (Message)</h3>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00029_html"><div class="ttname"><a href="a00029.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00001">DateFormat.cs:2</a></div></div>
+<div class="ttc" id="aa00029_html"><div class="ttname"><a href="a00029.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00005">DateFormat.cs:6</a></div></div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

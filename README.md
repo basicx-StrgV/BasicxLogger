@@ -1,17 +1,24 @@
 # BasicxLogger
+
 An easy to use logger for any C# project.
 
-You can just use the log method to create and write a default log file
-or create the logger object with custom settings to create a custom log file.
+## Features
+
+- Easy to use
+- Can be used without configuration
+- Fully customizable
+- Use tags to easier differentiate between different log messages
+- Log messages with IDs to easier locate them in a big log file
  
 ## How to use
 
-You can use the nuget package https://www.nuget.org/packages/BasicxLogger/
-or clone the repository https://github.com/basicx-StrgV/BasicxLogger and add BasicxLogger to your existing solution in VisualStudio.
+### NuGet package
+
+You can get the nuget package here: https://www.nuget.org/packages/BasicxLogger/
 
 ### Documentation
 
-https://basicx-strgv.github.io/BasicxLogger/
+You can finde the documentation here: https://basicx-strgv.github.io/BasicxLogger/
 
 ### Namespaces
 

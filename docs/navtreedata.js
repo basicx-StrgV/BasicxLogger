@@ -25,13 +25,15 @@
 var NAVTREE =
 [
   [ "BasicxLogger", "index.html", [
-    [ "How to use", "index.html#autotoc_md1", [
-      [ "Documentation", "index.html#autotoc_md2", null ],
-      [ "Namespaces", "index.html#autotoc_md3", null ],
-      [ "Samples", "index.html#autotoc_md4", [
-        [ "Default Logger", "index.html#autotoc_md5", null ],
-        [ "Custom Logger (File, Directory)", "index.html#autotoc_md6", null ],
-        [ "Custom Logger (Message)", "index.html#autotoc_md7", null ]
+    [ "Features", "index.html#autotoc_md1", null ],
+    [ "How to use", "index.html#autotoc_md2", [
+      [ "NuGet package", "index.html#autotoc_md3", null ],
+      [ "Documentation", "index.html#autotoc_md4", null ],
+      [ "Namespaces", "index.html#autotoc_md5", null ],
+      [ "Samples", "index.html#autotoc_md6", [
+        [ "Default Logger", "index.html#autotoc_md7", null ],
+        [ "Custom Logger (File, Directory)", "index.html#autotoc_md8", null ],
+        [ "Custom Logger (Message)", "index.html#autotoc_md9", null ]
       ] ]
     ] ],
     [ "Packages", "namespaces.html", [

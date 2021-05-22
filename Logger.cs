@@ -230,7 +230,8 @@ namespace BasicxLogger
         /// </param>
         /// <param name="verifyMessageID">
         /// Set to true if you want to make sure the message id is unique.
-        /// If set to true, the loging of the message may take longer depending on how big your log file is. 
+        /// If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
+        /// When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
         /// </param>
         /// <returns>
         /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -284,7 +285,8 @@ namespace BasicxLogger
         /// </param>
         /// <param name="verifyMessageID">
         /// Set to true if you want to make sure the message id is unique.
-        /// If set to true, the loging of the message may take longer depending on how big your log file is. 
+        /// If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
+        /// When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
         /// </param>
         /// <returns>
         /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -375,19 +377,26 @@ namespace BasicxLogger
     
         private string verifyID(string id)
         {
-            string tempId = id;
-
-            if (File.Exists(logDirectory.directory + "/" + logFile.file))
+            try
             {
-                string fileContent = File.ReadAllText(logDirectory.directory + "/" + logFile.file);
+                string tempId = id;
 
-                while (fileContent.Contains("ID:" + tempId))
+                if (File.Exists(logDirectory.directory + "/" + logFile.file))
                 {
-                    tempId = generateID();
-                }
-            }
+                    string fileContent = File.ReadAllText(logDirectory.directory + "/" + logFile.file);
 
-            return tempId;
+                    while (fileContent.Contains("ID:" + tempId))
+                    {
+                        tempId = generateID();
+                    }
+                }
+
+                return tempId;
+            }
+            catch (Exception)
+            {
+                return id;
+            }
         }
         //----------------------------------------------------------------------------------------------
     }
