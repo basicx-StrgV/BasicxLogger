@@ -6,7 +6,7 @@
 [![Nuget](https://img.shields.io/nuget/dt/BasicxLogger?label=NuGet%20Downloads)](https://www.nuget.org/packages/BasicxLogger/)
 
 
-## Features
+## ⭐ Features
 
 - Easy to use
 - Can be used without configuration
@@ -14,15 +14,15 @@
 - Use tags to easier differentiate between different log messages
 - Log messages with IDs to easier locate them in a big log file
  
-## NuGet package
+## 📦 NuGet package
 
 You can get the nuget package here: https://www.nuget.org/packages/BasicxLogger/
 
-## Documentation
+## 📖 Documentation
 
 You can finde the documentation here: https://basicx-strgv.github.io/BasicxLogger/
 
-## Samples
+## 📋 Samples
 
 ### Default Logger
 ```cs
@@ -33,11 +33,6 @@ namespace Sample
     class Program
     {
         static void Main(string[] args)
-        {
-            loggingSample();
-        }
-
-        private static void loggingSample()
         {
             //Create a logger object
             Logger logger = new Logger();
@@ -65,11 +60,6 @@ namespace Sample
     {
         static void Main(string[] args)
         {
-            loggingSample();
-        }
-
-        private static void loggingSample()
-        {
             //Create a logger object
             Logger logger = new Logger(
                 new LogFile("myLogFile", LogFileType.txt),
@@ -96,11 +86,6 @@ namespace Sample
     class Program
     {
         static void Main(string[] args)
-        {
-            loggingSample();
-        }
-
-        private static void loggingSample()
         {
             //Create a logger object
             Logger logger = new Logger(new MessageFormat(DateFormat.day_month_year, '.'));
