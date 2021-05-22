@@ -2,8 +2,8 @@
 ![BasicxLogger](https://i.imgur.com/tXTU4gj.png)
 
 
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/basicx-StrgV/BasicxLogger?label=Version)
-![Nuget](https://img.shields.io/nuget/dt/BasicxLogger?label=NuGet%20Downloads)
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/basicx-StrgV/BasicxLogger?label=Version)](https://github.com/basicx-StrgV/BasicxLogger/releases)
+[![Nuget](https://img.shields.io/nuget/dt/BasicxLogger?label=NuGet%20Downloads)](https://www.nuget.org/packages/BasicxLogger/)
 
 
 ## Features
