@@ -9,26 +9,17 @@
 - Use tags to easier differentiate between different log messages
 - Log messages with IDs to easier locate them in a big log file
  
-## How to use
-
-### NuGet package
+## NuGet package
 
 You can get the nuget package here: https://www.nuget.org/packages/BasicxLogger/
 
-### Documentation
+## Documentation
 
 You can finde the documentation here: https://basicx-strgv.github.io/BasicxLogger/
 
-### Namespaces
+## Samples
 
-- BasicxLogger
-- BasicxLogger.Message
-- BasicxLogger.LoggerFile
-- BasicxLogger.LoggerDirectory
-
-### Samples
-
-#### Default Logger
+### Default Logger
 ```cs
 using BasicxLogger;
 
@@ -57,7 +48,7 @@ namespace Sample
 }
 ```
 
-#### Custom Logger (File, Directory)
+### Custom Logger (File, Directory)
 ```cs
 using BasicxLogger;
 using BasicxLogger.LoggerFile;
@@ -90,7 +81,7 @@ namespace Sample
 }
 ```
 
-#### Custom Logger (Message)
+### Custom Logger (Message)
 ```cs
 using BasicxLogger;
 using BasicxLogger.Message;
