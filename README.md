@@ -1,6 +1,6 @@
 # BasicxLogger
 
-An easy to use logger for any C# project.
+![BasicxLogger](https://i.imgur.com/zSg7KEc.png)
 
 ## Features
 
