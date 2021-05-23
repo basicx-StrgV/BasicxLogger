@@ -13,6 +13,7 @@
 - Fully customizable
 - Use tags to easier differentiate between different log messages
 - Log messages with IDs to easier locate them in a big log file
+- Asynchronous logging
  
 ## 📦 NuGet package
 
@@ -88,7 +89,7 @@ namespace Sample
         static void Main(string[] args)
         {
             //Create a logger object
-            Logger logger = new Logger(new MessageFormat(DateFormat.day_month_year, '.'));
+            Logger logger = new Logger(new MessageFormat(new Date(DateFormat.day_month_year, '.')));
             //Write a log message
             logger.log("SampleMessage");
             /* 

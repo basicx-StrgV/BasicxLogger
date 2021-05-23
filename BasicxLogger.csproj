@@ -10,10 +10,16 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
-    <PackageTags>logger, logging, C#, .NET-Core</PackageTags>
-    <PackageReleaseNotes>- Added message customization
-- Added the option to add a tag to the message</PackageReleaseNotes>
-    <Version>1.2.0</Version>
+    <PackageTags>logger, logging, C#, .NET Standard</PackageTags>
+    <PackageReleaseNotes>- Added asynchronous logging
+- Added customization for the time formate
+- Added the option to set a default message tag
+- Changed the customization for the date formate</PackageReleaseNotes>
+    <Version>1.3.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -13,6 +13,7 @@ namespace BasicxLogger.Message
         DEBUGGING,
         MESSAGE,
         ALERT,
-        EVENT
+        EVENT,
+        none
     }
 }
