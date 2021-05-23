@@ -28,7 +28,7 @@ namespace BasicxLogger
         //-Properties-----------------------------------------------------------------------------------
         public LogFile logFile { get; } = new LogFile("log", LogFileType.txt);
         public LogDirectory logDirectory { get; } = new LogDirectory(Environment.CurrentDirectory, "Logs");
-        public MessageFormat messageFormat { get; } = new MessageFormat(new Date(DateFormat.year_month_day, '/'), new Time(TimeFormat.hour24_min_sec), Encoding.UTF8);
+        public MessageFormat messageFormat { get; } = new MessageFormat(new Date(DateFormat.year_month_day, '/'), new Time(TimeFormat.hour24_min_sec, CultureInfo.InvariantCulture), Encoding.UTF8);
         //----------------------------------------------------------------------------------------------
 
         //-Constructors---------------------------------------------------------------------------------
@@ -501,19 +501,17 @@ namespace BasicxLogger
         {
             try
             {
-                DateTime systemTime = DateTime.Now;
-
                 if (messageFormat.date.dateFormat.Equals(DateFormat.none) &&
                         !messageFormat.time.timeFormat.Equals(TimeFormat.none))
                 {
-                    return systemTime.ToString("[" + messageFormat.time.timeFormatString + "] ",
-                                            CultureInfo.InvariantCulture);
+                    return DateTime.Now.ToString("[" + messageFormat.time.timeFormatString + "] ", 
+                                                messageFormat.time.cultureInfo);
                 }
                 else if (!messageFormat.date.dateFormat.Equals(DateFormat.none) &&
                             messageFormat.time.timeFormat.Equals(TimeFormat.none))
                 {
-                    return systemTime.ToString("[" + messageFormat.date.dateFormatString + "] ",
-                                        CultureInfo.InvariantCulture);
+                    return DateTime.Now.ToString("[" + messageFormat.date.dateFormatString + "] ", 
+                                                messageFormat.time.cultureInfo);
                 }
                 else if (messageFormat.date.dateFormat.Equals(DateFormat.none) && 
                             messageFormat.time.timeFormat.Equals(TimeFormat.none))
@@ -522,14 +520,13 @@ namespace BasicxLogger
                 }
                 else
                 {
-                    return systemTime.ToString("[" + messageFormat.date.dateFormatString + (char)32 +
-                                        messageFormat.time.timeFormatString + "] ",
-                                        CultureInfo.InvariantCulture);
+                    return DateTime.Now.ToString("[" + messageFormat.date.dateFormatString + (char)32 +
+                                        messageFormat.time.timeFormatString + "] ", messageFormat.time.cultureInfo);
                 }
             }
             catch(Exception)
             {
-                return "[INVALID DATE FORMAT] ";
+                return "[INVALID DATETIME FORMAT] ";
             }
         }
 
