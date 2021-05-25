@@ -7,10 +7,13 @@ using System.Collections.Generic;
 
 namespace BasicxLogger.Message
 {
+    /// <summary>
+    /// Contains the information about the time formatting for the log message
+    /// </summary>
     public class Time
     {
         /// <summary>
-        /// Formate of the time
+        /// Enum that contains the formate of the time
         /// </summary>
         public TimeFormat timeFormat { get; }
         /// <summary>
@@ -25,14 +28,33 @@ namespace BasicxLogger.Message
 
         private List<string> timeFormateList;
 
-
+        /// <summary>
+        /// Constructor, to create a Time object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom time formate for the logger message formate
+        /// </remarks>
+        /// <param name="timeFormat">
+        /// Enum that contains the formate of the time
+        /// </param>
         public Time(TimeFormat timeFormat)
         {
             initalizeList();
             this.timeFormat = timeFormat;
             timeFormatString = timeFormateList[(int)this.timeFormat];
         }
-
+        /// <summary>
+        /// Constructor, to create a Time object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom time formate for the logger message formate
+        /// </remarks>
+        /// <param name="timeFormat">
+        /// Enum that contains the formate of the time
+        /// </param>
+        /// <param name="cultureInfo">
+        /// The culture information to correctly display AM/PM, when the 12 hour time formate is used
+        /// </param>
         public Time(TimeFormat timeFormat, CultureInfo cultureInfo)
         {
             initalizeList();

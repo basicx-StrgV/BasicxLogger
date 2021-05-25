@@ -13,6 +13,7 @@
  * **************************************************************************/
 using System;
 using System.IO;
+using System.Xml;
 using System.Text;
 using System.Globalization;
 using System.Threading.Tasks;
@@ -23,40 +24,75 @@ using BasicxLogger.LoggerDirectory;
 
 namespace BasicxLogger
 {
+    /// <summary>
+    /// Logger class that contains everything needed to write a message to a log file
+    /// </summary>
     public class Logger
     {
         //-Properties-----------------------------------------------------------------------------------
+        /// <summary>
+        /// Contains all informations about the log file
+        /// </summary>
         public LogFile logFile { get; } = new LogFile("log", LogFileType.txt);
+        /// <summary>
+        /// Contains all informations about the log directory
+        /// </summary>
         public LogDirectory logDirectory { get; } = new LogDirectory(Environment.CurrentDirectory, "Logs");
+        /// <summary>
+        /// Contains all informations about the formatting of the log messages
+        /// </summary>
         public MessageFormat messageFormat { get; } = new MessageFormat(new Date(DateFormat.year_month_day, '/'), new Time(TimeFormat.hour24_min_sec, CultureInfo.InvariantCulture), Encoding.UTF8);
         //----------------------------------------------------------------------------------------------
 
         //-Constructors---------------------------------------------------------------------------------
+        /// <summary>
+        /// Constructor, to create a simple logger object that uses the default settings
+        /// </summary>
         public Logger()
         {
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(LogFile logFile)
         {
             this.logFile = logFile;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(LogFile logFile, LogDirectory logDirectory)
         {
             this.logFile = logFile;
             this.logDirectory = logDirectory;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(LogFile logFile, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(LogFile logFile, LogDirectory logDirectory, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
@@ -64,7 +100,12 @@ namespace BasicxLogger
             this.logDirectory = logDirectory;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(LogFile logFile, MessageFormat messageFormat, LogDirectory logDirectory)
         {
             this.messageFormat = messageFormat;
@@ -72,27 +113,47 @@ namespace BasicxLogger
             this.logDirectory = logDirectory;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(LogDirectory logDirectory)
         {
             this.logDirectory = logDirectory;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(LogDirectory logDirectory, LogFile logFile)
         {
             this.logFile = logFile;
             this.logDirectory = logDirectory;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(LogDirectory logDirectory, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logDirectory = logDirectory;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(LogDirectory logDirectory, LogFile logFile, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
@@ -100,7 +161,12 @@ namespace BasicxLogger
             this.logDirectory = logDirectory;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(LogDirectory logDirectory, MessageFormat messageFormat, LogFile logFile)
         {
             this.messageFormat = messageFormat;
@@ -108,27 +174,47 @@ namespace BasicxLogger
             this.logDirectory = logDirectory;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(MessageFormat messageFormat, LogFile logFile)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(MessageFormat messageFormat, LogDirectory logDirectory)
         {
             this.messageFormat = messageFormat;
             this.logDirectory = logDirectory;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(MessageFormat messageFormat, LogFile logFile, LogDirectory logDirectory)
         {
             this.messageFormat = messageFormat;
@@ -136,7 +222,12 @@ namespace BasicxLogger
             this.logDirectory = logDirectory;
             createDirectory();
         }
-
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public Logger(MessageFormat messageFormat, LogDirectory logDirectory, LogFile logFile)
         {
             this.messageFormat = messageFormat;
@@ -159,6 +250,7 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
         /// <exception cref="System.UnauthorizedAccessException"></exception>
         /// <exception cref="System.IO.IOException"></exception>
         /// <exception cref="System.IO.PathTooLongException"></exception>
@@ -173,7 +265,21 @@ namespace BasicxLogger
                     createDirectory();
                 }
 
-                File.AppendAllText(getFullFilePath(), messageBuilder(message, messageFormat.defaultTag), messageFormat.encoding);
+                if (logFile.type.Equals(LogFileType.xml))
+                {
+                    //Log to xml file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createXmlFile();
+                    }
+
+                    logToXml(messageFormat.defaultTag, message);
+                }
+                else if(logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                {
+                    //Default log (.txt and .log file)
+                    File.AppendAllText(getFullFilePath(), messageBuilder(message, messageFormat.defaultTag), messageFormat.encoding);
+                }
             }
             catch (Exception e)
             {
@@ -196,6 +302,7 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
         /// <exception cref="System.UnauthorizedAccessException"></exception>
         /// <exception cref="System.IO.IOException"></exception>
         /// <exception cref="System.IO.PathTooLongException"></exception>
@@ -210,7 +317,21 @@ namespace BasicxLogger
                     createDirectory();
                 }
 
-                File.AppendAllText(getFullFilePath(), messageBuilder(message, messageTag), messageFormat.encoding);
+                if (logFile.type.Equals(LogFileType.xml))
+                {
+                    //Log to xml file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createXmlFile();
+                    }
+
+                    logToXml(messageTag, message);
+                }
+                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                {
+                    //Default log (.txt and .log file)
+                    File.AppendAllText(getFullFilePath(), messageBuilder(message, messageTag), messageFormat.encoding);
+                }
             }
             catch (Exception e)
             {
@@ -238,6 +359,7 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
         /// <exception cref="System.UnauthorizedAccessException"></exception>
         /// <exception cref="System.IO.IOException"></exception>
         /// <exception cref="System.IO.PathTooLongException"></exception>
@@ -258,7 +380,21 @@ namespace BasicxLogger
                     id = verifyID(id);
                 }
 
-                File.AppendAllText(getFullFilePath(), messageBuilder(message, messageFormat.defaultTag, id), messageFormat.encoding);
+                if (logFile.type.Equals(LogFileType.xml))
+                {
+                    //Log to xml file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createXmlFile();
+                    }
+
+                    logToXml(messageFormat.defaultTag, message, id);
+                }
+                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                {
+                    //Default log (.txt and .log file)
+                    File.AppendAllText(getFullFilePath(), messageBuilder(message, messageFormat.defaultTag, id), messageFormat.encoding);
+                }
 
                 return id;
             }
@@ -291,6 +427,7 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
         /// <exception cref="System.UnauthorizedAccessException"></exception>
         /// <exception cref="System.IO.IOException"></exception>
         /// <exception cref="System.IO.PathTooLongException"></exception>
@@ -311,7 +448,21 @@ namespace BasicxLogger
                     id = verifyID(id);
                 }
 
-                File.AppendAllText(getFullFilePath(), messageBuilder(message, messageTag, id), messageFormat.encoding);
+                if (logFile.type.Equals(LogFileType.xml))
+                {
+                    //Log to xml file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createXmlFile();
+                    }
+
+                    logToXml(messageTag, message, id);
+                }
+                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                {
+                    //Default log (.txt and .log file)
+                    File.AppendAllText(getFullFilePath(), messageBuilder(message, messageTag, id), messageFormat.encoding);
+                }
 
                 return id;
             }
@@ -334,6 +485,7 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
         /// <exception cref="System.UnauthorizedAccessException"></exception>
         /// <exception cref="System.IO.IOException"></exception>
         /// <exception cref="System.IO.PathTooLongException"></exception>
@@ -367,6 +519,7 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
         /// <exception cref="System.UnauthorizedAccessException"></exception>
         /// <exception cref="System.IO.IOException"></exception>
         /// <exception cref="System.IO.PathTooLongException"></exception>
@@ -405,6 +558,7 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
         /// <exception cref="System.UnauthorizedAccessException"></exception>
         /// <exception cref="System.IO.IOException"></exception>
         /// <exception cref="System.IO.PathTooLongException"></exception>
@@ -447,6 +601,7 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
         /// <exception cref="System.UnauthorizedAccessException"></exception>
         /// <exception cref="System.IO.IOException"></exception>
         /// <exception cref="System.IO.PathTooLongException"></exception>
@@ -475,42 +630,57 @@ namespace BasicxLogger
             return logDirectory.directory + "\\" + logFile.file;
         }
 
+        /// <summary>
+        /// Deletes the log file, that was created by the logger.
+        /// </summary>
+        /// <remarks>
+        /// All logs will be lost. If you log again after deleting the log file the logger will create a new file.
+        /// </remarks>
+        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.UnauthorizedAccessException"></exception>
+        /// <exception cref="System.IO.IOException"></exception>
+        /// <exception cref="System.IO.PathTooLongException"></exception>
+        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
+        public void deleteLogFile()
+        {
+            try
+            {
+                File.Delete(getFullFilePath());
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         //----------------------------------------------------------------------------------------------
 
         //-Private-Methods------------------------------------------------------------------------------
-        private string messageBuilder(string message, Tag messageTag, string id = "")
-        {
-            string dateTimePart = getCurrentTime();
-            string tagPart = "";
-            string idPart = "";
-
-            if (!messageTag.Equals(Tag.none))
-            {
-                tagPart = "[" + messageTag + "] ";
-            }
-
-            if (!id.Equals(""))
-            {
-                idPart = "[ID:" + id + "] ";
-            }
-
-            return dateTimePart + tagPart + idPart + message + "\n";
-        }
 
         private string getCurrentTime()
         {
             try
             {
+                string start = "";
+                string end = "";
+                if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                {
+                    start = "[";
+                    end = "] ";
+                }
+
                 if (messageFormat.date.dateFormat.Equals(DateFormat.none) &&
                         !messageFormat.time.timeFormat.Equals(TimeFormat.none))
                 {
-                    return DateTime.Now.ToString("[" + messageFormat.time.timeFormatString + "] ", 
+                    return DateTime.Now.ToString(start + messageFormat.time.timeFormatString + end, 
                                                 messageFormat.time.cultureInfo);
                 }
                 else if (!messageFormat.date.dateFormat.Equals(DateFormat.none) &&
                             messageFormat.time.timeFormat.Equals(TimeFormat.none))
                 {
-                    return DateTime.Now.ToString("[" + messageFormat.date.dateFormatString + "] ", 
+                    return DateTime.Now.ToString(start + messageFormat.date.dateFormatString + end, 
                                                 messageFormat.time.cultureInfo);
                 }
                 else if (messageFormat.date.dateFormat.Equals(DateFormat.none) && 
@@ -520,8 +690,8 @@ namespace BasicxLogger
                 }
                 else
                 {
-                    return DateTime.Now.ToString("[" + messageFormat.date.dateFormatString + (char)32 +
-                                        messageFormat.time.timeFormatString + "] ", messageFormat.time.cultureInfo);
+                    return DateTime.Now.ToString(start + messageFormat.date.dateFormatString + (char)32 +
+                                        messageFormat.time.timeFormatString + end, messageFormat.time.cultureInfo);
                 }
             }
             catch(Exception)
@@ -545,6 +715,29 @@ namespace BasicxLogger
             }
         }
     
+        private void createXmlFile()
+        {
+            try
+            {
+                if (!File.Exists(getFullFilePath()))
+                {
+                    XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
+                    xmlWriterSettings.Encoding = messageFormat.encoding;
+
+                    XmlWriter xmlWriter = XmlWriter.Create(getFullFilePath(), xmlWriterSettings);
+
+                    xmlWriter.WriteStartDocument();
+                    xmlWriter.WriteStartElement(logFile.name);
+                    xmlWriter.WriteEndElement();
+                    xmlWriter.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         private string generateID()
         {
             string id = "";
@@ -574,7 +767,7 @@ namespace BasicxLogger
                 {
                     string fileContent = File.ReadAllText(logDirectory.directory + "/" + logFile.file);
 
-                    while (fileContent.Contains("ID:" + tempId))
+                    while (fileContent.Contains(tempId))
                     {
                         tempId = generateID();
                     }
@@ -585,6 +778,77 @@ namespace BasicxLogger
             catch (Exception)
             {
                 return id;
+            }
+        }
+
+        private string messageBuilder(string message, Tag messageTag, string id = "")
+        {
+            string dateTimePart = getCurrentTime();
+            string tagPart = "";
+            string idPart = "";
+
+            if (!messageTag.Equals(Tag.none))
+            {
+                tagPart = "[" + messageTag + "] ";
+            }
+
+            if (!id.Equals(""))
+            {
+                idPart = "[ID:" + id + "] ";
+            }
+
+            return dateTimePart + tagPart + idPart + message + "\n";
+        }
+
+        private void logToXml(Tag messageTag, string message, string id = "")
+        {
+            try
+            {
+                //Load the xml file
+                XmlDocument xmlFile = new XmlDocument();
+                xmlFile.Load(getFullFilePath());
+
+                //Get the root node from the file
+                XmlNode rootNode = xmlFile.SelectSingleNode(logFile.name);
+
+                //Create nodes and add data
+                XmlNode logMessageNode = xmlFile.CreateElement("LogMessage");
+                if (!id.Equals(""))
+                {
+                    XmlAttribute idAttribute = xmlFile.CreateAttribute("id");
+                    idAttribute.Value = id;
+                    logMessageNode.Attributes.Append(idAttribute);
+                }
+
+                XmlNode datetimeNode = xmlFile.CreateElement("datetime");
+                if (!messageFormat.date.dateFormat.Equals(DateFormat.none) ||
+                                !messageFormat.time.timeFormat.Equals(TimeFormat.none))
+                {
+                    datetimeNode.InnerText = getCurrentTime();
+                    logMessageNode.AppendChild(datetimeNode);
+                }
+
+
+                XmlNode tagNode = xmlFile.CreateElement("tag");
+                if (!messageTag.Equals(Tag.none))
+                {
+                    tagNode.InnerText = messageTag.ToString();
+                    logMessageNode.AppendChild(tagNode);
+                }
+
+                XmlNode messageNode = xmlFile.CreateElement("message");
+                messageNode.InnerText = message;
+                logMessageNode.AppendChild(messageNode);
+
+                //Appand to root node
+                rootNode.AppendChild(logMessageNode);
+
+                //Save the xml file
+                xmlFile.Save(getFullFilePath());
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
         //----------------------------------------------------------------------------------------------

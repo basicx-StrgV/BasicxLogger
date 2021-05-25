@@ -6,10 +6,13 @@ using System.Collections.Generic;
 
 namespace BasicxLogger.Message
 {
+    /// <summary>
+    /// Contains the information about the date formatting for the log message
+    /// </summary>
     public class Date
     {
         /// <summary>
-        /// Formate of the date
+        /// Enum that contains the formate of the date
         /// </summary>
         public DateFormat dateFormat { get; }
         /// <summary>
@@ -24,14 +27,33 @@ namespace BasicxLogger.Message
 
         private List<string> dateFormateList;
 
-
+        /// <summary>
+        /// Constructor, to create a Date object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom date formate for the logger message formate
+        /// </remarks>
+        /// <param name="dateFormat">
+        /// Enum that contains the formate of the date
+        /// </param>
         public Date(DateFormat dateFormat)
         {
             initalizeList();
             this.dateFormat = dateFormat;
             dateFormatString = dateFormateList[(int)this.dateFormat];
         }
-
+        /// <summary>
+        /// Constructor, to create a Date object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom date formate for the logger message formate
+        /// </remarks>
+        /// <param name="dateFormat">
+        /// Enum that contains the formate of the date
+        /// </param>
+        /// <param name="dateSeparator">
+        /// Char that separates each part of the date
+        /// </param>
         public Date(DateFormat dateFormat, char dateSeparator)
         {
             this.dateSeparator = dateSeparator;

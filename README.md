@@ -14,6 +14,10 @@
 - Use tags to easier differentiate between different log messages
 - Log messages with IDs to easier locate them in a big log file
 - Asynchronous logging
+- Supports different file formats
+  - txt
+  - log
+  - xml
  
 ## 📦 NuGet package
 

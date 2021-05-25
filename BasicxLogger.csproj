@@ -11,13 +11,14 @@
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
     <PackageTags>logger, logging, C#, .NET-Standard</PackageTags>
-    <PackageReleaseNotes>- Added the option to change the culture info for the 12 hour time format
-- Removed obsolete constructors</PackageReleaseNotes>
-    <Version>1.3.1</Version>
+    <PackageReleaseNotes>- Added the option to log to an xml file
+- Added a method to delete the log file created by the logger 
+- Removed obsolete properties</PackageReleaseNotes>
+    <Version>1.4.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>C:\Users\Bjarne\source\repos\EasyLogger\EasyLogger\Misc\BasicxLogger.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

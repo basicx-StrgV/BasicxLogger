@@ -4,6 +4,9 @@
 //--------------------------------------------------//
 namespace BasicxLogger.LoggerFile
 {
+    /// <summary>
+    /// Contains all informations about the log file
+    /// </summary>
     public class LogFile
     {
         /// <summary>
@@ -19,7 +22,18 @@ namespace BasicxLogger.LoggerFile
         /// </summary>
         public string file { get; }
 
-
+        /// <summary>
+        /// Constructor, to create a LogFile object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom file for the logger
+        /// </remarks>
+        /// <param name="name">
+        /// Name of the log file
+        /// </param>
+        /// <param name="type">
+        /// File type of the log file
+        /// </param>
         public LogFile(string name, LogFileType type)
         {
             this.name = name;
