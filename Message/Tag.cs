@@ -22,6 +22,10 @@ namespace BasicxLogger.Message
         /// </summary>
         ERROR,
         /// <summary>
+        /// Tag: [FATAL]
+        /// </summary>
+        FATAL,
+        /// <summary>
         /// Tag: [EXCEPTION]
         /// </summary>
         EXCEPTION,

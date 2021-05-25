@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
     <PackageTags>logger, logging, C#, .NET-Standard</PackageTags>
-    <PackageReleaseNotes>- Added the option to log to an xml file
+    <PackageReleaseNotes>- Added xml file support
 - Added a method to delete the log file created by the logger 
 - Removed obsolete properties</PackageReleaseNotes>
     <Version>1.4.0</Version>
