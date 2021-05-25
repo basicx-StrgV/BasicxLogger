@@ -11,8 +11,9 @@
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
     <PackageTags>logger, logging, C#, .NET-Standard</PackageTags>
-    <PackageReleaseNotes>- Added the option to change the culture info for the 12 hour time format</PackageReleaseNotes>
-    <Version>1.3.0</Version>
+    <PackageReleaseNotes>- Added the option to change the culture info for the 12 hour time format
+- Removed obsolete constructors</PackageReleaseNotes>
+    <Version>1.3.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
