@@ -18,6 +18,7 @@
   - txt
   - log
   - xml
+  - json
  
 ## 📦 NuGet package
 
