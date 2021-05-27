@@ -4,6 +4,220 @@
         <name>BasicxLogger</name>
     </assembly>
     <members>
+        <member name="T:BasicxLogger.ILogger">
+            <summary>
+            Interface for BasicxLogger
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.ILogger.messageFormat">
+            <summary>
+            Contains all informations about the formatting of the log messages
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.ILogger.log(System.String)">
+            <summary>
+            Writes the given message and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.ILogger.log(BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Writes the given message with the given tag and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logID(System.String,System.Boolean)">
+            <summary>
+            Writes the given message, a message ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
+            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logID(BasicxLogger.Message.Tag,System.String,System.Boolean)">
+            <summary>
+            Writes the given message with the given tag, a message ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
+            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logAsync(System.String)">
+            <summary>
+            Asynchronous writes the given message and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logAsync(BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Asynchronous writes the given message with the given tag and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logIDAsync(System.String,System.Boolean)">
+            <summary>
+            Asynchronous writes the given message, a message ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
+            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logIDAsync(BasicxLogger.Message.Tag,System.String,System.Boolean)">
+            <summary>
+            Asynchronous writes the given message with the given tag, a message ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
+            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
         <member name="T:BasicxLogger.Logger">
             <summary>
             Logger class that contains everything needed to write a message to a log file
@@ -363,7 +577,7 @@
             Deletes the log file, that was created by the logger.
             </summary>
             <remarks>
-            All logs will be lost. If you log again after deleting the log file the logger will create a new file.
+            All logs will be lost. If you log again after deleting the log file, the logger will create a new file.
             </remarks>
             <exception cref="T:System.ArgumentException"></exception>
             <exception cref="T:System.ArgumentNullException"></exception>
@@ -459,6 +673,11 @@
         <member name="F:BasicxLogger.LoggerFile.LogFileType.xml">
             <summary>
             File type: .xml
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LoggerFile.LogFileType.json">
+            <summary>
+            File type: .json
             </summary>
         </member>
         <member name="T:BasicxLogger.Message.Date">
@@ -683,6 +902,11 @@
         <member name="F:BasicxLogger.Message.Tag.ERROR">
             <summary>
             Tag: [ERROR]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Message.Tag.FATAL">
+            <summary>
+            Tag: [FATAL]
             </summary>
         </member>
         <member name="F:BasicxLogger.Message.Tag.EXCEPTION">

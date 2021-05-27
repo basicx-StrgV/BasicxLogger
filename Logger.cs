@@ -15,6 +15,7 @@ using System;
 using System.IO;
 using System.Xml;
 using System.Text;
+using System.Text.Json;
 using System.Globalization;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace BasicxLogger
     /// <summary>
     /// Logger class that contains everything needed to write a message to a log file
     /// </summary>
-    public class Logger
+    public class Logger : ILogger
     {
         //-Properties-----------------------------------------------------------------------------------
         /// <summary>
@@ -275,6 +276,16 @@ namespace BasicxLogger
 
                     logToXml(messageFormat.defaultTag, message);
                 }
+                else if(logFile.type.Equals(LogFileType.json))
+                {
+                    //Log to json file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createJsonFile();
+                    }
+
+                    logToJson(messageFormat.defaultTag, message);
+                }
                 else if(logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
                 {
                     //Default log (.txt and .log file)
@@ -326,6 +337,16 @@ namespace BasicxLogger
                     }
 
                     logToXml(messageTag, message);
+                }
+                else if (logFile.type.Equals(LogFileType.json))
+                {
+                    //Log to json file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createJsonFile();
+                    }
+
+                    logToJson(messageTag, message);
                 }
                 else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
                 {
@@ -389,6 +410,16 @@ namespace BasicxLogger
                     }
 
                     logToXml(messageFormat.defaultTag, message, id);
+                }
+                else if (logFile.type.Equals(LogFileType.json))
+                {
+                    //Log to json file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createJsonFile();
+                    }
+
+                    logToJson(messageFormat.defaultTag, message, id);
                 }
                 else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
                 {
@@ -457,6 +488,16 @@ namespace BasicxLogger
                     }
 
                     logToXml(messageTag, message, id);
+                }
+                else if (logFile.type.Equals(LogFileType.json))
+                {
+                    //Log to json file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createJsonFile();
+                    }
+
+                    logToJson(messageTag, message, id);
                 }
                 else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
                 {
@@ -634,7 +675,7 @@ namespace BasicxLogger
         /// Deletes the log file, that was created by the logger.
         /// </summary>
         /// <remarks>
-        /// All logs will be lost. If you log again after deleting the log file the logger will create a new file.
+        /// All logs will be lost. If you log again after deleting the log file, the logger will create a new file.
         /// </remarks>
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException"></exception>
@@ -738,6 +779,21 @@ namespace BasicxLogger
             }
         }
 
+        private void createJsonFile()
+        {
+            try
+            {
+                if (!File.Exists(getFullFilePath()))
+                {
+                    File.WriteAllText(getFullFilePath(), "[]");
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         private string generateID()
         {
             string id = "";
@@ -813,28 +869,27 @@ namespace BasicxLogger
 
                 //Create nodes and add data
                 XmlNode logMessageNode = xmlFile.CreateElement("LogMessage");
+                XmlAttribute idAttribute = xmlFile.CreateAttribute("id");
                 if (!id.Equals(""))
                 {
-                    XmlAttribute idAttribute = xmlFile.CreateAttribute("id");
                     idAttribute.Value = id;
-                    logMessageNode.Attributes.Append(idAttribute);
                 }
+                logMessageNode.Attributes.Append(idAttribute);
 
-                XmlNode datetimeNode = xmlFile.CreateElement("datetime");
+                XmlNode timestampNode = xmlFile.CreateElement("timestamp");
                 if (!messageFormat.date.dateFormat.Equals(DateFormat.none) ||
                                 !messageFormat.time.timeFormat.Equals(TimeFormat.none))
                 {
-                    datetimeNode.InnerText = getCurrentTime();
-                    logMessageNode.AppendChild(datetimeNode);
+                    timestampNode.InnerText = getCurrentTime();
                 }
-
+                logMessageNode.AppendChild(timestampNode);
 
                 XmlNode tagNode = xmlFile.CreateElement("tag");
                 if (!messageTag.Equals(Tag.none))
                 {
                     tagNode.InnerText = messageTag.ToString();
-                    logMessageNode.AppendChild(tagNode);
                 }
+                logMessageNode.AppendChild(tagNode);
 
                 XmlNode messageNode = xmlFile.CreateElement("message");
                 messageNode.InnerText = message;
@@ -851,6 +906,65 @@ namespace BasicxLogger
                 throw e;
             }
         }
+        
+        private void logToJson(Tag messageTag, string message, string id = "")
+        {
+            try
+            {
+                string fileContent = File.ReadAllText(getFullFilePath());
+
+                List<LogMessage> logs = JsonSerializer.Deserialize<List<LogMessage>>(fileContent);
+
+                LogMessage newLog = new LogMessage();
+                if (!id.Equals(""))
+                {
+                    newLog.id = id;
+                }
+
+                if (!messageFormat.date.dateFormat.Equals(DateFormat.none) ||
+                                    !messageFormat.time.timeFormat.Equals(TimeFormat.none))
+                {
+                    newLog.timestamp = getCurrentTime();
+                }
+
+                if (!messageTag.Equals(Tag.none))
+                {
+                    newLog.tag = messageTag.ToString();
+                }
+
+                newLog.message = message;
+
+                logs.Add(newLog);
+
+                string newFileContent = JsonSerializer.Serialize(logs);
+
+                FileStream fileWriter = File.OpenWrite(getFullFilePath());
+                Utf8JsonWriter jsonWriter = new Utf8JsonWriter(fileWriter, new JsonWriterOptions { Indented = true });
+
+                JsonDocument jsonFile = JsonDocument.Parse(newFileContent);
+
+                jsonFile.WriteTo(jsonWriter);
+
+                jsonWriter.Flush();
+
+                jsonWriter.Dispose();
+
+                fileWriter.Close();
+                fileWriter.Dispose();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         //----------------------------------------------------------------------------------------------
+    }
+
+    class LogMessage
+    {
+        public string id { get; set; }
+        public string timestamp { get; set; }
+        public string tag { get; set; }
+        public string message { get; set; }
     }
 }

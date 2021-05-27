@@ -20,6 +20,10 @@ namespace BasicxLogger.LoggerFile
         /// <summary>
         /// File type: .xml
         /// </summary>
-        xml
+        xml,
+        /// <summary>
+        /// File type: .json
+        /// </summary>
+        json
     }
 }
