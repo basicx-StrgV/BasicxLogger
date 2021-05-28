@@ -26,7 +26,7 @@ using BasicxLogger.LoggerDirectory;
 namespace BasicxLogger
 {
     /// <summary>
-    /// Logger class that contains everything needed to write a message to a log file
+    /// Default Logger class that contains everything needed to write a message to a log file
     /// </summary>
     public class Logger : ILogger
     {
@@ -289,7 +289,7 @@ namespace BasicxLogger
                 else if(logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
                 {
                     //Default log (.txt and .log file)
-                    File.AppendAllText(getFullFilePath(), messageBuilder(message, messageFormat.defaultTag), messageFormat.encoding);
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.defaultTag, message), messageFormat.encoding);
                 }
             }
             catch (Exception e)
@@ -351,7 +351,7 @@ namespace BasicxLogger
                 else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
                 {
                     //Default log (.txt and .log file)
-                    File.AppendAllText(getFullFilePath(), messageBuilder(message, messageTag), messageFormat.encoding);
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageTag, message), messageFormat.encoding);
                 }
             }
             catch (Exception e)
@@ -424,7 +424,7 @@ namespace BasicxLogger
                 else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
                 {
                     //Default log (.txt and .log file)
-                    File.AppendAllText(getFullFilePath(), messageBuilder(message, messageFormat.defaultTag, id), messageFormat.encoding);
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.defaultTag, message, id), messageFormat.encoding);
                 }
 
                 return id;
@@ -502,7 +502,7 @@ namespace BasicxLogger
                 else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
                 {
                     //Default log (.txt and .log file)
-                    File.AppendAllText(getFullFilePath(), messageBuilder(message, messageTag, id), messageFormat.encoding);
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageTag, message, id), messageFormat.encoding);
                 }
 
                 return id;
@@ -837,7 +837,7 @@ namespace BasicxLogger
             }
         }
 
-        private string messageBuilder(string message, Tag messageTag, string id = "")
+        private string messageBuilder(Tag messageTag, string message, string id = "")
         {
             string dateTimePart = getCurrentTime();
             string tagPart = "";

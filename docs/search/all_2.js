@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['encoding_11',['encoding',['../a00064.html#af24f027443c8087eb71f4daf782696aa',1,'BasicxLogger::Message::MessageFormat']]]
+  ['cultureinfo_5',['cultureInfo',['../a00081.html#ac9229cd948bc874155c80e5b7be5e667',1,'BasicxLogger::Message::Time']]]
 ];

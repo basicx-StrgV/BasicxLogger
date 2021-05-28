@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['messageformat_21',['MessageFormat',['../a00064.html',1,'BasicxLogger::Message']]]
+  ['getfullfilepath_24',['getFullFilePath',['../a00057.html#a9f57414379bfdd71997ce1d3ec237932',1,'BasicxLogger::Logger']]]
 ];

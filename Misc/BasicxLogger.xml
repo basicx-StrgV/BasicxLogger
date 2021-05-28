@@ -220,7 +220,7 @@
         </member>
         <member name="T:BasicxLogger.Logger">
             <summary>
-            Logger class that contains everything needed to write a message to a log file
+            Default Logger class that contains everything needed to write a message to a log file
             </summary>
         </member>
         <member name="P:BasicxLogger.Logger.logFile">
@@ -779,6 +779,9 @@
             <summary>
             Encoding for the log message
             </summary>
+            <remarks>
+            This option is not supported for json logging and will be ignored if you log to a json file
+            </remarks>
         </member>
         <member name="M:BasicxLogger.Message.MessageFormat.#ctor(System.Text.Encoding)">
             <summary>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['path_53',['path',['../a00052.html#aa9321becb7929e989f1fc27f1352b040',1,'BasicxLogger::LoggerDirectory::LogDirectory']]]
+  ['logdirectory_129',['logDirectory',['../a00057.html#a04799be9cc024f585fb9ee5837869913',1,'BasicxLogger::Logger']]],
+  ['logfile_130',['logFile',['../a00057.html#a4ea9d553403a8af8a33cf9bb43383a6c',1,'BasicxLogger::Logger']]]
 ];

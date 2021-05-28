@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: LogFileType.cs Source File</title>
+<title>BasicxLogger: LogFile.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">1.2.0</span>
+   &#160;<span id="projectnumber">1.4.0</span>
    </div>
   </td>
  </tr>
@@ -84,28 +84,42 @@ $(document).ready(function(){initNavTree('a00011_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">LogFileType.cs</div>  </div>
+<div class="title">LogFile.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00037.html">BasicxLogger.LoggerFile</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="a00040.html">    5</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00040.html">BasicxLogger.LoggerFile</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">public</span> <span class="keyword">enum</span> LogFileType</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        txt,</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        log</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    }</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
-<div class="ttc" id="aa00037_html"><div class="ttname"><a href="a00037.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00005">LogFile.cs:6</a></div></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00069.html">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00069.html">LogFile</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00069.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">   15</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00069.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">name</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a00069.html#a52466413b3e075bf0b73281cc6007bab">   19</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00040.html#a9837554d353f58214d40e75a9261f091">LogFileType</a> <a class="code" href="a00069.html#a52466413b3e075bf0b73281cc6007bab">type</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a00069.html#a13a70b589464992b47de26067b3ac460">   23</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00069.html#a13a70b589464992b47de26067b3ac460">file</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a00069.html#aa6cc02238a0bc56eb71d1b04f396cb75">   37</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00069.html#aa6cc02238a0bc56eb71d1b04f396cb75">LogFile</a>(<span class="keywordtype">string</span> <a class="code" href="a00069.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">name</a>, <a class="code" href="a00040.html#a9837554d353f58214d40e75a9261f091">LogFileType</a> <a class="code" href="a00069.html#a52466413b3e075bf0b73281cc6007bab">type</a>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            this.name = <a class="code" href="a00069.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">name</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            this.type = <a class="code" href="a00069.html#a52466413b3e075bf0b73281cc6007bab">type</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <a class="code" href="a00069.html#a13a70b589464992b47de26067b3ac460">file</a> = <a class="code" href="a00069.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">name</a> + <span class="stringliteral">&quot;.&quot;</span> + <a class="code" href="a00069.html#a52466413b3e075bf0b73281cc6007bab">type</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="ttc" id="aa00040_html"><div class="ttname"><a href="a00040.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00005">LogFile.cs:6</a></div></div>
+<div class="ttc" id="aa00040_html_a9837554d353f58214d40e75a9261f091"><div class="ttname"><a href="a00040.html#a9837554d353f58214d40e75a9261f091">BasicxLogger.LoggerFile.LogFileType</a></div><div class="ttdeci">LogFileType</div><div class="ttdoc">Enum that contains every supported file type</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00010">LogFileType.cs:11</a></div></div>
+<div class="ttc" id="aa00069_html"><div class="ttname"><a href="a00069.html">BasicxLogger.LoggerFile.LogFile</a></div><div class="ttdoc">Contains all informations about the log file</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00010">LogFile.cs:11</a></div></div>
+<div class="ttc" id="aa00069_html_a13a70b589464992b47de26067b3ac460"><div class="ttname"><a href="a00069.html#a13a70b589464992b47de26067b3ac460">BasicxLogger.LoggerFile.LogFile.file</a></div><div class="ttdeci">string file</div><div class="ttdoc">Full file name (name + file type : e.g. sample.txt)</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00023">LogFile.cs:23</a></div></div>
+<div class="ttc" id="aa00069_html_a52466413b3e075bf0b73281cc6007bab"><div class="ttname"><a href="a00069.html#a52466413b3e075bf0b73281cc6007bab">BasicxLogger.LoggerFile.LogFile.type</a></div><div class="ttdeci">LogFileType type</div><div class="ttdoc">File type of the log file</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00019">LogFile.cs:19</a></div></div>
+<div class="ttc" id="aa00069_html_aa6cc02238a0bc56eb71d1b04f396cb75"><div class="ttname"><a href="a00069.html#aa6cc02238a0bc56eb71d1b04f396cb75">BasicxLogger.LoggerFile.LogFile.LogFile</a></div><div class="ttdeci">LogFile(string name, LogFileType type)</div><div class="ttdoc">Constructor, to create a LogFile object.</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00037">LogFile.cs:37</a></div></div>
+<div class="ttc" id="aa00069_html_aeca6a4ab2a6876ad0a97c6c1baf7e47c"><div class="ttname"><a href="a00069.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">BasicxLogger.LoggerFile.LogFile.name</a></div><div class="ttdeci">string name</div><div class="ttdoc">Name of the log file</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00015">LogFile.cs:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_7ac1358cab2794e3e21164e2cb19e751.html">LoggerFile</a></li><li class="navelem"><b>LogFileType.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_7ac1358cab2794e3e21164e2cb19e751.html">LoggerFile</a></li><li class="navelem"><b>LogFile.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['messageformat_33',['MessageFormat',['../a00064.html',1,'BasicxLogger::Message']]]
+  ['logdirectory_70',['LogDirectory',['../a00065.html',1,'BasicxLogger::LoggerDirectory']]],
+  ['logfile_71',['LogFile',['../a00069.html',1,'BasicxLogger::LoggerFile']]],
+  ['logger_72',['Logger',['../a00057.html',1,'BasicxLogger']]],
+  ['logmessage_73',['LogMessage',['../a00061.html',1,'BasicxLogger']]]
 ];

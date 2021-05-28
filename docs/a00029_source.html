@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: TimeFormat.cs Source File</title>
+<title>BasicxLogger: Time.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">1.2.0</span>
+   &#160;<span id="projectnumber">1.4.0</span>
    </div>
   </td>
  </tr>
@@ -84,33 +84,70 @@ $(document).ready(function(){initNavTree('a00029_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">TimeFormat.cs</div>  </div>
+<div class="title">Time.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00038.html">BasicxLogger.Message</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">public</span> <span class="keyword">enum</span> TimeFormat</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        hour24_min,</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        hour24_min_sec,</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        hour24_min_sec_millisec,</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        hour12_min,</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        hour12_min_sec,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        hour12_min_sec_millisec,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        none</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="ttc" id="aa00038_html"><div class="ttname"><a href="a00038.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00007">Date.cs:8</a></div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System.Globalization;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> System.Collections.Generic;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00041.html">BasicxLogger.Message</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00081.html">   13</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00081.html">Time</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00081.html#a2885d6df82be0d80e25521720d25789d">   18</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00041.html#af146436e4f41a81c5f0bd8d395616510">TimeFormat</a> <a class="code" href="a00081.html#a2885d6df82be0d80e25521720d25789d">timeFormat</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00081.html#a20b4b77ac6ae0a8fc0b1f31a3a22ad72">   22</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00081.html#a20b4b77ac6ae0a8fc0b1f31a3a22ad72">timeFormatString</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a00081.html#ac9229cd948bc874155c80e5b7be5e667">   26</a></span>&#160;        <span class="keyword">public</span> CultureInfo <a class="code" href="a00081.html#ac9229cd948bc874155c80e5b7be5e667">cultureInfo</a> { <span class="keyword">get</span>; } = CultureInfo.InvariantCulture;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">private</span> List&lt;string&gt; timeFormateList;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a00081.html#abacc04e8dbbbe2894ccc0010b86c68b2">   40</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00081.html#abacc04e8dbbbe2894ccc0010b86c68b2">Time</a>(<a class="code" href="a00041.html#af146436e4f41a81c5f0bd8d395616510">TimeFormat</a> <a class="code" href="a00081.html#a2885d6df82be0d80e25521720d25789d">timeFormat</a>)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            initalizeList();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            this.timeFormat = <a class="code" href="a00081.html#a2885d6df82be0d80e25521720d25789d">timeFormat</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <a class="code" href="a00081.html#a20b4b77ac6ae0a8fc0b1f31a3a22ad72">timeFormatString</a> = timeFormateList[(int)this.timeFormat];</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="a00081.html#ab7fba0f136fba105761ceca35e862d4d">   58</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00081.html#ab7fba0f136fba105761ceca35e862d4d">Time</a>(<a class="code" href="a00041.html#af146436e4f41a81c5f0bd8d395616510">TimeFormat</a> <a class="code" href="a00081.html#a2885d6df82be0d80e25521720d25789d">timeFormat</a>, CultureInfo <a class="code" href="a00081.html#ac9229cd948bc874155c80e5b7be5e667">cultureInfo</a>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            initalizeList();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            this.timeFormat = <a class="code" href="a00081.html#a2885d6df82be0d80e25521720d25789d">timeFormat</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            this.cultureInfo = <a class="code" href="a00081.html#ac9229cd948bc874155c80e5b7be5e667">cultureInfo</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <a class="code" href="a00081.html#a20b4b77ac6ae0a8fc0b1f31a3a22ad72">timeFormatString</a> = timeFormateList[(int)this.timeFormat];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> initalizeList()</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            timeFormateList = <span class="keyword">new</span> List&lt;string&gt;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="stringliteral">&quot;HH:mm&quot;</span>,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="stringliteral">&quot;HH:mm:ss&quot;</span>,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="stringliteral">&quot;HH:mm:ss.fff&quot;</span>,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="stringliteral">&quot;hh:mm tt&quot;</span>,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="stringliteral">&quot;hh:mm:ss tt&quot;</span>,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="stringliteral">&quot;hh:mm:ss.fff tt&quot;</span>,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            };</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="ttc" id="aa00041_html"><div class="ttname"><a href="a00041.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00007">Date.cs:8</a></div></div>
+<div class="ttc" id="aa00041_html_af146436e4f41a81c5f0bd8d395616510"><div class="ttname"><a href="a00041.html#af146436e4f41a81c5f0bd8d395616510">BasicxLogger.Message.TimeFormat</a></div><div class="ttdeci">TimeFormat</div><div class="ttdoc">Enum that contains every supported time format</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00010">TimeFormat.cs:11</a></div></div>
+<div class="ttc" id="aa00081_html"><div class="ttname"><a href="a00081.html">BasicxLogger.Message.Time</a></div><div class="ttdoc">Contains the information about the time formatting for the log message</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00013">Time.cs:14</a></div></div>
+<div class="ttc" id="aa00081_html_a20b4b77ac6ae0a8fc0b1f31a3a22ad72"><div class="ttname"><a href="a00081.html#a20b4b77ac6ae0a8fc0b1f31a3a22ad72">BasicxLogger.Message.Time.timeFormatString</a></div><div class="ttdeci">string timeFormatString</div><div class="ttdoc">Format string for the time (e.g. HH:mm:ss)</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00022">Time.cs:22</a></div></div>
+<div class="ttc" id="aa00081_html_a2885d6df82be0d80e25521720d25789d"><div class="ttname"><a href="a00081.html#a2885d6df82be0d80e25521720d25789d">BasicxLogger.Message.Time.timeFormat</a></div><div class="ttdeci">TimeFormat timeFormat</div><div class="ttdoc">Enum that contains the formate of the time</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00018">Time.cs:18</a></div></div>
+<div class="ttc" id="aa00081_html_ab7fba0f136fba105761ceca35e862d4d"><div class="ttname"><a href="a00081.html#ab7fba0f136fba105761ceca35e862d4d">BasicxLogger.Message.Time.Time</a></div><div class="ttdeci">Time(TimeFormat timeFormat, CultureInfo cultureInfo)</div><div class="ttdoc">Constructor, to create a Time object.</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00058">Time.cs:58</a></div></div>
+<div class="ttc" id="aa00081_html_abacc04e8dbbbe2894ccc0010b86c68b2"><div class="ttname"><a href="a00081.html#abacc04e8dbbbe2894ccc0010b86c68b2">BasicxLogger.Message.Time.Time</a></div><div class="ttdeci">Time(TimeFormat timeFormat)</div><div class="ttdoc">Constructor, to create a Time object.</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00040">Time.cs:40</a></div></div>
+<div class="ttc" id="aa00081_html_ac9229cd948bc874155c80e5b7be5e667"><div class="ttname"><a href="a00081.html#ac9229cd948bc874155c80e5b7be5e667">BasicxLogger.Message.Time.cultureInfo</a></div><div class="ttdeci">CultureInfo cultureInfo</div><div class="ttdoc">Holds the culture information to correctly display AM/PM, when the 12 hour time formate is used</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00026">Time.cs:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_04bb8606242e6428d10cd7ddd95e6368.html">Message</a></li><li class="navelem"><a class="el" href="dir_a3ded4fef35833c827e0609486b4fb39.html">Time</a></li><li class="navelem"><b>TimeFormat.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_04bb8606242e6428d10cd7ddd95e6368.html">Message</a></li><li class="navelem"><a class="el" href="dir_a3ded4fef35833c827e0609486b4fb39.html">Time</a></li><li class="navelem"><b>Time.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

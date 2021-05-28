@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: BasicxLogger.Message Namespace Reference</title>
+<title>BasicxLogger: BasicxLogger Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">1.2.0</span>
+   &#160;<span id="projectnumber">1.4.0</span>
    </div>
   </td>
  </tr>
@@ -84,68 +84,30 @@ $(document).ready(function(){initNavTree('a00038.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">BasicxLogger.Message Namespace Reference</div>  </div>
+<div class="title">BasicxLogger Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html">Date</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00053.html">ILogger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for <a class="el" href="a00038.html">BasicxLogger</a>  <a href="a00053.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00064.html">MessageFormat</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00057.html">Logger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="a00057.html" title="Default Logger class that contains everything needed to write a message to a log file">Logger</a> class that contains everything needed to write a message to a log file  <a href="a00057.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html">Time</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00061.html">LogMessage</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a6b2f42cc9ece472692bb6249abe5224e"><td class="memItemLeft" align="right" valign="top"><a id="a6b2f42cc9ece472692bb6249abe5224e"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>DateFormat</b> { <br />
-&#160;&#160;<b>year_month_day</b>
-, <b>year_day_month</b>
-, <b>day_month_year</b>
-, <b>month_day_year</b>
-, <br />
-&#160;&#160;<b>none</b>
-<br />
- }</td></tr>
-<tr class="separator:a6b2f42cc9ece472692bb6249abe5224e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d52c49464175c0f10fd6fb0a937ca23"><td class="memItemLeft" align="right" valign="top"><a id="a4d52c49464175c0f10fd6fb0a937ca23"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>Tag</b> { <br />
-&#160;&#160;<b>INFO</b>
-, <b>WARNING</b>
-, <b>ERROR</b>
-, <b>EXCEPTION</b>
-, <br />
-&#160;&#160;<b>DEBUGGING</b>
-, <b>MESSAGE</b>
-, <b>ALERT</b>
-, <b>EVENT</b>
-, <br />
-&#160;&#160;<b>none</b>
-<br />
- }</td></tr>
-<tr class="separator:a4d52c49464175c0f10fd6fb0a937ca23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af146436e4f41a81c5f0bd8d395616510"><td class="memItemLeft" align="right" valign="top"><a id="af146436e4f41a81c5f0bd8d395616510"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>TimeFormat</b> { <br />
-&#160;&#160;<b>hour24_min</b>
-, <b>hour24_min_sec</b>
-, <b>hour24_min_sec_millisec</b>
-, <b>hour12_min</b>
-, <br />
-&#160;&#160;<b>hour12_min_sec</b>
-, <b>hour12_min_sec_millisec</b>
-, <b>none</b>
-<br />
- }</td></tr>
-<tr class="separator:af146436e4f41a81c5f0bd8d395616510"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00035.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00038.html">Message</a></li>
+    <li class="navelem"><a class="el" href="a00038.html">BasicxLogger</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

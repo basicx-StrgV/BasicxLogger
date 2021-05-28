@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['date_29',['Date',['../a00060.html',1,'BasicxLogger::Message']]]
+  ['date_68',['Date',['../a00073.html',1,'BasicxLogger::Message']]]
 ];

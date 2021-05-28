@@ -26,6 +26,9 @@ namespace BasicxLogger.Message
         /// <summary>
         /// Encoding for the log message
         /// </summary>
+        /// <remarks>
+        /// This option is not supported for json logging and will be ignored if you log to a json file
+        /// </remarks>
         public Encoding encoding { get; } = Encoding.UTF8;
 
         /// <summary>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">1.2.0</span>
+   &#160;<span id="projectnumber">1.4.0</span>
    </div>
   </td>
  </tr>
@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title">BasicxLogger Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="README"></a><img src="https://i.imgur.com/tXTU4gj.png" alt="BasicxLogger" class="inline" style="height:70%;width:70%"/></p>
+<div class="textblock"><p><a class="anchor" id="README"></a><img src="https://i.imgur.com/tXTU4gj.png" alt="BasicxLogger" class="inline" style="width:70%;height:70%"/></p>
 <p><a href="https://github.com/basicx-StrgV/BasicxLogger/releases"><img src="https://img.shields.io/github/v/tag/basicx-StrgV/BasicxLogger?label=Version" alt="GitHub tag (latest by date)" class="inline"/></a> <a href="https://www.nuget.org/packages/BasicxLogger/"><img src="https://img.shields.io/nuget/dt/BasicxLogger?label=NuGet%20Downloads" alt="Nuget" class="inline"/></a></p>
 <h2><a class="anchor" id="autotoc_md0"></a>
 ⭐ Features</h2>
@@ -98,6 +98,13 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li>Use tags to easier differentiate between different log messages</li>
 <li>Log messages with IDs to easier locate them in a big log file</li>
 <li>Asynchronous logging</li>
+<li>Supports different file formats<ul>
+<li>txt</li>
+<li>log</li>
+<li>xml</li>
+<li>json</li>
+</ul>
+</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md1"></a>
 📦 NuGet package</h2>
@@ -109,7 +116,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 📋 Samples</h2>
 <h3><a class="anchor" id="autotoc_md4"></a>
 Default Logger</h3>
-<div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00035.html">BasicxLogger</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00038.html">BasicxLogger</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>Sample</div>
 <div class="line">{</div>
@@ -129,12 +136,12 @@ Default Logger</h3>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00035_html"><div class="ttname"><a href="a00035.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00024">Logger.cs:25</a></div></div>
+<div class="ttc" id="aa00038_html"><div class="ttname"><a href="a00038.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00008">ILogger.cs:9</a></div></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md5"></a>
 Custom Logger (File, Directory)</h3>
-<div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00035.html">BasicxLogger</a>;</div>
-<div class="line"><span class="keyword">using</span> <a class="code" href="a00035.html">BasicxLogger</a>.<a class="code" href="a00037.html">LoggerFile</a>;</div>
-<div class="line"><span class="keyword">using</span> <a class="code" href="a00035.html">BasicxLogger</a>.<a class="code" href="a00036.html">LoggerDirectory</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00038.html">BasicxLogger</a>;</div>
+<div class="line"><span class="keyword">using</span> <a class="code" href="a00038.html">BasicxLogger</a>.<a class="code" href="a00040.html">LoggerFile</a>;</div>
+<div class="line"><span class="keyword">using</span> <a class="code" href="a00038.html">BasicxLogger</a>.<a class="code" href="a00039.html">LoggerDirectory</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>Sample</div>
 <div class="line">{</div>
@@ -144,7 +151,7 @@ Custom Logger (File, Directory)</h3>
 <div class="line">        {</div>
 <div class="line">            <span class="comment">//Create a logger object</span></div>
 <div class="line">            Logger logger = <span class="keyword">new</span> Logger(</div>
-<div class="line">                <span class="keyword">new</span> LogFile(<span class="stringliteral">&quot;myLogFile&quot;</span>, LogFileType.txt),</div>
+<div class="line">                <span class="keyword">new</span> LogFile(<span class="stringliteral">&quot;myLogFile&quot;</span>, <a class="code" href="a00040.html#a9837554d353f58214d40e75a9261f091">LogFileType</a>.txt),</div>
 <div class="line">                <span class="keyword">new</span> LogDirectory(<span class="stringliteral">&quot;C:\\Program Files&quot;</span>, <span class="stringliteral">&quot;myProgramFolder&quot;</span>));</div>
 <div class="line">            <span class="comment">//Write a log message</span></div>
 <div class="line">            logger.log(<span class="stringliteral">&quot;SampleMessage&quot;</span>);</div>
@@ -156,12 +163,13 @@ Custom Logger (File, Directory)</h3>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00036_html"><div class="ttname"><a href="a00036.html">BasicxLogger.LoggerDirectory</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00005">LogDirectory.cs:6</a></div></div>
-<div class="ttc" id="aa00037_html"><div class="ttname"><a href="a00037.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00005">LogFile.cs:6</a></div></div>
+<div class="ttc" id="aa00039_html"><div class="ttname"><a href="a00039.html">BasicxLogger.LoggerDirectory</a></div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00005">LogDirectory.cs:6</a></div></div>
+<div class="ttc" id="aa00040_html"><div class="ttname"><a href="a00040.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00005">LogFile.cs:6</a></div></div>
+<div class="ttc" id="aa00040_html_a9837554d353f58214d40e75a9261f091"><div class="ttname"><a href="a00040.html#a9837554d353f58214d40e75a9261f091">BasicxLogger.LoggerFile.LogFileType</a></div><div class="ttdeci">LogFileType</div><div class="ttdoc">Enum that contains every supported file type</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00010">LogFileType.cs:11</a></div></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md6"></a>
 Custom Logger (Message)</h3>
-<div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00035.html">BasicxLogger</a>;</div>
-<div class="line"><span class="keyword">using</span> <a class="code" href="a00035.html">BasicxLogger</a>.<a class="code" href="a00038.html">Message</a>;</div>
+<div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="a00038.html">BasicxLogger</a>;</div>
+<div class="line"><span class="keyword">using</span> <a class="code" href="a00038.html">BasicxLogger</a>.<a class="code" href="a00041.html">Message</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>Sample</div>
 <div class="line">{</div>
@@ -170,7 +178,7 @@ Custom Logger (Message)</h3>
 <div class="line">        <span class="keyword">static</span> <span class="keywordtype">void</span> Main(<span class="keywordtype">string</span>[] args)</div>
 <div class="line">        {</div>
 <div class="line">            <span class="comment">//Create a logger object</span></div>
-<div class="line">            Logger logger = <span class="keyword">new</span> Logger(<span class="keyword">new</span> MessageFormat(<span class="keyword">new</span> Date(DateFormat.day_month_year, <span class="charliteral">&#39;.&#39;</span>)));</div>
+<div class="line">            Logger logger = <span class="keyword">new</span> Logger(<span class="keyword">new</span> MessageFormat(<span class="keyword">new</span> Date(<a class="code" href="a00041.html#a6b2f42cc9ece472692bb6249abe5224e">DateFormat</a>.day_month_year, <span class="charliteral">&#39;.&#39;</span>)));</div>
 <div class="line">            <span class="comment">//Write a log message</span></div>
 <div class="line">            logger.log(<span class="stringliteral">&quot;SampleMessage&quot;</span>);</div>
 <div class="line">            <span class="comment">/* </span></div>
@@ -181,7 +189,8 @@ Custom Logger (Message)</h3>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00038_html"><div class="ttname"><a href="a00038.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00007">Date.cs:8</a></div></div>
+<div class="ttc" id="aa00041_html"><div class="ttname"><a href="a00041.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00007">Date.cs:8</a></div></div>
+<div class="ttc" id="aa00041_html_a6b2f42cc9ece472692bb6249abe5224e"><div class="ttname"><a href="a00041.html#a6b2f42cc9ece472692bb6249abe5224e">BasicxLogger.Message.DateFormat</a></div><div class="ttdeci">DateFormat</div><div class="ttdoc">Enum that contains every supported date format</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00010">DateFormat.cs:11</a></div></div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

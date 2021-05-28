@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['basicxlogger_0',['BasicxLogger',['../a00035.html',1,'']]],
-  ['loggerdirectory_1',['LoggerDirectory',['../a00036.html',1,'BasicxLogger']]],
-  ['loggerfile_2',['LoggerFile',['../a00037.html',1,'BasicxLogger']]],
-  ['message_3',['Message',['../a00038.html',1,'BasicxLogger']]]
+  ['alert_0',['ALERT',['../a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a320f86f60f25459ba5550e000b2c3929',1,'BasicxLogger::Message']]]
 ];

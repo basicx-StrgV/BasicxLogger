@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['file_51',['file',['../a00056.html#a13a70b589464992b47de26067b3ac460',1,'BasicxLogger::LoggerFile::LogFile']]]
+  ['encoding_127',['encoding',['../a00077.html#af24f027443c8087eb71f4daf782696aa',1,'BasicxLogger::Message::MessageFormat']]]
 ];

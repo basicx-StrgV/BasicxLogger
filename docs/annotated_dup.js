@@ -1,17 +1,19 @@
 var annotated_dup =
 [
-    [ "BasicxLogger", "a00035.html", [
-      [ "LoggerDirectory", "a00036.html", [
-        [ "LogDirectory", "a00052.html", "a00052" ]
+    [ "BasicxLogger", "a00038.html", [
+      [ "LoggerDirectory", "a00039.html", [
+        [ "LogDirectory", "a00065.html", "a00065" ]
       ] ],
-      [ "LoggerFile", "a00037.html", [
-        [ "LogFile", "a00056.html", "a00056" ]
+      [ "LoggerFile", "a00040.html", [
+        [ "LogFile", "a00069.html", "a00069" ]
       ] ],
-      [ "Message", "a00038.html", [
-        [ "Date", "a00060.html", "a00060" ],
-        [ "MessageFormat", "a00064.html", "a00064" ],
-        [ "Time", "a00068.html", "a00068" ]
+      [ "Message", "a00041.html", [
+        [ "Date", "a00073.html", "a00073" ],
+        [ "MessageFormat", "a00077.html", "a00077" ],
+        [ "Time", "a00081.html", "a00081" ]
       ] ],
-      [ "Logger", "a00048.html", "a00048" ]
+      [ "ILogger", "a00053.html", "a00053" ],
+      [ "Logger", "a00057.html", "a00057" ],
+      [ "LogMessage", "a00061.html", "a00061" ]
     ] ]
 ];
