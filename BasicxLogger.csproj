@@ -11,11 +11,8 @@
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
     <PackageTags>logger, logging, C#, .NET-Standard</PackageTags>
-    <PackageReleaseNotes>- Added xml file support
-- Added json file support
-- Added a method to delete the log file created by the logger 
-- Added a logger interface
-- Removed obsolete properties</PackageReleaseNotes>
+    <PackageReleaseNotes>- Added a new Logger (JsonLogger) that allows you to log your owne objects to a json file
+- Added a new Logger (MultiLogger) that allows you to log with every logger added to it with only one log method</PackageReleaseNotes>
     <Version>1.4.0</Version>
   </PropertyGroup>
 

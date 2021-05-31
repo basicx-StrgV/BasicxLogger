@@ -26,8 +26,11 @@ using BasicxLogger.LoggerDirectory;
 namespace BasicxLogger
 {
     /// <summary>
-    /// Default Logger class that contains everything needed to write a message to a log file
+    /// Default Logger class that contains everything needed to write a message to a log file.
     /// </summary>
+    /// <remarks>
+    /// This logger supports the following file formats: txt, log, xml and json
+    /// </remarks>
     public class Logger : ILogger
     {
         //-Properties-----------------------------------------------------------------------------------
@@ -513,6 +516,133 @@ namespace BasicxLogger
             }
         }
 
+        /// <summary>
+        /// Writes the given message, the given ID and the current time stamp to the log file.
+        /// </summary>
+        /// <remarks>
+        /// If the log file and/or directory is missing, the method will automatically create them.
+        /// </remarks>
+        /// <param name="id">
+        /// The id of the log message
+        /// </param>
+        /// <param name="message">
+        /// The message that will be writen to the file
+        /// </param>
+        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
+        /// <exception cref="System.UnauthorizedAccessException"></exception>
+        /// <exception cref="System.IO.IOException"></exception>
+        /// <exception cref="System.IO.PathTooLongException"></exception>
+        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
+        /// <exception cref="System.Security.SecurityException"></exception>
+        public void logCustomID(string id, string message)
+        {
+            try
+            {
+                if (!Directory.Exists(logDirectory.directory))
+                {
+                    createDirectory();
+                }
+
+                if (logFile.type.Equals(LogFileType.xml))
+                {
+                    //Log to xml file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createXmlFile();
+                    }
+
+                    logToXml(messageFormat.defaultTag, message, id);
+                }
+                else if (logFile.type.Equals(LogFileType.json))
+                {
+                    //Log to json file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createJsonFile();
+                    }
+
+                    logToJson(messageFormat.defaultTag, message, id);
+                }
+                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                {
+                    //Default log (.txt and .log file)
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.defaultTag, message, id), messageFormat.encoding);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Writes the given message with the given tag, the given ID and the current time stamp to the log file.
+        /// </summary>
+        /// <remarks>
+        /// If the log file and/or directory is missing, the method will automatically create them.
+        /// </remarks>
+        /// <param name="id">
+        /// The id of the log message
+        /// </param>
+        /// <param name="message">
+        /// The message that will be writen to the file
+        /// </param>
+        /// <param name="messageTag">
+        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+        /// </param>
+        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
+        /// <exception cref="System.UnauthorizedAccessException"></exception>
+        /// <exception cref="System.IO.IOException"></exception>
+        /// <exception cref="System.IO.PathTooLongException"></exception>
+        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
+        /// <exception cref="System.Security.SecurityException"></exception>
+        public void logCustomID(string id, Tag messageTag, string message)
+        {
+            try
+            {
+                if (!Directory.Exists(logDirectory.directory))
+                {
+                    createDirectory();
+                }
+
+                if (logFile.type.Equals(LogFileType.xml))
+                {
+                    //Log to xml file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createXmlFile();
+                    }
+
+                    logToXml(messageTag, message, id);
+                }
+                else if (logFile.type.Equals(LogFileType.json))
+                {
+                    //Log to json file
+                    if (!File.Exists(getFullFilePath()))
+                    {
+                        createJsonFile();
+                    }
+
+                    logToJson(messageTag, message, id);
+                }
+                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                {
+                    //Default log (.txt and .log file)
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageTag, message, id), messageFormat.encoding);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        
         //-Async-methods-----
         /// <summary>
         /// Asynchronous writes the given message and the current time stamp to the log file.
@@ -655,6 +785,77 @@ namespace BasicxLogger
                 Task<string> logTask = Task.Run(() => logID(messageTag, message, verifyMessageID));
                 await logTask;
                 return logTask.Result;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Asynchronous writes the given message, the given ID and the current time stamp to the log file.
+        /// </summary>
+        /// <remarks>
+        /// If the log file and/or directory is missing, the method will automatically create them.
+        /// </remarks>
+        /// <param name="id">
+        /// The id of the log message
+        /// </param>
+        /// <param name="message">
+        /// The message that will be writen to the file
+        /// </param>
+        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
+        /// <exception cref="System.UnauthorizedAccessException"></exception>
+        /// <exception cref="System.IO.IOException"></exception>
+        /// <exception cref="System.IO.PathTooLongException"></exception>
+        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
+        /// <exception cref="System.Security.SecurityException"></exception>
+        public async Task logCustomIDAsync(string id, string message)
+        {
+            try
+            {
+                Task logTask = Task.Run(() => logCustomID(id, message));
+                await logTask;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Asynchronous writes the given message with the given tag, the given ID and the current time stamp to the log file.
+        /// </summary>
+        /// <remarks>
+        /// If the log file and/or directory is missing, the method will automatically create them.
+        /// </remarks>
+        /// <param name="id">
+        /// The id of the log message
+        /// </param>
+        /// <param name="message">
+        /// The message that will be writen to the file
+        /// </param>
+        /// <param name="messageTag">
+        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+        /// </param>
+        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="System.NotSupportedException"></exception>
+        /// <exception cref="System.NullReferenceException"></exception>
+        /// <exception cref="System.UnauthorizedAccessException"></exception>
+        /// <exception cref="System.IO.IOException"></exception>
+        /// <exception cref="System.IO.PathTooLongException"></exception>
+        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
+        /// <exception cref="System.Security.SecurityException"></exception>
+        public async Task logCustomIDAsync(string id, Tag messageTag, string message)
+        {
+            try
+            {
+                Task logTask = Task.Run(() => logCustomID(id, messageTag, message));
+                await logTask;
             }
             catch (Exception e)
             {
