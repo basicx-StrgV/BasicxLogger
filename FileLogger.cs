@@ -26,13 +26,12 @@ using BasicxLogger.LoggerDirectory;
 namespace BasicxLogger
 {
     /// <summary>
-    /// Default Logger class that contains everything needed to write a message to a log file.
+    /// File logger that contains everything needed to write a message to a log file.
     /// </summary>
     /// <remarks>
     /// This logger supports the following file formats: txt, log, xml and json
     /// </remarks>
-    [Obsolete("The Logger class is obsolete and won't receive updates. Please use the FileLogger class instead", false)]
-    public class Logger : ILogger
+    public class FileLogger : ILogger
     {
         //-Properties-----------------------------------------------------------------------------------
         /// <summary>
@@ -53,7 +52,7 @@ namespace BasicxLogger
         /// <summary>
         /// Constructor, to create a simple logger object that uses the default settings
         /// </summary>
-        public Logger()
+        public FileLogger()
         {
             createDirectory();
         }
@@ -63,7 +62,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogFile logFile)
+        public FileLogger(LogFile logFile)
         {
             this.logFile = logFile;
             createDirectory();
@@ -74,7 +73,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogFile logFile, LogDirectory logDirectory)
+        public FileLogger(LogFile logFile, LogDirectory logDirectory)
         {
             this.logFile = logFile;
             this.logDirectory = logDirectory;
@@ -86,7 +85,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogFile logFile, MessageFormat messageFormat)
+        public FileLogger(LogFile logFile, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -98,20 +97,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogFile logFile, LogDirectory logDirectory, MessageFormat messageFormat)
-        {
-            this.messageFormat = messageFormat;
-            this.logFile = logFile;
-            this.logDirectory = logDirectory;
-            createDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public Logger(LogFile logFile, MessageFormat messageFormat, LogDirectory logDirectory)
+        public FileLogger(LogFile logFile, LogDirectory logDirectory, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -124,42 +110,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogDirectory logDirectory)
-        {
-            this.logDirectory = logDirectory;
-            createDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public Logger(LogDirectory logDirectory, LogFile logFile)
-        {
-            this.logFile = logFile;
-            this.logDirectory = logDirectory;
-            createDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public Logger(LogDirectory logDirectory, MessageFormat messageFormat)
-        {
-            this.messageFormat = messageFormat;
-            this.logDirectory = logDirectory;
-            createDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public Logger(LogDirectory logDirectory, LogFile logFile, MessageFormat messageFormat)
+        public FileLogger(LogFile logFile, MessageFormat messageFormat, LogDirectory logDirectory)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -172,7 +123,42 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogDirectory logDirectory, MessageFormat messageFormat, LogFile logFile)
+        public FileLogger(LogDirectory logDirectory)
+        {
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public FileLogger(LogDirectory logDirectory, LogFile logFile)
+        {
+            this.logFile = logFile;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public FileLogger(LogDirectory logDirectory, MessageFormat messageFormat)
+        {
+            this.messageFormat = messageFormat;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public FileLogger(LogDirectory logDirectory, LogFile logFile, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -185,42 +171,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(MessageFormat messageFormat)
-        {
-            this.messageFormat = messageFormat;
-            createDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public Logger(MessageFormat messageFormat, LogFile logFile)
-        {
-            this.messageFormat = messageFormat;
-            this.logFile = logFile;
-            createDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public Logger(MessageFormat messageFormat, LogDirectory logDirectory)
-        {
-            this.messageFormat = messageFormat;
-            this.logDirectory = logDirectory;
-            createDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public Logger(MessageFormat messageFormat, LogFile logFile, LogDirectory logDirectory)
+        public FileLogger(LogDirectory logDirectory, MessageFormat messageFormat, LogFile logFile)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -233,7 +184,55 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(MessageFormat messageFormat, LogDirectory logDirectory, LogFile logFile)
+        public FileLogger(MessageFormat messageFormat)
+        {
+            this.messageFormat = messageFormat;
+            createDirectory();
+        }
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public FileLogger(MessageFormat messageFormat, LogFile logFile)
+        {
+            this.messageFormat = messageFormat;
+            this.logFile = logFile;
+            createDirectory();
+        }
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public FileLogger(MessageFormat messageFormat, LogDirectory logDirectory)
+        {
+            this.messageFormat = messageFormat;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public FileLogger(MessageFormat messageFormat, LogFile logFile, LogDirectory logDirectory)
+        {
+            this.messageFormat = messageFormat;
+            this.logFile = logFile;
+            this.logDirectory = logDirectory;
+            createDirectory();
+        }
+        /// <summary>
+        /// Constructor, to create a logger object with custom settings. 
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public FileLogger(MessageFormat messageFormat, LogDirectory logDirectory, LogFile logFile)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -280,7 +279,7 @@ namespace BasicxLogger
 
                     logToXml(messageFormat.defaultTag, message);
                 }
-                else if(logFile.type.Equals(LogFileType.json))
+                else if (logFile.type.Equals(LogFileType.json))
                 {
                     //Log to json file
                     if (!File.Exists(getFullFilePath()))
@@ -290,7 +289,7 @@ namespace BasicxLogger
 
                     logToJson(messageFormat.defaultTag, message);
                 }
-                else if(logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
                 {
                     //Default log (.txt and .log file)
                     File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.defaultTag, message), messageFormat.encoding);
@@ -643,7 +642,7 @@ namespace BasicxLogger
                 throw e;
             }
         }
-        
+
         //-Async-methods-----
         /// <summary>
         /// Asynchronous writes the given message and the current time stamp to the log file.
@@ -892,7 +891,7 @@ namespace BasicxLogger
             {
                 File.Delete(getFullFilePath());
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
@@ -917,16 +916,16 @@ namespace BasicxLogger
                 if (messageFormat.date.dateFormat.Equals(DateFormat.none) &&
                         !messageFormat.time.timeFormat.Equals(TimeFormat.none))
                 {
-                    return DateTime.Now.ToString(start + messageFormat.time.timeFormatString + end, 
+                    return DateTime.Now.ToString(start + messageFormat.time.timeFormatString + end,
                                                 messageFormat.time.cultureInfo);
                 }
                 else if (!messageFormat.date.dateFormat.Equals(DateFormat.none) &&
                             messageFormat.time.timeFormat.Equals(TimeFormat.none))
                 {
-                    return DateTime.Now.ToString(start + messageFormat.date.dateFormatString + end, 
+                    return DateTime.Now.ToString(start + messageFormat.date.dateFormatString + end,
                                                 messageFormat.time.cultureInfo);
                 }
-                else if (messageFormat.date.dateFormat.Equals(DateFormat.none) && 
+                else if (messageFormat.date.dateFormat.Equals(DateFormat.none) &&
                             messageFormat.time.timeFormat.Equals(TimeFormat.none))
                 {
                     return "";
@@ -937,7 +936,7 @@ namespace BasicxLogger
                                         messageFormat.time.timeFormatString + end, messageFormat.time.cultureInfo);
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return "[INVALID DATETIME FORMAT] ";
             }
@@ -957,7 +956,7 @@ namespace BasicxLogger
                 throw e;
             }
         }
-    
+
         private void createXmlFile()
         {
             try
@@ -990,7 +989,7 @@ namespace BasicxLogger
                     File.WriteAllText(getFullFilePath(), "[]");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
@@ -1014,7 +1013,7 @@ namespace BasicxLogger
 
             return id;
         }
-    
+
         private string verifyID(string id)
         {
             try
@@ -1108,7 +1107,7 @@ namespace BasicxLogger
                 throw e;
             }
         }
-        
+
         private void logToJson(Tag messageTag, string message, string id = "")
         {
             try
@@ -1160,5 +1159,13 @@ namespace BasicxLogger
             }
         }
         //----------------------------------------------------------------------------------------------
+    }
+
+    class LogMessage
+    {
+        public string id { get; set; }
+        public string timestamp { get; set; }
+        public string tag { get; set; }
+        public string message { get; set; }
     }
 }

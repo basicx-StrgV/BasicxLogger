@@ -11,12 +11,10 @@
  *  https://github.com/basicx-StrgV/BasicxLogger                            *
  *                                                                          *
  * **************************************************************************/
-using BasicxLogger.Message;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using BasicxLogger.Message;
 
 namespace BasicxLogger
 {
@@ -24,6 +22,9 @@ namespace BasicxLogger
     /// A logger that allows you to add all loggers that use the ILogger interface and 
     /// log with all of them by only using one log method call.
     /// </summary>
+    /// <remarks>
+    /// The multi logger supports all logger that uses the ILogger intaterface.
+    /// </remarks>
     public class MultiLogger
     {
         private List<ILogger> loggerList = new List<ILogger>();
@@ -93,6 +94,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         public void log(Tag messageTag, string message)
         {
             try
@@ -120,14 +122,10 @@ namespace BasicxLogger
         /// </summary>
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
+        /// ID verification ist not supportet with the multi logger.
         /// </remarks>
         /// <param name="message">
         /// The message that will be writen to the file
-        /// </param>
-        /// <param name="verifyMessageID">
-        /// Set to true if you want to make sure the message id is unique.
-        /// If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-        /// When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
         /// </param>
         /// <returns>
         /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -141,17 +139,14 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public string logID(string message, bool verifyMessageID = false)
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        public string logID(string message)
         {
             try
             {
                 if (loggerList.Count > 0)
                 {
                     string id = generateID();
-                    if (verifyMessageID)
-                    {
-                        id = verifyID(id);
-                    }
 
                     foreach (ILogger logger in loggerList)
                     {
@@ -176,17 +171,13 @@ namespace BasicxLogger
         /// </summary>
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
+        /// ID verification ist not supportet with the multi logger.
         /// </remarks>
         /// <param name="message">
         /// The message that will be writen to the file
         /// </param>
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <param name="verifyMessageID">
-        /// Set to true if you want to make sure the message id is unique.
-        /// If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-        /// When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
         /// </param>
         /// <returns>
         /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -200,17 +191,14 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public string logID(Tag messageTag, string message, bool verifyMessageID = false)
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        public string logID(Tag messageTag, string message)
         {
             try
             {
                 if (loggerList.Count > 0)
                 {
                     string id = generateID();
-                    if (verifyMessageID)
-                    {
-                        id = verifyID(id);
-                    }
 
                     foreach (ILogger logger in loggerList)
                     {
@@ -251,6 +239,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         public void logCustomID(string id, string message)
         {
             try
@@ -297,6 +286,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         public void logCustomID(string id, Tag messageTag, string message)
         {
             try
@@ -338,6 +328,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         public async Task logAsync(string message)
         {
@@ -383,6 +374,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         public async Task logAsync(Tag messageTag, string message)
         {
             try
@@ -410,14 +402,10 @@ namespace BasicxLogger
         /// </summary>
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
+        /// ID verification ist not supportet with the multi logger.
         /// </remarks>
         /// <param name="message">
         /// The message that will be writen to the file
-        /// </param>
-        /// <param name="verifyMessageID">
-        /// Set to true if you want to make sure the message id is unique.
-        /// If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-        /// When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
         /// </param>
         /// <returns>
         /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -431,17 +419,14 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public async Task<string> logIDAsync(string message, bool verifyMessageID = false)
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        public async Task<string> logIDAsync(string message)
         {
             try
             {
                 if (loggerList.Count > 0)
                 {
                     string id = generateID();
-                    if (verifyMessageID)
-                    {
-                        id = verifyID(id);
-                    }
 
                     foreach (ILogger logger in loggerList)
                     {
@@ -466,17 +451,13 @@ namespace BasicxLogger
         /// </summary>
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
+        /// ID verification ist not supportet with the multi logger.
         /// </remarks>
         /// <param name="message">
         /// The message that will be writen to the file
         /// </param>
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <param name="verifyMessageID">
-        /// Set to true if you want to make sure the message id is unique.
-        /// If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-        /// When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
         /// </param>
         /// <returns>
         /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -490,17 +471,14 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public async Task<string> logIDAsync(Tag messageTag, string message, bool verifyMessageID = false)
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        public async Task<string> logIDAsync(Tag messageTag, string message)
         {
             try
             {
                 if (loggerList.Count > 0)
                 {
                     string id = generateID();
-                    if (verifyMessageID)
-                    {
-                        id = verifyID(id);
-                    }
 
                     foreach (ILogger logger in loggerList)
                     {
@@ -541,6 +519,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         public async Task logCustomIDAsync(string id, string message)
         {
             try
@@ -587,6 +566,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
+        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         public async Task logCustomIDAsync(string id, Tag messageTag, string message)
         {
             try
@@ -640,30 +620,6 @@ namespace BasicxLogger
             }
 
             return id;
-        }
-
-        private string verifyID(string id)
-        {
-            try
-            {
-                string tempId = id;
-
-                /*if (File.Exists(logDirectory.directory + "/" + logFile.file))
-                {
-                    string fileContent = File.ReadAllText(logDirectory.directory + "/" + logFile.file);
-
-                    while (fileContent.Contains(tempId))
-                    {
-                        tempId = generateID();
-                    }
-                }*/
-
-                return tempId;
-            }
-            catch (Exception)
-            {
-                return id;
-            }
         }
         //----------------------------------------------------------------------------------------------
     }

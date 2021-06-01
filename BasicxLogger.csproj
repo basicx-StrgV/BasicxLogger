@@ -12,7 +12,8 @@
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
     <PackageTags>logger, logging, C#, .NET-Standard</PackageTags>
     <PackageReleaseNotes>- Added a new Logger (JsonLogger) that allows you to log your owne objects to a json file
-- Added a new Logger (MultiLogger) that allows you to log with every logger added to it with only one log method</PackageReleaseNotes>
+- Added a new Logger (MultiLogger) that allows you to log with every logger added to it with only one log method
+- Replaced the normel Logger class with the FileLogger class</PackageReleaseNotes>
     <Version>1.4.0</Version>
   </PropertyGroup>
 
