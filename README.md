@@ -26,11 +26,11 @@
 
 - FileLogger
   - Allows you to log to a file
-    - Supported file formats
-      - txt
-      - log
-      - xml
-      - json
+  - Supported file formats
+    - txt
+    - log
+    - xml
+    - json
 - JsonLogger
   - Allows you to log a custom object to a json file
 - MultiLogger
