@@ -9,19 +9,20 @@
 ## ⭐ Features
 
 - Easy to use
-- Can be used without configuration
+- File logging can be used without configuration
 - Fully customizable
 - Use tags to easier differentiate between different log messages
 - Log messages with IDs to easier locate them in a big log file
 - Asynchronous logging
-- Log your owne objects to a json file
-- Log to multiple files and/or databases at ones
-- Log to a MySQL database
-- Supports different file formats
+- File logging supports different file formats
   - txt
   - log
   - xml
   - json
+
+- Log to a MySQL database
+- Log your owne objects to a json file
+- Log to multiple files and/or databases at ones
 
 ## 📄 Logger
 
@@ -30,7 +31,6 @@
 - JsonLogger
 - MultiLogger
 
- 
 ## 📦 NuGet package
 
 You can get the nuget package here: https://www.nuget.org/packages/BasicxLogger/
