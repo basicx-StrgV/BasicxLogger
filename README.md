@@ -23,24 +23,13 @@
   - xml
   - json
 
-## All Logger
+## 📄 Logger
 
 - FileLogger
-  - Allows you to log to a file
-  - Supported file formats
-    - txt
-    - log
-    - xml
-    - json
 - MySqlLogger
-  - Allows you to log to a MySql database
 - JsonLogger
-  - Allows you to log a custom object to a json file
 - MultiLogger
-  - You can add all your logger objects that use the ILogger interface to the multi logger and log with all of them by only using the multi logger log function
-  - Supported loggers
-    - FileLogger
-    - MySqlLogger
+
  
 ## 📦 NuGet package
 
@@ -52,7 +41,7 @@ You can finde the documentation here: https://basicx-strgv.github.io/BasicxLogge
 
 ## 📋 Samples
 
-### Default Logger
+### FileLogger
 ```cs
 using BasicxLogger;
 
@@ -63,7 +52,7 @@ namespace Sample
         static void Main(string[] args)
         {
             //Create a logger object
-            Logger logger = new Logger();
+            FileLogger logger = new FileLogger();
             //Write a log message
             logger.log("SampleMessage");
             /* 
@@ -76,7 +65,7 @@ namespace Sample
 }
 ```
 
-### Custom Logger (File, Directory)
+### FileLogger (Custom File and Directory)
 ```cs
 using BasicxLogger;
 using BasicxLogger.LoggerFile;
@@ -89,7 +78,7 @@ namespace Sample
         static void Main(string[] args)
         {
             //Create a logger object
-            Logger logger = new Logger(
+            FileLogger logger = new FileLogger(
                 new LogFile("myLogFile", LogFileType.txt),
                 new LogDirectory("C:\\Program Files", "myProgramFolder"));
             //Write a log message
@@ -104,7 +93,7 @@ namespace Sample
 }
 ```
 
-### Custom Logger (Message)
+### FileLogger (Custom Message)
 ```cs
 using BasicxLogger;
 using BasicxLogger.Message;
@@ -116,7 +105,9 @@ namespace Sample
         static void Main(string[] args)
         {
             //Create a logger object
-            Logger logger = new Logger(new MessageFormat(new Date(DateFormat.day_month_year, '.')));
+            FileLogger logger = new FileLogger(
+				new MessageFormat(
+					new Date(DateFormat.day_month_year, '.')));
             //Write a log message
             logger.log("SampleMessage");
             /* 
