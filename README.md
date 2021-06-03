@@ -15,7 +15,8 @@
 - Log messages with IDs to easier locate them in a big log file
 - Asynchronous logging
 - Log your owne objects to a json file
-- Log to multiple files at ones
+- Log to multiple files and/or databases at ones
+- Log to a MySQL database
 - Supports different file formats
   - txt
   - log
@@ -31,12 +32,15 @@
     - log
     - xml
     - json
+- MySqlLogger
+  - Allows you to log to a MySql database
 - JsonLogger
   - Allows you to log a custom object to a json file
 - MultiLogger
   - You can add all your logger objects that use the ILogger interface to the multi logger and log with all of them by only using the multi logger log function
   - Supported loggers
     - FileLogger
+    - MySqlLogger
  
 ## 📦 NuGet package
 

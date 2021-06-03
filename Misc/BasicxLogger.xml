@@ -4,17 +4,155 @@
         <name>BasicxLogger</name>
     </assembly>
     <members>
-        <member name="T:BasicxLogger.ILogger">
+        <member name="T:BasicxLogger.FileLogger">
             <summary>
-            Interface for BasicxLogger
+            File logger that contains everything needed to write a message to a log file.
+            </summary>
+            <remarks>
+            This logger supports the following file formats: txt, log, xml and json
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.FileLogger.logFile">
+            <summary>
+            Contains all informations about the log file
             </summary>
         </member>
-        <member name="P:BasicxLogger.ILogger.messageFormat">
+        <member name="P:BasicxLogger.FileLogger.logDirectory">
+            <summary>
+            Contains all informations about the log directory
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.FileLogger.messageFormat">
             <summary>
             Contains all informations about the formatting of the log messages
             </summary>
         </member>
-        <member name="M:BasicxLogger.ILogger.log(System.String)">
+        <member name="M:BasicxLogger.FileLogger.#ctor">
+            <summary>
+            Constructor, to create a simple logger object that uses the default settings
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerFile.LogFile)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.LoggerDirectory.LogDirectory)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.Message.MessageFormat)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.Message.MessageFormat)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.Message.MessageFormat,BasicxLogger.LoggerDirectory.LogDirectory)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.LoggerFile.LogFile)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.Message.MessageFormat)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.LoggerFile.LogFile,BasicxLogger.Message.MessageFormat)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.Message.MessageFormat,BasicxLogger.LoggerFile.LogFile)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Message.MessageFormat)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Message.MessageFormat,BasicxLogger.LoggerFile.LogFile)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Message.MessageFormat,BasicxLogger.LoggerDirectory.LogDirectory)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Message.MessageFormat,BasicxLogger.LoggerFile.LogFile,BasicxLogger.LoggerDirectory.LogDirectory)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Message.MessageFormat,BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.LoggerFile.LogFile)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.log(System.String)">
             <summary>
             Writes the given message and the current time stamp to the log file.
             </summary>
@@ -34,7 +172,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.ILogger.log(BasicxLogger.Message.Tag,System.String)">
+        <member name="M:BasicxLogger.FileLogger.log(BasicxLogger.Message.Tag,System.String)">
             <summary>
             Writes the given message with the given tag and the current time stamp to the log file.
             </summary>
@@ -57,7 +195,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.ILogger.logID(System.String,System.Boolean)">
+        <member name="M:BasicxLogger.FileLogger.logID(System.String,System.Boolean)">
             <summary>
             Writes the given message, a message ID and the current time stamp to the log file.
             </summary>
@@ -85,7 +223,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.ILogger.logID(BasicxLogger.Message.Tag,System.String,System.Boolean)">
+        <member name="M:BasicxLogger.FileLogger.logID(BasicxLogger.Message.Tag,System.String,System.Boolean)">
             <summary>
             Writes the given message with the given tag, a message ID and the current time stamp to the log file.
             </summary>
@@ -116,7 +254,56 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.ILogger.logAsync(System.String)">
+        <member name="M:BasicxLogger.FileLogger.logCustomID(System.String,System.String)">
+            <summary>
+            Writes the given message, the given ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.logCustomID(System.String,BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Writes the given message with the given tag, the given ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.logAsync(System.String)">
             <summary>
             Asynchronous writes the given message and the current time stamp to the log file.
             </summary>
@@ -136,7 +323,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.ILogger.logAsync(BasicxLogger.Message.Tag,System.String)">
+        <member name="M:BasicxLogger.FileLogger.logAsync(BasicxLogger.Message.Tag,System.String)">
             <summary>
             Asynchronous writes the given message with the given tag and the current time stamp to the log file.
             </summary>
@@ -159,7 +346,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.ILogger.logIDAsync(System.String,System.Boolean)">
+        <member name="M:BasicxLogger.FileLogger.logIDAsync(System.String,System.Boolean)">
             <summary>
             Asynchronous writes the given message, a message ID and the current time stamp to the log file.
             </summary>
@@ -187,7 +374,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.ILogger.logIDAsync(BasicxLogger.Message.Tag,System.String,System.Boolean)">
+        <member name="M:BasicxLogger.FileLogger.logIDAsync(BasicxLogger.Message.Tag,System.String,System.Boolean)">
             <summary>
             Asynchronous writes the given message with the given tag, a message ID and the current time stamp to the log file.
             </summary>
@@ -218,10 +405,357 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
+        <member name="M:BasicxLogger.FileLogger.logCustomIDAsync(System.String,System.String)">
+            <summary>
+            Asynchronous writes the given message, the given ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.logCustomIDAsync(System.String,BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Asynchronous writes the given message with the given tag, the given ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.getFullFilePath">
+            <returns>
+            The full file path (e.g. C:\mypath\myfile.txt)
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.FileLogger.deleteLogFile">
+            <summary>
+            Deletes the log file, that was created by the logger.
+            </summary>
+            <remarks>
+            All logs will be lost. If you log again after deleting the log file, the logger will create a new file.
+            </remarks>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+        </member>
+        <member name="T:BasicxLogger.ILogger">
+            <summary>
+            Interface for BasicxLogger
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.ILogger.log(System.String)">
+            <summary>
+            Logs the given message and the current time.
+            </summary>
+            <param name="message">
+            The message that will be loged
+            </param>
+        </member>
+        <member name="M:BasicxLogger.ILogger.log(BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Logs the given message with the given tag and the current time stamp.
+            </summary>
+            <param name="message">
+            The message that will be loged
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logID(System.String,System.Boolean)">
+            <summary>
+            Logs the given message, a message ID and the current time stamp.
+            </summary>
+            <param name="message">
+            The message that will be loged
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
+            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logID(BasicxLogger.Message.Tag,System.String,System.Boolean)">
+            <summary>
+            Logs the given message with the given tag, a message ID and the current time stamp.
+            </summary>
+            <param name="message">
+            The message that will be loged
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
+            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logCustomID(System.String,System.String)">
+            <summary>
+            Logs the given message, the given ID and the current time stamp.
+            </summary>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be loged
+            </param>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logCustomID(System.String,BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Logs the given message with the given tag, the given ID and the current time stamp.
+            </summary>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be loged
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logAsync(System.String)">
+            <summary>
+            Asynchronous logs the given message and the current time stamp.
+            </summary>
+            <param name="message">
+            The message that will be loged
+            </param>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logAsync(BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Asynchronous logs the given message with the given tag and the current time stamp.
+            </summary>
+            <param name="message">
+            The message that will be loged
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logIDAsync(System.String,System.Boolean)">
+            <summary>
+            Asynchronous logs the given message, a message ID and the current time stamp.
+            </summary>
+            <param name="message">
+            The message that will be loged
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
+            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logIDAsync(BasicxLogger.Message.Tag,System.String,System.Boolean)">
+            <summary>
+            Asynchronous logs the given message with the given tag, a message ID and the current time stamp.
+            </summary>
+            <param name="message">
+            The message that will be loged
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
+            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logCustomIDAsync(System.String,System.String)">
+            <summary>
+            Asynchronous logs the given message, the given ID and the current time stamp.
+            </summary>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be loged
+            </param>
+        </member>
+        <member name="M:BasicxLogger.ILogger.logCustomIDAsync(System.String,BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Asynchronous logs the given message with the given tag, the given ID and the current time stamp.
+            </summary>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be loged
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+        </member>
+        <member name="T:BasicxLogger.JsonLogger`1">
+            <summary>
+            A logger that allows you to log your owne objects to a json file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.JsonLogger`1.logFile">
+            <summary>
+            Contains all informations about the log file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.JsonLogger`1.logDirectory">
+            <summary>
+            Contains all informations about the log directory
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.JsonLogger`1.#ctor">
+            <summary>
+            Constructor, to create a simple logger object that uses the default settings
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.JsonLogger`1.#ctor(System.String)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.JsonLogger`1.#ctor(System.String,BasicxLogger.LoggerDirectory.LogDirectory)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.JsonLogger`1.#ctor(BasicxLogger.LoggerDirectory.LogDirectory)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.JsonLogger`1.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,System.String)">
+            <summary>
+            Constructor, to create a logger object with custom settings. 
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.JsonLogger`1.log(`0)">
+            <summary>
+            Adds the given object to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="logObject">
+            The object that will be added to the json file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.JsonLogger`1.logAsync(`0)">
+            <summary>
+            Asynchronous adds the given object to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="logObject">
+            The object that will be added to the json file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.JsonLogger`1.getFullFilePath">
+            <returns>
+            The full file path (e.g. C:\mypath\myfile.json)
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.JsonLogger`1.deleteLogFile">
+            <summary>
+            Deletes the log file, that was created by the logger.
+            </summary>
+            <remarks>
+            All logs will be lost. If you log again after deleting the log file, the logger will create a new file.
+            </remarks>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+        </member>
         <member name="T:BasicxLogger.Logger">
             <summary>
-            Default Logger class that contains everything needed to write a message to a log file
+            Default Logger class that contains everything needed to write a message to a log file.
             </summary>
+            <remarks>
+            This logger supports the following file formats: txt, log, xml and json
+            </remarks>
         </member>
         <member name="P:BasicxLogger.Logger.logFile">
             <summary>
@@ -465,6 +999,55 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
+        <member name="M:BasicxLogger.Logger.logCustomID(System.String,System.String)">
+            <summary>
+            Writes the given message, the given ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.Logger.logCustomID(System.String,BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Writes the given message with the given tag, the given ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
         <member name="M:BasicxLogger.Logger.logAsync(System.String)">
             <summary>
             Asynchronous writes the given message and the current time stamp to the log file.
@@ -567,6 +1150,55 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
+        <member name="M:BasicxLogger.Logger.logCustomIDAsync(System.String,System.String)">
+            <summary>
+            Asynchronous writes the given message, the given ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
+        <member name="M:BasicxLogger.Logger.logCustomIDAsync(System.String,BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Asynchronous writes the given message with the given tag, the given ID and the current time stamp to the log file.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+        </member>
         <member name="M:BasicxLogger.Logger.getFullFilePath">
             <returns>
             The full file path (e.g. C:\mypath\myfile.txt)
@@ -586,6 +1218,86 @@
             <exception cref="T:System.IO.IOException"></exception>
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+        </member>
+        <member name="T:BasicxLogger.LoggerDatabase.MySqlDatabase">
+            <summary>
+            Holds all informations about the MySqlDatabase used for logging
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.server">
+            <summary>
+            URL of the MySql database server
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.database">
+            <summary>
+            Name of the database that will contain the logs
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.user">
+            <summary>
+            Username of the database user you want to use
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.password">
+            <summary>
+            Password of the given user
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.port">
+            <summary>
+            Port of the database server
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.sslMode">
+            <summary>
+            SSL Mode setting
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.connectionString">
+            <summary>
+            Connection string for the MySql database
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.connection">
+            <summary>
+            The database connection
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.LoggerDatabase.MySqlDatabase.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor to creates a new MySqlDatabase object
+            </summary>
+            <param name="server">URL of the MySql database server</param>
+            <param name="database">Name of the database that will contain the logs</param>
+            <param name="user">Username of the database user you want to use</param>
+            <param name="password">Password of the given user</param>
+            <param name="port">Port of the database server</param>
+            <param name="sslMode">SSL Mode setting</param>
         </member>
         <member name="T:BasicxLogger.LoggerDirectory.LogDirectory">
             <summary>
@@ -1026,6 +1738,579 @@
             <summary>
             Select, if you dont want to have the time in your log file
             </summary>
+        </member>
+        <member name="T:BasicxLogger.MultiLogger">
+            <summary>
+            A logger that allows you to add all loggers that use the ILogger interface and 
+            log with all of them by only using one log method call.
+            </summary>
+            <remarks>
+            The multi logger supports all logger that uses the ILogger intaterface.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.log(System.String)">
+            <summary>
+            Logs the given message and the current time stamp with every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.log(BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Logs the given message with the given tag and the current time stamp with every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.logID(System.String)">
+            <summary>
+            Logs the given message, a message ID and the current time stamp with every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            ID verification ist not supportet with the multi logger.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.logID(BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Logs the given message with the given tag, a message ID and the current time stamp with every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            ID verification ist not supportet with the multi logger.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.logCustomID(System.String,System.String)">
+            <summary>
+            Logs the given message, the given ID and the current time stamp with every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.logCustomID(System.String,BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Logs the given message with the given tag, the given ID and the current time stampwith every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.logAsync(System.String)">
+            <summary>
+            Asynchronous logs the given message and the current time stamp with every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.logAsync(BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Asynchronous logs the given message with the given tag and the current time stamp with every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.logIDAsync(System.String)">
+            <summary>
+            Asynchronous logs the given message, a message ID and the current time stamp with every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            ID verification ist not supportet with the multi logger.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.logIDAsync(BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Asynchronous logs the given message with the given tag, a message ID and the current time stamp with every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            ID verification ist not supportet with the multi logger.
+            </remarks>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.logCustomIDAsync(System.String,System.String)">
+            <summary>
+            Asynchronous logs the given message, the given ID and the current time stamp with every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.logCustomIDAsync(System.String,BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Asynchronous logs the given message with the given tag, the given ID and the current time stampwith every logger that was added to the multi logger.
+            </summary>
+            <remarks>
+            If the log file and/or directory is missing, the method will automatically create them.
+            </remarks>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.ArgumentException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.NotSupportedException"></exception>
+            <exception cref="T:System.NullReferenceException"></exception>
+            <exception cref="T:System.UnauthorizedAccessException"></exception>
+            <exception cref="T:System.IO.IOException"></exception>
+            <exception cref="T:System.IO.PathTooLongException"></exception>
+            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
+            <exception cref="T:System.Security.SecurityException"></exception>
+            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.addLogger(BasicxLogger.ILogger)">
+            <summary>
+            Adds the given logger to the multi logger
+            </summary>
+            <param name="logger">The logger to add</param>
+        </member>
+        <member name="T:BasicxLogger.MySqlLogger">
+            <summary>
+            Logger that contains everything needed to log to an MySql database.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.MySqlLogger.logTableName">
+            <summary>
+            Name of the table the logger will create and insert logs into
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.MySqlLogger.mySqlDatabase">
+            <summary>
+            Holds all informations about the MySqlDatabase used for logging
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.#ctor(BasicxLogger.LoggerDatabase.MySqlDatabase,System.String)">
+            <summary>
+            Constructor to create a MySqlLogger
+            </summary>
+            <remarks>
+            The messege formate will use the default settings with this constructor
+            </remarks>
+            <param name="mySqlDatabase">
+            Holds all informations about the MySqlDatabase used for logging
+            </param>
+            <param name="logTableName">
+            Name of the table the logger will log to. This table will be created by the logger.
+            </param>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.#ctor(BasicxLogger.LoggerDatabase.MySqlDatabase,System.String,BasicxLogger.Message.Tag)">
+            <summary>
+            Constructor to create a MySqlLogger
+            </summary>
+            <param name="mySqlDatabase">
+            Holds all informations about the MySqlDatabase used for logging
+            </param>
+            <param name="logTableName">
+            Name of the table the logger will log to. This table will be created by the logger.
+            </param>
+            <param name="defaultTag">
+            A default message tag that will be used if no tag is selected
+            </param>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.log(System.String)">
+            <summary>
+            Inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.log(BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.logID(System.String,System.Boolean)">
+            <summary>
+            Inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.logID(BasicxLogger.Message.Tag,System.String,System.Boolean)">
+            <summary>
+            Inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.logCustomID(System.String,System.String)">
+            <summary>
+            Inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.logCustomID(System.String,BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.logAsync(System.String)">
+            <summary>
+            Asynchronous inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.logAsync(BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Asynchronous inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.logIDAsync(System.String,System.Boolean)">
+            <summary>
+            Asynchronous inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.logIDAsync(BasicxLogger.Message.Tag,System.String,System.Boolean)">
+            <summary>
+            Asynchronous inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <param name="verifyMessageID">
+            Set to true if you want to make sure the message id is unique.
+            If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
+            </param>
+            <returns>
+            The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+            </returns>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.logCustomIDAsync(System.String,System.String)">
+            <summary>
+            Asynchronous inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
+        </member>
+        <member name="M:BasicxLogger.MySqlLogger.logCustomIDAsync(System.String,BasicxLogger.Message.Tag,System.String)">
+            <summary>
+            Asynchronous inserts the given message and the current time stamp into the log table.
+            </summary>
+            <param name="id">
+            The id of the log message
+            </param>
+            <param name="message">
+            The message that will be writen to the file
+            </param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.AggregateException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+            <exception cref="T:System.Data.Common.DbException"></exception>
         </member>
     </members>
 </doc>
