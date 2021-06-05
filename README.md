@@ -1,5 +1,5 @@
 
-![BasicxLogger](https://i.imgur.com/tXTU4gj.png)
+![BasicxLogger](https://raw.githubusercontent.com/basicx-StrgV/BasicxLogger/main/Misc/basicxLoggerIconNoBackground.png)
 
 
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/basicx-StrgV/BasicxLogger?label=Version)](https://github.com/basicx-StrgV/BasicxLogger/releases)
