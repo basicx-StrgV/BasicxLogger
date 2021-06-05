@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: TimeFormat.cs Source File</title>
+<title>BasicxLogger: DateFormat.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
   </td>
  </tr>
@@ -84,41 +84,37 @@ $(document).ready(function(){initNavTree('a00032_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">TimeFormat.cs</div>  </div>
+<div class="title">DateFormat.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00041.html">BasicxLogger.Message</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00060.html">BasicxLogger.Message</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00041.html#af146436e4f41a81c5f0bd8d395616510">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">enum</span> <a class="code" href="a00041.html#af146436e4f41a81c5f0bd8d395616510">TimeFormat</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224e">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">enum</span> <a class="code" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224e">DateFormat</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="a00041.html#af146436e4f41a81c5f0bd8d395616510ac331f22043b329aebd52645740a7b5f9">hour24_min</a>,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="a00041.html#af146436e4f41a81c5f0bd8d395616510a006d28d5c44e89c9599731b43d0afd80">hour24_min_sec</a>,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="a00041.html#af146436e4f41a81c5f0bd8d395616510a7010f3d2104163b226a32f6a07b9ca6d">hour24_min_sec_millisec</a>,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="a00041.html#af146436e4f41a81c5f0bd8d395616510ac1c4d6769c9188c487a10d433c550c84">hour12_min</a>,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="a00041.html#af146436e4f41a81c5f0bd8d395616510a4e755abc1d2b08ba2e8b33254684bfb7">hour12_min_sec</a>,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="a00041.html#af146436e4f41a81c5f0bd8d395616510acfcd2646ae3508274db15efcf00fcab3">hour12_min_sec_millisec</a>,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8">none</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="ttc" id="aa00041_html"><div class="ttname"><a href="a00041.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00007">Date.cs:8</a></div></div>
-<div class="ttc" id="aa00041_html_a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8"><div class="ttname"><a href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8">BasicxLogger.Message.DateFormat.none</a></div><div class="ttdeci">@ none</div><div class="ttdoc">Select, if you dont want to have the time in your log file</div></div>
-<div class="ttc" id="aa00041_html_af146436e4f41a81c5f0bd8d395616510"><div class="ttname"><a href="a00041.html#af146436e4f41a81c5f0bd8d395616510">BasicxLogger.Message.TimeFormat</a></div><div class="ttdeci">TimeFormat</div><div class="ttdoc">Enum that contains every supported time format</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00010">TimeFormat.cs:11</a></div></div>
-<div class="ttc" id="aa00041_html_af146436e4f41a81c5f0bd8d395616510a006d28d5c44e89c9599731b43d0afd80"><div class="ttname"><a href="a00041.html#af146436e4f41a81c5f0bd8d395616510a006d28d5c44e89c9599731b43d0afd80">BasicxLogger.Message.TimeFormat.hour24_min_sec</a></div><div class="ttdeci">@ hour24_min_sec</div><div class="ttdoc">Formate: &quot;HH:mm:ss&quot;</div></div>
-<div class="ttc" id="aa00041_html_af146436e4f41a81c5f0bd8d395616510a4e755abc1d2b08ba2e8b33254684bfb7"><div class="ttname"><a href="a00041.html#af146436e4f41a81c5f0bd8d395616510a4e755abc1d2b08ba2e8b33254684bfb7">BasicxLogger.Message.TimeFormat.hour12_min_sec</a></div><div class="ttdeci">@ hour12_min_sec</div><div class="ttdoc">Formate: &quot;hh:mm:ss tt&quot;</div></div>
-<div class="ttc" id="aa00041_html_af146436e4f41a81c5f0bd8d395616510a7010f3d2104163b226a32f6a07b9ca6d"><div class="ttname"><a href="a00041.html#af146436e4f41a81c5f0bd8d395616510a7010f3d2104163b226a32f6a07b9ca6d">BasicxLogger.Message.TimeFormat.hour24_min_sec_millisec</a></div><div class="ttdeci">@ hour24_min_sec_millisec</div><div class="ttdoc">Formate: &quot;HH:mm:ss.fff&quot;</div></div>
-<div class="ttc" id="aa00041_html_af146436e4f41a81c5f0bd8d395616510ac1c4d6769c9188c487a10d433c550c84"><div class="ttname"><a href="a00041.html#af146436e4f41a81c5f0bd8d395616510ac1c4d6769c9188c487a10d433c550c84">BasicxLogger.Message.TimeFormat.hour12_min</a></div><div class="ttdeci">@ hour12_min</div><div class="ttdoc">Formate: &quot;hh:mm tt&quot;</div></div>
-<div class="ttc" id="aa00041_html_af146436e4f41a81c5f0bd8d395616510ac331f22043b329aebd52645740a7b5f9"><div class="ttname"><a href="a00041.html#af146436e4f41a81c5f0bd8d395616510ac331f22043b329aebd52645740a7b5f9">BasicxLogger.Message.TimeFormat.hour24_min</a></div><div class="ttdeci">@ hour24_min</div><div class="ttdoc">Formate: &quot;HH:mm&quot;</div></div>
-<div class="ttc" id="aa00041_html_af146436e4f41a81c5f0bd8d395616510acfcd2646ae3508274db15efcf00fcab3"><div class="ttname"><a href="a00041.html#af146436e4f41a81c5f0bd8d395616510acfcd2646ae3508274db15efcf00fcab3">BasicxLogger.Message.TimeFormat.hour12_min_sec_millisec</a></div><div class="ttdeci">@ hour12_min_sec_millisec</div><div class="ttdoc">Formate: &quot;hh:mm:ss.fff tt&quot;</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224ea985992882e9452062f3fc85d15477775">year_month_day</a>,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224ea9b78c1db4364a8c6c5edb1f04875e3fc">year_day_month</a>,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224eada2887fe1086747044b770e275de9ded">day_month_year</a>,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224ea736a06e34ee8a23aa4afbdd3448bff04">month_day_year</a>,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8">none</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="ttc" id="aa00060_html"><div class="ttname"><a href="a00060.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00007">Date.cs:8</a></div></div>
+<div class="ttc" id="aa00060_html_a6b2f42cc9ece472692bb6249abe5224e"><div class="ttname"><a href="a00060.html#a6b2f42cc9ece472692bb6249abe5224e">BasicxLogger.Message.DateFormat</a></div><div class="ttdeci">DateFormat</div><div class="ttdoc">Enum that contains every supported date format</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00010">DateFormat.cs:11</a></div></div>
+<div class="ttc" id="aa00060_html_a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8"><div class="ttname"><a href="a00060.html#a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8">BasicxLogger.Message.DateFormat.none</a></div><div class="ttdeci">@ none</div><div class="ttdoc">Select, if you dont want to have the time in your log file</div></div>
+<div class="ttc" id="aa00060_html_a6b2f42cc9ece472692bb6249abe5224ea736a06e34ee8a23aa4afbdd3448bff04"><div class="ttname"><a href="a00060.html#a6b2f42cc9ece472692bb6249abe5224ea736a06e34ee8a23aa4afbdd3448bff04">BasicxLogger.Message.DateFormat.month_day_year</a></div><div class="ttdeci">@ month_day_year</div><div class="ttdoc">Formate: &quot;MM'/'dd'/'yyyy&quot;</div></div>
+<div class="ttc" id="aa00060_html_a6b2f42cc9ece472692bb6249abe5224ea985992882e9452062f3fc85d15477775"><div class="ttname"><a href="a00060.html#a6b2f42cc9ece472692bb6249abe5224ea985992882e9452062f3fc85d15477775">BasicxLogger.Message.DateFormat.year_month_day</a></div><div class="ttdeci">@ year_month_day</div><div class="ttdoc">Formate: &quot;yyyy'/'MM'/'dd&quot;</div></div>
+<div class="ttc" id="aa00060_html_a6b2f42cc9ece472692bb6249abe5224ea9b78c1db4364a8c6c5edb1f04875e3fc"><div class="ttname"><a href="a00060.html#a6b2f42cc9ece472692bb6249abe5224ea9b78c1db4364a8c6c5edb1f04875e3fc">BasicxLogger.Message.DateFormat.year_day_month</a></div><div class="ttdeci">@ year_day_month</div><div class="ttdoc">Formate: &quot;yyyy'/'dd'/'MM&quot;</div></div>
+<div class="ttc" id="aa00060_html_a6b2f42cc9ece472692bb6249abe5224eada2887fe1086747044b770e275de9ded"><div class="ttname"><a href="a00060.html#a6b2f42cc9ece472692bb6249abe5224eada2887fe1086747044b770e275de9ded">BasicxLogger.Message.DateFormat.day_month_year</a></div><div class="ttdeci">@ day_month_year</div><div class="ttdoc">Formate: &quot;dd'/'MM'/'yyyy&quot;</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_04bb8606242e6428d10cd7ddd95e6368.html">Message</a></li><li class="navelem"><a class="el" href="dir_a3ded4fef35833c827e0609486b4fb39.html">Time</a></li><li class="navelem"><b>TimeFormat.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_5f7ab36d536d5aa3d0e8dea92751f0ad.html">EasyLogger</a></li><li class="navelem"><a class="el" href="dir_ecb4f6d5091f30ca8d42121c967c832c.html">Message</a></li><li class="navelem"><a class="el" href="dir_76f7a3e829b140f526680c3fdaac7da5.html">Date</a></li><li class="navelem"><b>DateFormat.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

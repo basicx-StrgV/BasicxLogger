@@ -27,12 +27,13 @@ var NAVTREE =
   [ "BasicxLogger", "index.html", [
     [ "Packages", "namespaces.html", [
       [ "⭐ Features", "index.html#autotoc_md0", null ],
-      [ "📦 NuGet package", "index.html#autotoc_md1", null ],
-      [ "📖 Documentation", "index.html#autotoc_md2", null ],
-      [ "📋 Samples", "index.html#autotoc_md3", [
-        [ "Default Logger", "index.html#autotoc_md4", null ],
-        [ "Custom Logger (File, Directory)", "index.html#autotoc_md5", null ],
-        [ "Custom Logger (Message)", "index.html#autotoc_md6", null ]
+      [ "📄 Logger", "index.html#autotoc_md1", null ],
+      [ "📦 NuGet package", "index.html#autotoc_md2", null ],
+      [ "📖 Documentation", "index.html#autotoc_md3", null ],
+      [ "📋 Samples", "index.html#autotoc_md4", [
+        [ "FileLogger", "index.html#autotoc_md5", null ],
+        [ "FileLogger (Custom File and Directory)", "index.html#autotoc_md6", null ],
+        [ "FileLogger (Custom Message)", "index.html#autotoc_md7", null ]
       ] ],
       [ "Packages", "namespaces.html", "namespaces_dup" ],
       [ "Package Functions", "namespacemembers.html", [
@@ -58,7 +59,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"a00002_source.html"
+"a00002_source.html",
+"index.html#autotoc_md6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

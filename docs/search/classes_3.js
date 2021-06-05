@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['messageformat_74',['MessageFormat',['../a00077.html',1,'BasicxLogger::Message']]]
+  ['jsonlogger_92',['JsonLogger',['../a00090.html',1,'BasicxLogger']]]
 ];

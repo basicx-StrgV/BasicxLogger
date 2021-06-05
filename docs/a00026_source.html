@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: Tag.cs Source File</title>
+<title>BasicxLogger: LogFileType.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
   </td>
  </tr>
@@ -84,47 +84,35 @@ $(document).ready(function(){initNavTree('a00026_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Tag.cs</div>  </div>
+<div class="title">LogFileType.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00041.html">BasicxLogger.Message</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00059.html">BasicxLogger.LoggerFile</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">enum</span> <a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00059.html#a9837554d353f58214d40e75a9261f091">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">enum</span> <a class="code" href="a00059.html#a9837554d353f58214d40e75a9261f091">LogFileType</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a551b723eafd6a31d444fcb2f5920fbd3">INFO</a>,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a059e9861e0400dfbe05c98a841f3f96b">WARNING</a>,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a19da7170bea36556dde582519795f3fc">FATAL</a>,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23acccc265b14c17af799a1834f4fbbe7cf">EXCEPTION</a>,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a6e0d2a351777f8e1349133544e885f8a">DEBUGGING</a>,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a90791ed805bd5b00d78527d39d9ef7e4">MESSAGE</a>,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a320f86f60f25459ba5550e000b2c3929">ALERT</a>,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a030d962d0faa148f02848881a3b4fdb6">EVENT</a>,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8">none</a></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="ttc" id="aa00041_html"><div class="ttname"><a href="a00041.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00007">Date.cs:8</a></div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23">BasicxLogger.Message.Tag</a></div><div class="ttdeci">Tag</div><div class="ttdoc">Enum that contains every message tag you can use</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00010">Tag.cs:11</a></div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23a030d962d0faa148f02848881a3b4fdb6"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a030d962d0faa148f02848881a3b4fdb6">BasicxLogger.Message.Tag.EVENT</a></div><div class="ttdeci">@ EVENT</div><div class="ttdoc">Tag: [EVENT]</div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23a059e9861e0400dfbe05c98a841f3f96b"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a059e9861e0400dfbe05c98a841f3f96b">BasicxLogger.Message.Tag.WARNING</a></div><div class="ttdeci">@ WARNING</div><div class="ttdoc">Tag: [WARNING]</div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23a19da7170bea36556dde582519795f3fc"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a19da7170bea36556dde582519795f3fc">BasicxLogger.Message.Tag.FATAL</a></div><div class="ttdeci">@ FATAL</div><div class="ttdoc">Tag: [FATAL]</div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23a320f86f60f25459ba5550e000b2c3929"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a320f86f60f25459ba5550e000b2c3929">BasicxLogger.Message.Tag.ALERT</a></div><div class="ttdeci">@ ALERT</div><div class="ttdoc">Tag: [ALERT]</div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23a551b723eafd6a31d444fcb2f5920fbd3"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a551b723eafd6a31d444fcb2f5920fbd3">BasicxLogger.Message.Tag.INFO</a></div><div class="ttdeci">@ INFO</div><div class="ttdoc">Tag: [INFO]</div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23a6e0d2a351777f8e1349133544e885f8a"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a6e0d2a351777f8e1349133544e885f8a">BasicxLogger.Message.Tag.DEBUGGING</a></div><div class="ttdeci">@ DEBUGGING</div><div class="ttdoc">Tag: [DEBUGGING]</div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23a90791ed805bd5b00d78527d39d9ef7e4"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23a90791ed805bd5b00d78527d39d9ef7e4">BasicxLogger.Message.Tag.MESSAGE</a></div><div class="ttdeci">@ MESSAGE</div><div class="ttdoc">Tag: [MESSAGE]</div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23abb1ca97ec761fc37101737ba0aa2e7c5"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23abb1ca97ec761fc37101737ba0aa2e7c5">BasicxLogger.Message.Tag.ERROR</a></div><div class="ttdeci">@ ERROR</div><div class="ttdoc">Tag: [ERROR]</div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23acccc265b14c17af799a1834f4fbbe7cf"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23acccc265b14c17af799a1834f4fbbe7cf">BasicxLogger.Message.Tag.EXCEPTION</a></div><div class="ttdeci">@ EXCEPTION</div><div class="ttdoc">Tag: [EXCEPTION]</div></div>
-<div class="ttc" id="aa00041_html_a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8"><div class="ttname"><a href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8">BasicxLogger.Message.DateFormat.none</a></div><div class="ttdeci">@ none</div><div class="ttdoc">Select, if you dont want to have the time in your log file</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="a00059.html#a9837554d353f58214d40e75a9261f091ac7824f3d4d5f7b2f22d034758c1e9454">txt</a>,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="a00059.html#a9837554d353f58214d40e75a9261f091adc1d71bbb5c4d2a5e936db79ef10c19f">log</a>,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="a00059.html#a9837554d353f58214d40e75a9261f091a0f635d0e0f3874fff8b581c132e6c7a7">xml</a>,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="a00059.html#a9837554d353f58214d40e75a9261f091a466deec76ecdf5fca6d38571f6324d54">json</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="ttc" id="aa00059_html"><div class="ttname"><a href="a00059.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00005">LogFile.cs:6</a></div></div>
+<div class="ttc" id="aa00059_html_a9837554d353f58214d40e75a9261f091"><div class="ttname"><a href="a00059.html#a9837554d353f58214d40e75a9261f091">BasicxLogger.LoggerFile.LogFileType</a></div><div class="ttdeci">LogFileType</div><div class="ttdoc">Enum that contains every supported file type</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00010">LogFileType.cs:11</a></div></div>
+<div class="ttc" id="aa00059_html_a9837554d353f58214d40e75a9261f091a0f635d0e0f3874fff8b581c132e6c7a7"><div class="ttname"><a href="a00059.html#a9837554d353f58214d40e75a9261f091a0f635d0e0f3874fff8b581c132e6c7a7">BasicxLogger.LoggerFile.LogFileType.xml</a></div><div class="ttdeci">@ xml</div><div class="ttdoc">File type: .xml</div></div>
+<div class="ttc" id="aa00059_html_a9837554d353f58214d40e75a9261f091a466deec76ecdf5fca6d38571f6324d54"><div class="ttname"><a href="a00059.html#a9837554d353f58214d40e75a9261f091a466deec76ecdf5fca6d38571f6324d54">BasicxLogger.LoggerFile.LogFileType.json</a></div><div class="ttdeci">@ json</div><div class="ttdoc">File type: .json</div></div>
+<div class="ttc" id="aa00059_html_a9837554d353f58214d40e75a9261f091ac7824f3d4d5f7b2f22d034758c1e9454"><div class="ttname"><a href="a00059.html#a9837554d353f58214d40e75a9261f091ac7824f3d4d5f7b2f22d034758c1e9454">BasicxLogger.LoggerFile.LogFileType.txt</a></div><div class="ttdeci">@ txt</div><div class="ttdoc">File type: .txt</div></div>
+<div class="ttc" id="aa00059_html_a9837554d353f58214d40e75a9261f091adc1d71bbb5c4d2a5e936db79ef10c19f"><div class="ttname"><a href="a00059.html#a9837554d353f58214d40e75a9261f091adc1d71bbb5c4d2a5e936db79ef10c19f">BasicxLogger.LoggerFile.LogFileType.log</a></div><div class="ttdeci">@ log</div><div class="ttdoc">File type: .log</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_04bb8606242e6428d10cd7ddd95e6368.html">Message</a></li><li class="navelem"><b>Tag.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_5f7ab36d536d5aa3d0e8dea92751f0ad.html">EasyLogger</a></li><li class="navelem"><a class="el" href="dir_de8817c26b8baba2dcf0047188a70be7.html">LoggerFile</a></li><li class="navelem"><b>LogFileType.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

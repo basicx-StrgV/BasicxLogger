@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: ILogger.cs Source File</title>
+<title>BasicxLogger: NoLoggerAddedException.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
   </td>
  </tr>
@@ -84,52 +84,40 @@ $(document).ready(function(){initNavTree('a00002_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ILogger.cs</div>  </div>
+<div class="title">NoLoggerAddedException.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System.Threading.Tasks;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="a00038.html">BasicxLogger</a>.<a class="code" href="a00041.html">Message</a>;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="a00038.html">    8</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00038.html">BasicxLogger</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00053.html">   13</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">interface </span><a class="code" href="a00053.html">ILogger</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00053.html#aaa338f55502bc1dc2b111306af3ba77a">   18</a></span>&#160;        <a class="code" href="a00077.html">MessageFormat</a> <a class="code" href="a00053.html#aaa338f55502bc1dc2b111306af3ba77a">messageFormat</a> { <span class="keyword">get</span>; }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00053.html#a6fe2cf0b1d5071dbbb1664382f826c93">   38</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="a00053.html#a6fe2cf0b1d5071dbbb1664382f826c93">log</a>(<span class="keywordtype">string</span> message);</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a00053.html#abcd110f1b6d9ab2774cbee823a3511ec">   60</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="a00053.html#abcd110f1b6d9ab2774cbee823a3511ec">log</a>(<a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, <span class="keywordtype">string</span> message);</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="a00053.html#a83978e4bf0e6e51c5c0c1c1852f646ce">   87</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="a00053.html#a83978e4bf0e6e51c5c0c1c1852f646ce">logID</a>(<span class="keywordtype">string</span> message, <span class="keywordtype">bool</span> verifyMessageID = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="a00053.html#a45f891b4aff18bb46ce8d06526746dc7">  117</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="a00053.html#a45f891b4aff18bb46ce8d06526746dc7">logID</a>(<a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, <span class="keywordtype">string</span> message, <span class="keywordtype">bool</span> verifyMessageID = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="a00053.html#a0bf6c80c03aa61b7f67cea1bc2056d70">  136</a></span>&#160;        Task <a class="code" href="a00053.html#a0bf6c80c03aa61b7f67cea1bc2056d70">logAsync</a>(<span class="keywordtype">string</span> message);</div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="a00053.html#a6103f40853d111b29988f0577d849ad7">  158</a></span>&#160;        Task <a class="code" href="a00053.html#a6103f40853d111b29988f0577d849ad7">logAsync</a>(<a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, <span class="keywordtype">string</span> message);</div>
-<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="a00053.html#af19307635a0dbe24d010ccb0acf3d3fc">  185</a></span>&#160;        Task&lt;string&gt; <a class="code" href="a00053.html#af19307635a0dbe24d010ccb0acf3d3fc">logIDAsync</a>(<span class="keywordtype">string</span> message, <span class="keywordtype">bool</span> verifyMessageID = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00215"></a><span class="lineno"><a class="line" href="a00053.html#a88125f7edfedba94151bf4b9319f610e">  215</a></span>&#160;        Task&lt;string&gt; <a class="code" href="a00053.html#a88125f7edfedba94151bf4b9319f610e">logIDAsync</a>(<a class="code" href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, <span class="keywordtype">string</span> message, <span class="keywordtype">bool</span> verifyMessageID = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;}</div>
-<div class="ttc" id="aa00038_html"><div class="ttname"><a href="a00038.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00008">ILogger.cs:9</a></div></div>
-<div class="ttc" id="aa00041_html"><div class="ttname"><a href="a00041.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00007">Date.cs:8</a></div></div>
-<div class="ttc" id="aa00041_html_a4d52c49464175c0f10fd6fb0a937ca23"><div class="ttname"><a href="a00041.html#a4d52c49464175c0f10fd6fb0a937ca23">BasicxLogger.Message.Tag</a></div><div class="ttdeci">Tag</div><div class="ttdoc">Enum that contains every message tag you can use</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00010">Tag.cs:11</a></div></div>
-<div class="ttc" id="aa00053_html"><div class="ttname"><a href="a00053.html">BasicxLogger.ILogger</a></div><div class="ttdoc">Interface for BasicxLogger</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00013">ILogger.cs:14</a></div></div>
-<div class="ttc" id="aa00053_html_a0bf6c80c03aa61b7f67cea1bc2056d70"><div class="ttname"><a href="a00053.html#a0bf6c80c03aa61b7f67cea1bc2056d70">BasicxLogger.ILogger.logAsync</a></div><div class="ttdeci">Task logAsync(string message)</div><div class="ttdoc">Asynchronous writes the given message and the current time stamp to the log file.</div></div>
-<div class="ttc" id="aa00053_html_a45f891b4aff18bb46ce8d06526746dc7"><div class="ttname"><a href="a00053.html#a45f891b4aff18bb46ce8d06526746dc7">BasicxLogger.ILogger.logID</a></div><div class="ttdeci">string logID(Tag messageTag, string message, bool verifyMessageID=false)</div><div class="ttdoc">Writes the given message with the given tag, a message ID and the current time stamp to the log file.</div></div>
-<div class="ttc" id="aa00053_html_a6103f40853d111b29988f0577d849ad7"><div class="ttname"><a href="a00053.html#a6103f40853d111b29988f0577d849ad7">BasicxLogger.ILogger.logAsync</a></div><div class="ttdeci">Task logAsync(Tag messageTag, string message)</div><div class="ttdoc">Asynchronous writes the given message with the given tag and the current time stamp to the log file.</div></div>
-<div class="ttc" id="aa00053_html_a6fe2cf0b1d5071dbbb1664382f826c93"><div class="ttname"><a href="a00053.html#a6fe2cf0b1d5071dbbb1664382f826c93">BasicxLogger.ILogger.log</a></div><div class="ttdeci">void log(string message)</div><div class="ttdoc">Writes the given message and the current time stamp to the log file.</div></div>
-<div class="ttc" id="aa00053_html_a83978e4bf0e6e51c5c0c1c1852f646ce"><div class="ttname"><a href="a00053.html#a83978e4bf0e6e51c5c0c1c1852f646ce">BasicxLogger.ILogger.logID</a></div><div class="ttdeci">string logID(string message, bool verifyMessageID=false)</div><div class="ttdoc">Writes the given message, a message ID and the current time stamp to the log file.</div></div>
-<div class="ttc" id="aa00053_html_a88125f7edfedba94151bf4b9319f610e"><div class="ttname"><a href="a00053.html#a88125f7edfedba94151bf4b9319f610e">BasicxLogger.ILogger.logIDAsync</a></div><div class="ttdeci">Task&lt; string &gt; logIDAsync(Tag messageTag, string message, bool verifyMessageID=false)</div><div class="ttdoc">Asynchronous writes the given message with the given tag, a message ID and the current time stamp to ...</div></div>
-<div class="ttc" id="aa00053_html_aaa338f55502bc1dc2b111306af3ba77a"><div class="ttname"><a href="a00053.html#aaa338f55502bc1dc2b111306af3ba77a">BasicxLogger.ILogger.messageFormat</a></div><div class="ttdeci">MessageFormat messageFormat</div><div class="ttdoc">Contains all informations about the formatting of the log messages</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00018">ILogger.cs:18</a></div></div>
-<div class="ttc" id="aa00053_html_abcd110f1b6d9ab2774cbee823a3511ec"><div class="ttname"><a href="a00053.html#abcd110f1b6d9ab2774cbee823a3511ec">BasicxLogger.ILogger.log</a></div><div class="ttdeci">void log(Tag messageTag, string message)</div><div class="ttdoc">Writes the given message with the given tag and the current time stamp to the log file.</div></div>
-<div class="ttc" id="aa00053_html_af19307635a0dbe24d010ccb0acf3d3fc"><div class="ttname"><a href="a00053.html#af19307635a0dbe24d010ccb0acf3d3fc">BasicxLogger.ILogger.logIDAsync</a></div><div class="ttdeci">Task&lt; string &gt; logIDAsync(string message, bool verifyMessageID=false)</div><div class="ttdoc">Asynchronous writes the given message, a message ID and the current time stamp to the log file.</div></div>
-<div class="ttc" id="aa00077_html"><div class="ttname"><a href="a00077.html">BasicxLogger.Message.MessageFormat</a></div><div class="ttdoc">Contains all informations about the formatting of the log messages</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00012">MessageFormat.cs:13</a></div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="a00056.html">    7</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00056.html">BasicxLogger</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="a00074.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a00074.html">NoLoggerAddedException</a> : Exception</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">public</span> <a class="code" href="a00074.html">NoLoggerAddedException</a>()</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        }</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">public</span> <a class="code" href="a00074.html">NoLoggerAddedException</a>(<span class="keywordtype">string</span> message) : base(message)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">public</span> <a class="code" href="a00074.html">NoLoggerAddedException</a>(<span class="keywordtype">string</span> message, Exception inner) : base(message, inner)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="ttc" id="aa00056_html"><div class="ttname"><a href="a00056.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00007">NoLoggerAddedException.cs:8</a></div></div>
+<div class="ttc" id="aa00074_html"><div class="ttname"><a href="a00074.html">BasicxLogger.NoLoggerAddedException</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00009">NoLoggerAddedException.cs:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d7a24015de3ad3397ba9b230e38f5b53.html">Interfaces</a></li><li class="navelem"><b>ILogger.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_5f7ab36d536d5aa3d0e8dea92751f0ad.html">EasyLogger</a></li><li class="navelem"><a class="el" href="dir_0634c0fe6a680b3c2817976f46ca0253.html">Exceptions</a></li><li class="navelem"><b>NoLoggerAddedException.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

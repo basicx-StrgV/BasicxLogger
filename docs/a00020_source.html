@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: DateFormat.cs Source File</title>
+<title>BasicxLogger: LogDirectory.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">1.4.0</span>
+   &#160;<span id="projectnumber">2.0.0</span>
    </div>
   </td>
  </tr>
@@ -84,37 +84,41 @@ $(document).ready(function(){initNavTree('a00020_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">DateFormat.cs</div>  </div>
+<div class="title">LogDirectory.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00041.html">BasicxLogger.Message</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="a00058.html">    5</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00058.html">BasicxLogger.LoggerDirectory</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00041.html#a6b2f42cc9ece472692bb6249abe5224e">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">enum</span> <a class="code" href="a00041.html#a6b2f42cc9ece472692bb6249abe5224e">DateFormat</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00102.html">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00102.html">LogDirectory</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea985992882e9452062f3fc85d15477775">year_month_day</a>,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea9b78c1db4364a8c6c5edb1f04875e3fc">year_day_month</a>,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="a00041.html#a6b2f42cc9ece472692bb6249abe5224eada2887fe1086747044b770e275de9ded">day_month_year</a>,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea736a06e34ee8a23aa4afbdd3448bff04">month_day_year</a>,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8">none</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
-<div class="ttc" id="aa00041_html"><div class="ttname"><a href="a00041.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00007">Date.cs:8</a></div></div>
-<div class="ttc" id="aa00041_html_a6b2f42cc9ece472692bb6249abe5224e"><div class="ttname"><a href="a00041.html#a6b2f42cc9ece472692bb6249abe5224e">BasicxLogger.Message.DateFormat</a></div><div class="ttdeci">DateFormat</div><div class="ttdoc">Enum that contains every supported date format</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00010">DateFormat.cs:11</a></div></div>
-<div class="ttc" id="aa00041_html_a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8"><div class="ttname"><a href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea334c4a4c42fdb79d7ebc3e73b517e6f8">BasicxLogger.Message.DateFormat.none</a></div><div class="ttdeci">@ none</div><div class="ttdoc">Select, if you dont want to have the time in your log file</div></div>
-<div class="ttc" id="aa00041_html_a6b2f42cc9ece472692bb6249abe5224ea736a06e34ee8a23aa4afbdd3448bff04"><div class="ttname"><a href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea736a06e34ee8a23aa4afbdd3448bff04">BasicxLogger.Message.DateFormat.month_day_year</a></div><div class="ttdeci">@ month_day_year</div><div class="ttdoc">Formate: &quot;MM'/'dd'/'yyyy&quot;</div></div>
-<div class="ttc" id="aa00041_html_a6b2f42cc9ece472692bb6249abe5224ea985992882e9452062f3fc85d15477775"><div class="ttname"><a href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea985992882e9452062f3fc85d15477775">BasicxLogger.Message.DateFormat.year_month_day</a></div><div class="ttdeci">@ year_month_day</div><div class="ttdoc">Formate: &quot;yyyy'/'MM'/'dd&quot;</div></div>
-<div class="ttc" id="aa00041_html_a6b2f42cc9ece472692bb6249abe5224ea9b78c1db4364a8c6c5edb1f04875e3fc"><div class="ttname"><a href="a00041.html#a6b2f42cc9ece472692bb6249abe5224ea9b78c1db4364a8c6c5edb1f04875e3fc">BasicxLogger.Message.DateFormat.year_day_month</a></div><div class="ttdeci">@ year_day_month</div><div class="ttdoc">Formate: &quot;yyyy'/'dd'/'MM&quot;</div></div>
-<div class="ttc" id="aa00041_html_a6b2f42cc9ece472692bb6249abe5224eada2887fe1086747044b770e275de9ded"><div class="ttname"><a href="a00041.html#a6b2f42cc9ece472692bb6249abe5224eada2887fe1086747044b770e275de9ded">BasicxLogger.Message.DateFormat.day_month_year</a></div><div class="ttdeci">@ day_month_year</div><div class="ttdoc">Formate: &quot;dd'/'MM'/'yyyy&quot;</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00102.html#aa9321becb7929e989f1fc27f1352b040">   15</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00102.html#aa9321becb7929e989f1fc27f1352b040">path</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a00102.html#a15d7c627c38555d3215144019262b053">   19</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00102.html#a15d7c627c38555d3215144019262b053">name</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a00102.html#aa999f05361523ee7ac60227789a21687">   23</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00102.html#aa999f05361523ee7ac60227789a21687">directory</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a00102.html#a07eae62f9a035b4f45b59780b38dd404">   37</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00102.html#a07eae62f9a035b4f45b59780b38dd404">LogDirectory</a>(<span class="keywordtype">string</span> <a class="code" href="a00102.html#aa9321becb7929e989f1fc27f1352b040">path</a>, <span class="keywordtype">string</span> <a class="code" href="a00102.html#a15d7c627c38555d3215144019262b053">name</a>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            this.path = <a class="code" href="a00102.html#aa9321becb7929e989f1fc27f1352b040">path</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            this.name = <a class="code" href="a00102.html#a15d7c627c38555d3215144019262b053">name</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <a class="code" href="a00102.html#aa999f05361523ee7ac60227789a21687">directory</a> = this.path + <span class="stringliteral">&quot;\\&quot;</span> + this.<a class="code" href="a00102.html#a15d7c627c38555d3215144019262b053">name</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="ttc" id="aa00058_html"><div class="ttname"><a href="a00058.html">BasicxLogger.LoggerDirectory</a></div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00005">LogDirectory.cs:6</a></div></div>
+<div class="ttc" id="aa00102_html"><div class="ttname"><a href="a00102.html">BasicxLogger.LoggerDirectory.LogDirectory</a></div><div class="ttdoc">Contains all informations about the log directory</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00010">LogDirectory.cs:11</a></div></div>
+<div class="ttc" id="aa00102_html_a07eae62f9a035b4f45b59780b38dd404"><div class="ttname"><a href="a00102.html#a07eae62f9a035b4f45b59780b38dd404">BasicxLogger.LoggerDirectory.LogDirectory.LogDirectory</a></div><div class="ttdeci">LogDirectory(string path, string name)</div><div class="ttdoc">Constructor, to create a LogDirectory object.</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00037">LogDirectory.cs:37</a></div></div>
+<div class="ttc" id="aa00102_html_a15d7c627c38555d3215144019262b053"><div class="ttname"><a href="a00102.html#a15d7c627c38555d3215144019262b053">BasicxLogger.LoggerDirectory.LogDirectory.name</a></div><div class="ttdeci">string name</div><div class="ttdoc">Name of the log directory</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00019">LogDirectory.cs:19</a></div></div>
+<div class="ttc" id="aa00102_html_aa9321becb7929e989f1fc27f1352b040"><div class="ttname"><a href="a00102.html#aa9321becb7929e989f1fc27f1352b040">BasicxLogger.LoggerDirectory.LogDirectory.path</a></div><div class="ttdeci">string path</div><div class="ttdoc">Path were the log directory is located</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00015">LogDirectory.cs:15</a></div></div>
+<div class="ttc" id="aa00102_html_aa999f05361523ee7ac60227789a21687"><div class="ttname"><a href="a00102.html#aa999f05361523ee7ac60227789a21687">BasicxLogger.LoggerDirectory.LogDirectory.directory</a></div><div class="ttdeci">string directory</div><div class="ttdoc">Full directory path (path + name)</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00023">LogDirectory.cs:23</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_04bb8606242e6428d10cd7ddd95e6368.html">Message</a></li><li class="navelem"><a class="el" href="dir_efb8b74113c1a3aa99a9484d2003cd85.html">Date</a></li><li class="navelem"><b>DateFormat.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_5f7ab36d536d5aa3d0e8dea92751f0ad.html">EasyLogger</a></li><li class="navelem"><a class="el" href="dir_c29fef077df94f5c44578a5a9033fba9.html">LoggerDirectory</a></li><li class="navelem"><b>LogDirectory.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

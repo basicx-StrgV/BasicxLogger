@@ -1,4 +1,4 @@
 var namespaces_dup =
 [
-    [ "BasicxLogger", "a00038.html", "a00038" ]
+    [ "BasicxLogger", "a00056.html", "a00056" ]
 ];
