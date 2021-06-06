@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: Date.cs Source File</title>
+<title>BasicxLogger: LogFile.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,68 +84,42 @@ $(document).ready(function(){initNavTree('a00029_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Date.cs</div>  </div>
+<div class="title">LogFile.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System.Collections.Generic;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="a00060.html">    7</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00060.html">BasicxLogger.Message</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00110.html">   12</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00110.html">Date</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a00110.html#ab2eefc2ec030bc51410ca220bdbec168">   17</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224e">DateFormat</a> <a class="code" href="a00110.html#ab2eefc2ec030bc51410ca220bdbec168">dateFormat</a> { <span class="keyword">get</span>; }</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a00110.html#a835e04d406d01050d6ab36282c808092">   21</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">char</span> <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a> { <span class="keyword">get</span>; } = <span class="charliteral">&#39;/&#39;</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00110.html#aed9cd46028bf8c4b25d48c2dacaaef46">   25</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00110.html#aed9cd46028bf8c4b25d48c2dacaaef46">dateFormatString</a> { <span class="keyword">get</span>; }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">private</span> List&lt;string&gt; dateFormateList;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a00110.html#a0082ebff1b8fd7b9d3e1581eac0ae913">   39</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00110.html#a0082ebff1b8fd7b9d3e1581eac0ae913">Date</a>(<a class="code" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224e">DateFormat</a> <a class="code" href="a00110.html#ab2eefc2ec030bc51410ca220bdbec168">dateFormat</a>)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            initalizeList();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            this.dateFormat = <a class="code" href="a00110.html#ab2eefc2ec030bc51410ca220bdbec168">dateFormat</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <a class="code" href="a00110.html#aed9cd46028bf8c4b25d48c2dacaaef46">dateFormatString</a> = dateFormateList[(int)this.dateFormat];</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="a00110.html#aec948ea4da24d7515ad15e4c0d2774ce">   57</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00110.html#aec948ea4da24d7515ad15e4c0d2774ce">Date</a>(<a class="code" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224e">DateFormat</a> <a class="code" href="a00110.html#ab2eefc2ec030bc51410ca220bdbec168">dateFormat</a>, <span class="keywordtype">char</span> <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a>)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            this.dateSeparator = <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            initalizeList();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            this.dateFormat = <a class="code" href="a00110.html#ab2eefc2ec030bc51410ca220bdbec168">dateFormat</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="a00110.html#aed9cd46028bf8c4b25d48c2dacaaef46">dateFormatString</a> = dateFormateList[(int)this.dateFormat];</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> initalizeList()</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            dateFormateList = <span class="keyword">new</span> List&lt;string&gt;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="stringliteral">&quot;yyyy&#39;&quot;</span> + <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a> + <span class="stringliteral">&quot;&#39;MM&#39;&quot;</span> + <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a> + <span class="stringliteral">&quot;&#39;dd&quot;</span>,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="stringliteral">&quot;yyyy&#39;&quot;</span> + <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a> + <span class="stringliteral">&quot;&#39;dd&#39;&quot;</span> + <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a> + <span class="stringliteral">&quot;&#39;MM&quot;</span>,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="stringliteral">&quot;dd&#39;&quot;</span> + <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a> + <span class="stringliteral">&quot;&#39;MM&#39;&quot;</span> + <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a> + <span class="stringliteral">&quot;&#39;yyyy&quot;</span>,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="stringliteral">&quot;MM&#39;&quot;</span> + <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a> + <span class="stringliteral">&quot;&#39;dd&#39;&quot;</span> + <a class="code" href="a00110.html#a835e04d406d01050d6ab36282c808092">dateSeparator</a> + <span class="stringliteral">&quot;&#39;yyyy&quot;</span>,</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            };</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
-<div class="ttc" id="aa00060_html"><div class="ttname"><a href="a00060.html">BasicxLogger.Message</a></div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00007">Date.cs:8</a></div></div>
-<div class="ttc" id="aa00060_html_a6b2f42cc9ece472692bb6249abe5224e"><div class="ttname"><a href="a00060.html#a6b2f42cc9ece472692bb6249abe5224e">BasicxLogger.Message.DateFormat</a></div><div class="ttdeci">DateFormat</div><div class="ttdoc">Enum that contains every supported date format</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00010">DateFormat.cs:11</a></div></div>
-<div class="ttc" id="aa00110_html"><div class="ttname"><a href="a00110.html">BasicxLogger.Message.Date</a></div><div class="ttdoc">Contains the information about the date formatting for the log message</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00012">Date.cs:13</a></div></div>
-<div class="ttc" id="aa00110_html_a0082ebff1b8fd7b9d3e1581eac0ae913"><div class="ttname"><a href="a00110.html#a0082ebff1b8fd7b9d3e1581eac0ae913">BasicxLogger.Message.Date.Date</a></div><div class="ttdeci">Date(DateFormat dateFormat)</div><div class="ttdoc">Constructor, to create a Date object.</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00039">Date.cs:39</a></div></div>
-<div class="ttc" id="aa00110_html_a835e04d406d01050d6ab36282c808092"><div class="ttname"><a href="a00110.html#a835e04d406d01050d6ab36282c808092">BasicxLogger.Message.Date.dateSeparator</a></div><div class="ttdeci">char dateSeparator</div><div class="ttdoc">Char that separates each part of the date</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00021">Date.cs:21</a></div></div>
-<div class="ttc" id="aa00110_html_ab2eefc2ec030bc51410ca220bdbec168"><div class="ttname"><a href="a00110.html#ab2eefc2ec030bc51410ca220bdbec168">BasicxLogger.Message.Date.dateFormat</a></div><div class="ttdeci">DateFormat dateFormat</div><div class="ttdoc">Enum that contains the formate of the date</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00017">Date.cs:17</a></div></div>
-<div class="ttc" id="aa00110_html_aec948ea4da24d7515ad15e4c0d2774ce"><div class="ttname"><a href="a00110.html#aec948ea4da24d7515ad15e4c0d2774ce">BasicxLogger.Message.Date.Date</a></div><div class="ttdeci">Date(DateFormat dateFormat, char dateSeparator)</div><div class="ttdoc">Constructor, to create a Date object.</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00057">Date.cs:57</a></div></div>
-<div class="ttc" id="aa00110_html_aed9cd46028bf8c4b25d48c2dacaaef46"><div class="ttname"><a href="a00110.html#aed9cd46028bf8c4b25d48c2dacaaef46">BasicxLogger.Message.Date.dateFormatString</a></div><div class="ttdeci">string dateFormatString</div><div class="ttdoc">Format string for the date (e.g. yyyy'-'MM'-'dd)</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00025">Date.cs:25</a></div></div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="a00059.html">    5</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00059.html">BasicxLogger.LoggerFile</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00114.html">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00114.html">LogFile</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00114.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">   15</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00114.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">name</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a00114.html#a52466413b3e075bf0b73281cc6007bab">   19</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00059.html#a9837554d353f58214d40e75a9261f091">LogFileType</a> <a class="code" href="a00114.html#a52466413b3e075bf0b73281cc6007bab">type</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a00114.html#a13a70b589464992b47de26067b3ac460">   23</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00114.html#a13a70b589464992b47de26067b3ac460">file</a> { <span class="keyword">get</span>; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a00114.html#aa6cc02238a0bc56eb71d1b04f396cb75">   37</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00114.html#aa6cc02238a0bc56eb71d1b04f396cb75">LogFile</a>(<span class="keywordtype">string</span> <a class="code" href="a00114.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">name</a>, <a class="code" href="a00059.html#a9837554d353f58214d40e75a9261f091">LogFileType</a> <a class="code" href="a00114.html#a52466413b3e075bf0b73281cc6007bab">type</a>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            this.name = <a class="code" href="a00114.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">name</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            this.type = <a class="code" href="a00114.html#a52466413b3e075bf0b73281cc6007bab">type</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <a class="code" href="a00114.html#a13a70b589464992b47de26067b3ac460">file</a> = <a class="code" href="a00114.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">name</a> + <span class="stringliteral">&quot;.&quot;</span> + <a class="code" href="a00114.html#a52466413b3e075bf0b73281cc6007bab">type</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="ttc" id="aa00059_html"><div class="ttname"><a href="a00059.html">BasicxLogger.LoggerFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00005">LogFile.cs:6</a></div></div>
+<div class="ttc" id="aa00059_html_a9837554d353f58214d40e75a9261f091"><div class="ttname"><a href="a00059.html#a9837554d353f58214d40e75a9261f091">BasicxLogger.LoggerFile.LogFileType</a></div><div class="ttdeci">LogFileType</div><div class="ttdoc">Enum that contains every supported file type</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00010">LogFileType.cs:11</a></div></div>
+<div class="ttc" id="aa00114_html"><div class="ttname"><a href="a00114.html">BasicxLogger.LoggerFile.LogFile</a></div><div class="ttdoc">Contains all informations about the log file</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00010">LogFile.cs:11</a></div></div>
+<div class="ttc" id="aa00114_html_a13a70b589464992b47de26067b3ac460"><div class="ttname"><a href="a00114.html#a13a70b589464992b47de26067b3ac460">BasicxLogger.LoggerFile.LogFile.file</a></div><div class="ttdeci">string file</div><div class="ttdoc">Full file name (name + file type : e.g. sample.txt)</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00023">LogFile.cs:23</a></div></div>
+<div class="ttc" id="aa00114_html_a52466413b3e075bf0b73281cc6007bab"><div class="ttname"><a href="a00114.html#a52466413b3e075bf0b73281cc6007bab">BasicxLogger.LoggerFile.LogFile.type</a></div><div class="ttdeci">LogFileType type</div><div class="ttdoc">File type of the log file</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00019">LogFile.cs:19</a></div></div>
+<div class="ttc" id="aa00114_html_aa6cc02238a0bc56eb71d1b04f396cb75"><div class="ttname"><a href="a00114.html#aa6cc02238a0bc56eb71d1b04f396cb75">BasicxLogger.LoggerFile.LogFile.LogFile</a></div><div class="ttdeci">LogFile(string name, LogFileType type)</div><div class="ttdoc">Constructor, to create a LogFile object.</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00037">LogFile.cs:37</a></div></div>
+<div class="ttc" id="aa00114_html_aeca6a4ab2a6876ad0a97c6c1baf7e47c"><div class="ttname"><a href="a00114.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">BasicxLogger.LoggerFile.LogFile.name</a></div><div class="ttdeci">string name</div><div class="ttdoc">Name of the log file</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00015">LogFile.cs:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_df9b1cd9b6b84bd9af6281f430ee71a9.html">Message</a></li><li class="navelem"><a class="el" href="dir_9ebed82707169b1489151dfe648914e4.html">Date</a></li><li class="navelem"><b>Date.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_eb45e3c76e79a8585cf345820b61925e.html">LoggerFile</a></li><li class="navelem"><b>LogFile.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

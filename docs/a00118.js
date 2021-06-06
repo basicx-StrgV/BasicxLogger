@@ -1,8 +1,8 @@
 var a00118 =
 [
-    [ "Time", "a00118.html#abacc04e8dbbbe2894ccc0010b86c68b2", null ],
-    [ "Time", "a00118.html#ab7fba0f136fba105761ceca35e862d4d", null ],
-    [ "cultureInfo", "a00118.html#ac9229cd948bc874155c80e5b7be5e667", null ],
-    [ "timeFormat", "a00118.html#a2885d6df82be0d80e25521720d25789d", null ],
-    [ "timeFormatString", "a00118.html#a20b4b77ac6ae0a8fc0b1f31a3a22ad72", null ]
+    [ "Date", "a00118.html#a0082ebff1b8fd7b9d3e1581eac0ae913", null ],
+    [ "Date", "a00118.html#aec948ea4da24d7515ad15e4c0d2774ce", null ],
+    [ "dateFormat", "a00118.html#ab2eefc2ec030bc51410ca220bdbec168", null ],
+    [ "dateFormatString", "a00118.html#aed9cd46028bf8c4b25d48c2dacaaef46", null ],
+    [ "dateSeparator", "a00118.html#a835e04d406d01050d6ab36282c808092", null ]
 ];

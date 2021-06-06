@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: BasicxLogger.LoggerFile.LogFile Class Reference</title>
+<title>BasicxLogger: BasicxLogger.LoggerDatabase.MySqlDatabase Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,53 +88,92 @@ $(document).ready(function(){initNavTree('a00106.html',''); initResizable(); });
 <a href="#properties">Properties</a> &#124;
 <a href="a00103.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BasicxLogger.LoggerFile.LogFile Class Reference</div>  </div>
+<div class="title">BasicxLogger.LoggerDatabase.MySqlDatabase Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains all informations about the log file  
+<p>Holds all informations about the <a class="el" href="a00106.html" title="Holds all informations about the MySqlDatabase used for logging">MySqlDatabase</a> used for logging  
  <a href="a00106.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa6cc02238a0bc56eb71d1b04f396cb75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#aa6cc02238a0bc56eb71d1b04f396cb75">LogFile</a> (string <a class="el" href="a00106.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">name</a>, <a class="el" href="a00059.html#a9837554d353f58214d40e75a9261f091">LogFileType</a> <a class="el" href="a00106.html#a52466413b3e075bf0b73281cc6007bab">type</a>)</td></tr>
-<tr class="memdesc:aa6cc02238a0bc56eb71d1b04f396cb75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a <a class="el" href="a00106.html" title="Contains all informations about the log file">LogFile</a> object.  <a href="a00106.html#aa6cc02238a0bc56eb71d1b04f396cb75">More...</a><br /></td></tr>
-<tr class="separator:aa6cc02238a0bc56eb71d1b04f396cb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed2059cc5b68060e57fe241bcd80d91e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#aed2059cc5b68060e57fe241bcd80d91e">MySqlDatabase</a> (string <a class="el" href="a00106.html#ae9dfbfb061eced8a43433a751f3df66e">server</a>, string <a class="el" href="a00106.html#a770b3172adbf0820f51f547ca33e7d80">database</a>, string <a class="el" href="a00106.html#af3166d5e7685b2b5bc4e0f9c320d1509">user</a>, string <a class="el" href="a00106.html#a319d493999125180ec9e4e6c798462d5">password</a>, string <a class="el" href="a00106.html#a25bd81d035d4f2231af92ed28d2d78b7">port</a>=&quot;3306&quot;, string <a class="el" href="a00106.html#af7d1045e60855b7e7263ef1e63b945fe">sslMode</a>=&quot;none&quot;)</td></tr>
+<tr class="memdesc:aed2059cc5b68060e57fe241bcd80d91e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to creates a new <a class="el" href="a00106.html" title="Holds all informations about the MySqlDatabase used for logging">MySqlDatabase</a> object  <a href="a00106.html#aed2059cc5b68060e57fe241bcd80d91e">More...</a><br /></td></tr>
+<tr class="separator:aed2059cc5b68060e57fe241bcd80d91e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:aeca6a4ab2a6876ad0a97c6c1baf7e47c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">name</a><code> [get]</code></td></tr>
-<tr class="memdesc:aeca6a4ab2a6876ad0a97c6c1baf7e47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the log file  <a href="a00106.html#aeca6a4ab2a6876ad0a97c6c1baf7e47c">More...</a><br /></td></tr>
-<tr class="separator:aeca6a4ab2a6876ad0a97c6c1baf7e47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52466413b3e075bf0b73281cc6007bab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00059.html#a9837554d353f58214d40e75a9261f091">LogFileType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#a52466413b3e075bf0b73281cc6007bab">type</a><code> [get]</code></td></tr>
-<tr class="memdesc:a52466413b3e075bf0b73281cc6007bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">File type of the log file  <a href="a00106.html#a52466413b3e075bf0b73281cc6007bab">More...</a><br /></td></tr>
-<tr class="separator:a52466413b3e075bf0b73281cc6007bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13a70b589464992b47de26067b3ac460"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#a13a70b589464992b47de26067b3ac460">file</a><code> [get]</code></td></tr>
-<tr class="memdesc:a13a70b589464992b47de26067b3ac460"><td class="mdescLeft">&#160;</td><td class="mdescRight">Full file name (name + file type : e.g. sample.txt)  <a href="a00106.html#a13a70b589464992b47de26067b3ac460">More...</a><br /></td></tr>
-<tr class="separator:a13a70b589464992b47de26067b3ac460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9dfbfb061eced8a43433a751f3df66e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#ae9dfbfb061eced8a43433a751f3df66e">server</a><code> [get]</code></td></tr>
+<tr class="memdesc:ae9dfbfb061eced8a43433a751f3df66e"><td class="mdescLeft">&#160;</td><td class="mdescRight">URL of the MySql database server  <a href="a00106.html#ae9dfbfb061eced8a43433a751f3df66e">More...</a><br /></td></tr>
+<tr class="separator:ae9dfbfb061eced8a43433a751f3df66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a770b3172adbf0820f51f547ca33e7d80"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#a770b3172adbf0820f51f547ca33e7d80">database</a><code> [get]</code></td></tr>
+<tr class="memdesc:a770b3172adbf0820f51f547ca33e7d80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the database that will contain the logs  <a href="a00106.html#a770b3172adbf0820f51f547ca33e7d80">More...</a><br /></td></tr>
+<tr class="separator:a770b3172adbf0820f51f547ca33e7d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3166d5e7685b2b5bc4e0f9c320d1509"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#af3166d5e7685b2b5bc4e0f9c320d1509">user</a><code> [get]</code></td></tr>
+<tr class="memdesc:af3166d5e7685b2b5bc4e0f9c320d1509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Username of the database user you want to use  <a href="a00106.html#af3166d5e7685b2b5bc4e0f9c320d1509">More...</a><br /></td></tr>
+<tr class="separator:af3166d5e7685b2b5bc4e0f9c320d1509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a319d493999125180ec9e4e6c798462d5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#a319d493999125180ec9e4e6c798462d5">password</a><code> [get]</code></td></tr>
+<tr class="memdesc:a319d493999125180ec9e4e6c798462d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Password of the given user  <a href="a00106.html#a319d493999125180ec9e4e6c798462d5">More...</a><br /></td></tr>
+<tr class="separator:a319d493999125180ec9e4e6c798462d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25bd81d035d4f2231af92ed28d2d78b7"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#a25bd81d035d4f2231af92ed28d2d78b7">port</a><code> [get]</code></td></tr>
+<tr class="memdesc:a25bd81d035d4f2231af92ed28d2d78b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Port of the database server  <a href="a00106.html#a25bd81d035d4f2231af92ed28d2d78b7">More...</a><br /></td></tr>
+<tr class="separator:a25bd81d035d4f2231af92ed28d2d78b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7d1045e60855b7e7263ef1e63b945fe"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#af7d1045e60855b7e7263ef1e63b945fe">sslMode</a><code> [get]</code></td></tr>
+<tr class="memdesc:af7d1045e60855b7e7263ef1e63b945fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL Mode setting  <a href="a00106.html#af7d1045e60855b7e7263ef1e63b945fe">More...</a><br /></td></tr>
+<tr class="separator:af7d1045e60855b7e7263ef1e63b945fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad277e81efed77ee4c8db5823b11ab147"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#ad277e81efed77ee4c8db5823b11ab147">connectionString</a><code> [get]</code></td></tr>
+<tr class="memdesc:ad277e81efed77ee4c8db5823b11ab147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connection string for the MySql database  <a href="a00106.html#ad277e81efed77ee4c8db5823b11ab147">More...</a><br /></td></tr>
+<tr class="separator:ad277e81efed77ee4c8db5823b11ab147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27fb88e827fd86faeaa0e56586b083e"><td class="memItemLeft" align="right" valign="top">MySqlConnection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#af27fb88e827fd86faeaa0e56586b083e">connection</a><code> [get]</code></td></tr>
+<tr class="memdesc:af27fb88e827fd86faeaa0e56586b083e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The database connection  <a href="a00106.html#af27fb88e827fd86faeaa0e56586b083e">More...</a><br /></td></tr>
+<tr class="separator:af27fb88e827fd86faeaa0e56586b083e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains all informations about the log file </p>
+<div class="textblock"><p>Holds all informations about the <a class="el" href="a00106.html" title="Holds all informations about the MySqlDatabase used for logging">MySqlDatabase</a> used for logging </p>
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00010">10</a> of file <a class="el" href="a00023_source.html">LogFile.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00013">13</a> of file <a class="el" href="a00023_source.html">MySqlDatabase.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa6cc02238a0bc56eb71d1b04f396cb75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6cc02238a0bc56eb71d1b04f396cb75">&#9670;&nbsp;</a></span>LogFile()</h2>
+<a id="aed2059cc5b68060e57fe241bcd80d91e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed2059cc5b68060e57fe241bcd80d91e">&#9670;&nbsp;</a></span>MySqlDatabase()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">BasicxLogger.LoggerFile.LogFile.LogFile </td>
+          <td class="memname">BasicxLogger.LoggerDatabase.MySqlDatabase.MySqlDatabase </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00059.html#a9837554d353f58214d40e75a9261f091">LogFileType</a>&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>database</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>password</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>port</em> = <code>&quot;3306&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>sslMode</em> = <code>&quot;none&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -144,23 +183,26 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor, to create a <a class="el" href="a00106.html" title="Contains all informations about the log file">LogFile</a> object. </p>
-<p>Can be used to configure a custom file for the logger </p>
+<p>Constructor to creates a new <a class="el" href="a00106.html" title="Holds all informations about the MySqlDatabase used for logging">MySqlDatabase</a> object </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>Name of the log file </td></tr>
-    <tr><td class="paramname">type</td><td>File type of the log file </td></tr>
+    <tr><td class="paramname">server</td><td>URL of the MySql database server</td></tr>
+    <tr><td class="paramname">database</td><td>Name of the database that will contain the logs</td></tr>
+    <tr><td class="paramname">user</td><td>Username of the database user you want to use</td></tr>
+    <tr><td class="paramname">password</td><td>Password of the given user</td></tr>
+    <tr><td class="paramname">port</td><td>Port of the database server</td></tr>
+    <tr><td class="paramname">sslMode</td><td>SSL Mode setting</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00037">37</a> of file <a class="el" href="a00023_source.html">LogFile.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00085">85</a> of file <a class="el" href="a00023_source.html">MySqlDatabase.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
-<a id="a13a70b589464992b47de26067b3ac460"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13a70b589464992b47de26067b3ac460">&#9670;&nbsp;</a></span>file</h2>
+<a id="af27fb88e827fd86faeaa0e56586b083e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af27fb88e827fd86faeaa0e56586b083e">&#9670;&nbsp;</a></span>connection</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +211,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string BasicxLogger.LoggerFile.LogFile.file</td>
+          <td class="memname">MySqlConnection BasicxLogger.LoggerDatabase.MySqlDatabase.connection</td>
         </tr>
       </table>
   </td>
@@ -179,14 +221,15 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Full file name (name + file type : e.g. sample.txt) </p>
+<p>The database connection </p>
+<p>Set by the constructor </p>
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00023">23</a> of file <a class="el" href="a00023_source.html">LogFile.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00070">70</a> of file <a class="el" href="a00023_source.html">MySqlDatabase.cs</a>.</p>
 
 </div>
 </div>
-<a id="aeca6a4ab2a6876ad0a97c6c1baf7e47c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeca6a4ab2a6876ad0a97c6c1baf7e47c">&#9670;&nbsp;</a></span>name</h2>
+<a id="ad277e81efed77ee4c8db5823b11ab147"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad277e81efed77ee4c8db5823b11ab147">&#9670;&nbsp;</a></span>connectionString</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +238,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string BasicxLogger.LoggerFile.LogFile.name</td>
+          <td class="memname">string BasicxLogger.LoggerDatabase.MySqlDatabase.connectionString</td>
         </tr>
       </table>
   </td>
@@ -205,14 +248,15 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Name of the log file </p>
+<p>Connection string for the MySql database </p>
+<p>Set by the constructor </p>
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00015">15</a> of file <a class="el" href="a00023_source.html">LogFile.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00063">63</a> of file <a class="el" href="a00023_source.html">MySqlDatabase.cs</a>.</p>
 
 </div>
 </div>
-<a id="a52466413b3e075bf0b73281cc6007bab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52466413b3e075bf0b73281cc6007bab">&#9670;&nbsp;</a></span>type</h2>
+<a id="a770b3172adbf0820f51f547ca33e7d80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a770b3172adbf0820f51f547ca33e7d80">&#9670;&nbsp;</a></span>database</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,7 +265,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00059.html#a9837554d353f58214d40e75a9261f091">LogFileType</a> BasicxLogger.LoggerFile.LogFile.type</td>
+          <td class="memname">string BasicxLogger.LoggerDatabase.MySqlDatabase.database</td>
         </tr>
       </table>
   </td>
@@ -231,21 +275,157 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>File type of the log file </p>
+<p>Name of the database that will contain the logs </p>
+<p>Set by the constructor </p>
 
-<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00019">19</a> of file <a class="el" href="a00023_source.html">LogFile.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00028">28</a> of file <a class="el" href="a00023_source.html">MySqlDatabase.cs</a>.</p>
+
+</div>
+</div>
+<a id="a319d493999125180ec9e4e6c798462d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a319d493999125180ec9e4e6c798462d5">&#9670;&nbsp;</a></span>password</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BasicxLogger.LoggerDatabase.MySqlDatabase.password</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Password of the given user </p>
+<p>Set by the constructor </p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00042">42</a> of file <a class="el" href="a00023_source.html">MySqlDatabase.cs</a>.</p>
+
+</div>
+</div>
+<a id="a25bd81d035d4f2231af92ed28d2d78b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25bd81d035d4f2231af92ed28d2d78b7">&#9670;&nbsp;</a></span>port</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BasicxLogger.LoggerDatabase.MySqlDatabase.port</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Port of the database server </p>
+<p>Set by the constructor </p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00049">49</a> of file <a class="el" href="a00023_source.html">MySqlDatabase.cs</a>.</p>
+
+</div>
+</div>
+<a id="ae9dfbfb061eced8a43433a751f3df66e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9dfbfb061eced8a43433a751f3df66e">&#9670;&nbsp;</a></span>server</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BasicxLogger.LoggerDatabase.MySqlDatabase.server</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>URL of the MySql database server </p>
+<p>Set by the constructor </p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00021">21</a> of file <a class="el" href="a00023_source.html">MySqlDatabase.cs</a>.</p>
+
+</div>
+</div>
+<a id="af7d1045e60855b7e7263ef1e63b945fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7d1045e60855b7e7263ef1e63b945fe">&#9670;&nbsp;</a></span>sslMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BasicxLogger.LoggerDatabase.MySqlDatabase.sslMode</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>SSL Mode setting </p>
+<p>Set by the constructor </p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00056">56</a> of file <a class="el" href="a00023_source.html">MySqlDatabase.cs</a>.</p>
+
+</div>
+</div>
+<a id="af3166d5e7685b2b5bc4e0f9c320d1509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3166d5e7685b2b5bc4e0f9c320d1509">&#9670;&nbsp;</a></span>user</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BasicxLogger.LoggerDatabase.MySqlDatabase.user</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Username of the database user you want to use </p>
+<p>Set by the constructor </p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00035">35</a> of file <a class="el" href="a00023_source.html">MySqlDatabase.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00023_source.html">LogFile.cs</a></li>
+<li><a class="el" href="a00023_source.html">MySqlDatabase.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00056.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00059.html">LoggerFile</a></li><li class="navelem"><a class="el" href="a00106.html">LogFile</a></li>
+    <li class="navelem"><a class="el" href="a00056.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00057.html">LoggerDatabase</a></li><li class="navelem"><a class="el" href="a00106.html">MySqlDatabase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

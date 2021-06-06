@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: BasicxLogger.MultiLogger Class Reference</title>
+<title>BasicxLogger: BasicxLogger.Message.MessageFormat Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,152 +85,141 @@ $(document).ready(function(){initNavTree('a00122.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#properties">Properties</a> &#124;
 <a href="a00119.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BasicxLogger.MultiLogger Class Reference</div>  </div>
+<div class="title">BasicxLogger.Message.MessageFormat Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A logger that allows you to add all loggers that use the <a class="el" href="a00086.html" title="Interface for BasicxLogger">ILogger</a> interface and log with all of them by only using one log method call.  
+<p>Contains all informations about the formatting of the log messages  
  <a href="a00122.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2bda2a6be2c0550109c7c3e299107bf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a2bda2a6be2c0550109c7c3e299107bf3">log</a> (string message)</td></tr>
-<tr class="memdesc:a2bda2a6be2c0550109c7c3e299107bf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the given message and the current time stamp with every logger that was added to the multi logger.  <a href="a00122.html#a2bda2a6be2c0550109c7c3e299107bf3">More...</a><br /></td></tr>
-<tr class="separator:a2bda2a6be2c0550109c7c3e299107bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f0091926c78b20ba3339d3b73bb0ce0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a4f0091926c78b20ba3339d3b73bb0ce0">log</a> (<a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message)</td></tr>
-<tr class="memdesc:a4f0091926c78b20ba3339d3b73bb0ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the given message with the given tag and the current time stamp with every logger that was added to the multi logger.  <a href="a00122.html#a4f0091926c78b20ba3339d3b73bb0ce0">More...</a><br /></td></tr>
-<tr class="separator:a4f0091926c78b20ba3339d3b73bb0ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdf019417ae918b5d7915af3cac0e908"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#abdf019417ae918b5d7915af3cac0e908">logID</a> (string message)</td></tr>
-<tr class="memdesc:abdf019417ae918b5d7915af3cac0e908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the given message, a message ID and the current time stamp with every logger that was added to the multi logger.  <a href="a00122.html#abdf019417ae918b5d7915af3cac0e908">More...</a><br /></td></tr>
-<tr class="separator:abdf019417ae918b5d7915af3cac0e908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f7896bcc0130bf49872502af72833a9"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a6f7896bcc0130bf49872502af72833a9">logID</a> (<a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message)</td></tr>
-<tr class="memdesc:a6f7896bcc0130bf49872502af72833a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the given message with the given tag, a message ID and the current time stamp with every logger that was added to the multi logger.  <a href="a00122.html#a6f7896bcc0130bf49872502af72833a9">More...</a><br /></td></tr>
-<tr class="separator:a6f7896bcc0130bf49872502af72833a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76e6bbdcd30fe65f9a733e15076e5b47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a76e6bbdcd30fe65f9a733e15076e5b47">logCustomID</a> (string id, string message)</td></tr>
-<tr class="memdesc:a76e6bbdcd30fe65f9a733e15076e5b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the given message, the given ID and the current time stamp with every logger that was added to the multi logger.  <a href="a00122.html#a76e6bbdcd30fe65f9a733e15076e5b47">More...</a><br /></td></tr>
-<tr class="separator:a76e6bbdcd30fe65f9a733e15076e5b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68f90e097873629c11645b95003afb09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a68f90e097873629c11645b95003afb09">logCustomID</a> (string id, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message)</td></tr>
-<tr class="memdesc:a68f90e097873629c11645b95003afb09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the given message with the given tag, the given ID and the current time stampwith every logger that was added to the multi logger.  <a href="a00122.html#a68f90e097873629c11645b95003afb09">More...</a><br /></td></tr>
-<tr class="separator:a68f90e097873629c11645b95003afb09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac90cca69953cabe9d6ec819af41297dc"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#ac90cca69953cabe9d6ec819af41297dc">logAsync</a> (string message)</td></tr>
-<tr class="memdesc:ac90cca69953cabe9d6ec819af41297dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous logs the given message and the current time stamp with every logger that was added to the multi logger.  <a href="a00122.html#ac90cca69953cabe9d6ec819af41297dc">More...</a><br /></td></tr>
-<tr class="separator:ac90cca69953cabe9d6ec819af41297dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afda74e96bfca8e9531cf1064c072b381"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#afda74e96bfca8e9531cf1064c072b381">logAsync</a> (<a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message)</td></tr>
-<tr class="memdesc:afda74e96bfca8e9531cf1064c072b381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous logs the given message with the given tag and the current time stamp with every logger that was added to the multi logger.  <a href="a00122.html#afda74e96bfca8e9531cf1064c072b381">More...</a><br /></td></tr>
-<tr class="separator:afda74e96bfca8e9531cf1064c072b381"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42fdf4dd3aff0dbd7ee915c11fcbc9cf"><td class="memItemLeft" align="right" valign="top">async Task&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a42fdf4dd3aff0dbd7ee915c11fcbc9cf">logIDAsync</a> (string message)</td></tr>
-<tr class="memdesc:a42fdf4dd3aff0dbd7ee915c11fcbc9cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous logs the given message, a message ID and the current time stamp with every logger that was added to the multi logger.  <a href="a00122.html#a42fdf4dd3aff0dbd7ee915c11fcbc9cf">More...</a><br /></td></tr>
-<tr class="separator:a42fdf4dd3aff0dbd7ee915c11fcbc9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44ddc9de8f88c2a72230181efd4cb989"><td class="memItemLeft" align="right" valign="top">async Task&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a44ddc9de8f88c2a72230181efd4cb989">logIDAsync</a> (<a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message)</td></tr>
-<tr class="memdesc:a44ddc9de8f88c2a72230181efd4cb989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous logs the given message with the given tag, a message ID and the current time stamp with every logger that was added to the multi logger.  <a href="a00122.html#a44ddc9de8f88c2a72230181efd4cb989">More...</a><br /></td></tr>
-<tr class="separator:a44ddc9de8f88c2a72230181efd4cb989"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac28e5598dce71e81143996a139105dcb"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#ac28e5598dce71e81143996a139105dcb">logCustomIDAsync</a> (string id, string message)</td></tr>
-<tr class="memdesc:ac28e5598dce71e81143996a139105dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous logs the given message, the given ID and the current time stamp with every logger that was added to the multi logger.  <a href="a00122.html#ac28e5598dce71e81143996a139105dcb">More...</a><br /></td></tr>
-<tr class="separator:ac28e5598dce71e81143996a139105dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43669e2944ec8bbb23bf02ad38362d84"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a43669e2944ec8bbb23bf02ad38362d84">logCustomIDAsync</a> (string id, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message)</td></tr>
-<tr class="memdesc:a43669e2944ec8bbb23bf02ad38362d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous logs the given message with the given tag, the given ID and the current time stampwith every logger that was added to the multi logger.  <a href="a00122.html#a43669e2944ec8bbb23bf02ad38362d84">More...</a><br /></td></tr>
-<tr class="separator:a43669e2944ec8bbb23bf02ad38362d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef424f61ff0bb0482e07268424c32319"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#aef424f61ff0bb0482e07268424c32319">addLogger</a> (<a class="el" href="a00086.html">ILogger</a> logger)</td></tr>
-<tr class="memdesc:aef424f61ff0bb0482e07268424c32319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the given logger to the multi logger  <a href="a00122.html#aef424f61ff0bb0482e07268424c32319">More...</a><br /></td></tr>
-<tr class="separator:aef424f61ff0bb0482e07268424c32319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d41710912348e3421396fd0baa67896"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a8d41710912348e3421396fd0baa67896">MessageFormat</a> (Encoding <a class="el" href="a00122.html#af24f027443c8087eb71f4daf782696aa">encoding</a>)</td></tr>
+<tr class="memdesc:a8d41710912348e3421396fd0baa67896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#a8d41710912348e3421396fd0baa67896">More...</a><br /></td></tr>
+<tr class="separator:a8d41710912348e3421396fd0baa67896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e68ae43831c00666edb857f2292ee9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#af2e68ae43831c00666edb857f2292ee9">MessageFormat</a> (<a class="el" href="a00118.html">Date</a> <a class="el" href="a00122.html#a0e8babf57d749fd886535dc105e6f138">date</a>)</td></tr>
+<tr class="memdesc:af2e68ae43831c00666edb857f2292ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#af2e68ae43831c00666edb857f2292ee9">More...</a><br /></td></tr>
+<tr class="separator:af2e68ae43831c00666edb857f2292ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af51f7ca3f8e9a4146271ca901a3ea1f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#af51f7ca3f8e9a4146271ca901a3ea1f1">MessageFormat</a> (<a class="el" href="a00118.html">Date</a> <a class="el" href="a00122.html#a0e8babf57d749fd886535dc105e6f138">date</a>, <a class="el" href="a00126.html">Time</a> <a class="el" href="a00122.html#af2a0ff7307b89488a4862d22085d439c">time</a>)</td></tr>
+<tr class="memdesc:af51f7ca3f8e9a4146271ca901a3ea1f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#af51f7ca3f8e9a4146271ca901a3ea1f1">More...</a><br /></td></tr>
+<tr class="separator:af51f7ca3f8e9a4146271ca901a3ea1f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b825b1d2f6107425de3fc5d539e7a04"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a9b825b1d2f6107425de3fc5d539e7a04">MessageFormat</a> (<a class="el" href="a00118.html">Date</a> <a class="el" href="a00122.html#a0e8babf57d749fd886535dc105e6f138">date</a>, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> <a class="el" href="a00122.html#a4d00b58a6581199cb0029379bac6aa18">defaultTag</a>)</td></tr>
+<tr class="memdesc:a9b825b1d2f6107425de3fc5d539e7a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#a9b825b1d2f6107425de3fc5d539e7a04">More...</a><br /></td></tr>
+<tr class="separator:a9b825b1d2f6107425de3fc5d539e7a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8369a648a7be0b26275349a14129f0b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a8369a648a7be0b26275349a14129f0b7">MessageFormat</a> (<a class="el" href="a00118.html">Date</a> <a class="el" href="a00122.html#a0e8babf57d749fd886535dc105e6f138">date</a>, Encoding <a class="el" href="a00122.html#af24f027443c8087eb71f4daf782696aa">encoding</a>)</td></tr>
+<tr class="memdesc:a8369a648a7be0b26275349a14129f0b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#a8369a648a7be0b26275349a14129f0b7">More...</a><br /></td></tr>
+<tr class="separator:a8369a648a7be0b26275349a14129f0b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd0701684c35a11a4f7ff604580c9db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a3bd0701684c35a11a4f7ff604580c9db">MessageFormat</a> (<a class="el" href="a00118.html">Date</a> <a class="el" href="a00122.html#a0e8babf57d749fd886535dc105e6f138">date</a>, <a class="el" href="a00126.html">Time</a> <a class="el" href="a00122.html#af2a0ff7307b89488a4862d22085d439c">time</a>, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> <a class="el" href="a00122.html#a4d00b58a6581199cb0029379bac6aa18">defaultTag</a>)</td></tr>
+<tr class="memdesc:a3bd0701684c35a11a4f7ff604580c9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#a3bd0701684c35a11a4f7ff604580c9db">More...</a><br /></td></tr>
+<tr class="separator:a3bd0701684c35a11a4f7ff604580c9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6861fdf19aff8f89f7c9f230ed004bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#af6861fdf19aff8f89f7c9f230ed004bc">MessageFormat</a> (<a class="el" href="a00118.html">Date</a> <a class="el" href="a00122.html#a0e8babf57d749fd886535dc105e6f138">date</a>, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> <a class="el" href="a00122.html#a4d00b58a6581199cb0029379bac6aa18">defaultTag</a>, Encoding <a class="el" href="a00122.html#af24f027443c8087eb71f4daf782696aa">encoding</a>)</td></tr>
+<tr class="memdesc:af6861fdf19aff8f89f7c9f230ed004bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#af6861fdf19aff8f89f7c9f230ed004bc">More...</a><br /></td></tr>
+<tr class="separator:af6861fdf19aff8f89f7c9f230ed004bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7643d140dc13d2d9433b7299983d012b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a7643d140dc13d2d9433b7299983d012b">MessageFormat</a> (<a class="el" href="a00118.html">Date</a> <a class="el" href="a00122.html#a0e8babf57d749fd886535dc105e6f138">date</a>, <a class="el" href="a00126.html">Time</a> <a class="el" href="a00122.html#af2a0ff7307b89488a4862d22085d439c">time</a>, Encoding <a class="el" href="a00122.html#af24f027443c8087eb71f4daf782696aa">encoding</a>)</td></tr>
+<tr class="memdesc:a7643d140dc13d2d9433b7299983d012b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#a7643d140dc13d2d9433b7299983d012b">More...</a><br /></td></tr>
+<tr class="separator:a7643d140dc13d2d9433b7299983d012b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa11ca0e9ad27005117e1a944b8456745"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#aa11ca0e9ad27005117e1a944b8456745">MessageFormat</a> (<a class="el" href="a00118.html">Date</a> <a class="el" href="a00122.html#a0e8babf57d749fd886535dc105e6f138">date</a>, <a class="el" href="a00126.html">Time</a> <a class="el" href="a00122.html#af2a0ff7307b89488a4862d22085d439c">time</a>, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> <a class="el" href="a00122.html#a4d00b58a6581199cb0029379bac6aa18">defaultTag</a>, Encoding <a class="el" href="a00122.html#af24f027443c8087eb71f4daf782696aa">encoding</a>)</td></tr>
+<tr class="memdesc:aa11ca0e9ad27005117e1a944b8456745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#aa11ca0e9ad27005117e1a944b8456745">More...</a><br /></td></tr>
+<tr class="separator:aa11ca0e9ad27005117e1a944b8456745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8cb77d7d15bf9cd7c2e35928937b9c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#ad8cb77d7d15bf9cd7c2e35928937b9c1">MessageFormat</a> (<a class="el" href="a00126.html">Time</a> <a class="el" href="a00122.html#af2a0ff7307b89488a4862d22085d439c">time</a>)</td></tr>
+<tr class="memdesc:ad8cb77d7d15bf9cd7c2e35928937b9c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#ad8cb77d7d15bf9cd7c2e35928937b9c1">More...</a><br /></td></tr>
+<tr class="separator:ad8cb77d7d15bf9cd7c2e35928937b9c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbd817a6cb1f8b7b90e5bd9359ba5b40"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#adbd817a6cb1f8b7b90e5bd9359ba5b40">MessageFormat</a> (<a class="el" href="a00126.html">Time</a> <a class="el" href="a00122.html#af2a0ff7307b89488a4862d22085d439c">time</a>, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> <a class="el" href="a00122.html#a4d00b58a6581199cb0029379bac6aa18">defaultTag</a>)</td></tr>
+<tr class="memdesc:adbd817a6cb1f8b7b90e5bd9359ba5b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#adbd817a6cb1f8b7b90e5bd9359ba5b40">More...</a><br /></td></tr>
+<tr class="separator:adbd817a6cb1f8b7b90e5bd9359ba5b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13988c451d048d7587c974d903ad467c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a13988c451d048d7587c974d903ad467c">MessageFormat</a> (<a class="el" href="a00126.html">Time</a> <a class="el" href="a00122.html#af2a0ff7307b89488a4862d22085d439c">time</a>, Encoding <a class="el" href="a00122.html#af24f027443c8087eb71f4daf782696aa">encoding</a>)</td></tr>
+<tr class="memdesc:a13988c451d048d7587c974d903ad467c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#a13988c451d048d7587c974d903ad467c">More...</a><br /></td></tr>
+<tr class="separator:a13988c451d048d7587c974d903ad467c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0fd84bf5d68938ad0310629d98ba5bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#ad0fd84bf5d68938ad0310629d98ba5bc">MessageFormat</a> (<a class="el" href="a00126.html">Time</a> <a class="el" href="a00122.html#af2a0ff7307b89488a4862d22085d439c">time</a>, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> <a class="el" href="a00122.html#a4d00b58a6581199cb0029379bac6aa18">defaultTag</a>, Encoding <a class="el" href="a00122.html#af24f027443c8087eb71f4daf782696aa">encoding</a>)</td></tr>
+<tr class="memdesc:ad0fd84bf5d68938ad0310629d98ba5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger  <a href="a00122.html#ad0fd84bf5d68938ad0310629d98ba5bc">More...</a><br /></td></tr>
+<tr class="separator:ad0fd84bf5d68938ad0310629d98ba5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a0e8babf57d749fd886535dc105e6f138"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00118.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a0e8babf57d749fd886535dc105e6f138">date</a> = new <a class="el" href="a00118.html">Date</a>(<a class="el" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224ea985992882e9452062f3fc85d15477775">DateFormat.year_month_day</a>, '/')<code> [get]</code></td></tr>
+<tr class="memdesc:a0e8babf57d749fd886535dc105e6f138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the information about the date formatting for the log message  <a href="a00122.html#a0e8babf57d749fd886535dc105e6f138">More...</a><br /></td></tr>
+<tr class="separator:a0e8babf57d749fd886535dc105e6f138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2a0ff7307b89488a4862d22085d439c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00126.html">Time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#af2a0ff7307b89488a4862d22085d439c">time</a> = new <a class="el" href="a00126.html">Time</a>(<a class="el" href="a00060.html#af146436e4f41a81c5f0bd8d395616510a006d28d5c44e89c9599731b43d0afd80">TimeFormat.hour24_min_sec</a>)<code> [get]</code></td></tr>
+<tr class="memdesc:af2a0ff7307b89488a4862d22085d439c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the information about the time formatting for the log message  <a href="a00122.html#af2a0ff7307b89488a4862d22085d439c">More...</a><br /></td></tr>
+<tr class="separator:af2a0ff7307b89488a4862d22085d439c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d00b58a6581199cb0029379bac6aa18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a4d00b58a6581199cb0029379bac6aa18">defaultTag</a> = <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23a334c4a4c42fdb79d7ebc3e73b517e6f8">Tag.none</a><code> [get]</code></td></tr>
+<tr class="memdesc:a4d00b58a6581199cb0029379bac6aa18"><td class="mdescLeft">&#160;</td><td class="mdescRight">A default message tag that will be used if no tag is selected  <a href="a00122.html#a4d00b58a6581199cb0029379bac6aa18">More...</a><br /></td></tr>
+<tr class="separator:a4d00b58a6581199cb0029379bac6aa18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af24f027443c8087eb71f4daf782696aa"><td class="memItemLeft" align="right" valign="top">Encoding&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#af24f027443c8087eb71f4daf782696aa">encoding</a> = Encoding.UTF8<code> [get]</code></td></tr>
+<tr class="memdesc:af24f027443c8087eb71f4daf782696aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encoding for the log message  <a href="a00122.html#af24f027443c8087eb71f4daf782696aa">More...</a><br /></td></tr>
+<tr class="separator:af24f027443c8087eb71f4daf782696aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A logger that allows you to add all loggers that use the <a class="el" href="a00086.html" title="Interface for BasicxLogger">ILogger</a> interface and log with all of them by only using one log method call. </p>
-<p>The multi logger supports all logger that uses the <a class="el" href="a00086.html" title="Interface for BasicxLogger">ILogger</a> intaterface. </p>
+<div class="textblock"><p>Contains all informations about the formatting of the log messages </p>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00028">28</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aef424f61ff0bb0482e07268424c32319"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef424f61ff0bb0482e07268424c32319">&#9670;&nbsp;</a></span>addLogger()</h2>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00012">12</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8d41710912348e3421396fd0baa67896"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d41710912348e3421396fd0baa67896">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[1/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void BasicxLogger.MultiLogger.addLogger </td>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00086.html">ILogger</a>&#160;</td>
-          <td class="paramname"><em>logger</em></td><td>)</td>
+          <td class="paramtype">Encoding&#160;</td>
+          <td class="paramname"><em>encoding</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds the given logger to the multi logger </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">logger</td><td>The logger to add</td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00598">598</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00040">40</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
 
 </div>
 </div>
-<a id="a2bda2a6be2c0550109c7c3e299107bf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bda2a6be2c0550109c7c3e299107bf3">&#9670;&nbsp;</a></span>log() <span class="overload">[1/2]</span></h2>
+<a id="af2e68ae43831c00666edb857f2292ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2e68ae43831c00666edb857f2292ee9">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[2/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void BasicxLogger.MultiLogger.log </td>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00118.html">Date</a>&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Logs the given message and the current time stamp with every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00053">53</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00050">50</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
 
 </div>
 </div>
-<a id="a4f0091926c78b20ba3339d3b73bb0ce0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f0091926c78b20ba3339d3b73bb0ce0">&#9670;&nbsp;</a></span>log() <span class="overload">[2/2]</span></h2>
+<a id="af51f7ca3f8e9a4146271ca901a3ea1f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af51f7ca3f8e9a4146271ca901a3ea1f1">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[3/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void BasicxLogger.MultiLogger.log </td>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
-          <td class="paramname"><em>messageTag</em>, </td>
+          <td class="paramtype"><a class="el" href="a00118.html">Date</a>&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00126.html">Time</a>&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -240,215 +229,30 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Logs the given message with the given tag and the current time stamp with every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00098">98</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00060">60</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
 
 </div>
 </div>
-<a id="ac90cca69953cabe9d6ec819af41297dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac90cca69953cabe9d6ec819af41297dc">&#9670;&nbsp;</a></span>logAsync() <span class="overload">[1/2]</span></h2>
+<a id="a9b825b1d2f6107425de3fc5d539e7a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b825b1d2f6107425de3fc5d539e7a04">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[4/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">async Task BasicxLogger.MultiLogger.logAsync </td>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Asynchronous logs the given message and the current time stamp with every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00333">333</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
-
-</div>
-</div>
-<a id="afda74e96bfca8e9531cf1064c072b381"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afda74e96bfca8e9531cf1064c072b381">&#9670;&nbsp;</a></span>logAsync() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">async Task BasicxLogger.MultiLogger.logAsync </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
-          <td class="paramname"><em>messageTag</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Asynchronous logs the given message with the given tag and the current time stamp with every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00378">378</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
-
-</div>
-</div>
-<a id="a76e6bbdcd30fe65f9a733e15076e5b47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76e6bbdcd30fe65f9a733e15076e5b47">&#9670;&nbsp;</a></span>logCustomID() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BasicxLogger.MultiLogger.logCustomID </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Logs the given message, the given ID and the current time stamp with every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The id of the log message </td></tr>
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00243">243</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
-
-</div>
-</div>
-<a id="a68f90e097873629c11645b95003afb09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68f90e097873629c11645b95003afb09">&#9670;&nbsp;</a></span>logCustomID() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BasicxLogger.MultiLogger.logCustomID </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
+          <td class="paramtype"><a class="el" href="a00118.html">Date</a>&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
-          <td class="paramname"><em>messageTag</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
+          <td class="paramname"><em>defaultTag</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -458,53 +262,30 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Logs the given message with the given tag, the given ID and the current time stampwith every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The id of the log message </td></tr>
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00290">290</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00071">71</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
 
 </div>
 </div>
-<a id="ac28e5598dce71e81143996a139105dcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac28e5598dce71e81143996a139105dcb">&#9670;&nbsp;</a></span>logCustomIDAsync() <span class="overload">[1/2]</span></h2>
+<a id="a8369a648a7be0b26275349a14129f0b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8369a648a7be0b26275349a14129f0b7">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[5/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">async Task BasicxLogger.MultiLogger.logCustomIDAsync </td>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
+          <td class="paramtype"><a class="el" href="a00118.html">Date</a>&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
+          <td class="paramtype">Encoding&#160;</td>
+          <td class="paramname"><em>encoding</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -514,58 +295,36 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Asynchronous logs the given message, the given ID and the current time stamp with every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The id of the log message </td></tr>
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00523">523</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00082">82</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
 
 </div>
 </div>
-<a id="a43669e2944ec8bbb23bf02ad38362d84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43669e2944ec8bbb23bf02ad38362d84">&#9670;&nbsp;</a></span>logCustomIDAsync() <span class="overload">[2/2]</span></h2>
+<a id="a3bd0701684c35a11a4f7ff604580c9db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bd0701684c35a11a4f7ff604580c9db">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[6/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">async Task BasicxLogger.MultiLogger.logCustomIDAsync </td>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
+          <td class="paramtype"><a class="el" href="a00118.html">Date</a>&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00126.html">Time</a>&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
-          <td class="paramname"><em>messageTag</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
+          <td class="paramname"><em>defaultTag</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -575,98 +334,36 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Asynchronous logs the given message with the given tag, the given ID and the current time stampwith every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The id of the log message </td></tr>
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00570">570</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00093">93</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
 
 </div>
 </div>
-<a id="abdf019417ae918b5d7915af3cac0e908"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdf019417ae918b5d7915af3cac0e908">&#9670;&nbsp;</a></span>logID() <span class="overload">[1/2]</span></h2>
+<a id="af6861fdf19aff8f89f7c9f230ed004bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6861fdf19aff8f89f7c9f230ed004bc">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[7/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string BasicxLogger.MultiLogger.logID </td>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="a00118.html">Date</a>&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Logs the given message, a message ID and the current time stamp with every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. ID verification ist not supportet with the multi logger. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The message ID that was automatically assigned to the message. It can be used to identify a specific message. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00143">143</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
-
-</div>
-</div>
-<a id="a6f7896bcc0130bf49872502af72833a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f7896bcc0130bf49872502af72833a9">&#9670;&nbsp;</a></span>logID() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">string BasicxLogger.MultiLogger.logID </td>
-          <td>(</td>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
-          <td class="paramname"><em>messageTag</em>, </td>
+          <td class="paramname"><em>defaultTag</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
+          <td class="paramtype">Encoding&#160;</td>
+          <td class="paramname"><em>encoding</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -676,98 +373,81 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Logs the given message with the given tag, a message ID and the current time stamp with every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. ID verification ist not supportet with the multi logger. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The message ID that was automatically assigned to the message. It can be used to identify a specific message. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00195">195</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00105">105</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
 
 </div>
 </div>
-<a id="a42fdf4dd3aff0dbd7ee915c11fcbc9cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42fdf4dd3aff0dbd7ee915c11fcbc9cf">&#9670;&nbsp;</a></span>logIDAsync() <span class="overload">[1/2]</span></h2>
+<a id="a7643d140dc13d2d9433b7299983d012b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7643d140dc13d2d9433b7299983d012b">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[8/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">async Task&lt;string&gt; BasicxLogger.MultiLogger.logIDAsync </td>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00118.html">Date</a>&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="a00126.html">Time</a>&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Encoding&#160;</td>
+          <td class="paramname"><em>encoding</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Asynchronous logs the given message, a message ID and the current time stamp with every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. ID verification ist not supportet with the multi logger. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The message ID that was automatically assigned to the message. It can be used to identify a specific message. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00423">423</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00117">117</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
 
 </div>
 </div>
-<a id="a44ddc9de8f88c2a72230181efd4cb989"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44ddc9de8f88c2a72230181efd4cb989">&#9670;&nbsp;</a></span>logIDAsync() <span class="overload">[2/2]</span></h2>
+<a id="aa11ca0e9ad27005117e1a944b8456745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa11ca0e9ad27005117e1a944b8456745">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[9/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">async Task&lt;string&gt; BasicxLogger.MultiLogger.logIDAsync </td>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="a00118.html">Date</a>&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00126.html">Time</a>&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
-          <td class="paramname"><em>messageTag</em>, </td>
+          <td class="paramname"><em>defaultTag</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
+          <td class="paramtype">Encoding&#160;</td>
+          <td class="paramname"><em>encoding</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -777,45 +457,256 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Asynchronous logs the given message with the given tag, a message ID and the current time stamp with every logger that was added to the multi logger. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. ID verification ist not supportet with the multi logger. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
-    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The message ID that was automatically assigned to the message. It can be used to identify a specific message. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="a00074.html">BasicxLogger.NoLoggerAddedException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00475">475</a> of file <a class="el" href="a00047_source.html">MultiLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00129">129</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad8cb77d7d15bf9cd7c2e35928937b9c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8cb77d7d15bf9cd7c2e35928937b9c1">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[10/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00126.html">Time</a>&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00142">142</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
+
+</div>
+</div>
+<a id="adbd817a6cb1f8b7b90e5bd9359ba5b40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd817a6cb1f8b7b90e5bd9359ba5b40">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[11/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00126.html">Time</a>&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
+          <td class="paramname"><em>defaultTag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00152">152</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
+
+</div>
+</div>
+<a id="a13988c451d048d7587c974d903ad467c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13988c451d048d7587c974d903ad467c">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[12/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00126.html">Time</a>&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Encoding&#160;</td>
+          <td class="paramname"><em>encoding</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00163">163</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad0fd84bf5d68938ad0310629d98ba5bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0fd84bf5d68938ad0310629d98ba5bc">&#9670;&nbsp;</a></span>MessageFormat() <span class="overload">[13/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BasicxLogger.Message.MessageFormat.MessageFormat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00126.html">Time</a>&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
+          <td class="paramname"><em>defaultTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Encoding&#160;</td>
+          <td class="paramname"><em>encoding</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger </p>
+<p>Everything that has no custom configuration will use the default settings. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00174">174</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="a0e8babf57d749fd886535dc105e6f138"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e8babf57d749fd886535dc105e6f138">&#9670;&nbsp;</a></span>date</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00118.html">Date</a> BasicxLogger.Message.MessageFormat.date = new <a class="el" href="a00118.html">Date</a>(<a class="el" href="a00060.html#a6b2f42cc9ece472692bb6249abe5224ea985992882e9452062f3fc85d15477775">DateFormat.year_month_day</a>, '/')</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains the information about the date formatting for the log message </p>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00017">17</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
+
+</div>
+</div>
+<a id="a4d00b58a6581199cb0029379bac6aa18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d00b58a6581199cb0029379bac6aa18">&#9670;&nbsp;</a></span>defaultTag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> BasicxLogger.Message.MessageFormat.defaultTag = <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23a334c4a4c42fdb79d7ebc3e73b517e6f8">Tag.none</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A default message tag that will be used if no tag is selected </p>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00025">25</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
+
+</div>
+</div>
+<a id="af24f027443c8087eb71f4daf782696aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af24f027443c8087eb71f4daf782696aa">&#9670;&nbsp;</a></span>encoding</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Encoding BasicxLogger.Message.MessageFormat.encoding = Encoding.UTF8</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encoding for the log message </p>
+<p>This option is not supported for json logging and will be ignored if you log to a json file </p>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00032">32</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
+
+</div>
+</div>
+<a id="af2a0ff7307b89488a4862d22085d439c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2a0ff7307b89488a4862d22085d439c">&#9670;&nbsp;</a></span>time</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00126.html">Time</a> BasicxLogger.Message.MessageFormat.time = new <a class="el" href="a00126.html">Time</a>(<a class="el" href="a00060.html#af146436e4f41a81c5f0bd8d395616510a006d28d5c44e89c9599731b43d0afd80">TimeFormat.hour24_min_sec</a>)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains the information about the time formatting for the log message </p>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00021">21</a> of file <a class="el" href="a00041_source.html">MessageFormat.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00047_source.html">MultiLogger.cs</a></li>
+<li><a class="el" href="a00041_source.html">MessageFormat.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00056.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00122.html">MultiLogger</a></li>
+    <li class="navelem"><a class="el" href="a00056.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00060.html">Message</a></li><li class="navelem"><a class="el" href="a00122.html">MessageFormat</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

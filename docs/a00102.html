@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: BasicxLogger.LoggerDirectory.LogDirectory Class Reference</title>
+<title>BasicxLogger: BasicxLogger.MySqlLogger Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,53 +88,101 @@ $(document).ready(function(){initNavTree('a00102.html',''); initResizable(); });
 <a href="#properties">Properties</a> &#124;
 <a href="a00099.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BasicxLogger.LoggerDirectory.LogDirectory Class Reference</div>  </div>
+<div class="title">BasicxLogger.MySqlLogger Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains all informations about the log directory  
+<p><a class="el" href="a00094.html" title="Default Logger class that contains everything needed to write a message to a log file.">Logger</a> that contains everything needed to log to an MySql database.  
  <a href="a00102.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for BasicxLogger.MySqlLogger:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="a00102.png" usemap="#BasicxLogger.MySqlLogger_map" alt=""/>
+  <map id="BasicxLogger.MySqlLogger_map" name="BasicxLogger.MySqlLogger_map">
+<area href="a00078.html" title="Interface for BasicxLogger" alt="BasicxLogger.ILogger" shape="rect" coords="0,0,168,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a07eae62f9a035b4f45b59780b38dd404"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a07eae62f9a035b4f45b59780b38dd404">LogDirectory</a> (string <a class="el" href="a00102.html#aa9321becb7929e989f1fc27f1352b040">path</a>, string <a class="el" href="a00102.html#a15d7c627c38555d3215144019262b053">name</a>)</td></tr>
-<tr class="memdesc:a07eae62f9a035b4f45b59780b38dd404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to create a <a class="el" href="a00102.html" title="Contains all informations about the log directory">LogDirectory</a> object.  <a href="a00102.html#a07eae62f9a035b4f45b59780b38dd404">More...</a><br /></td></tr>
-<tr class="separator:a07eae62f9a035b4f45b59780b38dd404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa277e730e56b049e25f503892f03272a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#aa277e730e56b049e25f503892f03272a">MySqlLogger</a> (<a class="el" href="a00106.html">MySqlDatabase</a> <a class="el" href="a00102.html#a030d9a1be34ef687fe5aab8ed871eedc">mySqlDatabase</a>, string <a class="el" href="a00102.html#ab26af996fe71ae398c3328709c96372a">logTableName</a>)</td></tr>
+<tr class="memdesc:aa277e730e56b049e25f503892f03272a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to create a <a class="el" href="a00102.html" title="Logger that contains everything needed to log to an MySql database.">MySqlLogger</a>  <a href="a00102.html#aa277e730e56b049e25f503892f03272a">More...</a><br /></td></tr>
+<tr class="separator:aa277e730e56b049e25f503892f03272a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61157e8b39d5ed77d43f9608f1229da3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a61157e8b39d5ed77d43f9608f1229da3">MySqlLogger</a> (<a class="el" href="a00106.html">MySqlDatabase</a> <a class="el" href="a00102.html#a030d9a1be34ef687fe5aab8ed871eedc">mySqlDatabase</a>, string <a class="el" href="a00102.html#ab26af996fe71ae398c3328709c96372a">logTableName</a>, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> defaultTag)</td></tr>
+<tr class="memdesc:a61157e8b39d5ed77d43f9608f1229da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to create a <a class="el" href="a00102.html" title="Logger that contains everything needed to log to an MySql database.">MySqlLogger</a>  <a href="a00102.html#a61157e8b39d5ed77d43f9608f1229da3">More...</a><br /></td></tr>
+<tr class="separator:a61157e8b39d5ed77d43f9608f1229da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22c54411548d04a60d9a24094ca8e198"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a22c54411548d04a60d9a24094ca8e198">log</a> (string message)</td></tr>
+<tr class="memdesc:a22c54411548d04a60d9a24094ca8e198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the given message and the current time stamp into the log table.  <a href="a00102.html#a22c54411548d04a60d9a24094ca8e198">More...</a><br /></td></tr>
+<tr class="separator:a22c54411548d04a60d9a24094ca8e198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f3a3279494a2adbd8792b36200b960"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a63f3a3279494a2adbd8792b36200b960">log</a> (<a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message)</td></tr>
+<tr class="memdesc:a63f3a3279494a2adbd8792b36200b960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the given message and the current time stamp into the log table.  <a href="a00102.html#a63f3a3279494a2adbd8792b36200b960">More...</a><br /></td></tr>
+<tr class="separator:a63f3a3279494a2adbd8792b36200b960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a012debfd2fb729ffdbea231d6bf90487"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a012debfd2fb729ffdbea231d6bf90487">logID</a> (string message, bool verifyMessageID=false)</td></tr>
+<tr class="memdesc:a012debfd2fb729ffdbea231d6bf90487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the given message and the current time stamp into the log table.  <a href="a00102.html#a012debfd2fb729ffdbea231d6bf90487">More...</a><br /></td></tr>
+<tr class="separator:a012debfd2fb729ffdbea231d6bf90487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97a985f0428d863c38e2d85a74945e7d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a97a985f0428d863c38e2d85a74945e7d">logID</a> (<a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message, bool verifyMessageID=false)</td></tr>
+<tr class="memdesc:a97a985f0428d863c38e2d85a74945e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the given message and the current time stamp into the log table.  <a href="a00102.html#a97a985f0428d863c38e2d85a74945e7d">More...</a><br /></td></tr>
+<tr class="separator:a97a985f0428d863c38e2d85a74945e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac482de5e51545d702fffdc95dde2e6f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#ac482de5e51545d702fffdc95dde2e6f0">logCustomID</a> (string id, string message)</td></tr>
+<tr class="memdesc:ac482de5e51545d702fffdc95dde2e6f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the given message and the current time stamp into the log table.  <a href="a00102.html#ac482de5e51545d702fffdc95dde2e6f0">More...</a><br /></td></tr>
+<tr class="separator:ac482de5e51545d702fffdc95dde2e6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9033ebdc5fd10ba0c60b0a595c059579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a9033ebdc5fd10ba0c60b0a595c059579">logCustomID</a> (string id, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message)</td></tr>
+<tr class="memdesc:a9033ebdc5fd10ba0c60b0a595c059579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the given message and the current time stamp into the log table.  <a href="a00102.html#a9033ebdc5fd10ba0c60b0a595c059579">More...</a><br /></td></tr>
+<tr class="separator:a9033ebdc5fd10ba0c60b0a595c059579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43c5aa9e48ab97952f5f32561cc963ba"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a43c5aa9e48ab97952f5f32561cc963ba">logAsync</a> (string message)</td></tr>
+<tr class="memdesc:a43c5aa9e48ab97952f5f32561cc963ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous inserts the given message and the current time stamp into the log table.  <a href="a00102.html#a43c5aa9e48ab97952f5f32561cc963ba">More...</a><br /></td></tr>
+<tr class="separator:a43c5aa9e48ab97952f5f32561cc963ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a769d4af3837609bfb8b77242d133134a"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a769d4af3837609bfb8b77242d133134a">logAsync</a> (<a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message)</td></tr>
+<tr class="memdesc:a769d4af3837609bfb8b77242d133134a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous inserts the given message and the current time stamp into the log table.  <a href="a00102.html#a769d4af3837609bfb8b77242d133134a">More...</a><br /></td></tr>
+<tr class="separator:a769d4af3837609bfb8b77242d133134a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c1e106c886821873294dbf3822fa365"><td class="memItemLeft" align="right" valign="top">async Task&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a1c1e106c886821873294dbf3822fa365">logIDAsync</a> (string message, bool verifyMessageID=false)</td></tr>
+<tr class="memdesc:a1c1e106c886821873294dbf3822fa365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous inserts the given message and the current time stamp into the log table.  <a href="a00102.html#a1c1e106c886821873294dbf3822fa365">More...</a><br /></td></tr>
+<tr class="separator:a1c1e106c886821873294dbf3822fa365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a777c93f9b50dd8a2b4da62a8ce284c71"><td class="memItemLeft" align="right" valign="top">async Task&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a777c93f9b50dd8a2b4da62a8ce284c71">logIDAsync</a> (<a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message, bool verifyMessageID=false)</td></tr>
+<tr class="memdesc:a777c93f9b50dd8a2b4da62a8ce284c71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous inserts the given message and the current time stamp into the log table.  <a href="a00102.html#a777c93f9b50dd8a2b4da62a8ce284c71">More...</a><br /></td></tr>
+<tr class="separator:a777c93f9b50dd8a2b4da62a8ce284c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a584720e091e60dc0ca138b850cf8479e"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a584720e091e60dc0ca138b850cf8479e">logCustomIDAsync</a> (string id, string message)</td></tr>
+<tr class="memdesc:a584720e091e60dc0ca138b850cf8479e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous inserts the given message and the current time stamp into the log table.  <a href="a00102.html#a584720e091e60dc0ca138b850cf8479e">More...</a><br /></td></tr>
+<tr class="separator:a584720e091e60dc0ca138b850cf8479e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abba5c0bcd2a1e1dfb0ee619c894dfe77"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#abba5c0bcd2a1e1dfb0ee619c894dfe77">logCustomIDAsync</a> (string id, <a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a> messageTag, string message)</td></tr>
+<tr class="memdesc:abba5c0bcd2a1e1dfb0ee619c894dfe77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous inserts the given message and the current time stamp into the log table.  <a href="a00102.html#abba5c0bcd2a1e1dfb0ee619c894dfe77">More...</a><br /></td></tr>
+<tr class="separator:abba5c0bcd2a1e1dfb0ee619c894dfe77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:aa9321becb7929e989f1fc27f1352b040"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#aa9321becb7929e989f1fc27f1352b040">path</a><code> [get]</code></td></tr>
-<tr class="memdesc:aa9321becb7929e989f1fc27f1352b040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Path were the log directory is located  <a href="a00102.html#aa9321becb7929e989f1fc27f1352b040">More...</a><br /></td></tr>
-<tr class="separator:aa9321becb7929e989f1fc27f1352b040"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15d7c627c38555d3215144019262b053"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a15d7c627c38555d3215144019262b053">name</a><code> [get]</code></td></tr>
-<tr class="memdesc:a15d7c627c38555d3215144019262b053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the log directory  <a href="a00102.html#a15d7c627c38555d3215144019262b053">More...</a><br /></td></tr>
-<tr class="separator:a15d7c627c38555d3215144019262b053"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa999f05361523ee7ac60227789a21687"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#aa999f05361523ee7ac60227789a21687">directory</a><code> [get]</code></td></tr>
-<tr class="memdesc:aa999f05361523ee7ac60227789a21687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Full directory path (path + name)  <a href="a00102.html#aa999f05361523ee7ac60227789a21687">More...</a><br /></td></tr>
-<tr class="separator:aa999f05361523ee7ac60227789a21687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab26af996fe71ae398c3328709c96372a"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#ab26af996fe71ae398c3328709c96372a">logTableName</a><code> [get]</code></td></tr>
+<tr class="memdesc:ab26af996fe71ae398c3328709c96372a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the table the logger will create and insert logs into  <a href="a00102.html#ab26af996fe71ae398c3328709c96372a">More...</a><br /></td></tr>
+<tr class="separator:ab26af996fe71ae398c3328709c96372a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a030d9a1be34ef687fe5aab8ed871eedc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00106.html">MySqlDatabase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html#a030d9a1be34ef687fe5aab8ed871eedc">mySqlDatabase</a><code> [get]</code></td></tr>
+<tr class="memdesc:a030d9a1be34ef687fe5aab8ed871eedc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds all informations about the MySqlDatabase used for logging  <a href="a00102.html#a030d9a1be34ef687fe5aab8ed871eedc">More...</a><br /></td></tr>
+<tr class="separator:a030d9a1be34ef687fe5aab8ed871eedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b9416463f12ce3fad52e9ee5a23d9e7"><td class="memItemLeft" align="right" valign="top"><a id="a3b9416463f12ce3fad52e9ee5a23d9e7"></a>
+<a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td><td class="memItemRight" valign="bottom"><b>defaultTag</b> = Tag.none<code> [get]</code></td></tr>
+<tr class="separator:a3b9416463f12ce3fad52e9ee5a23d9e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains all informations about the log directory </p>
+<div class="textblock"><p><a class="el" href="a00094.html" title="Default Logger class that contains everything needed to write a message to a log file.">Logger</a> that contains everything needed to log to an MySql database. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00010">10</a> of file <a class="el" href="a00020_source.html">LogDirectory.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00027">27</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a07eae62f9a035b4f45b59780b38dd404"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07eae62f9a035b4f45b59780b38dd404">&#9670;&nbsp;</a></span>LogDirectory()</h2>
+<a id="aa277e730e56b049e25f503892f03272a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa277e730e56b049e25f503892f03272a">&#9670;&nbsp;</a></span>MySqlLogger() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">BasicxLogger.LoggerDirectory.LogDirectory.LogDirectory </td>
+          <td class="memname">BasicxLogger.MySqlLogger.MySqlLogger </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
+          <td class="paramtype"><a class="el" href="a00106.html">MySqlDatabase</a>&#160;</td>
+          <td class="paramname"><em>mySqlDatabase</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
+          <td class="paramname"><em>logTableName</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -144,23 +192,692 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor, to create a <a class="el" href="a00102.html" title="Contains all informations about the log directory">LogDirectory</a> object. </p>
-<p>Can be used to configure a custom directory for the logger </p>
+<p>Constructor to create a <a class="el" href="a00102.html" title="Logger that contains everything needed to log to an MySql database.">MySqlLogger</a> </p>
+<p>The messege formate will use the default settings with this constructor </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>Path where the directory is located </td></tr>
-    <tr><td class="paramname">name</td><td>Name of the log directory </td></tr>
+    <tr><td class="paramname">mySqlDatabase</td><td>Holds all informations about the MySqlDatabase used for logging </td></tr>
+    <tr><td class="paramname">logTableName</td><td>Name of the table the logger will log to. This table will be created by the logger. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00037">37</a> of file <a class="el" href="a00020_source.html">LogDirectory.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00054">54</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a61157e8b39d5ed77d43f9608f1229da3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61157e8b39d5ed77d43f9608f1229da3">&#9670;&nbsp;</a></span>MySqlLogger() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BasicxLogger.MySqlLogger.MySqlLogger </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00106.html">MySqlDatabase</a>&#160;</td>
+          <td class="paramname"><em>mySqlDatabase</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>logTableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
+          <td class="paramname"><em>defaultTag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor to create a <a class="el" href="a00102.html" title="Logger that contains everything needed to log to an MySql database.">MySqlLogger</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mySqlDatabase</td><td>Holds all informations about the MySqlDatabase used for logging </td></tr>
+    <tr><td class="paramname">logTableName</td><td>Name of the table the logger will log to. This table will be created by the logger. </td></tr>
+    <tr><td class="paramname">defaultTag</td><td>A default message tag that will be used if no tag is selected </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00080">80</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a22c54411548d04a60d9a24094ca8e198"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22c54411548d04a60d9a24094ca8e198">&#9670;&nbsp;</a></span>log() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BasicxLogger.MySqlLogger.log </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#a6fe2cf0b1d5071dbbb1664382f826c93">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00109">109</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a63f3a3279494a2adbd8792b36200b960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63f3a3279494a2adbd8792b36200b960">&#9670;&nbsp;</a></span>log() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BasicxLogger.MySqlLogger.log </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
+          <td class="paramname"><em>messageTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#abcd110f1b6d9ab2774cbee823a3511ec">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00132">132</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a43c5aa9e48ab97952f5f32561cc963ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43c5aa9e48ab97952f5f32561cc963ba">&#9670;&nbsp;</a></span>logAsync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task BasicxLogger.MySqlLogger.logAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asynchronous inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#a0bf6c80c03aa61b7f67cea1bc2056d70">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00277">277</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a769d4af3837609bfb8b77242d133134a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769d4af3837609bfb8b77242d133134a">&#9670;&nbsp;</a></span>logAsync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task BasicxLogger.MySqlLogger.logAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
+          <td class="paramname"><em>messageTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asynchronous inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#a6103f40853d111b29988f0577d849ad7">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00304">304</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="ac482de5e51545d702fffdc95dde2e6f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac482de5e51545d702fffdc95dde2e6f0">&#9670;&nbsp;</a></span>logCustomID() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BasicxLogger.MySqlLogger.logCustomID </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the log message </td></tr>
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#a995be94faa6f254234e91cfff0b1d29b">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00230">230</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9033ebdc5fd10ba0c60b0a595c059579"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9033ebdc5fd10ba0c60b0a595c059579">&#9670;&nbsp;</a></span>logCustomID() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BasicxLogger.MySqlLogger.logCustomID </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
+          <td class="paramname"><em>messageTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the log message </td></tr>
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#a8c45042bf78280f75e91bf1a4d7fd777">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00256">256</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a584720e091e60dc0ca138b850cf8479e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a584720e091e60dc0ca138b850cf8479e">&#9670;&nbsp;</a></span>logCustomIDAsync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task BasicxLogger.MySqlLogger.logCustomIDAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asynchronous inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the log message </td></tr>
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#ab19ac43ea99461edf32b3c694bc89f4d">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00398">398</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="abba5c0bcd2a1e1dfb0ee619c894dfe77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba5c0bcd2a1e1dfb0ee619c894dfe77">&#9670;&nbsp;</a></span>logCustomIDAsync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task BasicxLogger.MySqlLogger.logCustomIDAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
+          <td class="paramname"><em>messageTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asynchronous inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the log message </td></tr>
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#ae917e6d95fed9d252fd60fbdef16c435">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00428">428</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a012debfd2fb729ffdbea231d6bf90487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a012debfd2fb729ffdbea231d6bf90487">&#9670;&nbsp;</a></span>logID() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BasicxLogger.MySqlLogger.logID </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>verifyMessageID</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+    <tr><td class="paramname">verifyMessageID</td><td>Set to true if you want to make sure the message id is unique. If set to true, the loging of the message may take longer an use more ram depending on how big your database is. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The message ID that was automatically assigned to the message. It can be used to identify a specific message. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#a83978e4bf0e6e51c5c0c1c1852f646ce">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00159">159</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a97a985f0428d863c38e2d85a74945e7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97a985f0428d863c38e2d85a74945e7d">&#9670;&nbsp;</a></span>logID() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string BasicxLogger.MySqlLogger.logID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
+          <td class="paramname"><em>messageTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>verifyMessageID</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
+    <tr><td class="paramname">verifyMessageID</td><td>Set to true if you want to make sure the message id is unique. If set to true, the loging of the message may take longer an use more ram depending on how big your database is. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The message ID that was automatically assigned to the message. It can be used to identify a specific message. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#a45f891b4aff18bb46ce8d06526746dc7">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00198">198</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a1c1e106c886821873294dbf3822fa365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c1e106c886821873294dbf3822fa365">&#9670;&nbsp;</a></span>logIDAsync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;string&gt; BasicxLogger.MySqlLogger.logIDAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>verifyMessageID</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asynchronous inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+    <tr><td class="paramname">verifyMessageID</td><td>Set to true if you want to make sure the message id is unique. If set to true, the loging of the message may take longer an use more ram depending on how big your database is. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The message ID that was automatically assigned to the message. It can be used to identify a specific message. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#af19307635a0dbe24d010ccb0acf3d3fc">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00335">335</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a777c93f9b50dd8a2b4da62a8ce284c71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a777c93f9b50dd8a2b4da62a8ce284c71">&#9670;&nbsp;</a></span>logIDAsync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;string&gt; BasicxLogger.MySqlLogger.logIDAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00060.html#a4d52c49464175c0f10fd6fb0a937ca23">Tag</a>&#160;</td>
+          <td class="paramname"><em>messageTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>verifyMessageID</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asynchronous inserts the given message and the current time stamp into the log table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message that will be writen to the file </td></tr>
+    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
+    <tr><td class="paramname">verifyMessageID</td><td>Set to true if you want to make sure the message id is unique. If set to true, the loging of the message may take longer an use more ram depending on how big your database is. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The message ID that was automatically assigned to the message. It can be used to identify a specific message. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.FormatException</td><td></td></tr>
+    <tr><td class="paramname">System.AggregateException</td><td></td></tr>
+    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
+    <tr><td class="paramname">System.InvalidOperationException</td><td></td></tr>
+    <tr><td class="paramname">System.Data.Common.DbException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="a00078.html#a88125f7edfedba94151bf4b9319f610e">BasicxLogger.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00370">370</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
-<a id="aa999f05361523ee7ac60227789a21687"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa999f05361523ee7ac60227789a21687">&#9670;&nbsp;</a></span>directory</h2>
+<a id="ab26af996fe71ae398c3328709c96372a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab26af996fe71ae398c3328709c96372a">&#9670;&nbsp;</a></span>logTableName</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +886,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string BasicxLogger.LoggerDirectory.LogDirectory.directory</td>
+          <td class="memname">string BasicxLogger.MySqlLogger.logTableName</td>
         </tr>
       </table>
   </td>
@@ -179,14 +896,14 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Full directory path (path + name) </p>
+<p>Name of the table the logger will create and insert logs into </p>
 
-<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00023">23</a> of file <a class="el" href="a00020_source.html">LogDirectory.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00033">33</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
 
 </div>
 </div>
-<a id="a15d7c627c38555d3215144019262b053"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15d7c627c38555d3215144019262b053">&#9670;&nbsp;</a></span>name</h2>
+<a id="a030d9a1be34ef687fe5aab8ed871eedc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a030d9a1be34ef687fe5aab8ed871eedc">&#9670;&nbsp;</a></span>mySqlDatabase</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +912,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string BasicxLogger.LoggerDirectory.LogDirectory.name</td>
+          <td class="memname"><a class="el" href="a00106.html">MySqlDatabase</a> BasicxLogger.MySqlLogger.mySqlDatabase</td>
         </tr>
       </table>
   </td>
@@ -205,47 +922,21 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Name of the log directory </p>
+<p>Holds all informations about the MySqlDatabase used for logging </p>
 
-<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00019">19</a> of file <a class="el" href="a00020_source.html">LogDirectory.cs</a>.</p>
-
-</div>
-</div>
-<a id="aa9321becb7929e989f1fc27f1352b040"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9321becb7929e989f1fc27f1352b040">&#9670;&nbsp;</a></span>path</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string BasicxLogger.LoggerDirectory.LogDirectory.path</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Path were the log directory is located </p>
-
-<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00015">15</a> of file <a class="el" href="a00020_source.html">LogDirectory.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00020_source.html#l00037">37</a> of file <a class="el" href="a00020_source.html">MySqlLogger.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00020_source.html">LogDirectory.cs</a></li>
+<li><a class="el" href="a00020_source.html">MySqlLogger.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00056.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00058.html">LoggerDirectory</a></li><li class="navelem"><a class="el" href="a00102.html">LogDirectory</a></li>
+    <li class="navelem"><a class="el" href="a00056.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00102.html">MySqlLogger</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

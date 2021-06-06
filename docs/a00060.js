@@ -1,8 +1,8 @@
 var a00060 =
 [
-    [ "Date", "a00110.html", "a00110" ],
-    [ "MessageFormat", "a00114.html", "a00114" ],
-    [ "Time", "a00118.html", "a00118" ],
+    [ "Date", "a00118.html", "a00118" ],
+    [ "MessageFormat", "a00122.html", "a00122" ],
+    [ "Time", "a00126.html", "a00126" ],
     [ "DateFormat", "a00060.html#a6b2f42cc9ece472692bb6249abe5224e", [
       [ "year_month_day", "a00060.html#a6b2f42cc9ece472692bb6249abe5224ea985992882e9452062f3fc85d15477775", null ],
       [ "year_day_month", "a00060.html#a6b2f42cc9ece472692bb6249abe5224ea9b78c1db4364a8c6c5edb1f04875e3fc", null ],

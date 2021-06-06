@@ -28,7 +28,7 @@
     <Compile Remove="Misc\**" />
     <EmbeddedResource Remove="Misc\**" />
     <None Remove="Misc\**" />
-    <None Include="..\..\misc\basicxLoggerIcon.png">
+    <None Include="..\..\graphics\basicxLoggerIcon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
