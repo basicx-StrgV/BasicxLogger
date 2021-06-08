@@ -17,6 +17,9 @@
 - Replaced the normel Logger class with the FileLogger class</PackageReleaseNotes>
     <Version>2.0.0</Version>
     <PackageIconUrl />
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

@@ -46,6 +46,10 @@ namespace BasicxLogger.Message
         /// </summary>
         EVENT,
         /// <summary>
+        /// Tag: [TEST]
+        /// </summary>
+        TEST,
+        /// <summary>
         /// If you dont want to have a tag
         /// </summary>
         none

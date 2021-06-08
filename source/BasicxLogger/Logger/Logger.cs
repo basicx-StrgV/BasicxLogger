@@ -1115,9 +1115,9 @@ namespace BasicxLogger
             {
                 string fileContent = File.ReadAllText(getFullFilePath());
 
-                List<LogMessage> logs = JsonSerializer.Deserialize<List<LogMessage>>(fileContent);
+                List<LogMessageModel> logs = JsonSerializer.Deserialize<List<LogMessageModel>>(fileContent);
 
-                LogMessage newLog = new LogMessage();
+                LogMessageModel newLog = new LogMessageModel();
                 if (!id.Equals(""))
                 {
                     newLog.id = id;

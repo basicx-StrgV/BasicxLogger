@@ -2222,6 +2222,11 @@
             Tag: [EVENT]
             </summary>
         </member>
+        <member name="F:BasicxLogger.Message.Tag.TEST">
+            <summary>
+            Tag: [TEST]
+            </summary>
+        </member>
         <member name="F:BasicxLogger.Message.Tag.none">
             <summary>
             If you dont want to have a tag
@@ -2310,6 +2315,31 @@
         <member name="F:BasicxLogger.Message.TimeFormat.none">
             <summary>
             Select, if you dont want to have the time in your log file
+            </summary>
+        </member>
+        <member name="T:BasicxLogger.LogMessageModel">
+            <summary>
+            Data model for one log message in a json log file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogMessageModel.id">
+            <summary>
+            The log message id
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogMessageModel.timestamp">
+            <summary>
+            The log message timestamp
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogMessageModel.tag">
+            <summary>
+            The log message tag
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogMessageModel.message">
+            <summary>
+            The log message
             </summary>
         </member>
     </members>
