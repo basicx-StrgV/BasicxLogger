@@ -67,6 +67,16 @@ namespace BasicxLogger.Message
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
+        public LogMessageFormat(LogTime time)
+        {
+            this.Time = time;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
         public LogMessageFormat(LogDate date, LogTime time)
         {
             this.Date = date;
@@ -142,16 +152,6 @@ namespace BasicxLogger.Message
             this.Time = time;
             this.DefaultTag = defaultTag;
             this.TextEncoding = encoding;
-        }
-        /// <summary>
-        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public LogMessageFormat(LogTime time)
-        {
-            this.Time = time;
         }
         /// <summary>
         /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger

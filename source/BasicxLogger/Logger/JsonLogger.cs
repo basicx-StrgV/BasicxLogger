@@ -223,7 +223,7 @@ namespace BasicxLogger
             {
                 if (!File.Exists(GetFullFilePath()))
                 {
-                    File.WriteAllText(GetFullFilePath(), "[]");
+                    File.WriteAllText(GetFullFilePath(), "{ \"entrys\": []}");
                 }
             }
             catch (Exception e)
@@ -238,11 +238,11 @@ namespace BasicxLogger
             {
                 string fileContent = File.ReadAllText(GetFullFilePath());
 
-                List<T> logs = JsonSerializer.Deserialize<List<T>>(fileContent);
+                CustomJsonLogModel<T> logFile = JsonSerializer.Deserialize<CustomJsonLogModel<T>>(fileContent);
 
-                logs.Add(logObject);
+                logFile.entrys.Add(logObject);
 
-                string newFileContent = JsonSerializer.Serialize(logs);
+                string newFileContent = JsonSerializer.Serialize(logFile);
 
                 FileStream fileWriter = File.OpenWrite(GetFullFilePath());
                 Utf8JsonWriter jsonWriter = new Utf8JsonWriter(fileWriter, new JsonWriterOptions { Indented = true });

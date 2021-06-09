@@ -1705,7 +1705,7 @@
             Logger that contains everything needed to log to an MySql database.
             </summary>
         </member>
-        <member name="P:BasicxLogger.MySqlLogger.LogTableName">
+        <member name="P:BasicxLogger.MySqlLogger.Table">
             <summary>
             Name of the table the logger will create and insert logs into
             </summary>
@@ -1730,7 +1730,7 @@
             <param name="database">
             Holds all informations about the MySqlDatabase used for logging
             </param>
-            <param name="logTableName">
+            <param name="logTable">
             Name of the table the logger will log to. This table will be created by the logger.
             </param>
         </member>
@@ -1741,7 +1741,7 @@
             <param name="database">
             Holds all informations about the MySqlDatabase used for logging
             </param>
-            <param name="logTableName">
+            <param name="logTable">
             Name of the table the logger will log to. This table will be created by the logger.
             </param>
             <param name="defaultTag">
@@ -2089,6 +2089,14 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
+        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogTime)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
         <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogDate,BasicxLogger.Message.LogTime)">
             <summary>
             Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
@@ -2138,14 +2146,6 @@
             </remarks>
         </member>
         <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogDate,BasicxLogger.Message.LogTime,BasicxLogger.Message.LogTag,System.Text.Encoding)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogTime)">
             <summary>
             Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
             </summary>
@@ -2320,6 +2320,26 @@
         <member name="F:BasicxLogger.Message.TimeFormat.none">
             <summary>
             Select, if you dont want to have the time in your log file
+            </summary>
+        </member>
+        <member name="T:BasicxLogger.CustomJsonLogModel`1">
+            <summary>
+            Data model for the custom json log file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.CustomJsonLogModel`1.entrys">
+            <summary>
+            List of custom log objects
+            </summary>
+        </member>
+        <member name="T:BasicxLogger.JsonLogModel">
+            <summary>
+            Data model for the json log file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.JsonLogModel.entrys">
+            <summary>
+            List of log messages
             </summary>
         </member>
         <member name="T:BasicxLogger.LogMessageModel">

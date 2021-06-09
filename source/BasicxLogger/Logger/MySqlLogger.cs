@@ -30,7 +30,7 @@ namespace BasicxLogger
         /// <summary>
         /// Name of the table the logger will create and insert logs into
         /// </summary>
-        public string LogTableName { get; }
+        public string Table{ get; }
         /// <summary>
         /// Holds all informations about the MySqlDatabase used for logging
         /// </summary>
@@ -51,17 +51,17 @@ namespace BasicxLogger
         /// <param name="database">
         /// Holds all informations about the MySqlDatabase used for logging
         /// </param>
-        /// <param name="logTableName">
+        /// <param name="logTable">
         /// Name of the table the logger will log to. This table will be created by the logger.
         /// </param>
-        public MySqlLogger(MySqlDatabase database, string logTableName)
+        public MySqlLogger(MySqlDatabase database, string logTable)
         {
             try
             {
                 this.Database = database;
-                this.LogTableName = logTableName;
+                this.Table = logTable;
 
-                CreateLogTable(logTableName);
+                CreateLogTable(Table);
             }
             catch (Exception e)
             {
@@ -74,21 +74,21 @@ namespace BasicxLogger
         /// <param name="database">
         /// Holds all informations about the MySqlDatabase used for logging
         /// </param>
-        /// <param name="logTableName">
+        /// <param name="logTable">
         /// Name of the table the logger will log to. This table will be created by the logger.
         /// </param>
         /// <param name="defaultTag">
         /// A default message tag that will be used if no tag is selected
         /// </param>
-        public MySqlLogger(MySqlDatabase database, string logTableName, LogTag defaultTag)
+        public MySqlLogger(MySqlDatabase database, string logTable, LogTag defaultTag)
         {
             try
             {
                 this.Database = database;
-                this.LogTableName = logTableName;
+                this.Table = logTable;
                 this.DefaultTag = defaultTag;
 
-                CreateLogTable(logTableName);
+                CreateLogTable(Table);
             }
             catch (Exception e)
             {
@@ -161,13 +161,9 @@ namespace BasicxLogger
         /// <exception cref="System.Data.Common.DbException"></exception>
         public string LogId(string message, bool verifyMessageID = false)
         {
-            string id = GenerateId();
-            if (verifyMessageID)
-            {
-                id = VerifyId(id);
-            }
-
             Database.Connection.Open();
+
+            string id = GetNewMessageId(verifyMessageID);
 
             LogToTable(DefaultTag, message, id);
 
@@ -199,13 +195,9 @@ namespace BasicxLogger
         /// <exception cref="System.Data.Common.DbException"></exception>
         public string LogId(LogTag messageTag, string message, bool verifyMessageID = false)
         {
-            string id = GenerateId();
-            if (verifyMessageID)
-            {
-                id = VerifyId(id);
-            }
-
             Database.Connection.Open();
+
+            string id = GetNewMessageId(verifyMessageID);
 
             LogToTable(messageTag, message, id);
 
@@ -443,7 +435,7 @@ namespace BasicxLogger
         //----------------------------------------------------------------------------------------------
 
         //-Private-Methods------------------------------------------------------------------------------
-        private string GetCurrentTime()
+        private string GetTimestemp()
         {
             try
             {
@@ -452,6 +444,24 @@ namespace BasicxLogger
             catch (Exception)
             {
                 return "0000/00/00 00:00:00";
+            }
+        }
+
+        private string GetNewMessageId(bool verifyMessageID = false)
+        {
+            try
+            {
+                string id = GenerateId();
+                if (verifyMessageID)
+                {
+                    id = VerifyId(id);
+                }
+
+                return id;
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
@@ -499,7 +509,7 @@ namespace BasicxLogger
             {
                 string selectIdCountTemplate = "select count(*) from {0} where messageId = '{1}'";
 
-                string selectIdCountCmdString = String.Format(selectIdCountTemplate, LogTableName, id);
+                string selectIdCountCmdString = String.Format(selectIdCountTemplate, Table, id);
 
                 MySqlCommand selectIdCountCmd = new MySqlCommand(selectIdCountCmdString, Database.Connection);
 
@@ -581,13 +591,13 @@ namespace BasicxLogger
                     id = "'" + id + "'";
                 }
 
-                string timestamp = "'" + GetCurrentTime() + "'";
+                string timestamp = "'" + GetTimestemp() + "'";
                 if (timestamp.Equals(""))
                 {
                     timestamp = "null";
                 }
 
-                string instertLogCmdString = String.Format(insertTemplate, LogTableName, id, timestamp, tag, message);
+                string instertLogCmdString = String.Format(insertTemplate, Table, id, timestamp, tag, message);
 
                 MySqlCommand instertLogCmd = new MySqlCommand(instertLogCmdString, Database.Connection);
 

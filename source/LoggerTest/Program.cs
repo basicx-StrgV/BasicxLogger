@@ -58,7 +58,8 @@ namespace LoggerTest
         private void CustomTest()
         {
             //---Test-code-for-any-sorts-of-tests-goes-here---
-
+            JsonLogger<testJson> testLogger = new JsonLogger<testJson>();
+            testLogger.Log(new testJson() { test = "test"});
         }
 
         private void DefaultTest()
@@ -130,7 +131,7 @@ namespace LoggerTest
             //Multi Logger
             _multiLogger = new MultiLogger();
         }
-    
+
         private void MultiLoggerSetup()
         {
             _multiLogger.AddLogger(_txtFileLogger);
@@ -138,7 +139,7 @@ namespace LoggerTest
             _multiLogger.AddLogger(_xmlFileLogger);
             _multiLogger.AddLogger(_jsonFileLogger);
         }
-    
+
         private void OutputTestStatus(bool testSuccess)
         {
             if (testSuccess)
@@ -156,5 +157,10 @@ namespace LoggerTest
                 Console.ResetColor();
             }
         }
+    }
+
+    class testJson
+    {
+        public string test { get; set; }
     }
 }
