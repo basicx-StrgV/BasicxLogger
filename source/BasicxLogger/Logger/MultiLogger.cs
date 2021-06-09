@@ -27,7 +27,7 @@ namespace BasicxLogger
     /// </remarks>
     public class MultiLogger
     {
-        private List<ILogger> loggerList = new List<ILogger>();
+        private List<ILogger> _loggerList = new List<ILogger>();
         //----------------------------------------------------------------------------------------------
 
         //-Public-Methods-------------------------------------------------------------------------------
@@ -50,15 +50,15 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public void log(string message)
+        public void Log(string message)
         {
             try
             {
-                if(loggerList.Count > 0)
+                if(_loggerList.Count > 0)
                 {
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        logger.log(message);
+                        logger.Log(message);
                     }
                 }
                 else
@@ -95,15 +95,15 @@ namespace BasicxLogger
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public void log(Tag messageTag, string message)
+        public void Log(LogTag messageTag, string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        logger.log(messageTag, message);
+                        logger.Log(messageTag, message);
                     }
                 }
                 else
@@ -140,17 +140,17 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public string logID(string message)
+        public string LogId(string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    string id = generateID();
+                    string id = GenerateId();
 
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        logger.logCustomID(id, message);
+                        logger.LogCustomId(id, message);
                     }
 
                     return id;
@@ -192,17 +192,17 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public string logID(Tag messageTag, string message)
+        public string LogId(LogTag messageTag, string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    string id = generateID();
+                    string id = GenerateId();
 
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        logger.logCustomID(id, messageTag, message);
+                        logger.LogCustomId(id, messageTag, message);
                     }
 
                     return id;
@@ -240,15 +240,15 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public void logCustomID(string id, string message)
+        public void LogCustomId(string id, string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        logger.logCustomID(id, message);
+                        logger.LogCustomId(id, message);
                     }
                 }
                 else
@@ -287,15 +287,15 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public void logCustomID(string id, Tag messageTag, string message)
+        public void LogCustomId(string id, LogTag messageTag, string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        logger.logCustomID(id, messageTag, message);
+                        logger.LogCustomId(id, messageTag, message);
                     }
                 }
                 else
@@ -330,15 +330,15 @@ namespace BasicxLogger
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public async Task logAsync(string message)
+        public async Task LogAsync(string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        await logger.logAsync(message);
+                        await logger.LogAsync(message);
                     }
                 }
                 else
@@ -375,15 +375,15 @@ namespace BasicxLogger
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public async Task logAsync(Tag messageTag, string message)
+        public async Task LogAsync(LogTag messageTag, string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        await logger.logAsync(messageTag, message);
+                        await logger.LogAsync(messageTag, message);
                     }
                 }
                 else
@@ -420,17 +420,17 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public async Task<string> logIDAsync(string message)
+        public async Task<string> LogIdAsync(string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    string id = generateID();
+                    string id = GenerateId();
 
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        await logger.logCustomIDAsync(id, message);
+                        await logger.LogCustomIdAsync(id, message);
                     }
                     
                     return id;
@@ -472,17 +472,17 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public async Task<string> logIDAsync(Tag messageTag, string message)
+        public async Task<string> LogIdAsync(LogTag messageTag, string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    string id = generateID();
+                    string id = GenerateId();
 
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        await logger.logCustomIDAsync(id, messageTag, message);
+                        await logger.LogCustomIdAsync(id, messageTag, message);
                     }
 
                     return id;
@@ -520,15 +520,15 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public async Task logCustomIDAsync(string id, string message)
+        public async Task LogCustomIdAsync(string id, string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        await logger.logCustomIDAsync(id, message);
+                        await logger.LogCustomIdAsync(id, message);
                     }
                 }
                 else
@@ -567,15 +567,15 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public async Task logCustomIDAsync(string id, Tag messageTag, string message)
+        public async Task logCustomIdAsync(string id, LogTag messageTag, string message)
         {
             try
             {
-                if (loggerList.Count > 0)
+                if (_loggerList.Count > 0)
                 {
-                    foreach (ILogger logger in loggerList)
+                    foreach (ILogger logger in _loggerList)
                     {
-                        await logger.logCustomIDAsync(id, messageTag, message);
+                        await logger.LogCustomIdAsync(id, messageTag, message);
                     }
                 }
                 else
@@ -595,15 +595,15 @@ namespace BasicxLogger
         /// Adds the given logger to the multi logger
         /// </summary>
         /// <param name="logger">The logger to add</param>
-        public void addLogger(ILogger logger)
+        public void AddLogger(ILogger logger)
         {
-            loggerList.Add(logger);
+            _loggerList.Add(logger);
         }
 
         //----------------------------------------------------------------------------------------------
 
         //-Private-Methods------------------------------------------------------------------------------
-        private string generateID()
+        private string GenerateId()
         {
             string id = "";
 

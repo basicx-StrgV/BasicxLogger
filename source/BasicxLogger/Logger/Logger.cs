@@ -32,13 +32,13 @@ namespace BasicxLogger
     /// This logger supports the following file formats: txt, log, xml and json
     /// </remarks>
     [Obsolete("The Logger class is obsolete and won't receive updates. Please use the FileLogger class instead", false)]
-    public class Logger : ILogger
+    public class Logger
     {
         //-Properties-----------------------------------------------------------------------------------
         /// <summary>
         /// Contains all informations about the log file
         /// </summary>
-        public LogFile logFile { get; } = new LogFile("log", LogFileType.txt);
+        public LogFile logFile { get; } = new LogFile("log", FileType.txt);
         /// <summary>
         /// Contains all informations about the log directory
         /// </summary>
@@ -46,7 +46,7 @@ namespace BasicxLogger
         /// <summary>
         /// Contains all informations about the formatting of the log messages
         /// </summary>
-        public MessageFormat messageFormat { get; } = new MessageFormat(new Date(DateFormat.year_month_day, '/'), new Time(TimeFormat.hour24_min_sec, CultureInfo.InvariantCulture), Encoding.UTF8);
+        public LogMessageFormat messageFormat { get; } = new LogMessageFormat(new LogDate(DateFormat.year_month_day, '/'), new LogTime(TimeFormat.hour24_min_sec, CultureInfo.InvariantCulture), Encoding.UTF8);
         //----------------------------------------------------------------------------------------------
 
         //-Constructors---------------------------------------------------------------------------------
@@ -86,7 +86,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogFile logFile, MessageFormat messageFormat)
+        public Logger(LogFile logFile, LogMessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -98,7 +98,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogFile logFile, LogDirectory logDirectory, MessageFormat messageFormat)
+        public Logger(LogFile logFile, LogDirectory logDirectory, LogMessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -111,7 +111,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogFile logFile, MessageFormat messageFormat, LogDirectory logDirectory)
+        public Logger(LogFile logFile, LogMessageFormat messageFormat, LogDirectory logDirectory)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -147,7 +147,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogDirectory logDirectory, MessageFormat messageFormat)
+        public Logger(LogDirectory logDirectory, LogMessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logDirectory = logDirectory;
@@ -159,7 +159,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogDirectory logDirectory, LogFile logFile, MessageFormat messageFormat)
+        public Logger(LogDirectory logDirectory, LogFile logFile, LogMessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -172,7 +172,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogDirectory logDirectory, MessageFormat messageFormat, LogFile logFile)
+        public Logger(LogDirectory logDirectory, LogMessageFormat messageFormat, LogFile logFile)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -185,7 +185,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(MessageFormat messageFormat)
+        public Logger(LogMessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             createDirectory();
@@ -196,7 +196,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(MessageFormat messageFormat, LogFile logFile)
+        public Logger(LogMessageFormat messageFormat, LogFile logFile)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -208,7 +208,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(MessageFormat messageFormat, LogDirectory logDirectory)
+        public Logger(LogMessageFormat messageFormat, LogDirectory logDirectory)
         {
             this.messageFormat = messageFormat;
             this.logDirectory = logDirectory;
@@ -220,7 +220,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(MessageFormat messageFormat, LogFile logFile, LogDirectory logDirectory)
+        public Logger(LogMessageFormat messageFormat, LogFile logFile, LogDirectory logDirectory)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -233,7 +233,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(MessageFormat messageFormat, LogDirectory logDirectory, LogFile logFile)
+        public Logger(LogMessageFormat messageFormat, LogDirectory logDirectory, LogFile logFile)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -265,12 +265,12 @@ namespace BasicxLogger
         {
             try
             {
-                if (!Directory.Exists(logDirectory.directory))
+                if (!Directory.Exists(logDirectory.FullPath))
                 {
                     createDirectory();
                 }
 
-                if (logFile.type.Equals(LogFileType.xml))
+                if (logFile.Type.Equals(FileType.xml))
                 {
                     //Log to xml file
                     if (!File.Exists(getFullFilePath()))
@@ -278,9 +278,9 @@ namespace BasicxLogger
                         createXmlFile();
                     }
 
-                    logToXml(messageFormat.defaultTag, message);
+                    logToXml(messageFormat.DefaultTag, message);
                 }
-                else if(logFile.type.Equals(LogFileType.json))
+                else if(logFile.Type.Equals(FileType.json))
                 {
                     //Log to json file
                     if (!File.Exists(getFullFilePath()))
@@ -288,12 +288,12 @@ namespace BasicxLogger
                         createJsonFile();
                     }
 
-                    logToJson(messageFormat.defaultTag, message);
+                    logToJson(messageFormat.DefaultTag, message);
                 }
-                else if(logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                else if(logFile.Type.Equals(FileType.txt) || logFile.Type.Equals(FileType.log))
                 {
                     //Default log (.txt and .log file)
-                    File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.defaultTag, message), messageFormat.encoding);
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.DefaultTag, message), messageFormat.TextEncoding);
                 }
             }
             catch (Exception e)
@@ -323,16 +323,16 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public void log(Tag messageTag, string message)
+        public void log(LogTag messageTag, string message)
         {
             try
             {
-                if (!Directory.Exists(logDirectory.directory))
+                if (!Directory.Exists(logDirectory.FullPath))
                 {
                     createDirectory();
                 }
 
-                if (logFile.type.Equals(LogFileType.xml))
+                if (logFile.Type.Equals(FileType.xml))
                 {
                     //Log to xml file
                     if (!File.Exists(getFullFilePath()))
@@ -342,7 +342,7 @@ namespace BasicxLogger
 
                     logToXml(messageTag, message);
                 }
-                else if (logFile.type.Equals(LogFileType.json))
+                else if (logFile.Type.Equals(FileType.json))
                 {
                     //Log to json file
                     if (!File.Exists(getFullFilePath()))
@@ -352,10 +352,10 @@ namespace BasicxLogger
 
                     logToJson(messageTag, message);
                 }
-                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                else if (logFile.Type.Equals(FileType.txt) || logFile.Type.Equals(FileType.log))
                 {
                     //Default log (.txt and .log file)
-                    File.AppendAllText(getFullFilePath(), messageBuilder(messageTag, message), messageFormat.encoding);
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageTag, message), messageFormat.TextEncoding);
                 }
             }
             catch (Exception e)
@@ -394,7 +394,7 @@ namespace BasicxLogger
         {
             try
             {
-                if (!Directory.Exists(logDirectory.directory))
+                if (!Directory.Exists(logDirectory.FullPath))
                 {
                     createDirectory();
                 }
@@ -405,7 +405,7 @@ namespace BasicxLogger
                     id = verifyID(id);
                 }
 
-                if (logFile.type.Equals(LogFileType.xml))
+                if (logFile.Type.Equals(FileType.xml))
                 {
                     //Log to xml file
                     if (!File.Exists(getFullFilePath()))
@@ -413,9 +413,9 @@ namespace BasicxLogger
                         createXmlFile();
                     }
 
-                    logToXml(messageFormat.defaultTag, message, id);
+                    logToXml(messageFormat.DefaultTag, message, id);
                 }
-                else if (logFile.type.Equals(LogFileType.json))
+                else if (logFile.Type.Equals(FileType.json))
                 {
                     //Log to json file
                     if (!File.Exists(getFullFilePath()))
@@ -423,12 +423,12 @@ namespace BasicxLogger
                         createJsonFile();
                     }
 
-                    logToJson(messageFormat.defaultTag, message, id);
+                    logToJson(messageFormat.DefaultTag, message, id);
                 }
-                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                else if (logFile.Type.Equals(FileType.txt) || logFile.Type.Equals(FileType.log))
                 {
                     //Default log (.txt and .log file)
-                    File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.defaultTag, message, id), messageFormat.encoding);
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.DefaultTag, message, id), messageFormat.TextEncoding);
                 }
 
                 return id;
@@ -468,11 +468,11 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public string logID(Tag messageTag, string message, bool verifyMessageID = false)
+        public string logID(LogTag messageTag, string message, bool verifyMessageID = false)
         {
             try
             {
-                if (!Directory.Exists(logDirectory.directory))
+                if (!Directory.Exists(logDirectory.FullPath))
                 {
                     createDirectory();
                 }
@@ -483,7 +483,7 @@ namespace BasicxLogger
                     id = verifyID(id);
                 }
 
-                if (logFile.type.Equals(LogFileType.xml))
+                if (logFile.Type.Equals(FileType.xml))
                 {
                     //Log to xml file
                     if (!File.Exists(getFullFilePath()))
@@ -493,7 +493,7 @@ namespace BasicxLogger
 
                     logToXml(messageTag, message, id);
                 }
-                else if (logFile.type.Equals(LogFileType.json))
+                else if (logFile.Type.Equals(FileType.json))
                 {
                     //Log to json file
                     if (!File.Exists(getFullFilePath()))
@@ -503,10 +503,10 @@ namespace BasicxLogger
 
                     logToJson(messageTag, message, id);
                 }
-                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                else if (logFile.Type.Equals(FileType.txt) || logFile.Type.Equals(FileType.log))
                 {
                     //Default log (.txt and .log file)
-                    File.AppendAllText(getFullFilePath(), messageBuilder(messageTag, message, id), messageFormat.encoding);
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageTag, message, id), messageFormat.TextEncoding);
                 }
 
                 return id;
@@ -542,12 +542,12 @@ namespace BasicxLogger
         {
             try
             {
-                if (!Directory.Exists(logDirectory.directory))
+                if (!Directory.Exists(logDirectory.FullPath))
                 {
                     createDirectory();
                 }
 
-                if (logFile.type.Equals(LogFileType.xml))
+                if (logFile.Type.Equals(FileType.xml))
                 {
                     //Log to xml file
                     if (!File.Exists(getFullFilePath()))
@@ -555,9 +555,9 @@ namespace BasicxLogger
                         createXmlFile();
                     }
 
-                    logToXml(messageFormat.defaultTag, message, id);
+                    logToXml(messageFormat.DefaultTag, message, id);
                 }
-                else if (logFile.type.Equals(LogFileType.json))
+                else if (logFile.Type.Equals(FileType.json))
                 {
                     //Log to json file
                     if (!File.Exists(getFullFilePath()))
@@ -565,12 +565,12 @@ namespace BasicxLogger
                         createJsonFile();
                     }
 
-                    logToJson(messageFormat.defaultTag, message, id);
+                    logToJson(messageFormat.DefaultTag, message, id);
                 }
-                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                else if (logFile.Type.Equals(FileType.txt) || logFile.Type.Equals(FileType.log))
                 {
                     //Default log (.txt and .log file)
-                    File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.defaultTag, message, id), messageFormat.encoding);
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.DefaultTag, message, id), messageFormat.TextEncoding);
                 }
             }
             catch (Exception e)
@@ -603,16 +603,16 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public void logCustomID(string id, Tag messageTag, string message)
+        public void logCustomID(string id, LogTag messageTag, string message)
         {
             try
             {
-                if (!Directory.Exists(logDirectory.directory))
+                if (!Directory.Exists(logDirectory.FullPath))
                 {
                     createDirectory();
                 }
 
-                if (logFile.type.Equals(LogFileType.xml))
+                if (logFile.Type.Equals(FileType.xml))
                 {
                     //Log to xml file
                     if (!File.Exists(getFullFilePath()))
@@ -622,7 +622,7 @@ namespace BasicxLogger
 
                     logToXml(messageTag, message, id);
                 }
-                else if (logFile.type.Equals(LogFileType.json))
+                else if (logFile.Type.Equals(FileType.json))
                 {
                     //Log to json file
                     if (!File.Exists(getFullFilePath()))
@@ -632,10 +632,10 @@ namespace BasicxLogger
 
                     logToJson(messageTag, message, id);
                 }
-                else if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                else if (logFile.Type.Equals(FileType.txt) || logFile.Type.Equals(FileType.log))
                 {
                     //Default log (.txt and .log file)
-                    File.AppendAllText(getFullFilePath(), messageBuilder(messageTag, message, id), messageFormat.encoding);
+                    File.AppendAllText(getFullFilePath(), messageBuilder(messageTag, message, id), messageFormat.TextEncoding);
                 }
             }
             catch (Exception e)
@@ -697,7 +697,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public async Task logAsync(Tag messageTag, string message)
+        public async Task logAsync(LogTag messageTag, string message)
         {
             try
             {
@@ -779,7 +779,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public async Task<string> logIDAsync(Tag messageTag, string message, bool verifyMessageID = false)
+        public async Task<string> logIDAsync(LogTag messageTag, string message, bool verifyMessageID = false)
         {
             try
             {
@@ -851,7 +851,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public async Task logCustomIDAsync(string id, Tag messageTag, string message)
+        public async Task logCustomIDAsync(string id, LogTag messageTag, string message)
         {
             try
             {
@@ -870,7 +870,7 @@ namespace BasicxLogger
         /// </returns>
         public string getFullFilePath()
         {
-            return logDirectory.directory + "\\" + logFile.file;
+            return logDirectory.FullPath + "\\" + logFile.FullName;
         }
 
         /// <summary>
@@ -908,33 +908,33 @@ namespace BasicxLogger
             {
                 string start = "";
                 string end = "";
-                if (logFile.type.Equals(LogFileType.txt) || logFile.type.Equals(LogFileType.log))
+                if (logFile.Type.Equals(FileType.txt) || logFile.Type.Equals(FileType.log))
                 {
                     start = "[";
                     end = "] ";
                 }
 
-                if (messageFormat.date.dateFormat.Equals(DateFormat.none) &&
-                        !messageFormat.time.timeFormat.Equals(TimeFormat.none))
+                if (messageFormat.Date.Format.Equals(DateFormat.none) &&
+                        !messageFormat.Time.Format.Equals(TimeFormat.none))
                 {
-                    return DateTime.Now.ToString(start + messageFormat.time.timeFormatString + end, 
-                                                messageFormat.time.cultureInfo);
+                    return DateTime.Now.ToString(start + messageFormat.Time.FormatString + end, 
+                                                messageFormat.Time.CultureFormat);
                 }
-                else if (!messageFormat.date.dateFormat.Equals(DateFormat.none) &&
-                            messageFormat.time.timeFormat.Equals(TimeFormat.none))
+                else if (!messageFormat.Date.Format.Equals(DateFormat.none) &&
+                            messageFormat.Time.Format.Equals(TimeFormat.none))
                 {
-                    return DateTime.Now.ToString(start + messageFormat.date.dateFormatString + end, 
-                                                messageFormat.time.cultureInfo);
+                    return DateTime.Now.ToString(start + messageFormat.Date.FormatString + end, 
+                                                messageFormat.Time.CultureFormat);
                 }
-                else if (messageFormat.date.dateFormat.Equals(DateFormat.none) && 
-                            messageFormat.time.timeFormat.Equals(TimeFormat.none))
+                else if (messageFormat.Date.Format.Equals(DateFormat.none) && 
+                            messageFormat.Time.Format.Equals(TimeFormat.none))
                 {
                     return "";
                 }
                 else
                 {
-                    return DateTime.Now.ToString(start + messageFormat.date.dateFormatString + (char)32 +
-                                        messageFormat.time.timeFormatString + end, messageFormat.time.cultureInfo);
+                    return DateTime.Now.ToString(start + messageFormat.Date.FormatString + (char)32 +
+                                        messageFormat.Time.FormatString + end, messageFormat.Time.CultureFormat);
                 }
             }
             catch(Exception)
@@ -947,9 +947,9 @@ namespace BasicxLogger
         {
             try
             {
-                if (!Directory.Exists(logDirectory.directory))
+                if (!Directory.Exists(logDirectory.FullPath))
                 {
-                    Directory.CreateDirectory(logDirectory.directory);
+                    Directory.CreateDirectory(logDirectory.FullPath);
                 }
             }
             catch (Exception e)
@@ -965,12 +965,12 @@ namespace BasicxLogger
                 if (!File.Exists(getFullFilePath()))
                 {
                     XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
-                    xmlWriterSettings.Encoding = messageFormat.encoding;
+                    xmlWriterSettings.Encoding = messageFormat.TextEncoding;
 
                     XmlWriter xmlWriter = XmlWriter.Create(getFullFilePath(), xmlWriterSettings);
 
                     xmlWriter.WriteStartDocument();
-                    xmlWriter.WriteStartElement(logFile.name);
+                    xmlWriter.WriteStartElement(logFile.Name);
                     xmlWriter.WriteEndElement();
                     xmlWriter.Close();
                 }
@@ -1021,9 +1021,9 @@ namespace BasicxLogger
             {
                 string tempId = id;
 
-                if (File.Exists(logDirectory.directory + "/" + logFile.file))
+                if (File.Exists(logDirectory.FullPath + "/" + logFile.FullName))
                 {
-                    string fileContent = File.ReadAllText(logDirectory.directory + "/" + logFile.file);
+                    string fileContent = File.ReadAllText(logDirectory.FullPath + "/" + logFile.FullName);
 
                     while (fileContent.Contains(tempId))
                     {
@@ -1039,13 +1039,13 @@ namespace BasicxLogger
             }
         }
 
-        private string messageBuilder(Tag messageTag, string message, string id = "")
+        private string messageBuilder(LogTag messageTag, string message, string id = "")
         {
             string dateTimePart = getCurrentTime();
             string tagPart = "";
             string idPart = "";
 
-            if (!messageTag.Equals(Tag.none))
+            if (!messageTag.Equals(LogTag.none))
             {
                 tagPart = "[" + messageTag + "] ";
             }
@@ -1058,7 +1058,7 @@ namespace BasicxLogger
             return dateTimePart + tagPart + idPart + message + "\n";
         }
 
-        private void logToXml(Tag messageTag, string message, string id = "")
+        private void logToXml(LogTag messageTag, string message, string id = "")
         {
             try
             {
@@ -1067,7 +1067,7 @@ namespace BasicxLogger
                 xmlFile.Load(getFullFilePath());
 
                 //Get the root node from the file
-                XmlNode rootNode = xmlFile.SelectSingleNode(logFile.name);
+                XmlNode rootNode = xmlFile.SelectSingleNode(logFile.Name);
 
                 //Create nodes and add data
                 XmlNode logMessageNode = xmlFile.CreateElement("LogMessage");
@@ -1079,15 +1079,15 @@ namespace BasicxLogger
                 logMessageNode.Attributes.Append(idAttribute);
 
                 XmlNode timestampNode = xmlFile.CreateElement("timestamp");
-                if (!messageFormat.date.dateFormat.Equals(DateFormat.none) ||
-                                !messageFormat.time.timeFormat.Equals(TimeFormat.none))
+                if (!messageFormat.Date.Format.Equals(DateFormat.none) ||
+                                !messageFormat.Time.Format.Equals(TimeFormat.none))
                 {
                     timestampNode.InnerText = getCurrentTime();
                 }
                 logMessageNode.AppendChild(timestampNode);
 
                 XmlNode tagNode = xmlFile.CreateElement("tag");
-                if (!messageTag.Equals(Tag.none))
+                if (!messageTag.Equals(LogTag.none))
                 {
                     tagNode.InnerText = messageTag.ToString();
                 }
@@ -1109,7 +1109,7 @@ namespace BasicxLogger
             }
         }
         
-        private void logToJson(Tag messageTag, string message, string id = "")
+        private void logToJson(LogTag messageTag, string message, string id = "")
         {
             try
             {
@@ -1123,13 +1123,13 @@ namespace BasicxLogger
                     newLog.id = id;
                 }
 
-                if (!messageFormat.date.dateFormat.Equals(DateFormat.none) ||
-                                    !messageFormat.time.timeFormat.Equals(TimeFormat.none))
+                if (!messageFormat.Date.Format.Equals(DateFormat.none) ||
+                                    !messageFormat.Time.Format.Equals(TimeFormat.none))
                 {
                     newLog.timestamp = getCurrentTime();
                 }
 
-                if (!messageTag.Equals(Tag.none))
+                if (!messageTag.Equals(LogTag.none))
                 {
                     newLog.tag = messageTag.ToString();
                 }

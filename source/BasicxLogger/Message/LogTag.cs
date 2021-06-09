@@ -7,7 +7,7 @@ namespace BasicxLogger.Message
     /// <summary>
     /// Enum that contains every message tag you can use
     /// </summary>
-    public enum Tag
+    public enum LogTag
     {
         /// <summary>
         /// Tag: [INFO]

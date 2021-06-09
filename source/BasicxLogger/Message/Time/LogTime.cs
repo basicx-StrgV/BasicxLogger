@@ -10,23 +10,23 @@ namespace BasicxLogger.Message
     /// <summary>
     /// Contains the information about the time formatting for the log message
     /// </summary>
-    public class Time
+    public class LogTime
     {
         /// <summary>
         /// Enum that contains the formate of the time
         /// </summary>
-        public TimeFormat timeFormat { get; }
+        public TimeFormat Format { get; }
         /// <summary>
         /// Format string for the time (e.g. HH:mm:ss)
         /// </summary>
-        public string timeFormatString { get; }
+        public string FormatString { get; }
         /// <summary>
         /// Holds the culture information to correctly display AM/PM, when the 12 hour time formate is used
         /// </summary>
-        public CultureInfo cultureInfo { get; } = CultureInfo.InvariantCulture;
+        public CultureInfo CultureFormat { get; } = CultureInfo.InvariantCulture;
 
 
-        private List<string> timeFormateList;
+        private List<string> _timeFormateList;
 
         /// <summary>
         /// Constructor, to create a Time object.
@@ -37,11 +37,11 @@ namespace BasicxLogger.Message
         /// <param name="timeFormat">
         /// Enum that contains the formate of the time
         /// </param>
-        public Time(TimeFormat timeFormat)
+        public LogTime(TimeFormat timeFormat)
         {
-            initalizeList();
-            this.timeFormat = timeFormat;
-            timeFormatString = timeFormateList[(int)this.timeFormat];
+            InitalizeList();
+            this.Format = timeFormat;
+            FormatString = _timeFormateList[(int)this.Format];
         }
         /// <summary>
         /// Constructor, to create a Time object.
@@ -55,17 +55,17 @@ namespace BasicxLogger.Message
         /// <param name="cultureInfo">
         /// The culture information to correctly display AM/PM, when the 12 hour time formate is used
         /// </param>
-        public Time(TimeFormat timeFormat, CultureInfo cultureInfo)
+        public LogTime(TimeFormat timeFormat, CultureInfo cultureInfo)
         {
-            initalizeList();
-            this.timeFormat = timeFormat;
-            this.cultureInfo = cultureInfo;
-            timeFormatString = timeFormateList[(int)this.timeFormat];
+            InitalizeList();
+            this.Format = timeFormat;
+            this.CultureFormat = cultureInfo;
+            FormatString = _timeFormateList[(int)this.Format];
         }
 
-        private void initalizeList()
+        private void InitalizeList()
         {
-            timeFormateList = new List<string>
+            _timeFormateList = new List<string>
             {
                 "HH:mm",
                 "HH:mm:ss",

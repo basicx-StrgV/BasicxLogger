@@ -30,14 +30,11 @@ namespace BasicxLogger
         /// <summary>
         /// Contains all informations about the log file
         /// </summary>
-        public LogFile logFile { get; } = new LogFile("log", LogFileType.json);
+        public LogFile LoggingFile { get; } = new LogFile("log", FileType.json);
         /// <summary>
         /// Contains all informations about the log directory
         /// </summary>
-        public LogDirectory logDirectory { get; } = new LogDirectory(Environment.CurrentDirectory, "Logs");
-        /// <summary>
-        /// Contains all informations about the formatting of the log messages
-        /// </summary>
+        public LogDirectory FileDirectory { get; } = new LogDirectory(Environment.CurrentDirectory, "Logs");
         //----------------------------------------------------------------------------------------------
 
         //-Constructors---------------------------------------------------------------------------------
@@ -46,7 +43,7 @@ namespace BasicxLogger
         /// </summary>
         public JsonLogger()
         {
-            createDirectory();
+            CreateDirectory();
         }
         /// <summary>
         /// Constructor, to create a logger object with custom settings. 
@@ -56,8 +53,8 @@ namespace BasicxLogger
         /// </remarks>
         public JsonLogger(string fileName)
         {
-            logFile = new LogFile(fileName, LogFileType.json);
-            createDirectory();
+            LoggingFile = new LogFile(fileName, FileType.json);
+            CreateDirectory();
         }
         /// <summary>
         /// Constructor, to create a logger object with custom settings. 
@@ -67,9 +64,9 @@ namespace BasicxLogger
         /// </remarks>
         public JsonLogger(string fileName, LogDirectory logDirectory)
         {
-            logFile = new LogFile(fileName, LogFileType.json);
-            this.logDirectory = logDirectory;
-            createDirectory();
+            LoggingFile = new LogFile(fileName, FileType.json);
+            this.FileDirectory = logDirectory;
+            CreateDirectory();
         }
         /// <summary>
         /// Constructor, to create a logger object with custom settings. 
@@ -79,8 +76,8 @@ namespace BasicxLogger
         /// </remarks>
         public JsonLogger(LogDirectory logDirectory)
         {
-            this.logDirectory = logDirectory;
-            createDirectory();
+            this.FileDirectory = logDirectory;
+            CreateDirectory();
         }
         /// <summary>
         /// Constructor, to create a logger object with custom settings. 
@@ -90,9 +87,9 @@ namespace BasicxLogger
         /// </remarks>
         public JsonLogger(LogDirectory logDirectory, string fileName)
         {
-            logFile = new LogFile(fileName, LogFileType.json);
-            this.logDirectory = logDirectory;
-            createDirectory();
+            LoggingFile = new LogFile(fileName, FileType.json);
+            this.FileDirectory = logDirectory;
+            CreateDirectory();
         }
         //----------------------------------------------------------------------------------------------
 
@@ -115,21 +112,21 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public void log(T logObject)
+        public void Log(T logObject)
         {
             try
             {
-                if (!Directory.Exists(logDirectory.directory))
+                if (!Directory.Exists(FileDirectory.FullPath))
                 {
-                    createDirectory();
+                    CreateDirectory();
                 }
 
-                if (!File.Exists(getFullFilePath()))
+                if (!File.Exists(GetFullFilePath()))
                 {
-                    createJsonFile();
+                    CreateJsonFile();
                 }
 
-                logToJson(logObject);
+                LogToJson(logObject);
             }
             catch (Exception e)
             {
@@ -156,11 +153,11 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public async Task logAsync(T logObject)
+        public async Task LogAsync(T logObject)
         {
             try
             {
-                Task logTask = Task.Run(() => log(logObject));
+                Task logTask = Task.Run(() => Log(logObject));
                 await logTask;
             }
             catch (Exception e)
@@ -173,9 +170,9 @@ namespace BasicxLogger
         /// <returns>
         /// The full file path (e.g. C:\mypath\myfile.json)
         /// </returns>
-        public string getFullFilePath()
+        public string GetFullFilePath()
         {
-            return logDirectory.directory + "\\" + logFile.file;
+            return FileDirectory.FullPath + "\\" + LoggingFile.FullName;
         }
 
         /// <summary>
@@ -191,11 +188,11 @@ namespace BasicxLogger
         /// <exception cref="System.IO.IOException"></exception>
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        public void deleteLogFile()
+        public void DeleteLogFile()
         {
             try
             {
-                File.Delete(getFullFilePath());
+                File.Delete(GetFullFilePath());
             }
             catch (Exception e)
             {
@@ -205,13 +202,13 @@ namespace BasicxLogger
         //----------------------------------------------------------------------------------------------
 
         //-Private-Methods------------------------------------------------------------------------------
-        private void createDirectory()
+        private void CreateDirectory()
         {
             try
             {
-                if (!Directory.Exists(logDirectory.directory))
+                if (!Directory.Exists(FileDirectory.FullPath))
                 {
-                    Directory.CreateDirectory(logDirectory.directory);
+                    Directory.CreateDirectory(FileDirectory.FullPath);
                 }
             }
             catch (Exception e)
@@ -220,13 +217,13 @@ namespace BasicxLogger
             }
         }
 
-        private void createJsonFile()
+        private void CreateJsonFile()
         {
             try
             {
-                if (!File.Exists(getFullFilePath()))
+                if (!File.Exists(GetFullFilePath()))
                 {
-                    File.WriteAllText(getFullFilePath(), "[]");
+                    File.WriteAllText(GetFullFilePath(), "[]");
                 }
             }
             catch (Exception e)
@@ -235,11 +232,11 @@ namespace BasicxLogger
             }
         }
 
-        private void logToJson(T logObject)
+        private void LogToJson(T logObject)
         {
             try
             {
-                string fileContent = File.ReadAllText(getFullFilePath());
+                string fileContent = File.ReadAllText(GetFullFilePath());
 
                 List<T> logs = JsonSerializer.Deserialize<List<T>>(fileContent);
 
@@ -247,7 +244,7 @@ namespace BasicxLogger
 
                 string newFileContent = JsonSerializer.Serialize(logs);
 
-                FileStream fileWriter = File.OpenWrite(getFullFilePath());
+                FileStream fileWriter = File.OpenWrite(GetFullFilePath());
                 Utf8JsonWriter jsonWriter = new Utf8JsonWriter(fileWriter, new JsonWriterOptions { Indented = true });
 
                 JsonDocument jsonFile = JsonDocument.Parse(newFileContent);

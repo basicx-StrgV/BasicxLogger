@@ -12,15 +12,15 @@ namespace BasicxLogger.LoggerDirectory
         /// <summary>
         /// Path were the log directory is located
         /// </summary>
-        public string path { get; }
+        public string Path { get; }
         /// <summary>
         /// Name of the log directory
         /// </summary>
-        public string name { get; }
+        public string Name { get; }
         /// <summary>
         /// Full directory path (path + name)
         /// </summary>
-        public string directory { get; }
+        public string FullPath { get; }
 
         /// <summary>
         /// Constructor, to create a LogDirectory object.
@@ -36,9 +36,9 @@ namespace BasicxLogger.LoggerDirectory
         /// </param>
         public LogDirectory(string path, string name)
         {
-            this.path = path;
-            this.name = name;
-            directory = this.path + "\\" + this.name;
+            this.Path = path;
+            this.Name = name;
+            this.FullPath = this.Path + "\\" + this.Name;
         }
     }
 }

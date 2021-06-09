@@ -9,23 +9,23 @@ namespace BasicxLogger.Message
     /// <summary>
     /// Contains the information about the date formatting for the log message
     /// </summary>
-    public class Date
+    public class LogDate
     {
         /// <summary>
         /// Enum that contains the formate of the date
         /// </summary>
-        public DateFormat dateFormat { get; }
+        public DateFormat Format { get; }
         /// <summary>
         /// Char that separates each part of the date
         /// </summary>
-        public char dateSeparator { get; } = '/';
+        public char Separator { get; } = '/';
         /// <summary>
         /// Format string for the date (e.g. yyyy'-'MM'-'dd)
         /// </summary>
-        public string dateFormatString { get; }
+        public string FormatString { get; }
 
 
-        private List<string> dateFormateList;
+        private List<string> _dateFormateList;
 
         /// <summary>
         /// Constructor, to create a Date object.
@@ -36,11 +36,11 @@ namespace BasicxLogger.Message
         /// <param name="dateFormat">
         /// Enum that contains the formate of the date
         /// </param>
-        public Date(DateFormat dateFormat)
+        public LogDate(DateFormat dateFormat)
         {
-            initalizeList();
-            this.dateFormat = dateFormat;
-            dateFormatString = dateFormateList[(int)this.dateFormat];
+            InitalizeList();
+            this.Format = dateFormat;
+            FormatString = _dateFormateList[(int)this.Format];
         }
         /// <summary>
         /// Constructor, to create a Date object.
@@ -54,23 +54,23 @@ namespace BasicxLogger.Message
         /// <param name="dateSeparator">
         /// Char that separates each part of the date
         /// </param>
-        public Date(DateFormat dateFormat, char dateSeparator)
+        public LogDate(DateFormat dateFormat, char dateSeparator)
         {
-            this.dateSeparator = dateSeparator;
-            initalizeList();
-            this.dateFormat = dateFormat;
-            dateFormatString = dateFormateList[(int)this.dateFormat];
+            this.Separator = dateSeparator;
+            InitalizeList();
+            this.Format = dateFormat;
+            FormatString = _dateFormateList[(int)this.Format];
         }
 
 
-        private void initalizeList()
+        private void InitalizeList()
         {
-            dateFormateList = new List<string>
+            _dateFormateList = new List<string>
             {
-                "yyyy'" + dateSeparator + "'MM'" + dateSeparator + "'dd",
-                "yyyy'" + dateSeparator + "'dd'" + dateSeparator + "'MM",
-                "dd'" + dateSeparator + "'MM'" + dateSeparator + "'yyyy",
-                "MM'" + dateSeparator + "'dd'" + dateSeparator + "'yyyy",
+                "yyyy'" + Separator + "'MM'" + Separator + "'dd",
+                "yyyy'" + Separator + "'dd'" + Separator + "'MM",
+                "dd'" + Separator + "'MM'" + Separator + "'yyyy",
+                "MM'" + Separator + "'dd'" + Separator + "'yyyy",
                 ""
             };
         }

@@ -30,12 +30,15 @@ namespace BasicxLogger
         /// <summary>
         /// Name of the table the logger will create and insert logs into
         /// </summary>
-        public string logTableName { get; }
+        public string LogTableName { get; }
         /// <summary>
         /// Holds all informations about the MySqlDatabase used for logging
         /// </summary>
-        public MySqlDatabase mySqlDatabase { get; }
-        public Tag defaultTag { get; } = Tag.none;
+        public MySqlDatabase Database { get; }
+        /// <summary>
+        /// A default message tag that will be used if no tag is selected
+        /// </summary>
+        public LogTag DefaultTag { get; } = LogTag.none;
         //----------------------------------------------------------------------------------------------
 
         //-Constructors---------------------------------------------------------------------------------
@@ -45,20 +48,20 @@ namespace BasicxLogger
         /// <remarks>
         /// The messege formate will use the default settings with this constructor
         /// </remarks>
-        /// <param name="mySqlDatabase">
+        /// <param name="database">
         /// Holds all informations about the MySqlDatabase used for logging
         /// </param>
         /// <param name="logTableName">
         /// Name of the table the logger will log to. This table will be created by the logger.
         /// </param>
-        public MySqlLogger(MySqlDatabase mySqlDatabase, string logTableName)
+        public MySqlLogger(MySqlDatabase database, string logTableName)
         {
             try
             {
-                this.mySqlDatabase = mySqlDatabase;
-                this.logTableName = logTableName;
+                this.Database = database;
+                this.LogTableName = logTableName;
 
-                createLogTable(logTableName);
+                CreateLogTable(logTableName);
             }
             catch (Exception e)
             {
@@ -68,7 +71,7 @@ namespace BasicxLogger
         /// <summary>
         /// Constructor to create a MySqlLogger
         /// </summary>
-        /// <param name="mySqlDatabase">
+        /// <param name="database">
         /// Holds all informations about the MySqlDatabase used for logging
         /// </param>
         /// <param name="logTableName">
@@ -77,15 +80,15 @@ namespace BasicxLogger
         /// <param name="defaultTag">
         /// A default message tag that will be used if no tag is selected
         /// </param>
-        public MySqlLogger(MySqlDatabase mySqlDatabase, string logTableName, Tag defaultTag)
+        public MySqlLogger(MySqlDatabase database, string logTableName, LogTag defaultTag)
         {
             try
             {
-                this.mySqlDatabase = mySqlDatabase;
-                this.logTableName = logTableName;
-                this.defaultTag = defaultTag;
+                this.Database = database;
+                this.LogTableName = logTableName;
+                this.DefaultTag = defaultTag;
 
-                createLogTable(logTableName);
+                CreateLogTable(logTableName);
             }
             catch (Exception e)
             {
@@ -106,13 +109,13 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public void log(string message)
+        public void Log(string message)
         {
-            mySqlDatabase.connection.Open();
+            Database.Connection.Open();
 
-            logToTable(defaultTag, message);
+            LogToTable(DefaultTag, message);
 
-            mySqlDatabase.connection.Close();
+            Database.Connection.Close();
         }
 
         /// <summary>
@@ -129,13 +132,13 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public void log(Tag messageTag, string message)
+        public void Log(LogTag messageTag, string message)
         {
-            mySqlDatabase.connection.Open();
+            Database.Connection.Open();
 
-            logToTable(messageTag, message);
+            LogToTable(messageTag, message);
 
-            mySqlDatabase.connection.Close();
+            Database.Connection.Close();
         }
 
         /// <summary>
@@ -156,20 +159,19 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public string logID(string message, bool verifyMessageID = false)
+        public string LogId(string message, bool verifyMessageID = false)
         {
-            string id = generateID();
+            string id = GenerateId();
             if (verifyMessageID)
             {
-                id = verifyID(id);
+                id = VerifyId(id);
             }
 
-            mySqlDatabase.connection.Open();
+            Database.Connection.Open();
 
-            logToTable(defaultTag, message, id);
+            LogToTable(DefaultTag, message, id);
 
-            mySqlDatabase.connection.Close();
-
+            Database.Connection.Close();
 
             return id;
         }
@@ -195,20 +197,19 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public string logID(Tag messageTag, string message, bool verifyMessageID = false)
+        public string LogId(LogTag messageTag, string message, bool verifyMessageID = false)
         {
-            string id = generateID();
+            string id = GenerateId();
             if (verifyMessageID)
             {
-                id = verifyID(id);
+                id = VerifyId(id);
             }
 
-            mySqlDatabase.connection.Open();
+            Database.Connection.Open();
 
-            logToTable(messageTag, message, id);
+            LogToTable(messageTag, message, id);
 
-            mySqlDatabase.connection.Close();
-
+            Database.Connection.Close();
 
             return id;
         }
@@ -227,13 +228,13 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public void logCustomID(string id, string message)
+        public void LogCustomId(string id, string message)
         {
-            mySqlDatabase.connection.Open();
+            Database.Connection.Open();
 
-            logToTable(defaultTag, message, id);
+            LogToTable(DefaultTag, message, id);
 
-            mySqlDatabase.connection.Close();
+            Database.Connection.Close();
         }
 
         /// <summary>
@@ -253,13 +254,13 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public void logCustomID(string id, Tag messageTag, string message)
+        public void LogCustomId(string id, LogTag messageTag, string message)
         {
-            mySqlDatabase.connection.Open();
+            Database.Connection.Open();
 
-            logToTable(messageTag, message, id);
+            LogToTable(messageTag, message, id);
 
-            mySqlDatabase.connection.Close();
+            Database.Connection.Close();
         }
 
         //-Async-methods-----
@@ -274,11 +275,11 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task logAsync(string message)
+        public async Task LogAsync(string message)
         {
             try
             {
-                Task logTask = Task.Run(() => log(message));
+                Task logTask = Task.Run(() => Log(message));
                 await logTask;
             }
             catch (Exception e)
@@ -301,11 +302,11 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task logAsync(Tag messageTag, string message)
+        public async Task LogAsync(LogTag messageTag, string message)
         {
             try
             {
-                Task logTask = Task.Run(() => log(messageTag, message));
+                Task logTask = Task.Run(() => Log(messageTag, message));
                 await logTask;
             }
             catch (Exception e)
@@ -332,11 +333,11 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task<string> logIDAsync(string message, bool verifyMessageID = false)
+        public async Task<string> LogIdAsync(string message, bool verifyMessageID = false)
         {
             try
             {
-                Task<string> logTask = Task.Run(() => logID(message, verifyMessageID));
+                Task<string> logTask = Task.Run(() => LogId(message, verifyMessageID));
                 await logTask;
                 return logTask.Result;
             }
@@ -367,11 +368,11 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task<string> logIDAsync(Tag messageTag, string message, bool verifyMessageID = false)
+        public async Task<string> LogIdAsync(LogTag messageTag, string message, bool verifyMessageID = false)
         {
             try
             {
-                Task<string> logTask = Task.Run(() => logID(messageTag, message, verifyMessageID));
+                Task<string> logTask = Task.Run(() => LogId(messageTag, message, verifyMessageID));
                 await logTask;
                 return logTask.Result;
             }
@@ -395,11 +396,11 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task logCustomIDAsync(string id, string message)
+        public async Task LogCustomIdAsync(string id, string message)
         {
             try
             {
-                Task logTask = Task.Run(() => logCustomID(id, message));
+                Task logTask = Task.Run(() => LogCustomId(id, message));
                 await logTask;
             }
             catch (Exception e)
@@ -425,11 +426,11 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task logCustomIDAsync(string id, Tag messageTag, string message)
+        public async Task LogCustomIdAsync(string id, LogTag messageTag, string message)
         {
             try
             {
-                Task logTask = Task.Run(() => logCustomID(id, messageTag, message));
+                Task logTask = Task.Run(() => LogCustomId(id, messageTag, message));
                 await logTask;
             }
             catch (Exception e)
@@ -442,7 +443,7 @@ namespace BasicxLogger
         //----------------------------------------------------------------------------------------------
 
         //-Private-Methods------------------------------------------------------------------------------
-        private string getCurrentTime()
+        private string GetCurrentTime()
         {
             try
             {
@@ -454,7 +455,7 @@ namespace BasicxLogger
             }
         }
 
-        private string generateID()
+        private string GenerateId()
         {
             string id = "";
 
@@ -473,15 +474,15 @@ namespace BasicxLogger
             return id;
         }
 
-        private string verifyID(string id)
+        private string VerifyId(string id)
         {
             try
             {
                 string tempId = id;
 
-                while (getIdEntryCount(id) > 0)
+                while (GetIdEntryCount(id) > 0)
                 {
-                    tempId = generateID();
+                    tempId = GenerateId();
                 }
 
                 return tempId;
@@ -492,15 +493,15 @@ namespace BasicxLogger
             }
         }
 
-        private long getIdEntryCount(string id)
+        private long GetIdEntryCount(string id)
         {
             try
             {
                 string selectIdCountTemplate = "select count(*) from {0} where messageId = '{1}'";
 
-                string selectIdCountCmdString = String.Format(selectIdCountTemplate, logTableName, id);
+                string selectIdCountCmdString = String.Format(selectIdCountTemplate, LogTableName, id);
 
-                MySqlCommand selectIdCountCmd = new MySqlCommand(selectIdCountCmdString, mySqlDatabase.connection);
+                MySqlCommand selectIdCountCmd = new MySqlCommand(selectIdCountCmdString, Database.Connection);
 
                 DataTable dataTable = new DataTable();
                 new MySqlDataAdapter(selectIdCountCmd).Fill(dataTable);
@@ -517,7 +518,7 @@ namespace BasicxLogger
             }
         }
 
-        private bool createLogTable(string logTableName)
+        private bool CreateLogTable(string logTableName)
         {
             try
             {
@@ -530,31 +531,31 @@ namespace BasicxLogger
 
                 string createTableCmdString = String.Format(createTableTemplate, logTableName);
 
-                mySqlDatabase.connection.Open();
+                Database.Connection.Open();
 
-                MySqlCommand createTableCmd = new MySqlCommand(createTableCmdString, mySqlDatabase.connection);
+                MySqlCommand createTableCmd = new MySqlCommand(createTableCmdString, Database.Connection);
 
                 Task<int> cmd = createTableCmd.ExecuteNonQueryAsync();
                 cmd.Wait();
 
-                mySqlDatabase.connection.Close();
+                Database.Connection.Close();
 
                 return true;
             }
             catch (AggregateException) 
             {
                 //Table already exists
-                mySqlDatabase.connection.Close();
+                Database.Connection.Close();
                 return false;
             }
             catch (Exception e)
             {
-                mySqlDatabase.connection.Close();
+                Database.Connection.Close();
                 throw e;
             }
         }
         
-        private void logToTable(Tag messageTag, string message, string id = "")
+        private void LogToTable(LogTag messageTag, string message, string id = "")
         {
             try
             {
@@ -562,7 +563,7 @@ namespace BasicxLogger
                 "insert into {0}(entryId, messageId, messageTimestamp, tag, message) VALUES(null, {1}, {2}, {3}, '{4}')";
 
                 string tag = "";
-                if (messageTag.Equals(Tag.none))
+                if (messageTag.Equals(LogTag.none))
                 {
                     tag = "null";
                 }
@@ -580,15 +581,15 @@ namespace BasicxLogger
                     id = "'" + id + "'";
                 }
 
-                string timestamp = "'" + getCurrentTime() + "'";
+                string timestamp = "'" + GetCurrentTime() + "'";
                 if (timestamp.Equals(""))
                 {
                     timestamp = "null";
                 }
 
-                string instertLogCmdString = String.Format(insertTemplate, logTableName, id, timestamp, tag, message);
+                string instertLogCmdString = String.Format(insertTemplate, LogTableName, id, timestamp, tag, message);
 
-                MySqlCommand instertLogCmd = new MySqlCommand(instertLogCmdString, mySqlDatabase.connection);
+                MySqlCommand instertLogCmd = new MySqlCommand(instertLogCmdString, Database.Connection);
 
                 Task<int> cmd = instertLogCmd.ExecuteNonQueryAsync();
                 cmd.Wait();

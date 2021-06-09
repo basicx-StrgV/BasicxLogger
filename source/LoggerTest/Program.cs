@@ -13,22 +13,22 @@ namespace LoggerTest
         //-Logger-------------------------------------------------------------
 
         //File Logger TXT file
-        FileLogger txtFileLogger;
+        private FileLogger _txtFileLogger;
         //File Logger LOG file
-        FileLogger logFileLogger;
+        private FileLogger _logFileLogger;
         //File Logger xml file
-        FileLogger xmlFileLogger;
+        private FileLogger _xmlFileLogger;
         //File Logger JSON file
-        FileLogger jsonFileLogger;
+        private FileLogger _jsonFileLogger;
 
         //Json Logger
-        JsonLogger<JsonLoggerTestModel> jsonLogger;
+        private JsonLogger<JsonLoggerTestModel> _jsonLogger;
 
         //MySql Logger
-        MySqlLogger mySqlLogger;
+        private MySqlLogger _mySqlLogger;
 
         //Multi Logger
-        MultiLogger multiLogger;
+        private MultiLogger _multiLogger;
 
         //--------------------------------------------------------------------
 
@@ -38,108 +38,108 @@ namespace LoggerTest
         }
         Program()
         {
-            run();
+            Run();
         }
 
-        private void run()
+        private void Run()
         {
             if (Directory.Exists(DirConfig.TestOutputDir))
             {
                 Directory.CreateDirectory(DirConfig.TestOutputDir);
             }
 
-            defaultTest();
+            DefaultTest();
 
             Console.WriteLine("\n--------------------------------------------\n");
 
-            customTest();
+            CustomTest();
         }
 
-        private void customTest()
+        private void CustomTest()
         {
             //---Test-code-for-any-sorts-of-tests-goes-here---
 
         }
 
-        private void defaultTest()
+        private void DefaultTest()
         {
-            initalizeLogger();
+            InitalizeLogger();
 
-            multiLoggerSetup();
+            MultiLoggerSetup();
 
             //-Test all logger ----------------------------------------------
 
             Console.Write("\nFileLogger(.txt): ");
-            outputTestStatus(new FileLoggerTester(txtFileLogger).test());
+            OutputTestStatus(new FileLoggerTester(_txtFileLogger).Test());
 
             Console.Write("\nFileLogger(.log): ");
-            outputTestStatus(new FileLoggerTester(logFileLogger).test());
+            OutputTestStatus(new FileLoggerTester(_logFileLogger).Test());
 
             Console.Write("\nFileLogger(.json): ");
-            outputTestStatus(new FileLoggerTester(jsonFileLogger).test());
+            OutputTestStatus(new FileLoggerTester(_jsonFileLogger).Test());
 
             //---------------------------------------------------------------
         }
 
-        private void initalizeLogger()
+        private void InitalizeLogger()
         {
             //File Logger TXT file
-            txtFileLogger = new FileLogger(
+            _txtFileLogger = new FileLogger(
                                 new LogDirectory(DirConfig.TestOutputDir, "FileLoggerTestOutput"),
-                                new LogFile("FileLoggerTest", LogFileType.txt),
-                                new MessageFormat(
-                                    new Date(DateFormat.year_month_day, '/'),
-                                    new Time(TimeFormat.hour24_min_sec)));
+                                new LogFile("FileLoggerTest", FileType.txt),
+                                new LogMessageFormat(
+                                    new LogDate(DateFormat.year_month_day, '/'),
+                                    new LogTime(TimeFormat.hour24_min_sec)));
             //File Logger LOG file
-            logFileLogger = new FileLogger(
+            _logFileLogger = new FileLogger(
                                 new LogDirectory(DirConfig.TestOutputDir, "FileLoggerTestOutput"),
-                                new LogFile("FileLoggerTest", LogFileType.log),
-                                new MessageFormat(
-                                    new Date(DateFormat.year_month_day, '/'),
-                                    new Time(TimeFormat.hour24_min_sec)));
+                                new LogFile("FileLoggerTest", FileType.log),
+                                new LogMessageFormat(
+                                    new LogDate(DateFormat.year_month_day, '/'),
+                                    new LogTime(TimeFormat.hour24_min_sec)));
             //File Logger xml file
-            xmlFileLogger = new FileLogger(
+            _xmlFileLogger = new FileLogger(
                                 new LogDirectory(DirConfig.TestOutputDir, "FileLoggerTestOutput"),
-                                new LogFile("FileLoggerTest", LogFileType.xml),
-                                new MessageFormat(
-                                    new Date(DateFormat.year_month_day, '/'),
-                                    new Time(TimeFormat.hour24_min_sec)));
+                                new LogFile("FileLoggerTest", FileType.xml),
+                                new LogMessageFormat(
+                                    new LogDate(DateFormat.year_month_day, '/'),
+                                    new LogTime(TimeFormat.hour24_min_sec)));
             //File Logger JSON file
-            jsonFileLogger = new FileLogger(
+            _jsonFileLogger = new FileLogger(
                                 new LogDirectory(DirConfig.TestOutputDir, "FileLoggerTestOutput"),
-                                new LogFile("FileLoggerTest", LogFileType.json),
-                                new MessageFormat(
-                                    new Date(DateFormat.year_month_day, '/'),
-                                    new Time(TimeFormat.hour24_min_sec)));
+                                new LogFile("FileLoggerTest", FileType.json),
+                                new LogMessageFormat(
+                                    new LogDate(DateFormat.year_month_day, '/'),
+                                    new LogTime(TimeFormat.hour24_min_sec)));
 
             //Json Logger
-            jsonLogger = new JsonLogger<JsonLoggerTestModel>(
+            _jsonLogger = new JsonLogger<JsonLoggerTestModel>(
                             new LogDirectory(DirConfig.TestOutputDir, "JsonLoggerTestOutput"),
                             "JsonLoggerTest");
 
             //MySql Logger
             try
             {
-                mySqlLogger = new MySqlLogger(new MySqlDatabase("localhost", "test", "root", "admin"), "logTest");
+                _mySqlLogger = new MySqlLogger(new MySqlDatabase("localhost", "test", "root", "admin"), "logTest");
             }
             catch (Exception)
             {
-                multiLogger = null;
+                _multiLogger = null;
             }
 
             //Multi Logger
-            multiLogger = new MultiLogger();
+            _multiLogger = new MultiLogger();
         }
     
-        private void multiLoggerSetup()
+        private void MultiLoggerSetup()
         {
-            multiLogger.addLogger(txtFileLogger);
-            multiLogger.addLogger(logFileLogger);
-            multiLogger.addLogger(xmlFileLogger);
-            multiLogger.addLogger(jsonFileLogger);
+            _multiLogger.AddLogger(_txtFileLogger);
+            _multiLogger.AddLogger(_logFileLogger);
+            _multiLogger.AddLogger(_xmlFileLogger);
+            _multiLogger.AddLogger(_jsonFileLogger);
         }
     
-        private void outputTestStatus(bool testSuccess)
+        private void OutputTestStatus(bool testSuccess)
         {
             if (testSuccess)
             {

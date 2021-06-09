@@ -12,15 +12,15 @@ namespace BasicxLogger.LoggerFile
         /// <summary>
         /// Name of the log file
         /// </summary>
-        public string name { get; }
+        public string Name { get; }
         /// <summary>
         /// File type of the log file
         /// </summary>
-        public LogFileType type { get; }
+        public FileType Type { get; }
         /// <summary>
         /// Full file name (name + file type : e.g. sample.txt)
         /// </summary>
-        public string file { get; }
+        public string FullName { get; }
 
         /// <summary>
         /// Constructor, to create a LogFile object.
@@ -34,11 +34,11 @@ namespace BasicxLogger.LoggerFile
         /// <param name="type">
         /// File type of the log file
         /// </param>
-        public LogFile(string name, LogFileType type)
+        public LogFile(string name, FileType type)
         {
-            this.name = name;
-            this.type = type;
-            file = name + "." + type;
+            this.Name = name;
+            this.Type = type;
+            this.FullName = name + "." + type;
         }
     }
 }

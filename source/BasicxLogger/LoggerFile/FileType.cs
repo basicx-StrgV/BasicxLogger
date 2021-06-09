@@ -7,7 +7,7 @@ namespace BasicxLogger.LoggerFile
     /// <summary>
     /// Enum that contains every supported file type
     /// </summary>
-    public enum LogFileType
+    public enum FileType
     {
         /// <summary>
         /// File type: .txt
