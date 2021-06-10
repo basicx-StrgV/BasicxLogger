@@ -14,7 +14,6 @@
 using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using BasicxLogger.Message;
 
 namespace BasicxLogger
 {
@@ -27,7 +26,16 @@ namespace BasicxLogger
     /// </remarks>
     public class MultiLogger
     {
+
         private List<ILogger> _loggerList = new List<ILogger>();
+
+        //-Constructors---------------------------------------------------------------------------------
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BasicxLogger.MultiLogger"/> class
+        /// </summary>
+        public MultiLogger()
+        {
+        }
         //----------------------------------------------------------------------------------------------
 
         //-Public-Methods-------------------------------------------------------------------------------
@@ -122,7 +130,6 @@ namespace BasicxLogger
         /// </summary>
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
-        /// ID verification ist not supportet with the multi logger.
         /// </remarks>
         /// <param name="message">
         /// The message that will be writen to the file
@@ -146,7 +153,7 @@ namespace BasicxLogger
             {
                 if (_loggerList.Count > 0)
                 {
-                    string id = GenerateId();
+                    string id = IdHandler.UniqueId;
 
                     foreach (ILogger logger in _loggerList)
                     {
@@ -171,7 +178,6 @@ namespace BasicxLogger
         /// </summary>
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
-        /// ID verification ist not supportet with the multi logger.
         /// </remarks>
         /// <param name="message">
         /// The message that will be writen to the file
@@ -198,7 +204,7 @@ namespace BasicxLogger
             {
                 if (_loggerList.Count > 0)
                 {
-                    string id = GenerateId();
+                    string id = IdHandler.UniqueId;
 
                     foreach (ILogger logger in _loggerList)
                     {
@@ -402,7 +408,6 @@ namespace BasicxLogger
         /// </summary>
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
-        /// ID verification ist not supportet with the multi logger.
         /// </remarks>
         /// <param name="message">
         /// The message that will be writen to the file
@@ -426,7 +431,7 @@ namespace BasicxLogger
             {
                 if (_loggerList.Count > 0)
                 {
-                    string id = GenerateId();
+                    string id = IdHandler.UniqueId;
 
                     foreach (ILogger logger in _loggerList)
                     {
@@ -451,7 +456,6 @@ namespace BasicxLogger
         /// </summary>
         /// <remarks>
         /// If the log file and/or directory is missing, the method will automatically create them.
-        /// ID verification ist not supportet with the multi logger.
         /// </remarks>
         /// <param name="message">
         /// The message that will be writen to the file
@@ -478,7 +482,7 @@ namespace BasicxLogger
             {
                 if (_loggerList.Count > 0)
                 {
-                    string id = GenerateId();
+                    string id = IdHandler.UniqueId;
 
                     foreach (ILogger logger in _loggerList)
                     {
@@ -567,7 +571,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
         /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        public async Task logCustomIdAsync(string id, LogTag messageTag, string message)
+        public async Task LogCustomIdAsync(string id, LogTag messageTag, string message)
         {
             try
             {
@@ -600,27 +604,6 @@ namespace BasicxLogger
             _loggerList.Add(logger);
         }
 
-        //----------------------------------------------------------------------------------------------
-
-        //-Private-Methods------------------------------------------------------------------------------
-        private string GenerateId()
-        {
-            string id = "";
-
-            List<string> idParts = new List<string>();
-
-            while (idParts.Count != 10)
-            {
-                idParts.Add(new Random().Next(0, 16).ToString("X"));
-            }
-
-            foreach (string part in idParts)
-            {
-                id = id + part;
-            }
-
-            return id;
-        }
         //----------------------------------------------------------------------------------------------
     }
 }

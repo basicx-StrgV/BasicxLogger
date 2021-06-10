@@ -16,8 +16,7 @@ using System.Data;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-using BasicxLogger.Message;
-using BasicxLogger.LoggerDatabase;
+using BasicxLogger.Databases;
 
 namespace BasicxLogger
 {
@@ -147,10 +146,6 @@ namespace BasicxLogger
         /// <param name="message">
         /// The message that will be writen to the file
         /// </param>
-        /// <param name="verifyMessageID">
-        /// Set to true if you want to make sure the message id is unique.
-        /// If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
-        /// </param>
         /// <returns>
         /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
         /// </returns>
@@ -159,11 +154,11 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public string LogId(string message, bool verifyMessageID = false)
+        public string LogId(string message)
         {
             Database.Connection.Open();
 
-            string id = GetNewMessageId(verifyMessageID);
+            string id = IdHandler.UniqueId;
 
             LogToTable(DefaultTag, message, id);
 
@@ -181,10 +176,6 @@ namespace BasicxLogger
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
-        /// <param name="verifyMessageID">
-        /// Set to true if you want to make sure the message id is unique.
-        /// If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
-        /// </param>
         /// <returns>
         /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
         /// </returns>
@@ -193,11 +184,11 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public string LogId(LogTag messageTag, string message, bool verifyMessageID = false)
+        public string LogId(LogTag messageTag, string message)
         {
             Database.Connection.Open();
 
-            string id = GetNewMessageId(verifyMessageID);
+            string id = IdHandler.UniqueId;
 
             LogToTable(messageTag, message, id);
 
@@ -313,10 +304,6 @@ namespace BasicxLogger
         /// <param name="message">
         /// The message that will be writen to the file
         /// </param>
-        /// <param name="verifyMessageID">
-        /// Set to true if you want to make sure the message id is unique.
-        /// If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
-        /// </param>
         /// <returns>
         /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
         /// </returns>
@@ -325,11 +312,11 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task<string> LogIdAsync(string message, bool verifyMessageID = false)
+        public async Task<string> LogIdAsync(string message)
         {
             try
             {
-                Task<string> logTask = Task.Run(() => LogId(message, verifyMessageID));
+                Task<string> logTask = Task.Run(() => LogId(message));
                 await logTask;
                 return logTask.Result;
             }
@@ -348,10 +335,6 @@ namespace BasicxLogger
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
-        /// <param name="verifyMessageID">
-        /// Set to true if you want to make sure the message id is unique.
-        /// If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
-        /// </param>
         /// <returns>
         /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
         /// </returns>
@@ -360,11 +343,11 @@ namespace BasicxLogger
         /// <exception cref="System.ArgumentNullException"></exception>
         /// <exception cref="System.InvalidOperationException"></exception>
         /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task<string> LogIdAsync(LogTag messageTag, string message, bool verifyMessageID = false)
+        public async Task<string> LogIdAsync(LogTag messageTag, string message)
         {
             try
             {
-                Task<string> logTask = Task.Run(() => LogId(messageTag, message, verifyMessageID));
+                Task<string> logTask = Task.Run(() => LogId(messageTag, message));
                 await logTask;
                 return logTask.Result;
             }
@@ -444,87 +427,6 @@ namespace BasicxLogger
             catch (Exception)
             {
                 return "0000/00/00 00:00:00";
-            }
-        }
-
-        private string GetNewMessageId(bool verifyMessageID = false)
-        {
-            try
-            {
-                string id = GenerateId();
-                if (verifyMessageID)
-                {
-                    id = VerifyId(id);
-                }
-
-                return id;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        private string GenerateId()
-        {
-            string id = "";
-
-            List<string> idParts = new List<string>();
-
-            while (idParts.Count != 10)
-            {
-                idParts.Add(new Random().Next(0, 16).ToString("X"));
-            }
-
-            foreach (string part in idParts)
-            {
-                id = id + part;
-            }
-
-            return id;
-        }
-
-        private string VerifyId(string id)
-        {
-            try
-            {
-                string tempId = id;
-
-                while (GetIdEntryCount(id) > 0)
-                {
-                    tempId = GenerateId();
-                }
-
-                return tempId;
-            }
-            catch (Exception)
-            {
-                return id;
-            }
-        }
-
-        private long GetIdEntryCount(string id)
-        {
-            try
-            {
-                string selectIdCountTemplate = "select count(*) from {0} where messageId = '{1}'";
-
-                string selectIdCountCmdString = String.Format(selectIdCountTemplate, Table, id);
-
-                MySqlCommand selectIdCountCmd = new MySqlCommand(selectIdCountCmdString, Database.Connection);
-
-                DataTable dataTable = new DataTable();
-                new MySqlDataAdapter(selectIdCountCmd).Fill(dataTable);
-
-                long entrys = (long)dataTable.Select()[0].ItemArray[0];
-
-                dataTable.Dispose();
-
-                return entrys;
-            }
-            catch (Exception e)
-            {
-                throw e;
             }
         }
 

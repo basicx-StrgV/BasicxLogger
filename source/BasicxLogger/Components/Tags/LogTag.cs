@@ -2,7 +2,7 @@
 // Created by basicx-StrgV                          //
 // https://github.com/basicx-StrgV/BasicxLogger     //
 //--------------------------------------------------//
-namespace BasicxLogger.Message
+namespace BasicxLogger
 {
     /// <summary>
     /// Enum that contains every message tag you can use

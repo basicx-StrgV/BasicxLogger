@@ -5,7 +5,7 @@
 using System;
 using MySql.Data.MySqlClient;
 
-namespace BasicxLogger.LoggerDatabase
+namespace BasicxLogger.Databases
 {
     /// <summary>
     /// Holds all informations about the MySqlDatabase used for logging

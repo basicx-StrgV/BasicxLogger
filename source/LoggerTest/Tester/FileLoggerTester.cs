@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using BasicxLogger;
-using BasicxLogger.Message;
-using BasicxLogger.LoggerFile;
-using BasicxLogger.LoggerDatabase;
-using BasicxLogger.LoggerDirectory;
-using System.Threading.Tasks;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using BasicxLogger;
+using BasicxLogger.Databases;
 
 namespace LoggerTest
 {
+#pragma warning disable
     public class FileLoggerTester
     {
         private FileLogger _logger;
@@ -32,13 +29,13 @@ namespace LoggerTest
 
                 WriteTestLogs();
 
-                if (File.Exists(_logger.GetFullFilePath()))
+                if (File.Exists(_logger.LogFile.FullName))
                 {
-                    switch (_logger.LoggingFile.Type)
+                    switch (_logger.LogFile.Extension)
                     {
-                        case FileType.xml:
+                        case ".xml":
                             return TestXmlFile();
-                        case FileType.json:
+                        case ".json":
                             return TestJsonFile();
                         default:
                             return TestTextFile();
@@ -63,7 +60,7 @@ namespace LoggerTest
             string TestId1 = _logger.LogId("Test Message 3");
             _testIDList.Add(TestId1);
 
-            string TestId2 = _logger.LogId(LogTag.TEST, "Test Message 4", true);
+            string TestId2 = _logger.LogId(LogTag.TEST, "Test Message 4");
             _testIDList.Add(TestId2);
 
             _logger.LogCustomId("TestID1", "Test Message 5");
@@ -82,7 +79,7 @@ namespace LoggerTest
             test3.Wait();
             _testIDList.Add(test3.Result);
 
-            Task<string> test4 = _logger.LogIdAsync(LogTag.TEST, "Test Message 4", true);
+            Task<string> test4 = _logger.LogIdAsync(LogTag.TEST, "Test Message 4");
             test4.Wait();
             _testIDList.Add(test4.Result);
 
@@ -96,16 +93,16 @@ namespace LoggerTest
     
         private void DeleteOldLogFile()
         {
-            if (File.Exists(_logger.GetFullFilePath()))
+            if (_logger.LogFile.Exists)
             {
-                File.Delete(_logger.GetFullFilePath());
+                File.Delete(_logger.LogFile.FullName);
             }
         }
     
         private bool TestTextFile()
         {
             //Read the text/log file
-            List<string> testFile = File.ReadAllLines(_logger.GetFullFilePath()).ToList();
+            List<string> testFile = File.ReadAllLines(_logger.LogFile.FullName).ToList();
 
             //Check if every test log is at the position we expect it to be
             if (//Default
@@ -143,7 +140,7 @@ namespace LoggerTest
         {
             //Read and deseralize the json file
             JsonLogModel testLog = JsonSerializer.Deserialize<JsonLogModel>(
-                                                                File.ReadAllText(_logger.GetFullFilePath()));
+                                                                File.ReadAllText(_logger.LogFile.FullName));
 
             //Check if every test log is at the position we expect it to be
             if (//Default

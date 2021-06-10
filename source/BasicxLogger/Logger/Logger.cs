@@ -19,12 +19,10 @@ using System.Text.Json;
 using System.Globalization;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using BasicxLogger.Message;
-using BasicxLogger.LoggerFile;
-using BasicxLogger.LoggerDirectory;
 
 namespace BasicxLogger
 {
+#pragma warning disable
     /// <summary>
     /// Default Logger class that contains everything needed to write a message to a log file.
     /// </summary>
@@ -46,7 +44,7 @@ namespace BasicxLogger
         /// <summary>
         /// Contains all informations about the formatting of the log messages
         /// </summary>
-        public LogMessageFormat messageFormat { get; } = new LogMessageFormat(new LogDate(DateFormat.year_month_day, '/'), new LogTime(TimeFormat.hour24_min_sec, CultureInfo.InvariantCulture), Encoding.UTF8);
+        public MessageFormat messageFormat { get; } = new MessageFormat(new Date(DateFormat.year_month_day, '/'), new Time(TimeFormat.hour24_min_sec, CultureInfo.InvariantCulture), Encoding.UTF8);
         //----------------------------------------------------------------------------------------------
 
         //-Constructors---------------------------------------------------------------------------------
@@ -86,7 +84,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogFile logFile, LogMessageFormat messageFormat)
+        public Logger(LogFile logFile, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -98,7 +96,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogFile logFile, LogDirectory logDirectory, LogMessageFormat messageFormat)
+        public Logger(LogFile logFile, LogDirectory logDirectory, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -111,7 +109,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogFile logFile, LogMessageFormat messageFormat, LogDirectory logDirectory)
+        public Logger(LogFile logFile, MessageFormat messageFormat, LogDirectory logDirectory)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -147,7 +145,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogDirectory logDirectory, LogMessageFormat messageFormat)
+        public Logger(LogDirectory logDirectory, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logDirectory = logDirectory;
@@ -159,7 +157,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogDirectory logDirectory, LogFile logFile, LogMessageFormat messageFormat)
+        public Logger(LogDirectory logDirectory, LogFile logFile, MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -172,7 +170,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogDirectory logDirectory, LogMessageFormat messageFormat, LogFile logFile)
+        public Logger(LogDirectory logDirectory, MessageFormat messageFormat, LogFile logFile)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -185,7 +183,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogMessageFormat messageFormat)
+        public Logger(MessageFormat messageFormat)
         {
             this.messageFormat = messageFormat;
             createDirectory();
@@ -196,7 +194,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogMessageFormat messageFormat, LogFile logFile)
+        public Logger(MessageFormat messageFormat, LogFile logFile)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -208,7 +206,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogMessageFormat messageFormat, LogDirectory logDirectory)
+        public Logger(MessageFormat messageFormat, LogDirectory logDirectory)
         {
             this.messageFormat = messageFormat;
             this.logDirectory = logDirectory;
@@ -220,7 +218,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogMessageFormat messageFormat, LogFile logFile, LogDirectory logDirectory)
+        public Logger(MessageFormat messageFormat, LogFile logFile, LogDirectory logDirectory)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -233,7 +231,7 @@ namespace BasicxLogger
         /// <remarks>
         /// Everything that has no custom configuration will use the default settings.
         /// </remarks>
-        public Logger(LogMessageFormat messageFormat, LogDirectory logDirectory, LogFile logFile)
+        public Logger(MessageFormat messageFormat, LogDirectory logDirectory, LogFile logFile)
         {
             this.messageFormat = messageFormat;
             this.logFile = logFile;
@@ -280,7 +278,7 @@ namespace BasicxLogger
 
                     logToXml(messageFormat.DefaultTag, message);
                 }
-                else if(logFile.Type.Equals(FileType.json))
+                else if (logFile.Type.Equals(FileType.json))
                 {
                     //Log to json file
                     if (!File.Exists(getFullFilePath()))
@@ -290,7 +288,7 @@ namespace BasicxLogger
 
                     logToJson(messageFormat.DefaultTag, message);
                 }
-                else if(logFile.Type.Equals(FileType.txt) || logFile.Type.Equals(FileType.log))
+                else if (logFile.Type.Equals(FileType.txt) || logFile.Type.Equals(FileType.log))
                 {
                     //Default log (.txt and .log file)
                     File.AppendAllText(getFullFilePath(), messageBuilder(messageFormat.DefaultTag, message), messageFormat.TextEncoding);
@@ -323,7 +321,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public void log(LogTag messageTag, string message)
+        public void log(Tag messageTag, string message)
         {
             try
             {
@@ -468,7 +466,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public string logID(LogTag messageTag, string message, bool verifyMessageID = false)
+        public string logID(Tag messageTag, string message, bool verifyMessageID = false)
         {
             try
             {
@@ -603,7 +601,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public void logCustomID(string id, LogTag messageTag, string message)
+        public void logCustomID(string id, Tag messageTag, string message)
         {
             try
             {
@@ -643,7 +641,7 @@ namespace BasicxLogger
                 throw e;
             }
         }
-        
+
         //-Async-methods-----
         /// <summary>
         /// Asynchronous writes the given message and the current time stamp to the log file.
@@ -697,7 +695,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public async Task logAsync(LogTag messageTag, string message)
+        public async Task logAsync(Tag messageTag, string message)
         {
             try
             {
@@ -779,7 +777,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public async Task<string> logIDAsync(LogTag messageTag, string message, bool verifyMessageID = false)
+        public async Task<string> logIDAsync(Tag messageTag, string message, bool verifyMessageID = false)
         {
             try
             {
@@ -851,7 +849,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        public async Task logCustomIDAsync(string id, LogTag messageTag, string message)
+        public async Task logCustomIDAsync(string id, Tag messageTag, string message)
         {
             try
             {
@@ -892,7 +890,7 @@ namespace BasicxLogger
             {
                 File.Delete(getFullFilePath());
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
@@ -917,16 +915,16 @@ namespace BasicxLogger
                 if (messageFormat.Date.Format.Equals(DateFormat.none) &&
                         !messageFormat.Time.Format.Equals(TimeFormat.none))
                 {
-                    return DateTime.Now.ToString(start + messageFormat.Time.FormatString + end, 
+                    return DateTime.Now.ToString(start + messageFormat.Time.FormatString + end,
                                                 messageFormat.Time.CultureFormat);
                 }
                 else if (!messageFormat.Date.Format.Equals(DateFormat.none) &&
                             messageFormat.Time.Format.Equals(TimeFormat.none))
                 {
-                    return DateTime.Now.ToString(start + messageFormat.Date.FormatString + end, 
+                    return DateTime.Now.ToString(start + messageFormat.Date.FormatString + end,
                                                 messageFormat.Time.CultureFormat);
                 }
-                else if (messageFormat.Date.Format.Equals(DateFormat.none) && 
+                else if (messageFormat.Date.Format.Equals(DateFormat.none) &&
                             messageFormat.Time.Format.Equals(TimeFormat.none))
                 {
                     return "";
@@ -937,7 +935,7 @@ namespace BasicxLogger
                                         messageFormat.Time.FormatString + end, messageFormat.Time.CultureFormat);
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return "[INVALID DATETIME FORMAT] ";
             }
@@ -957,7 +955,7 @@ namespace BasicxLogger
                 throw e;
             }
         }
-    
+
         private void createXmlFile()
         {
             try
@@ -990,7 +988,7 @@ namespace BasicxLogger
                     File.WriteAllText(getFullFilePath(), "[]");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
@@ -1014,7 +1012,7 @@ namespace BasicxLogger
 
             return id;
         }
-    
+
         private string verifyID(string id)
         {
             try
@@ -1039,13 +1037,13 @@ namespace BasicxLogger
             }
         }
 
-        private string messageBuilder(LogTag messageTag, string message, string id = "")
+        private string messageBuilder(Tag messageTag, string message, string id = "")
         {
             string dateTimePart = getCurrentTime();
             string tagPart = "";
             string idPart = "";
 
-            if (!messageTag.Equals(LogTag.none))
+            if (!messageTag.Equals(Tag.none))
             {
                 tagPart = "[" + messageTag + "] ";
             }
@@ -1058,7 +1056,7 @@ namespace BasicxLogger
             return dateTimePart + tagPart + idPart + message + "\n";
         }
 
-        private void logToXml(LogTag messageTag, string message, string id = "")
+        private void logToXml(Tag messageTag, string message, string id = "")
         {
             try
             {
@@ -1087,7 +1085,7 @@ namespace BasicxLogger
                 logMessageNode.AppendChild(timestampNode);
 
                 XmlNode tagNode = xmlFile.CreateElement("tag");
-                if (!messageTag.Equals(LogTag.none))
+                if (!messageTag.Equals(Tag.none))
                 {
                     tagNode.InnerText = messageTag.ToString();
                 }
@@ -1108,8 +1106,8 @@ namespace BasicxLogger
                 throw e;
             }
         }
-        
-        private void logToJson(LogTag messageTag, string message, string id = "")
+
+        private void logToJson(Tag messageTag, string message, string id = "")
         {
             try
             {
@@ -1129,7 +1127,7 @@ namespace BasicxLogger
                     newLog.timestamp = getCurrentTime();
                 }
 
-                if (!messageTag.Equals(LogTag.none))
+                if (!messageTag.Equals(Tag.none))
                 {
                     newLog.tag = messageTag.ToString();
                 }
@@ -1160,5 +1158,532 @@ namespace BasicxLogger
             }
         }
         //----------------------------------------------------------------------------------------------
+    }
+    /// <summary>
+    /// Contains the information about the date formatting for the log message
+    /// </summary>
+    public class Date
+    {
+        /// <summary>
+        /// Enum that contains the formate of the date
+        /// </summary>
+        public DateFormat Format { get; }
+        /// <summary>
+        /// Char that separates each part of the date
+        /// </summary>
+        public char Separator { get; } = '/';
+        /// <summary>
+        /// Format string for the date (e.g. yyyy'-'MM'-'dd)
+        /// </summary>
+        public string FormatString { get; }
+
+
+        private List<string> _dateFormateList;
+
+        /// <summary>
+        /// Constructor, to create a Date object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom date formate for the logger message formate
+        /// </remarks>
+        /// <param name="dateFormat">
+        /// Enum that contains the formate of the date
+        /// </param>
+        public Date(DateFormat dateFormat)
+        {
+            InitalizeList();
+            this.Format = dateFormat;
+            FormatString = _dateFormateList[(int)this.Format];
+        }
+        /// <summary>
+        /// Constructor, to create a Date object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom date formate for the logger message formate
+        /// </remarks>
+        /// <param name="dateFormat">
+        /// Enum that contains the formate of the date
+        /// </param>
+        /// <param name="dateSeparator">
+        /// Char that separates each part of the date
+        /// </param>
+        public Date(DateFormat dateFormat, char dateSeparator)
+        {
+            this.Separator = dateSeparator;
+            InitalizeList();
+            this.Format = dateFormat;
+            FormatString = _dateFormateList[(int)this.Format];
+        }
+
+
+        private void InitalizeList()
+        {
+            _dateFormateList = new List<string>
+            {
+                "yyyy'" + Separator + "'MM'" + Separator + "'dd",
+                "yyyy'" + Separator + "'dd'" + Separator + "'MM",
+                "dd'" + Separator + "'MM'" + Separator + "'yyyy",
+                "MM'" + Separator + "'dd'" + Separator + "'yyyy",
+                ""
+            };
+        }
+    }
+    /// <summary>
+    /// Enum that contains every supported date format
+    /// </summary>
+    public enum DateFormat
+    {
+        /// <summary>
+        /// Formate: "yyyy'/'MM'/'dd"
+        /// </summary>
+        year_month_day,
+        /// <summary>
+        /// Formate: "yyyy'/'dd'/'MM"
+        /// </summary>
+        year_day_month,
+        /// <summary>
+        /// Formate: "dd'/'MM'/'yyyy"
+        /// </summary>
+        day_month_year,
+        /// <summary>
+        /// Formate: "MM'/'dd'/'yyyy"
+        /// </summary>
+        month_day_year,
+        /// <summary>
+        /// Select, if you dont want to have the time in your log file
+        /// </summary>
+        none
+    }
+    /// <summary>
+    /// Contains the information about the time formatting for the log message
+    /// </summary>
+    public class Time
+    {
+        /// <summary>
+        /// Enum that contains the formate of the time
+        /// </summary>
+        public TimeFormat Format { get; }
+        /// <summary>
+        /// Format string for the time (e.g. HH:mm:ss)
+        /// </summary>
+        public string FormatString { get; }
+        /// <summary>
+        /// Holds the culture information to correctly display AM/PM, when the 12 hour time formate is used
+        /// </summary>
+        public CultureInfo CultureFormat { get; } = CultureInfo.InvariantCulture;
+
+
+        private List<string> _timeFormateList;
+
+        /// <summary>
+        /// Constructor, to create a Time object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom time formate for the logger message formate
+        /// </remarks>
+        /// <param name="timeFormat">
+        /// Enum that contains the formate of the time
+        /// </param>
+        public Time(TimeFormat timeFormat)
+        {
+            InitalizeList();
+            this.Format = timeFormat;
+            FormatString = _timeFormateList[(int)this.Format];
+        }
+        /// <summary>
+        /// Constructor, to create a Time object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom time formate for the logger message formate
+        /// </remarks>
+        /// <param name="timeFormat">
+        /// Enum that contains the formate of the time
+        /// </param>
+        /// <param name="cultureInfo">
+        /// The culture information to correctly display AM/PM, when the 12 hour time formate is used
+        /// </param>
+        public Time(TimeFormat timeFormat, CultureInfo cultureInfo)
+        {
+            InitalizeList();
+            this.Format = timeFormat;
+            this.CultureFormat = cultureInfo;
+            FormatString = _timeFormateList[(int)this.Format];
+        }
+
+        private void InitalizeList()
+        {
+            _timeFormateList = new List<string>
+            {
+                "HH:mm",
+                "HH:mm:ss",
+                "HH:mm:ss.fff",
+                "hh:mm tt",
+                "hh:mm:ss tt",
+                "hh:mm:ss.fff tt",
+                ""
+            };
+        }
+    }
+    /// <summary>
+    /// Enum that contains every supported time format
+    /// </summary>
+    public enum TimeFormat
+    {
+        /// <summary>
+        /// Formate: "HH:mm"
+        /// </summary>
+        hour24_min,
+        /// <summary>
+        /// Formate: "HH:mm:ss"
+        /// </summary>
+        hour24_min_sec,
+        /// <summary>
+        /// Formate: "HH:mm:ss.fff"
+        /// </summary>
+        hour24_min_sec_millisec,
+        /// <summary>
+        /// Formate:  "hh:mm tt"
+        /// </summary>
+        hour12_min,
+        /// <summary>
+        /// Formate:  "hh:mm:ss tt"
+        /// </summary>
+        hour12_min_sec,
+        /// <summary>
+        /// Formate: "hh:mm:ss.fff tt"
+        /// </summary>
+        hour12_min_sec_millisec,
+        /// <summary>
+        /// Select, if you dont want to have the time in your log file
+        /// </summary>
+        none
+    }
+    /// <summary>
+    /// Contains all informations about the formatting of the log messages
+    /// </summary>
+    public class MessageFormat
+    {
+        /// <summary>
+        /// Contains the information about the date formatting for the log message
+        /// </summary>
+        public Date Date { get; } = new Date(DateFormat.year_month_day, '/');
+        /// <summary>
+        /// Contains the information about the time formatting for the log message
+        /// </summary>
+        public Time Time { get; } = new Time(TimeFormat.hour24_min_sec);
+        /// <summary>
+        /// A default message tag that will be used if no tag is selected
+        /// </summary>
+        public Tag DefaultTag { get; } = Tag.none;
+        /// <summary>
+        /// Encoding for the log message
+        /// </summary>
+        /// <remarks>
+        /// This option is not supported for json logging and will be ignored if you log to a json file
+        /// </remarks>
+        public Encoding TextEncoding { get; } = Encoding.UTF8;
+
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Tag defaultTag)
+        {
+            this.DefaultTag = defaultTag;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Encoding encoding)
+        {
+            this.TextEncoding = encoding;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Date date)
+        {
+            this.Date = date;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Time time)
+        {
+            this.Time = time;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Date date, Time time)
+        {
+            this.Date = date;
+            this.Time = time;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Date date, Tag defaultTag)
+        {
+            this.Date = date;
+            this.DefaultTag = defaultTag;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Date date, Encoding encoding)
+        {
+            this.Date = date;
+            this.TextEncoding = encoding;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Date date, Time time, Tag defaultTag)
+        {
+            this.Date = date;
+            this.Time = time;
+            this.DefaultTag = defaultTag;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Date date, Tag defaultTag, Encoding encoding)
+        {
+            this.Date = date;
+            this.DefaultTag = defaultTag;
+            this.TextEncoding = encoding;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Date date, Time time, Encoding encoding)
+        {
+            this.Date = date;
+            this.TextEncoding = encoding;
+            this.Time = time;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Date date, Time time, Tag defaultTag, Encoding encoding)
+        {
+            this.Date = date;
+            this.Time = time;
+            this.DefaultTag = defaultTag;
+            this.TextEncoding = encoding;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Time time, Tag defaultTag)
+        {
+            this.Time = time;
+            this.DefaultTag = defaultTag;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Time time, Encoding encoding)
+        {
+            this.Time = time;
+            this.TextEncoding = encoding;
+        }
+        /// <summary>
+        /// Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+        /// </summary>
+        /// <remarks>
+        /// Everything that has no custom configuration will use the default settings.
+        /// </remarks>
+        public MessageFormat(Time time, Tag defaultTag, Encoding encoding)
+        {
+            this.Time = time;
+            this.DefaultTag = defaultTag;
+            this.TextEncoding = encoding;
+        }
+    }
+    /// <summary>
+    /// Enum that contains every message tag you can use
+    /// </summary>
+    public enum Tag
+    {
+        /// <summary>
+        /// Tag: [INFO]
+        /// </summary>
+        INFO,
+        /// <summary>
+        /// Tag: [WARNING]
+        /// </summary>
+        WARNING,
+        /// <summary>
+        /// Tag: [ERROR]
+        /// </summary>
+        ERROR,
+        /// <summary>
+        /// Tag: [FATAL]
+        /// </summary>
+        FATAL,
+        /// <summary>
+        /// Tag: [EXCEPTION]
+        /// </summary>
+        EXCEPTION,
+        /// <summary>
+        /// Tag: [DEBUGGING]
+        /// </summary>
+        DEBUGGING,
+        /// <summary>
+        /// Tag: [MESSAGE]
+        /// </summary>
+        MESSAGE,
+        /// <summary>
+        /// Tag: [ALERT]
+        /// </summary>
+        ALERT,
+        /// <summary>
+        /// Tag: [EVENT]
+        /// </summary>
+        EVENT,
+        /// <summary>
+        /// Tag: [TEST]
+        /// </summary>
+        TEST,
+        /// <summary>
+        /// If you dont want to have a tag
+        /// </summary>
+        none
+    }
+    /// <summary>
+    /// Contains all informations about the log directory
+    /// </summary>
+    public class LogDirectory
+    {
+        /// <summary>
+        /// Path were the log directory is located
+        /// </summary>
+        public string Path { get; }
+        /// <summary>
+        /// Name of the log directory
+        /// </summary>
+        public string Name { get; }
+        /// <summary>
+        /// Full directory path (path + name)
+        /// </summary>
+        public string FullPath { get; }
+
+        /// <summary>
+        /// Constructor, to create a LogDirectory object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom directory for the logger
+        /// </remarks>
+        /// <param name="path">
+        /// Path where the directory is located
+        /// </param>
+        /// <param name="name">
+        /// Name of the log directory
+        /// </param>
+        public LogDirectory(string path, string name)
+        {
+            this.Path = path;
+            this.Name = name;
+            this.FullPath = this.Path + "\\" + this.Name;
+        }
+    }
+    /// <summary>
+    /// Contains all informations about the log file
+    /// </summary>
+    public class LogFile
+    {
+        /// <summary>
+        /// Name of the log file
+        /// </summary>
+        public string Name { get; }
+        /// <summary>
+        /// File type of the log file
+        /// </summary>
+        public FileType Type { get; }
+        /// <summary>
+        /// Full file name (name + file type : e.g. sample.txt)
+        /// </summary>
+        public string FullName { get; }
+
+        /// <summary>
+        /// Constructor, to create a LogFile object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom file for the logger
+        /// </remarks>
+        /// <param name="name">
+        /// Name of the log file
+        /// </param>
+        /// <param name="type">
+        /// File type of the log file
+        /// </param>
+        public LogFile(string name, FileType type)
+        {
+            this.Name = name;
+            this.Type = type;
+            this.FullName = name + "." + type;
+        }
+    }
+    /// <summary>
+    /// Enum that contains every supported file type
+    /// </summary>
+    public enum FileType
+    {
+        /// <summary>
+        /// File type: .txt
+        /// </summary>
+        txt,
+        /// <summary>
+        /// File type: .log
+        /// </summary>
+        log,
+        /// <summary>
+        /// File type: .xml
+        /// </summary>
+        xml,
+        /// <summary>
+        /// File type: .json
+        /// </summary>
+        json
     }
 }

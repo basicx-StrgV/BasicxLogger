@@ -1,13 +1,11 @@
 ﻿using System;
-using BasicxLogger;
-using BasicxLogger.Message;
-using BasicxLogger.LoggerFile;
-using BasicxLogger.LoggerDatabase;
-using BasicxLogger.LoggerDirectory;
 using System.IO;
+using BasicxLogger;
+using BasicxLogger.Databases;
 
 namespace LoggerTest
 {
+#pragma warning disable
     class Program
     {
         //-Logger-------------------------------------------------------------
@@ -57,9 +55,15 @@ namespace LoggerTest
 
         private void CustomTest()
         {
-            //---Test-code-for-any-sorts-of-tests-goes-here---
-            JsonLogger<testJson> testLogger = new JsonLogger<testJson>();
-            testLogger.Log(new testJson() { test = "test"});
+            //---Test-code-for-any-sort-of-tests-goes-here---
+            FileLogger fileLogger = new FileLogger(
+                                        new FileInfo(String.Format("{0}/{1}/FileLoggerTest.xml", DirConfig.TestOutputDir, "CustomTest")));
+            fileLogger.Log("Test");
+            fileLogger.LogId("Test");
+
+            JsonLogger<testJson> jsonLogger = new JsonLogger<testJson>(
+                            new FileInfo(String.Format("{0}/{1}/JsonLoggerTest.json", DirConfig.TestOutputDir, "CustomTest")));
+            jsonLogger.Log(new testJson() { test = "Test"});
         }
 
         private void DefaultTest()
@@ -86,37 +90,21 @@ namespace LoggerTest
         {
             //File Logger TXT file
             _txtFileLogger = new FileLogger(
-                                new LogDirectory(DirConfig.TestOutputDir, "FileLoggerTestOutput"),
-                                new LogFile("FileLoggerTest", FileType.txt),
-                                new LogMessageFormat(
-                                    new LogDate(DateFormat.year_month_day, '/'),
-                                    new LogTime(TimeFormat.hour24_min_sec)));
+                                        new FileInfo(String.Format("{0}/{1}/FileLoggerTest.txt", DirConfig.TestOutputDir, "FileLoggerTestOutput")));
             //File Logger LOG file
             _logFileLogger = new FileLogger(
-                                new LogDirectory(DirConfig.TestOutputDir, "FileLoggerTestOutput"),
-                                new LogFile("FileLoggerTest", FileType.log),
-                                new LogMessageFormat(
-                                    new LogDate(DateFormat.year_month_day, '/'),
-                                    new LogTime(TimeFormat.hour24_min_sec)));
+                                        new FileInfo(String.Format("{0}/{1}/FileLoggerTest.log", DirConfig.TestOutputDir, "FileLoggerTestOutput")));
             //File Logger xml file
             _xmlFileLogger = new FileLogger(
-                                new LogDirectory(DirConfig.TestOutputDir, "FileLoggerTestOutput"),
-                                new LogFile("FileLoggerTest", FileType.xml),
-                                new LogMessageFormat(
-                                    new LogDate(DateFormat.year_month_day, '/'),
-                                    new LogTime(TimeFormat.hour24_min_sec)));
+                                        new FileInfo(String.Format("{0}/{1}/FileLoggerTest.xml", DirConfig.TestOutputDir, "FileLoggerTestOutput")));
             //File Logger JSON file
             _jsonFileLogger = new FileLogger(
-                                new LogDirectory(DirConfig.TestOutputDir, "FileLoggerTestOutput"),
-                                new LogFile("FileLoggerTest", FileType.json),
-                                new LogMessageFormat(
-                                    new LogDate(DateFormat.year_month_day, '/'),
-                                    new LogTime(TimeFormat.hour24_min_sec)));
+                                        new FileInfo(String.Format("{0}/{1}/FileLoggerTest.json", DirConfig.TestOutputDir, "FileLoggerTestOutput")));
 
             //Json Logger
             _jsonLogger = new JsonLogger<JsonLoggerTestModel>(
-                            new LogDirectory(DirConfig.TestOutputDir, "JsonLoggerTestOutput"),
-                            "JsonLoggerTest");
+                            new FileInfo(String.Format("{0}/{1}/JsonLoggerTest.json", DirConfig.TestOutputDir, "JsonLoggerTestOutput")));
+
 
             //MySql Logger
             try

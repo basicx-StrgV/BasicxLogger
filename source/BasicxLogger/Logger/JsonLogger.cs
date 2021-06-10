@@ -15,9 +15,6 @@ using System;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using BasicxLogger.LoggerFile;
-using BasicxLogger.LoggerDirectory;
 
 namespace BasicxLogger
 {
@@ -28,68 +25,24 @@ namespace BasicxLogger
     {
         //-Properties-----------------------------------------------------------------------------------
         /// <summary>
-        /// Contains all informations about the log file
+        /// The log file of the logger.
         /// </summary>
-        public LogFile LoggingFile { get; } = new LogFile("log", FileType.json);
-        /// <summary>
-        /// Contains all informations about the log directory
-        /// </summary>
-        public LogDirectory FileDirectory { get; } = new LogDirectory(Environment.CurrentDirectory, "Logs");
+        /// <remarks>
+        /// The file name must contain the full path and the file extension.
+        /// This logger only supports .json files
+        /// </remarks>
+        public FileInfo LogFile { get; } = new FileInfo(
+            String.Format("{0}/{1}/Log.json", Environment.CurrentDirectory, "Logs"));
         //----------------------------------------------------------------------------------------------
 
         //-Constructors---------------------------------------------------------------------------------
         /// <summary>
-        /// Constructor, to create a simple logger object that uses the default settings
+        /// Initializes a new instance of the <see cref="BasicxLogger.JsonLogger"/> class
         /// </summary>
-        public JsonLogger()
+        /// <param name="logFile">The log file of the logger</param>
+        public JsonLogger(FileInfo logFile)
         {
-            CreateDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public JsonLogger(string fileName)
-        {
-            LoggingFile = new LogFile(fileName, FileType.json);
-            CreateDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public JsonLogger(string fileName, LogDirectory logDirectory)
-        {
-            LoggingFile = new LogFile(fileName, FileType.json);
-            this.FileDirectory = logDirectory;
-            CreateDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public JsonLogger(LogDirectory logDirectory)
-        {
-            this.FileDirectory = logDirectory;
-            CreateDirectory();
-        }
-        /// <summary>
-        /// Constructor, to create a logger object with custom settings. 
-        /// </summary>
-        /// <remarks>
-        /// Everything that has no custom configuration will use the default settings.
-        /// </remarks>
-        public JsonLogger(LogDirectory logDirectory, string fileName)
-        {
-            LoggingFile = new LogFile(fileName, FileType.json);
-            this.FileDirectory = logDirectory;
-            CreateDirectory();
+            LogFile = logFile;
         }
         //----------------------------------------------------------------------------------------------
 
@@ -116,12 +69,12 @@ namespace BasicxLogger
         {
             try
             {
-                if (!Directory.Exists(FileDirectory.FullPath))
+                if (!Directory.Exists(LogFile.DirectoryName))
                 {
                     CreateDirectory();
                 }
 
-                if (!File.Exists(GetFullFilePath()))
+                if (!File.Exists(LogFile.FullName))
                 {
                     CreateJsonFile();
                 }
@@ -167,38 +120,6 @@ namespace BasicxLogger
         }
         //-------------------
 
-        /// <returns>
-        /// The full file path (e.g. C:\mypath\myfile.json)
-        /// </returns>
-        public string GetFullFilePath()
-        {
-            return FileDirectory.FullPath + "\\" + LoggingFile.FullName;
-        }
-
-        /// <summary>
-        /// Deletes the log file, that was created by the logger.
-        /// </summary>
-        /// <remarks>
-        /// All logs will be lost. If you log again after deleting the log file, the logger will create a new file.
-        /// </remarks>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        public void DeleteLogFile()
-        {
-            try
-            {
-                File.Delete(GetFullFilePath());
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
         //----------------------------------------------------------------------------------------------
 
         //-Private-Methods------------------------------------------------------------------------------
@@ -206,9 +127,9 @@ namespace BasicxLogger
         {
             try
             {
-                if (!Directory.Exists(FileDirectory.FullPath))
+                if (!Directory.Exists(LogFile.DirectoryName))
                 {
-                    Directory.CreateDirectory(FileDirectory.FullPath);
+                    Directory.CreateDirectory(LogFile.DirectoryName);
                 }
             }
             catch (Exception e)
@@ -221,9 +142,9 @@ namespace BasicxLogger
         {
             try
             {
-                if (!File.Exists(GetFullFilePath()))
+                if (!File.Exists(LogFile.FullName))
                 {
-                    File.WriteAllText(GetFullFilePath(), "{ \"entrys\": []}");
+                    File.WriteAllText(LogFile.FullName, "{ \"entrys\": []}");
                 }
             }
             catch (Exception e)
@@ -236,7 +157,7 @@ namespace BasicxLogger
         {
             try
             {
-                string fileContent = File.ReadAllText(GetFullFilePath());
+                string fileContent = File.ReadAllText(LogFile.FullName);
 
                 CustomJsonLogModel<T> logFile = JsonSerializer.Deserialize<CustomJsonLogModel<T>>(fileContent);
 
@@ -244,7 +165,7 @@ namespace BasicxLogger
 
                 string newFileContent = JsonSerializer.Serialize(logFile);
 
-                FileStream fileWriter = File.OpenWrite(GetFullFilePath());
+                FileStream fileWriter = File.OpenWrite(LogFile.FullName);
                 Utf8JsonWriter jsonWriter = new Utf8JsonWriter(fileWriter, new JsonWriterOptions { Indented = true });
 
                 JsonDocument jsonFile = JsonDocument.Parse(newFileContent);

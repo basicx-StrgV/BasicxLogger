@@ -4,6 +4,390 @@
         <name>BasicxLogger</name>
     </assembly>
     <members>
+        <member name="T:BasicxLogger.Databases.MySqlDatabase">
+            <summary>
+            Holds all informations about the MySqlDatabase used for logging
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Databases.MySqlDatabase.Server">
+            <summary>
+            URL of the MySql database server
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Databases.MySqlDatabase.DatabaseName">
+            <summary>
+            Name of the database that will contain the logs
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Databases.MySqlDatabase.User">
+            <summary>
+            Username of the database user you want to use
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Databases.MySqlDatabase.Password">
+            <summary>
+            Password of the given user
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Databases.MySqlDatabase.Port">
+            <summary>
+            Port of the database server
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Databases.MySqlDatabase.SslMode">
+            <summary>
+            SSL Mode setting
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Databases.MySqlDatabase.Connection">
+            <summary>
+            The database connection
+            </summary>
+            <remarks>
+            Set by the constructor
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.Databases.MySqlDatabase.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor to creates a new MySqlDatabase object
+            </summary>
+            <param name="server">URL of the MySql database server</param>
+            <param name="databaseName">Name of the database that will contain the logs</param>
+            <param name="user">Username of the database user you want to use</param>
+            <param name="password">Password of the given user</param>
+            <param name="port">Port of the database server</param>
+            <param name="sslMode">SSL Mode setting</param>
+        </member>
+        <member name="T:BasicxLogger.IdHandler">
+            <summary>
+            A static class used for id generation
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.IdHandler.UniqueId">
+            <summary>
+            Gets a unique id string
+            </summary>
+            <returns>
+            A string that conatins a unique id
+            </returns>
+        </member>
+        <member name="T:BasicxLogger.LogTag">
+            <summary>
+            Enum that contains every message tag you can use
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.INFO">
+            <summary>
+            Tag: [INFO]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.WARNING">
+            <summary>
+            Tag: [WARNING]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.ERROR">
+            <summary>
+            Tag: [ERROR]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.FATAL">
+            <summary>
+            Tag: [FATAL]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.EXCEPTION">
+            <summary>
+            Tag: [EXCEPTION]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.DEBUGGING">
+            <summary>
+            Tag: [DEBUGGING]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.MESSAGE">
+            <summary>
+            Tag: [MESSAGE]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.ALERT">
+            <summary>
+            Tag: [ALERT]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.EVENT">
+            <summary>
+            Tag: [EVENT]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.TEST">
+            <summary>
+            Tag: [TEST]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.none">
+            <summary>
+            If you dont want to have a tag
+            </summary>
+        </member>
+        <member name="T:BasicxLogger.Timestamp">
+            <summary>
+            Timestamp class to configure and create timestamps
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Format">
+            <summary>
+            Format of the timestamp
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Culture">
+            <summary>
+            Culture setting for the formation of AM and PM
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Timestamp.#ctor(BasicxLogger.TimestampFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
+            </summary>
+            <param name="format">Formating of the timstamp</param>
+        </member>
+        <member name="M:BasicxLogger.Timestamp.#ctor(BasicxLogger.TimestampFormat,System.Char)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
+            </summary>
+            <param name="format">Formating of the timstamp</param>
+            <param name="dateSeparator">Char that separates the day, month and year</param>
+        </member>
+        <member name="M:BasicxLogger.Timestamp.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
+            </summary>
+            <param name="format">Formating of the timstamp</param>
+        </member>
+        <member name="M:BasicxLogger.Timestamp.#ctor(BasicxLogger.TimestampFormat,System.Globalization.CultureInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
+            </summary>
+            <param name="format">Formating of the timstamp</param>
+            <param name="cultureInfo">Culture information to customize the formation of AM and PM</param>
+        </member>
+        <member name="M:BasicxLogger.Timestamp.#ctor(BasicxLogger.TimestampFormat,System.Char,System.Globalization.CultureInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
+            </summary>
+            <param name="format">Formating of the timstamp</param>
+            <param name="dateSeparator">Char that separates the day, month and year</param>
+            <param name="cultureInfo">Culture information to customize the formation of AM and PM</param>
+        </member>
+        <member name="M:BasicxLogger.Timestamp.#ctor(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
+            </summary>
+            <param name="format">Formating of the timstamp</param>
+            <param name="cultureInfo">Culture information to customize the formation of AM and PM</param>
+        </member>
+        <member name="M:BasicxLogger.Timestamp.GetTimestamp">
+            <summary>
+            Get the current timestamp
+            </summary>
+            <returns>
+            Timstamp as string
+            </returns>
+        </member>
+        <member name="T:BasicxLogger.TimestampFormat">
+            <summary>
+            Enum that contains every supported timestamp format
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour24_min">
+            <summary>
+            Formate: "yyyy'/'MM'/'dd HH:mm"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour24_min_sec">
+            <summary>
+            Formate: "yyyy'/'MM'/'dd HH:mm:ss"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour24_min_sec_millisec">
+            <summary>
+            Formate: "yyyy'/'MM'/'dd HH:mm:ss.fff"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour12_min">
+            <summary>
+            Formate: "yyyy'/'MM'/'dd hh:mm tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour12_min_sec">
+            <summary>
+            Formate: "yyyy'/'MM'/'dd hh:mm:ss tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour12_min_sec_millisec">
+            <summary>
+            Formate: "yyyy'/'MM'/'dd hh:mm:ss.fff tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour24_min">
+            <summary>
+            Formate: "yyyy'/'dd'/'MM HH:mm"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour24_min_sec">
+            <summary>
+            Formate: "yyyy'/'dd'/'MM HH:mm:ss"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour24_min_sec_millisec">
+            <summary>
+            Formate: "yyyy'/'dd'/'MM HH:mm:ss.fff"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour12_min">
+            <summary>
+            Formate: "yyyy'/'dd'/'MM hh:mm tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour12_min_sec">
+            <summary>
+            Formate: "yyyy'/'dd'/'MM hh:mm:ss tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour12_min_sec_millisec">
+            <summary>
+            Formate: "yyyy'/'dd'/'MM hh:mm:ss.fff tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour24_min">
+            <summary>
+            Formate: "dd'/'MM'/'yyyy HH:mm"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour24_min_sec">
+            <summary>
+            Formate: "dd'/'MM'/'yyyy HH:mm:ss"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour24_min_sec_millisec">
+            <summary>
+            Formate: "dd'/'MM'/'yyyy HH:mm:ss.fff"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour12_min">
+            <summary>
+            Formate: "dd'/'MM'/'yyyy hh:mm tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour12_min_sec">
+            <summary>
+            Formate: "dd'/'MM'/'yyyy hh:mm:ss tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour12_min_sec_millisec">
+            <summary>
+            Formate: "dd'/'MM'/'yyyy hh:mm:ss.fff tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour24_min">
+            <summary>
+            Formate: "MM'/'dd'/'yyyy HH:mm"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour24_min_sec">
+            <summary>
+            Formate: "MM'/'dd'/'yyyy HH:mm:ss"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour24_min_sec_millisec">
+            <summary>
+            Formate: "MM'/'dd'/'yyyy HH:mm:ss.fff"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour12_min">
+            <summary>
+            Formate: "MM'/'dd'/'yyyy hh:mm tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour12_min_sec">
+            <summary>
+            Formate: "MM'/'dd'/'yyyy hh:mm:ss tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour12_min_sec_millisec">
+            <summary>
+            Formate: "MM'/'dd'/'yyyy hh:mm:ss.fff tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_month_day">
+            <summary>
+            Formate: "yyyy'/'MM'/'dd"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.year_day_month">
+            <summary>
+            Formate: "yyyy'/'dd'/'MM"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.day_month_year">
+            <summary>
+            Formate: "dd'/'MM'/'yyyy"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.month_day_year">
+            <summary>
+            Formate: "MM'/'dd'/'yyyy"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.hour24_min">
+            <summary>
+            Formate: "HH:mm"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.hour24_min_sec">
+            <summary>
+            Formate: "HH:mm:ss"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.hour24_min_sec_millisec">
+            <summary>
+            Formate: "HH:mm:ss.fff"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.hour12_min">
+            <summary>
+            Formate:  "hh:mm tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.hour12_min_sec">
+            <summary>
+            Formate:  "hh:mm:ss tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimestampFormat.hour12_min_sec_millisec">
+            <summary>
+            Formate: "hh:mm:ss.fff tt"
+            </summary>
+        </member>
         <member name="T:BasicxLogger.ILogger">
             <summary>
             Interface for BasicxLogger
@@ -17,7 +401,7 @@
             The message that will be loged
             </param>
         </member>
-        <member name="M:BasicxLogger.ILogger.Log(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.ILogger.Log(BasicxLogger.LogTag,System.String)">
             <summary>
             Logs the given message with the given tag and the current time stamp.
             </summary>
@@ -28,23 +412,18 @@
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
             </param>
         </member>
-        <member name="M:BasicxLogger.ILogger.LogId(System.String,System.Boolean)">
+        <member name="M:BasicxLogger.ILogger.LogId(System.String)">
             <summary>
             Logs the given message, a message ID and the current time stamp.
             </summary>
             <param name="message">
             The message that will be loged
             </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
-            </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
             </returns>
         </member>
-        <member name="M:BasicxLogger.ILogger.LogId(BasicxLogger.Message.LogTag,System.String,System.Boolean)">
+        <member name="M:BasicxLogger.ILogger.LogId(BasicxLogger.LogTag,System.String)">
             <summary>
             Logs the given message with the given tag, a message ID and the current time stamp.
             </summary>
@@ -53,11 +432,6 @@
             </param>
             <param name="messageTag">
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-            </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
             </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -74,7 +448,7 @@
             The message that will be loged
             </param>
         </member>
-        <member name="M:BasicxLogger.ILogger.LogCustomId(System.String,BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.ILogger.LogCustomId(System.String,BasicxLogger.LogTag,System.String)">
             <summary>
             Logs the given message with the given tag, the given ID and the current time stamp.
             </summary>
@@ -96,7 +470,7 @@
             The message that will be loged
             </param>
         </member>
-        <member name="M:BasicxLogger.ILogger.LogAsync(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.ILogger.LogAsync(BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous logs the given message with the given tag and the current time stamp.
             </summary>
@@ -107,23 +481,18 @@
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
             </param>
         </member>
-        <member name="M:BasicxLogger.ILogger.LogIdAsync(System.String,System.Boolean)">
+        <member name="M:BasicxLogger.ILogger.LogIdAsync(System.String)">
             <summary>
             Asynchronous logs the given message, a message ID and the current time stamp.
             </summary>
             <param name="message">
             The message that will be loged
             </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
-            </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
             </returns>
         </member>
-        <member name="M:BasicxLogger.ILogger.LogIdAsync(BasicxLogger.Message.LogTag,System.String,System.Boolean)">
+        <member name="M:BasicxLogger.ILogger.LogIdAsync(BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous logs the given message with the given tag, a message ID and the current time stamp.
             </summary>
@@ -132,11 +501,6 @@
             </param>
             <param name="messageTag">
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-            </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
             </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -153,7 +517,7 @@
             The message that will be loged
             </param>
         </member>
-        <member name="M:BasicxLogger.ILogger.LogCustomIdAsync(System.String,BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.ILogger.LogCustomIdAsync(System.String,BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous logs the given message with the given tag, the given ID and the current time stamp.
             </summary>
@@ -167,171 +531,6 @@
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
             </param>
         </member>
-        <member name="T:BasicxLogger.LoggerDatabase.MySqlDatabase">
-            <summary>
-            Holds all informations about the MySqlDatabase used for logging
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.Server">
-            <summary>
-            URL of the MySql database server
-            </summary>
-            <remarks>
-            Set by the constructor
-            </remarks>
-        </member>
-        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.DatabaseName">
-            <summary>
-            Name of the database that will contain the logs
-            </summary>
-            <remarks>
-            Set by the constructor
-            </remarks>
-        </member>
-        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.User">
-            <summary>
-            Username of the database user you want to use
-            </summary>
-            <remarks>
-            Set by the constructor
-            </remarks>
-        </member>
-        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.Password">
-            <summary>
-            Password of the given user
-            </summary>
-            <remarks>
-            Set by the constructor
-            </remarks>
-        </member>
-        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.Port">
-            <summary>
-            Port of the database server
-            </summary>
-            <remarks>
-            Set by the constructor
-            </remarks>
-        </member>
-        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.SslMode">
-            <summary>
-            SSL Mode setting
-            </summary>
-            <remarks>
-            Set by the constructor
-            </remarks>
-        </member>
-        <member name="P:BasicxLogger.LoggerDatabase.MySqlDatabase.Connection">
-            <summary>
-            The database connection
-            </summary>
-            <remarks>
-            Set by the constructor
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.LoggerDatabase.MySqlDatabase.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Constructor to creates a new MySqlDatabase object
-            </summary>
-            <param name="server">URL of the MySql database server</param>
-            <param name="databaseName">Name of the database that will contain the logs</param>
-            <param name="user">Username of the database user you want to use</param>
-            <param name="password">Password of the given user</param>
-            <param name="port">Port of the database server</param>
-            <param name="sslMode">SSL Mode setting</param>
-        </member>
-        <member name="T:BasicxLogger.LoggerDirectory.LogDirectory">
-            <summary>
-            Contains all informations about the log directory
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.LoggerDirectory.LogDirectory.Path">
-            <summary>
-            Path were the log directory is located
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.LoggerDirectory.LogDirectory.Name">
-            <summary>
-            Name of the log directory
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.LoggerDirectory.LogDirectory.FullPath">
-            <summary>
-            Full directory path (path + name)
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.LoggerDirectory.LogDirectory.#ctor(System.String,System.String)">
-            <summary>
-            Constructor, to create a LogDirectory object.
-            </summary>
-            <remarks>
-            Can be used to configure a custom directory for the logger
-            </remarks>
-            <param name="path">
-            Path where the directory is located
-            </param>
-            <param name="name">
-            Name of the log directory
-            </param>
-        </member>
-        <member name="T:BasicxLogger.LoggerFile.FileType">
-            <summary>
-            Enum that contains every supported file type
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.LoggerFile.FileType.txt">
-            <summary>
-            File type: .txt
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.LoggerFile.FileType.log">
-            <summary>
-            File type: .log
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.LoggerFile.FileType.xml">
-            <summary>
-            File type: .xml
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.LoggerFile.FileType.json">
-            <summary>
-            File type: .json
-            </summary>
-        </member>
-        <member name="T:BasicxLogger.LoggerFile.LogFile">
-            <summary>
-            Contains all informations about the log file
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.LoggerFile.LogFile.Name">
-            <summary>
-            Name of the log file
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.LoggerFile.LogFile.Type">
-            <summary>
-            File type of the log file
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.LoggerFile.LogFile.FullName">
-            <summary>
-            Full file name (name + file type : e.g. sample.txt)
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.LoggerFile.LogFile.#ctor(System.String,BasicxLogger.LoggerFile.FileType)">
-            <summary>
-            Constructor, to create a LogFile object.
-            </summary>
-            <remarks>
-            Can be used to configure a custom file for the logger
-            </remarks>
-            <param name="name">
-            Name of the log file
-            </param>
-            <param name="type">
-            File type of the log file
-            </param>
-        </member>
         <member name="T:BasicxLogger.FileLogger">
             <summary>
             File logger that contains everything needed to write a message to a log file.
@@ -340,145 +539,35 @@
             This logger supports the following file formats: txt, log, xml and json
             </remarks>
         </member>
-        <member name="P:BasicxLogger.FileLogger.LoggingFile">
+        <member name="P:BasicxLogger.FileLogger.LogFile">
             <summary>
-            Contains all informations about the log file
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.FileLogger.FileDirectory">
-            <summary>
-            Contains all informations about the log directory
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.FileLogger.MessageFormat">
-            <summary>
-            Contains all informations about the formatting of the log messages
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor">
-            <summary>
-            Constructor, to create a simple logger object that uses the default settings
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerFile.LogFile)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
+            The log file of the logger.
             </summary>
             <remarks>
-            Everything that has no custom configuration will use the default settings.
+            The file name must contain the full path and the file extension.
+            Supportet file extension are: .txt, .log, .json, .xml
             </remarks>
         </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.LoggerDirectory.LogDirectory)">
+        <member name="P:BasicxLogger.FileLogger.MessageTimestamp">
             <summary>
-            Constructor, to create a logger object with custom settings. 
+            Timestamp used for the logging
             </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
         </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.Message.LogMessageFormat)">
+        <member name="P:BasicxLogger.FileLogger.DefaultTag">
             <summary>
-            Constructor, to create a logger object with custom settings. 
+            A default message tag that will be used if no tag is selected
             </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
         </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.Message.LogMessageFormat)">
+        <member name="P:BasicxLogger.FileLogger.TextEncoding">
             <summary>
-            Constructor, to create a logger object with custom settings. 
+            The text encoding used by the logger
             </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
         </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerDirectory.LogDirectory)">
+        <member name="M:BasicxLogger.FileLogger.#ctor(System.IO.FileInfo)">
             <summary>
-            Constructor, to create a logger object with custom settings. 
+            Initializes a new instance of the <see cref="T:BasicxLogger.FileLogger"/> class
             </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.LoggerFile.LogFile)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.Message.LogMessageFormat)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.LoggerFile.LogFile,BasicxLogger.Message.LogMessageFormat)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerFile.LogFile)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Message.LogMessageFormat)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerFile.LogFile)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerDirectory.LogDirectory)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerFile.LogFile,BasicxLogger.LoggerDirectory.LogDirectory)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.LoggerFile.LogFile)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
+            <param name="logFile">The log file of the logger</param>
         </member>
         <member name="M:BasicxLogger.FileLogger.Log(System.String)">
             <summary>
@@ -500,7 +589,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.FileLogger.Log(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.FileLogger.Log(BasicxLogger.LogTag,System.String)">
             <summary>
             Writes the given message with the given tag and the current time stamp to the log file.
             </summary>
@@ -523,7 +612,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.FileLogger.LogId(System.String,System.Boolean)">
+        <member name="M:BasicxLogger.FileLogger.LogId(System.String)">
             <summary>
             Writes the given message, a message ID and the current time stamp to the log file.
             </summary>
@@ -532,11 +621,6 @@
             </remarks>
             <param name="message">
             The message that will be writen to the file
-            </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
             </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -551,7 +635,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.FileLogger.LogId(BasicxLogger.Message.LogTag,System.String,System.Boolean)">
+        <member name="M:BasicxLogger.FileLogger.LogId(BasicxLogger.LogTag,System.String)">
             <summary>
             Writes the given message with the given tag, a message ID and the current time stamp to the log file.
             </summary>
@@ -563,11 +647,6 @@
             </param>
             <param name="messageTag">
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-            </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
             </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -605,7 +684,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.FileLogger.LogCustomId(System.String,BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.FileLogger.LogCustomId(System.String,BasicxLogger.LogTag,System.String)">
             <summary>
             Writes the given message with the given tag, the given ID and the current time stamp to the log file.
             </summary>
@@ -651,7 +730,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.FileLogger.LogAsync(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.FileLogger.LogAsync(BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous writes the given message with the given tag and the current time stamp to the log file.
             </summary>
@@ -674,7 +753,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.FileLogger.LogIdAsync(System.String,System.Boolean)">
+        <member name="M:BasicxLogger.FileLogger.LogIdAsync(System.String)">
             <summary>
             Asynchronous writes the given message, a message ID and the current time stamp to the log file.
             </summary>
@@ -683,11 +762,6 @@
             </remarks>
             <param name="message">
             The message that will be writen to the file
-            </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
             </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -702,7 +776,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.FileLogger.LogIdAsync(BasicxLogger.Message.LogTag,System.String,System.Boolean)">
+        <member name="M:BasicxLogger.FileLogger.LogIdAsync(BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous writes the given message with the given tag, a message ID and the current time stamp to the log file.
             </summary>
@@ -714,11 +788,6 @@
             </param>
             <param name="messageTag">
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-            </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your log file is.
-            When the log file exceeds the length of 1,073,741,823 chars (a little over 1GB file size) the ID will not be verifyed.
             </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -756,7 +825,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.FileLogger.LogCustomIdAsync(System.String,BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.FileLogger.LogCustomIdAsync(System.String,BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous writes the given message with the given tag, the given ID and the current time stamp to the log file.
             </summary>
@@ -782,77 +851,25 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.FileLogger.GetFullFilePath">
-            <returns>
-            The full file path (e.g. C:\mypath\myfile.txt)
-            </returns>
-        </member>
-        <member name="M:BasicxLogger.FileLogger.DeleteLogFile">
-            <summary>
-            Deletes the log file, that was created by the logger.
-            </summary>
-            <remarks>
-            All logs will be lost. If you log again after deleting the log file, the logger will create a new file.
-            </remarks>
-            <exception cref="T:System.ArgumentException"></exception>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.NotSupportedException"></exception>
-            <exception cref="T:System.UnauthorizedAccessException"></exception>
-            <exception cref="T:System.IO.IOException"></exception>
-            <exception cref="T:System.IO.PathTooLongException"></exception>
-            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
-        </member>
         <member name="T:BasicxLogger.JsonLogger`1">
             <summary>
             A logger that allows you to log your owne objects to a json file
             </summary>
         </member>
-        <member name="P:BasicxLogger.JsonLogger`1.LoggingFile">
+        <member name="P:BasicxLogger.JsonLogger`1.LogFile">
             <summary>
-            Contains all informations about the log file
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.JsonLogger`1.FileDirectory">
-            <summary>
-            Contains all informations about the log directory
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.JsonLogger`1.#ctor">
-            <summary>
-            Constructor, to create a simple logger object that uses the default settings
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.JsonLogger`1.#ctor(System.String)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
+            The log file of the logger.
             </summary>
             <remarks>
-            Everything that has no custom configuration will use the default settings.
+            The file name must contain the full path and the file extension.
+            This logger only supports .json files
             </remarks>
         </member>
-        <member name="M:BasicxLogger.JsonLogger`1.#ctor(System.String,BasicxLogger.LoggerDirectory.LogDirectory)">
+        <member name="M:BasicxLogger.JsonLogger`1.#ctor(System.IO.FileInfo)">
             <summary>
-            Constructor, to create a logger object with custom settings. 
+            Initializes a new instance of the <see cref="!:BasicxLogger.JsonLogger"/> class
             </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.JsonLogger`1.#ctor(BasicxLogger.LoggerDirectory.LogDirectory)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.JsonLogger`1.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,System.String)">
-            <summary>
-            Constructor, to create a logger object with custom settings. 
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
+            <param name="logFile">The log file of the logger</param>
         </member>
         <member name="M:BasicxLogger.JsonLogger`1.Log(`0)">
             <summary>
@@ -894,26 +911,6 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.JsonLogger`1.GetFullFilePath">
-            <returns>
-            The full file path (e.g. C:\mypath\myfile.json)
-            </returns>
-        </member>
-        <member name="M:BasicxLogger.JsonLogger`1.DeleteLogFile">
-            <summary>
-            Deletes the log file, that was created by the logger.
-            </summary>
-            <remarks>
-            All logs will be lost. If you log again after deleting the log file, the logger will create a new file.
-            </remarks>
-            <exception cref="T:System.ArgumentException"></exception>
-            <exception cref="T:System.ArgumentNullException"></exception>
-            <exception cref="T:System.NotSupportedException"></exception>
-            <exception cref="T:System.UnauthorizedAccessException"></exception>
-            <exception cref="T:System.IO.IOException"></exception>
-            <exception cref="T:System.IO.PathTooLongException"></exception>
-            <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
-        </member>
         <member name="T:BasicxLogger.Logger">
             <summary>
             Default Logger class that contains everything needed to write a message to a log file.
@@ -942,7 +939,7 @@
             Constructor, to create a simple logger object that uses the default settings
             </summary>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LoggerFile.LogFile)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LogFile)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -950,7 +947,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.LoggerDirectory.LogDirectory)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LogFile,BasicxLogger.LogDirectory)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -958,7 +955,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.Message.LogMessageFormat)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LogFile,BasicxLogger.MessageFormat)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -966,7 +963,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.Message.LogMessageFormat)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LogFile,BasicxLogger.LogDirectory,BasicxLogger.MessageFormat)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -974,7 +971,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LoggerFile.LogFile,BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerDirectory.LogDirectory)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LogFile,BasicxLogger.MessageFormat,BasicxLogger.LogDirectory)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -982,7 +979,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LogDirectory)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -990,7 +987,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.LoggerFile.LogFile)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LogDirectory,BasicxLogger.LogFile)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -998,7 +995,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.Message.LogMessageFormat)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LogDirectory,BasicxLogger.MessageFormat)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -1006,7 +1003,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.LoggerFile.LogFile,BasicxLogger.Message.LogMessageFormat)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LogDirectory,BasicxLogger.LogFile,BasicxLogger.MessageFormat)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -1014,7 +1011,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerFile.LogFile)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.LogDirectory,BasicxLogger.MessageFormat,BasicxLogger.LogFile)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -1022,7 +1019,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.Message.LogMessageFormat)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.MessageFormat)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -1030,7 +1027,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerFile.LogFile)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.MessageFormat,BasicxLogger.LogFile)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -1038,7 +1035,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerDirectory.LogDirectory)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.MessageFormat,BasicxLogger.LogDirectory)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -1046,7 +1043,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerFile.LogFile,BasicxLogger.LoggerDirectory.LogDirectory)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.MessageFormat,BasicxLogger.LogFile,BasicxLogger.LogDirectory)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -1054,7 +1051,7 @@
             Everything that has no custom configuration will use the default settings.
             </remarks>
         </member>
-        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.Message.LogMessageFormat,BasicxLogger.LoggerDirectory.LogDirectory,BasicxLogger.LoggerFile.LogFile)">
+        <member name="M:BasicxLogger.Logger.#ctor(BasicxLogger.MessageFormat,BasicxLogger.LogDirectory,BasicxLogger.LogFile)">
             <summary>
             Constructor, to create a logger object with custom settings. 
             </summary>
@@ -1082,7 +1079,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.Logger.log(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.Logger.log(BasicxLogger.Tag,System.String)">
             <summary>
             Writes the given message with the given tag and the current time stamp to the log file.
             </summary>
@@ -1133,7 +1130,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.Logger.logID(BasicxLogger.Message.LogTag,System.String,System.Boolean)">
+        <member name="M:BasicxLogger.Logger.logID(BasicxLogger.Tag,System.String,System.Boolean)">
             <summary>
             Writes the given message with the given tag, a message ID and the current time stamp to the log file.
             </summary>
@@ -1187,7 +1184,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.Logger.logCustomID(System.String,BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.Logger.logCustomID(System.String,BasicxLogger.Tag,System.String)">
             <summary>
             Writes the given message with the given tag, the given ID and the current time stamp to the log file.
             </summary>
@@ -1233,7 +1230,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.Logger.logAsync(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.Logger.logAsync(BasicxLogger.Tag,System.String)">
             <summary>
             Asynchronous writes the given message with the given tag and the current time stamp to the log file.
             </summary>
@@ -1284,7 +1281,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.Logger.logIDAsync(BasicxLogger.Message.LogTag,System.String,System.Boolean)">
+        <member name="M:BasicxLogger.Logger.logIDAsync(BasicxLogger.Tag,System.String,System.Boolean)">
             <summary>
             Asynchronous writes the given message with the given tag, a message ID and the current time stamp to the log file.
             </summary>
@@ -1338,7 +1335,7 @@
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
         </member>
-        <member name="M:BasicxLogger.Logger.logCustomIDAsync(System.String,BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.Logger.logCustomIDAsync(System.String,BasicxLogger.Tag,System.String)">
             <summary>
             Asynchronous writes the given message with the given tag, the given ID and the current time stamp to the log file.
             </summary>
@@ -1384,6 +1381,459 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
         </member>
+        <member name="T:BasicxLogger.Date">
+            <summary>
+            Contains the information about the date formatting for the log message
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Date.Format">
+            <summary>
+            Enum that contains the formate of the date
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Date.Separator">
+            <summary>
+            Char that separates each part of the date
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Date.FormatString">
+            <summary>
+            Format string for the date (e.g. yyyy'-'MM'-'dd)
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Date.#ctor(BasicxLogger.DateFormat)">
+            <summary>
+            Constructor, to create a Date object.
+            </summary>
+            <remarks>
+            Can be used to configure a custom date formate for the logger message formate
+            </remarks>
+            <param name="dateFormat">
+            Enum that contains the formate of the date
+            </param>
+        </member>
+        <member name="M:BasicxLogger.Date.#ctor(BasicxLogger.DateFormat,System.Char)">
+            <summary>
+            Constructor, to create a Date object.
+            </summary>
+            <remarks>
+            Can be used to configure a custom date formate for the logger message formate
+            </remarks>
+            <param name="dateFormat">
+            Enum that contains the formate of the date
+            </param>
+            <param name="dateSeparator">
+            Char that separates each part of the date
+            </param>
+        </member>
+        <member name="T:BasicxLogger.DateFormat">
+            <summary>
+            Enum that contains every supported date format
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.DateFormat.year_month_day">
+            <summary>
+            Formate: "yyyy'/'MM'/'dd"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.DateFormat.year_day_month">
+            <summary>
+            Formate: "yyyy'/'dd'/'MM"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.DateFormat.day_month_year">
+            <summary>
+            Formate: "dd'/'MM'/'yyyy"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.DateFormat.month_day_year">
+            <summary>
+            Formate: "MM'/'dd'/'yyyy"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.DateFormat.none">
+            <summary>
+            Select, if you dont want to have the time in your log file
+            </summary>
+        </member>
+        <member name="T:BasicxLogger.Time">
+            <summary>
+            Contains the information about the time formatting for the log message
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Time.Format">
+            <summary>
+            Enum that contains the formate of the time
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Time.FormatString">
+            <summary>
+            Format string for the time (e.g. HH:mm:ss)
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Time.CultureFormat">
+            <summary>
+            Holds the culture information to correctly display AM/PM, when the 12 hour time formate is used
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Time.#ctor(BasicxLogger.TimeFormat)">
+            <summary>
+            Constructor, to create a Time object.
+            </summary>
+            <remarks>
+            Can be used to configure a custom time formate for the logger message formate
+            </remarks>
+            <param name="timeFormat">
+            Enum that contains the formate of the time
+            </param>
+        </member>
+        <member name="M:BasicxLogger.Time.#ctor(BasicxLogger.TimeFormat,System.Globalization.CultureInfo)">
+            <summary>
+            Constructor, to create a Time object.
+            </summary>
+            <remarks>
+            Can be used to configure a custom time formate for the logger message formate
+            </remarks>
+            <param name="timeFormat">
+            Enum that contains the formate of the time
+            </param>
+            <param name="cultureInfo">
+            The culture information to correctly display AM/PM, when the 12 hour time formate is used
+            </param>
+        </member>
+        <member name="T:BasicxLogger.TimeFormat">
+            <summary>
+            Enum that contains every supported time format
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimeFormat.hour24_min">
+            <summary>
+            Formate: "HH:mm"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimeFormat.hour24_min_sec">
+            <summary>
+            Formate: "HH:mm:ss"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimeFormat.hour24_min_sec_millisec">
+            <summary>
+            Formate: "HH:mm:ss.fff"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimeFormat.hour12_min">
+            <summary>
+            Formate:  "hh:mm tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimeFormat.hour12_min_sec">
+            <summary>
+            Formate:  "hh:mm:ss tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimeFormat.hour12_min_sec_millisec">
+            <summary>
+            Formate: "hh:mm:ss.fff tt"
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.TimeFormat.none">
+            <summary>
+            Select, if you dont want to have the time in your log file
+            </summary>
+        </member>
+        <member name="T:BasicxLogger.MessageFormat">
+            <summary>
+            Contains all informations about the formatting of the log messages
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.MessageFormat.Date">
+            <summary>
+            Contains the information about the date formatting for the log message
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.MessageFormat.Time">
+            <summary>
+            Contains the information about the time formatting for the log message
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.MessageFormat.DefaultTag">
+            <summary>
+            A default message tag that will be used if no tag is selected
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.MessageFormat.TextEncoding">
+            <summary>
+            Encoding for the log message
+            </summary>
+            <remarks>
+            This option is not supported for json logging and will be ignored if you log to a json file
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Tag)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(System.Text.Encoding)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Date)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Time)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Date,BasicxLogger.Time)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Date,BasicxLogger.Tag)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Date,System.Text.Encoding)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Date,BasicxLogger.Time,BasicxLogger.Tag)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Date,BasicxLogger.Tag,System.Text.Encoding)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Date,BasicxLogger.Time,System.Text.Encoding)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Date,BasicxLogger.Time,BasicxLogger.Tag,System.Text.Encoding)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Time,BasicxLogger.Tag)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Time,System.Text.Encoding)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="M:BasicxLogger.MessageFormat.#ctor(BasicxLogger.Time,BasicxLogger.Tag,System.Text.Encoding)">
+            <summary>
+            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
+            </summary>
+            <remarks>
+            Everything that has no custom configuration will use the default settings.
+            </remarks>
+        </member>
+        <member name="T:BasicxLogger.Tag">
+            <summary>
+            Enum that contains every message tag you can use
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.INFO">
+            <summary>
+            Tag: [INFO]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.WARNING">
+            <summary>
+            Tag: [WARNING]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.ERROR">
+            <summary>
+            Tag: [ERROR]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.FATAL">
+            <summary>
+            Tag: [FATAL]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.EXCEPTION">
+            <summary>
+            Tag: [EXCEPTION]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.DEBUGGING">
+            <summary>
+            Tag: [DEBUGGING]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.MESSAGE">
+            <summary>
+            Tag: [MESSAGE]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.ALERT">
+            <summary>
+            Tag: [ALERT]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.EVENT">
+            <summary>
+            Tag: [EVENT]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.TEST">
+            <summary>
+            Tag: [TEST]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.Tag.none">
+            <summary>
+            If you dont want to have a tag
+            </summary>
+        </member>
+        <member name="T:BasicxLogger.LogDirectory">
+            <summary>
+            Contains all informations about the log directory
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogDirectory.Path">
+            <summary>
+            Path were the log directory is located
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogDirectory.Name">
+            <summary>
+            Name of the log directory
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogDirectory.FullPath">
+            <summary>
+            Full directory path (path + name)
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.LogDirectory.#ctor(System.String,System.String)">
+            <summary>
+            Constructor, to create a LogDirectory object.
+            </summary>
+            <remarks>
+            Can be used to configure a custom directory for the logger
+            </remarks>
+            <param name="path">
+            Path where the directory is located
+            </param>
+            <param name="name">
+            Name of the log directory
+            </param>
+        </member>
+        <member name="T:BasicxLogger.LogFile">
+            <summary>
+            Contains all informations about the log file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogFile.Name">
+            <summary>
+            Name of the log file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogFile.Type">
+            <summary>
+            File type of the log file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogFile.FullName">
+            <summary>
+            Full file name (name + file type : e.g. sample.txt)
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.LogFile.#ctor(System.String,BasicxLogger.FileType)">
+            <summary>
+            Constructor, to create a LogFile object.
+            </summary>
+            <remarks>
+            Can be used to configure a custom file for the logger
+            </remarks>
+            <param name="name">
+            Name of the log file
+            </param>
+            <param name="type">
+            File type of the log file
+            </param>
+        </member>
+        <member name="T:BasicxLogger.FileType">
+            <summary>
+            Enum that contains every supported file type
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.FileType.txt">
+            <summary>
+            File type: .txt
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.FileType.log">
+            <summary>
+            File type: .log
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.FileType.xml">
+            <summary>
+            File type: .xml
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.FileType.json">
+            <summary>
+            File type: .json
+            </summary>
+        </member>
         <member name="T:BasicxLogger.MultiLogger">
             <summary>
             A logger that allows you to add all loggers that use the ILogger interface and 
@@ -1392,6 +1842,11 @@
             <remarks>
             The multi logger supports all logger that uses the ILogger intaterface.
             </remarks>
+        </member>
+        <member name="M:BasicxLogger.MultiLogger.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.MultiLogger"/> class
+            </summary>
         </member>
         <member name="M:BasicxLogger.MultiLogger.Log(System.String)">
             <summary>
@@ -1414,7 +1869,7 @@
             <exception cref="T:System.Security.SecurityException"></exception>
             <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
         </member>
-        <member name="M:BasicxLogger.MultiLogger.Log(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.MultiLogger.Log(BasicxLogger.LogTag,System.String)">
             <summary>
             Logs the given message with the given tag and the current time stamp with every logger that was added to the multi logger.
             </summary>
@@ -1445,7 +1900,6 @@
             </summary>
             <remarks>
             If the log file and/or directory is missing, the method will automatically create them.
-            ID verification ist not supportet with the multi logger.
             </remarks>
             <param name="message">
             The message that will be writen to the file
@@ -1464,13 +1918,12 @@
             <exception cref="T:System.Security.SecurityException"></exception>
             <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
         </member>
-        <member name="M:BasicxLogger.MultiLogger.LogId(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.MultiLogger.LogId(BasicxLogger.LogTag,System.String)">
             <summary>
             Logs the given message with the given tag, a message ID and the current time stamp with every logger that was added to the multi logger.
             </summary>
             <remarks>
             If the log file and/or directory is missing, the method will automatically create them.
-            ID verification ist not supportet with the multi logger.
             </remarks>
             <param name="message">
             The message that will be writen to the file
@@ -1516,7 +1969,7 @@
             <exception cref="T:System.Security.SecurityException"></exception>
             <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
         </member>
-        <member name="M:BasicxLogger.MultiLogger.LogCustomId(System.String,BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.MultiLogger.LogCustomId(System.String,BasicxLogger.LogTag,System.String)">
             <summary>
             Logs the given message with the given tag, the given ID and the current time stampwith every logger that was added to the multi logger.
             </summary>
@@ -1565,7 +2018,7 @@
             <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
             <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
         </member>
-        <member name="M:BasicxLogger.MultiLogger.LogAsync(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.MultiLogger.LogAsync(BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous logs the given message with the given tag and the current time stamp with every logger that was added to the multi logger.
             </summary>
@@ -1596,7 +2049,6 @@
             </summary>
             <remarks>
             If the log file and/or directory is missing, the method will automatically create them.
-            ID verification ist not supportet with the multi logger.
             </remarks>
             <param name="message">
             The message that will be writen to the file
@@ -1615,13 +2067,12 @@
             <exception cref="T:System.Security.SecurityException"></exception>
             <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
         </member>
-        <member name="M:BasicxLogger.MultiLogger.LogIdAsync(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.MultiLogger.LogIdAsync(BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous logs the given message with the given tag, a message ID and the current time stamp with every logger that was added to the multi logger.
             </summary>
             <remarks>
             If the log file and/or directory is missing, the method will automatically create them.
-            ID verification ist not supportet with the multi logger.
             </remarks>
             <param name="message">
             The message that will be writen to the file
@@ -1667,7 +2118,7 @@
             <exception cref="T:System.Security.SecurityException"></exception>
             <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
         </member>
-        <member name="M:BasicxLogger.MultiLogger.logCustomIdAsync(System.String,BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.MultiLogger.LogCustomIdAsync(System.String,BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous logs the given message with the given tag, the given ID and the current time stampwith every logger that was added to the multi logger.
             </summary>
@@ -1720,7 +2171,7 @@
             A default message tag that will be used if no tag is selected
             </summary>
         </member>
-        <member name="M:BasicxLogger.MySqlLogger.#ctor(BasicxLogger.LoggerDatabase.MySqlDatabase,System.String)">
+        <member name="M:BasicxLogger.MySqlLogger.#ctor(BasicxLogger.Databases.MySqlDatabase,System.String)">
             <summary>
             Constructor to create a MySqlLogger
             </summary>
@@ -1734,7 +2185,7 @@
             Name of the table the logger will log to. This table will be created by the logger.
             </param>
         </member>
-        <member name="M:BasicxLogger.MySqlLogger.#ctor(BasicxLogger.LoggerDatabase.MySqlDatabase,System.String,BasicxLogger.Message.LogTag)">
+        <member name="M:BasicxLogger.MySqlLogger.#ctor(BasicxLogger.Databases.MySqlDatabase,System.String,BasicxLogger.LogTag)">
             <summary>
             Constructor to create a MySqlLogger
             </summary>
@@ -1761,7 +2212,7 @@
             <exception cref="T:System.InvalidOperationException"></exception>
             <exception cref="T:System.Data.Common.DbException"></exception>
         </member>
-        <member name="M:BasicxLogger.MySqlLogger.Log(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.MySqlLogger.Log(BasicxLogger.LogTag,System.String)">
             <summary>
             Inserts the given message and the current time stamp into the log table.
             </summary>
@@ -1777,16 +2228,12 @@
             <exception cref="T:System.InvalidOperationException"></exception>
             <exception cref="T:System.Data.Common.DbException"></exception>
         </member>
-        <member name="M:BasicxLogger.MySqlLogger.LogId(System.String,System.Boolean)">
+        <member name="M:BasicxLogger.MySqlLogger.LogId(System.String)">
             <summary>
             Inserts the given message and the current time stamp into the log table.
             </summary>
             <param name="message">
             The message that will be writen to the file
-            </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
             </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -1797,7 +2244,7 @@
             <exception cref="T:System.InvalidOperationException"></exception>
             <exception cref="T:System.Data.Common.DbException"></exception>
         </member>
-        <member name="M:BasicxLogger.MySqlLogger.LogId(BasicxLogger.Message.LogTag,System.String,System.Boolean)">
+        <member name="M:BasicxLogger.MySqlLogger.LogId(BasicxLogger.LogTag,System.String)">
             <summary>
             Inserts the given message and the current time stamp into the log table.
             </summary>
@@ -1806,10 +2253,6 @@
             </param>
             <param name="messageTag">
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-            </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
             </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -1836,7 +2279,7 @@
             <exception cref="T:System.InvalidOperationException"></exception>
             <exception cref="T:System.Data.Common.DbException"></exception>
         </member>
-        <member name="M:BasicxLogger.MySqlLogger.LogCustomId(System.String,BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.MySqlLogger.LogCustomId(System.String,BasicxLogger.LogTag,System.String)">
             <summary>
             Inserts the given message and the current time stamp into the log table.
             </summary>
@@ -1868,7 +2311,7 @@
             <exception cref="T:System.InvalidOperationException"></exception>
             <exception cref="T:System.Data.Common.DbException"></exception>
         </member>
-        <member name="M:BasicxLogger.MySqlLogger.LogAsync(BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.MySqlLogger.LogAsync(BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous inserts the given message and the current time stamp into the log table.
             </summary>
@@ -1884,16 +2327,12 @@
             <exception cref="T:System.InvalidOperationException"></exception>
             <exception cref="T:System.Data.Common.DbException"></exception>
         </member>
-        <member name="M:BasicxLogger.MySqlLogger.LogIdAsync(System.String,System.Boolean)">
+        <member name="M:BasicxLogger.MySqlLogger.LogIdAsync(System.String)">
             <summary>
             Asynchronous inserts the given message and the current time stamp into the log table.
             </summary>
             <param name="message">
             The message that will be writen to the file
-            </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
             </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -1904,7 +2343,7 @@
             <exception cref="T:System.InvalidOperationException"></exception>
             <exception cref="T:System.Data.Common.DbException"></exception>
         </member>
-        <member name="M:BasicxLogger.MySqlLogger.LogIdAsync(BasicxLogger.Message.LogTag,System.String,System.Boolean)">
+        <member name="M:BasicxLogger.MySqlLogger.LogIdAsync(BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous inserts the given message and the current time stamp into the log table.
             </summary>
@@ -1913,10 +2352,6 @@
             </param>
             <param name="messageTag">
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-            </param>
-            <param name="verifyMessageID">
-            Set to true if you want to make sure the message id is unique.
-            If set to true, the loging of the message may take longer an use more ram depending on how big your database is.
             </param>
             <returns>
             The message ID that was automatically assigned to the message. It can be used to identify a specific message.
@@ -1943,7 +2378,7 @@
             <exception cref="T:System.InvalidOperationException"></exception>
             <exception cref="T:System.Data.Common.DbException"></exception>
         </member>
-        <member name="M:BasicxLogger.MySqlLogger.LogCustomIdAsync(System.String,BasicxLogger.Message.LogTag,System.String)">
+        <member name="M:BasicxLogger.MySqlLogger.LogCustomIdAsync(System.String,BasicxLogger.LogTag,System.String)">
             <summary>
             Asynchronous inserts the given message and the current time stamp into the log table.
             </summary>
@@ -1961,366 +2396,6 @@
             <exception cref="T:System.ArgumentNullException"></exception>
             <exception cref="T:System.InvalidOperationException"></exception>
             <exception cref="T:System.Data.Common.DbException"></exception>
-        </member>
-        <member name="T:BasicxLogger.Message.DateFormat">
-            <summary>
-            Enum that contains every supported date format
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.DateFormat.year_month_day">
-            <summary>
-            Formate: "yyyy'/'MM'/'dd"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.DateFormat.year_day_month">
-            <summary>
-            Formate: "yyyy'/'dd'/'MM"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.DateFormat.day_month_year">
-            <summary>
-            Formate: "dd'/'MM'/'yyyy"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.DateFormat.month_day_year">
-            <summary>
-            Formate: "MM'/'dd'/'yyyy"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.DateFormat.none">
-            <summary>
-            Select, if you dont want to have the time in your log file
-            </summary>
-        </member>
-        <member name="T:BasicxLogger.Message.LogDate">
-            <summary>
-            Contains the information about the date formatting for the log message
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Message.LogDate.Format">
-            <summary>
-            Enum that contains the formate of the date
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Message.LogDate.Separator">
-            <summary>
-            Char that separates each part of the date
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Message.LogDate.FormatString">
-            <summary>
-            Format string for the date (e.g. yyyy'-'MM'-'dd)
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.Message.LogDate.#ctor(BasicxLogger.Message.DateFormat)">
-            <summary>
-            Constructor, to create a Date object.
-            </summary>
-            <remarks>
-            Can be used to configure a custom date formate for the logger message formate
-            </remarks>
-            <param name="dateFormat">
-            Enum that contains the formate of the date
-            </param>
-        </member>
-        <member name="M:BasicxLogger.Message.LogDate.#ctor(BasicxLogger.Message.DateFormat,System.Char)">
-            <summary>
-            Constructor, to create a Date object.
-            </summary>
-            <remarks>
-            Can be used to configure a custom date formate for the logger message formate
-            </remarks>
-            <param name="dateFormat">
-            Enum that contains the formate of the date
-            </param>
-            <param name="dateSeparator">
-            Char that separates each part of the date
-            </param>
-        </member>
-        <member name="T:BasicxLogger.Message.LogMessageFormat">
-            <summary>
-            Contains all informations about the formatting of the log messages
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Message.LogMessageFormat.Date">
-            <summary>
-            Contains the information about the date formatting for the log message
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Message.LogMessageFormat.Time">
-            <summary>
-            Contains the information about the time formatting for the log message
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Message.LogMessageFormat.DefaultTag">
-            <summary>
-            A default message tag that will be used if no tag is selected
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Message.LogMessageFormat.TextEncoding">
-            <summary>
-            Encoding for the log message
-            </summary>
-            <remarks>
-            This option is not supported for json logging and will be ignored if you log to a json file
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogTag)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(System.Text.Encoding)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogDate)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogTime)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogDate,BasicxLogger.Message.LogTime)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogDate,BasicxLogger.Message.LogTag)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogDate,System.Text.Encoding)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogDate,BasicxLogger.Message.LogTime,BasicxLogger.Message.LogTag)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogDate,BasicxLogger.Message.LogTag,System.Text.Encoding)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogDate,BasicxLogger.Message.LogTime,System.Text.Encoding)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogDate,BasicxLogger.Message.LogTime,BasicxLogger.Message.LogTag,System.Text.Encoding)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogTime,BasicxLogger.Message.LogTag)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogTime,System.Text.Encoding)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="M:BasicxLogger.Message.LogMessageFormat.#ctor(BasicxLogger.Message.LogTime,BasicxLogger.Message.LogTag,System.Text.Encoding)">
-            <summary>
-            Constructor, to create a MessageFormate object with custom settings, that can be used to customize the logger
-            </summary>
-            <remarks>
-            Everything that has no custom configuration will use the default settings.
-            </remarks>
-        </member>
-        <member name="T:BasicxLogger.Message.LogTag">
-            <summary>
-            Enum that contains every message tag you can use
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.INFO">
-            <summary>
-            Tag: [INFO]
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.WARNING">
-            <summary>
-            Tag: [WARNING]
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.ERROR">
-            <summary>
-            Tag: [ERROR]
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.FATAL">
-            <summary>
-            Tag: [FATAL]
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.EXCEPTION">
-            <summary>
-            Tag: [EXCEPTION]
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.DEBUGGING">
-            <summary>
-            Tag: [DEBUGGING]
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.MESSAGE">
-            <summary>
-            Tag: [MESSAGE]
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.ALERT">
-            <summary>
-            Tag: [ALERT]
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.EVENT">
-            <summary>
-            Tag: [EVENT]
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.TEST">
-            <summary>
-            Tag: [TEST]
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.LogTag.none">
-            <summary>
-            If you dont want to have a tag
-            </summary>
-        </member>
-        <member name="T:BasicxLogger.Message.LogTime">
-            <summary>
-            Contains the information about the time formatting for the log message
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Message.LogTime.Format">
-            <summary>
-            Enum that contains the formate of the time
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Message.LogTime.FormatString">
-            <summary>
-            Format string for the time (e.g. HH:mm:ss)
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Message.LogTime.CultureFormat">
-            <summary>
-            Holds the culture information to correctly display AM/PM, when the 12 hour time formate is used
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.Message.LogTime.#ctor(BasicxLogger.Message.TimeFormat)">
-            <summary>
-            Constructor, to create a Time object.
-            </summary>
-            <remarks>
-            Can be used to configure a custom time formate for the logger message formate
-            </remarks>
-            <param name="timeFormat">
-            Enum that contains the formate of the time
-            </param>
-        </member>
-        <member name="M:BasicxLogger.Message.LogTime.#ctor(BasicxLogger.Message.TimeFormat,System.Globalization.CultureInfo)">
-            <summary>
-            Constructor, to create a Time object.
-            </summary>
-            <remarks>
-            Can be used to configure a custom time formate for the logger message formate
-            </remarks>
-            <param name="timeFormat">
-            Enum that contains the formate of the time
-            </param>
-            <param name="cultureInfo">
-            The culture information to correctly display AM/PM, when the 12 hour time formate is used
-            </param>
-        </member>
-        <member name="T:BasicxLogger.Message.TimeFormat">
-            <summary>
-            Enum that contains every supported time format
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.TimeFormat.hour24_min">
-            <summary>
-            Formate: "HH:mm"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.TimeFormat.hour24_min_sec">
-            <summary>
-            Formate: "HH:mm:ss"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.TimeFormat.hour24_min_sec_millisec">
-            <summary>
-            Formate: "HH:mm:ss.fff"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.TimeFormat.hour12_min">
-            <summary>
-            Formate:  "hh:mm tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.TimeFormat.hour12_min_sec">
-            <summary>
-            Formate:  "hh:mm:ss tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.TimeFormat.hour12_min_sec_millisec">
-            <summary>
-            Formate: "hh:mm:ss.fff tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.Message.TimeFormat.none">
-            <summary>
-            Select, if you dont want to have the time in your log file
-            </summary>
         </member>
         <member name="T:BasicxLogger.CustomJsonLogModel`1">
             <summary>
