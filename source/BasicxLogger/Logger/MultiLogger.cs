@@ -14,6 +14,7 @@
 using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using BasicxLogger.Exceptions;
 
 namespace BasicxLogger
 {
@@ -27,7 +28,7 @@ namespace BasicxLogger
     public class MultiLogger
     {
 
-        private List<ILogger> _loggerList = new List<ILogger>();
+        private readonly List<ILogger> _loggerList = new List<ILogger>();
 
         //-Constructors---------------------------------------------------------------------------------
         /// <summary>
@@ -57,7 +58,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public void Log(string message)
         {
             try
@@ -101,8 +102,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public void Log(LogTag messageTag, string message)
         {
             try
@@ -146,7 +146,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public string LogId(string message)
         {
             try
@@ -197,7 +197,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public string LogId(LogTag messageTag, string message)
         {
             try
@@ -245,7 +245,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public void LogCustomId(string id, string message)
         {
             try
@@ -292,7 +292,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public void LogCustomId(string id, LogTag messageTag, string message)
         {
             try
@@ -334,8 +334,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public async Task LogAsync(string message)
         {
             try
@@ -379,8 +378,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public async Task LogAsync(LogTag messageTag, string message)
         {
             try
@@ -424,7 +422,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public async Task<string> LogIdAsync(string message)
         {
             try
@@ -475,7 +473,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public async Task<string> LogIdAsync(LogTag messageTag, string message)
         {
             try
@@ -523,7 +521,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public async Task LogCustomIdAsync(string id, string message)
         {
             try
@@ -570,7 +568,7 @@ namespace BasicxLogger
         /// <exception cref="System.IO.PathTooLongException"></exception>
         /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
         /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.NoLoggerAddedException"></exception>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         public async Task LogCustomIdAsync(string id, LogTag messageTag, string message)
         {
             try

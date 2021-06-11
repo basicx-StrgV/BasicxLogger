@@ -89,6 +89,162 @@
             A string that conatins a unique id
             </returns>
         </member>
+        <member name="T:BasicxLogger.JsonLogFile">
+            <summary>
+            Class that represents a log file with the file extension .json
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.JsonLogFile.TextEncoding">
+            <summary>
+            Gets or Sets the text encoding for the file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.JsonLogFile.DirectoryName">
+            <summary>
+            Gets a string representing the directory's full path
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.JsonLogFile.FullName">
+            <summary>
+            Gets the full path of the file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.JsonLogFile.Extension">
+            <summary>
+            Gets the string representing the extension part of the file
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.JsonLogFile.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.JsonLogFile"/> class
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.JsonLogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
+            <summary>
+            Writes a log message with the given data to the log file
+            </summary>
+            <param name="messageTag">The message tag for the log message</param>
+            <param name="timestamp">The timestamp for the log message</param>
+            <param name="message">The message that should be logged</param>
+            <param name="id">The id for the log message</param>
+        </member>
+        <member name="T:BasicxLogger.LogLogFile">
+            <summary>
+            Class that represents a log file with the file extension .log
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogLogFile.TextEncoding">
+            <summary>
+            Gets or Sets the text encoding for the file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogLogFile.DirectoryName">
+            <summary>
+            Gets a string representing the directory's full path
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogLogFile.FullName">
+            <summary>
+            Gets the full path of the file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.LogLogFile.Extension">
+            <summary>
+            Gets the string representing the extension part of the file
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.LogLogFile.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.LogLogFile"/> class
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.LogLogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
+            <summary>
+            Writes a log message with the given data to the log file
+            </summary>
+            <param name="messageTag">The message tag for the log message</param>
+            <param name="timestamp">The timestamp for the log message</param>
+            <param name="message">The message that should be logged</param>
+            <param name="id">The id for the log message</param>
+        </member>
+        <member name="T:BasicxLogger.TxtLogFile">
+            <summary>
+            Class that represents a log file with the file extension .txt
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.TxtLogFile.TextEncoding">
+            <summary>
+            Gets or Sets the text encoding for the file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.TxtLogFile.DirectoryName">
+            <summary>
+            Gets a string representing the directory's full path
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.TxtLogFile.FullName">
+            <summary>
+            Gets the full path of the file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.TxtLogFile.Extension">
+            <summary>
+            Gets the string representing the extension part of the file
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.TxtLogFile.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.TxtLogFile"/> class
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.TxtLogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
+            <summary>
+            Writes a log message with the given data to the log file
+            </summary>
+            <param name="messageTag">The message tag for the log message</param>
+            <param name="timestamp">The timestamp for the log message</param>
+            <param name="message">The message that should be logged</param>
+            <param name="id">The id for the log message</param>
+        </member>
+        <member name="T:BasicxLogger.XmlLogFile">
+            <summary>
+            Class that represents a log file with the file extension .xml
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.XmlLogFile.TextEncoding">
+            <summary>
+            Gets or Sets the text encoding for the file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.XmlLogFile.DirectoryName">
+            <summary>
+            Gets a string representing the directory's full path
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.XmlLogFile.FullName">
+            <summary>
+            Gets the full path of the file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.XmlLogFile.Extension">
+            <summary>
+            Gets the string representing the extension part of the file
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.XmlLogFile.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.XmlLogFile"/> class
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.XmlLogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
+            <summary>
+            Writes a log message with the given data to the log file
+            </summary>
+            <param name="messageTag">The message tag for the log message</param>
+            <param name="timestamp">The timestamp for the log message</param>
+            <param name="message">The message that should be logged</param>
+            <param name="id">The id for the log message</param>
+        </member>
         <member name="T:BasicxLogger.LogTag">
             <summary>
             Enum that contains every message tag you can use
@@ -388,6 +544,61 @@
             Formate: "hh:mm:ss.fff tt"
             </summary>
         </member>
+        <member name="T:BasicxLogger.Exceptions.NoLoggerAddedException">
+            <summary>
+            The exception that is thrown when a Log method of the <see cref="T:BasicxLogger.MultiLogger"/> is called 
+            but no <see cref="T:BasicxLogger.ILogger"/> was added befor  
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Exceptions.NoLoggerAddedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"/> class
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Exceptions.NoLoggerAddedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"/> class
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Exceptions.NoLoggerAddedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"/> class
+            </summary>
+        </member>
+        <member name="T:BasicxLogger.ILogFile">
+            <summary>
+            Interface that represents a log file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.ILogFile.TextEncoding">
+            <summary>
+            Gets or Sets the text encoding for the file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.ILogFile.DirectoryName">
+            <summary>
+            Gets a string representing the directory's full path
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.ILogFile.FullName">
+            <summary>
+            Gets the full path of the file
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.ILogFile.Extension">
+            <summary>
+            Gets the string representing the extension part of the file
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.ILogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
+            <summary>
+            Writes a log message with the given data to the log file
+            </summary>
+            <param name="messageTag">The message tag for the log message</param>
+            <param name="timestamp">The timestamp for the log message</param>
+            <param name="message">The message that should be logged</param>
+            <param name="id">The id for the log message</param>
+        </member>
         <member name="T:BasicxLogger.ILogger">
             <summary>
             Interface for BasicxLogger
@@ -563,7 +774,7 @@
             The text encoding used by the logger
             </summary>
         </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(System.IO.FileInfo)">
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.ILogFile)">
             <summary>
             Initializes a new instance of the <see cref="T:BasicxLogger.FileLogger"/> class
             </summary>
@@ -1867,7 +2078,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.Log(BasicxLogger.LogTag,System.String)">
             <summary>
@@ -1891,8 +2102,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogId(System.String)">
             <summary>
@@ -1916,7 +2126,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogId(BasicxLogger.LogTag,System.String)">
             <summary>
@@ -1943,7 +2153,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogCustomId(System.String,System.String)">
             <summary>
@@ -1967,7 +2177,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogCustomId(System.String,BasicxLogger.LogTag,System.String)">
             <summary>
@@ -1994,7 +2204,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogAsync(System.String)">
             <summary>
@@ -2015,8 +2225,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogAsync(BasicxLogger.LogTag,System.String)">
             <summary>
@@ -2040,8 +2249,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogIdAsync(System.String)">
             <summary>
@@ -2065,7 +2273,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogIdAsync(BasicxLogger.LogTag,System.String)">
             <summary>
@@ -2092,7 +2300,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogCustomIdAsync(System.String,System.String)">
             <summary>
@@ -2116,7 +2324,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogCustomIdAsync(System.String,BasicxLogger.LogTag,System.String)">
             <summary>
@@ -2143,7 +2351,7 @@
             <exception cref="T:System.IO.PathTooLongException"></exception>
             <exception cref="T:System.IO.DirectoryNotFoundException"></exception>
             <exception cref="T:System.Security.SecurityException"></exception>
-            <exception cref="T:BasicxLogger.NoLoggerAddedException"></exception>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.AddLogger(BasicxLogger.ILogger)">
             <summary>

@@ -11,8 +11,6 @@
 
   <ItemGroup>
     <Folder Include="TestOutput\" />
-    <Folder Include="TestOutput\CustomTest\" />
-    <Folder Include="TestOutput\FileLoggerTestOutput\" />
   </ItemGroup>
 
   <ItemGroup>

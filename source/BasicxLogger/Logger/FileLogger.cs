@@ -12,10 +12,7 @@
  *                                                                          *
  * **************************************************************************/
 using System;
-using System.IO;
-using System.Xml;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace BasicxLogger
@@ -36,8 +33,8 @@ namespace BasicxLogger
         /// The file name must contain the full path and the file extension.
         /// Supportet file extension are: .txt, .log, .json, .xml
         /// </remarks>
-        public FileInfo LogFile { get; } = new FileInfo(
-            String.Format("{0}/{1}/Log.txt", Environment.CurrentDirectory, "Logs")); 
+        public ILogFile LogFile { get; } = new TxtLogFile(
+            String.Format("{0}/{1}/", Environment.CurrentDirectory, "Logs"), "Log"); 
 
         /// <summary>
         /// Timestamp used for the logging
@@ -48,11 +45,6 @@ namespace BasicxLogger
         /// A default message tag that will be used if no tag is selected
         /// </summary>
         public LogTag DefaultTag { get; set; } = LogTag.none;
-
-        /// <summary>
-        /// The text encoding used by the logger
-        /// </summary>
-        public Encoding TextEncoding { get; set; } = Encoding.UTF8;
         //----------------------------------------------------------------------------------------------
 
         //-Constructors---------------------------------------------------------------------------------
@@ -60,7 +52,7 @@ namespace BasicxLogger
         /// Initializes a new instance of the <see cref="BasicxLogger.FileLogger"/> class
         /// </summary>
         /// <param name="logFile">The log file of the logger</param>
-        public FileLogger(FileInfo logFile)
+        public FileLogger(ILogFile logFile)
         {
             LogFile = logFile;
         }
@@ -89,7 +81,7 @@ namespace BasicxLogger
         {
             try
             {
-                WriteMessageToLogFile(DefaultTag, message);
+                LogFile.WriteToFile(DefaultTag, MessageTimestamp.GetTimestamp(), message);
             }
             catch (Exception e)
             {
@@ -122,7 +114,7 @@ namespace BasicxLogger
         {
             try
             {
-                WriteMessageToLogFile(messageTag, message);
+                LogFile.WriteToFile(messageTag, MessageTimestamp.GetTimestamp(), message);
             }
             catch (Exception e)
             {
@@ -157,7 +149,7 @@ namespace BasicxLogger
             {
                 string id = IdHandler.UniqueId;
 
-                WriteMessageToLogFile(DefaultTag, message, id);
+                LogFile.WriteToFile(DefaultTag, MessageTimestamp.GetTimestamp(), message, id);
 
                 return id;
             }
@@ -197,7 +189,7 @@ namespace BasicxLogger
             {
                 string id = IdHandler.UniqueId;
 
-                WriteMessageToLogFile(messageTag, message, id);
+                LogFile.WriteToFile(messageTag, MessageTimestamp.GetTimestamp(), message, id);
 
                 return id;
             }
@@ -232,7 +224,7 @@ namespace BasicxLogger
         {
             try
             {
-                WriteMessageToLogFile(DefaultTag, message, id);
+                LogFile.WriteToFile(DefaultTag, MessageTimestamp.GetTimestamp(), message, id);
             }
             catch (Exception e)
             {
@@ -268,7 +260,7 @@ namespace BasicxLogger
         {
             try
             {
-                WriteMessageToLogFile(messageTag, message, id);
+                LogFile.WriteToFile(messageTag, MessageTimestamp.GetTimestamp(), message, id);
             }
             catch (Exception e)
             {
@@ -487,217 +479,6 @@ namespace BasicxLogger
         }
         //-------------------
 
-
-        //----------------------------------------------------------------------------------------------
-
-        //-Private-Methods------------------------------------------------------------------------------
-
-        private void CreateDirectory()
-        {
-            try
-            {
-                if (!Directory.Exists(LogFile.DirectoryName))
-                {
-                    Directory.CreateDirectory(LogFile.DirectoryName);
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        private void CreateXmlFile()
-        {
-            try
-            {
-                if (!File.Exists(LogFile.FullName))
-                {
-                    XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
-                    xmlWriterSettings.Encoding = TextEncoding;
-
-                    XmlWriter xmlWriter = XmlWriter.Create(LogFile.FullName, xmlWriterSettings);
-
-                    xmlWriter.WriteStartDocument();
-                    xmlWriter.WriteStartElement("entrys");
-                    xmlWriter.WriteEndElement();
-                    xmlWriter.Close();
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        private void CreateJsonFile()
-        {
-            try
-            {
-                if (!File.Exists(LogFile.FullName))
-                {
-                    File.WriteAllText(LogFile.FullName, "{ \"entrys\": []}");
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        private void WriteMessageToLogFile(LogTag messageTag, string message, string id = "")
-        {
-            try
-            {
-                if (!Directory.Exists(LogFile.DirectoryName))
-                {
-                    CreateDirectory();
-                }
-
-                if (LogFile.Extension.Equals(".xml"))
-                {
-                    //Log to xml file
-                    WriteXml(messageTag, message, id);
-                }
-                else if (LogFile.Extension.Equals(".json"))
-                {
-                    //Log to json file
-                    WriteJson(messageTag, message, id);
-                }
-                else if (LogFile.Extension.Equals(".txt") || LogFile.Extension.Equals(".log"))
-                {
-                    //Default log (.txt and .log file)
-                    File.AppendAllText(LogFile.FullName, MessageBuilder(messageTag, message, id), TextEncoding);
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        private string MessageBuilder(LogTag messageTag, string message, string id)
-        {
-            string dateTimePart = String.Format("[{0}] ", MessageTimestamp.GetTimestamp());
-            string tagPart = "";
-            string idPart = "";
-
-            if (!messageTag.Equals(LogTag.none))
-            {
-                tagPart = "[" + messageTag + "] ";
-            }
-
-            if (!id.Equals(""))
-            {
-                idPart = "[ID:" + id + "] ";
-            }
-
-            return dateTimePart + tagPart + idPart + message + "\n";
-        }
-
-        private void WriteXml(LogTag messageTag, string message, string id)
-        {
-            try
-            {
-                if (!File.Exists(LogFile.FullName))
-                {
-                    CreateXmlFile();
-                }
-
-                //Load the xml file
-                XmlDocument xmlFile = new XmlDocument();
-                xmlFile.Load(LogFile.FullName);
-
-                //Get the root node from the file
-                XmlNode rootNode = xmlFile.SelectSingleNode("entrys");
-
-                //Create nodes and add data
-                XmlNode logMessageNode = xmlFile.CreateElement("LogMessage");
-                XmlAttribute idAttribute = xmlFile.CreateAttribute("id");
-                if (!id.Equals(""))
-                {
-                    idAttribute.Value = id;
-                }
-                logMessageNode.Attributes.Append(idAttribute);
-
-                XmlNode timestampNode = xmlFile.CreateElement("timestamp");
-                timestampNode.InnerText = MessageTimestamp.GetTimestamp();
-                logMessageNode.AppendChild(timestampNode);
-
-                XmlNode tagNode = xmlFile.CreateElement("tag");
-                if (!messageTag.Equals(LogTag.none))
-                {
-                    tagNode.InnerText = messageTag.ToString();
-                }
-                logMessageNode.AppendChild(tagNode);
-
-                XmlNode messageNode = xmlFile.CreateElement("message");
-                messageNode.InnerText = message;
-                logMessageNode.AppendChild(messageNode);
-
-                //Appand to root node
-                rootNode.AppendChild(logMessageNode);
-
-                //Save the xml file
-                xmlFile.Save(LogFile.FullName);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        private void WriteJson(LogTag messageTag, string message, string id)
-        {
-            try
-            {
-                if (!File.Exists(LogFile.FullName))
-                {
-                    CreateJsonFile();
-                }
-
-                string fileContent = File.ReadAllText(LogFile.FullName);
-
-                JsonLogModel logFile = JsonSerializer.Deserialize<JsonLogModel>(fileContent);
-
-                LogMessageModel newLogEntry = new LogMessageModel();
-                if (!id.Equals(""))
-                {
-                    newLogEntry.id = id;
-                }
-
-                newLogEntry.timestamp = MessageTimestamp.GetTimestamp();
-
-                if (!messageTag.Equals(LogTag.none))
-                {
-                    newLogEntry.tag = messageTag.ToString();
-                }
-
-                newLogEntry.message = message;
-
-                logFile.entrys.Add(newLogEntry);
-
-                string newFileContent = JsonSerializer.Serialize(logFile);
-
-                FileStream fileWriter = File.OpenWrite(LogFile.FullName);
-                Utf8JsonWriter jsonWriter = new Utf8JsonWriter(fileWriter, new JsonWriterOptions { Indented = true });
-
-                JsonDocument jsonFile = JsonDocument.Parse(newFileContent);
-
-                jsonFile.WriteTo(jsonWriter);
-
-                jsonWriter.Flush();
-
-                jsonWriter.Dispose();
-
-                fileWriter.Close();
-                fileWriter.Dispose();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
         //----------------------------------------------------------------------------------------------
     }
 }

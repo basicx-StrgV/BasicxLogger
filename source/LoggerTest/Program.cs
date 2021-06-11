@@ -57,7 +57,7 @@ namespace LoggerTest
         {
             //---Test-code-for-any-sort-of-tests-goes-here---
             FileLogger fileLogger = new FileLogger(
-                                        new FileInfo(String.Format("{0}/{1}/FileLoggerTest.xml", DirConfig.TestOutputDir, "CustomTest")));
+                        new XmlLogFile(String.Format("{0}/{1}/", DirConfig.TestOutputDir, "CustomTest"), "Log"));
             fileLogger.Log("Test");
             fileLogger.LogId("Test");
 
@@ -90,16 +90,16 @@ namespace LoggerTest
         {
             //File Logger TXT file
             _txtFileLogger = new FileLogger(
-                                        new FileInfo(String.Format("{0}/{1}/FileLoggerTest.txt", DirConfig.TestOutputDir, "FileLoggerTestOutput")));
+                        new TxtLogFile(String.Format("{0}/{1}/", DirConfig.TestOutputDir, "FileLoggerTestOutput"), "Log"));
             //File Logger LOG file
             _logFileLogger = new FileLogger(
-                                        new FileInfo(String.Format("{0}/{1}/FileLoggerTest.log", DirConfig.TestOutputDir, "FileLoggerTestOutput")));
+                        new LogLogFile(String.Format("{0}/{1}/", DirConfig.TestOutputDir, "FileLoggerTestOutput"), "Log"));
             //File Logger xml file
             _xmlFileLogger = new FileLogger(
-                                        new FileInfo(String.Format("{0}/{1}/FileLoggerTest.xml", DirConfig.TestOutputDir, "FileLoggerTestOutput")));
+                        new XmlLogFile(String.Format("{0}/{1}/", DirConfig.TestOutputDir, "FileLoggerTestOutput"), "Log"));
             //File Logger JSON file
             _jsonFileLogger = new FileLogger(
-                                        new FileInfo(String.Format("{0}/{1}/FileLoggerTest.json", DirConfig.TestOutputDir, "FileLoggerTestOutput")));
+                        new JsonLogFile(String.Format("{0}/{1}/", DirConfig.TestOutputDir, "FileLoggerTestOutput"), "Log"));
 
             //Json Logger
             _jsonLogger = new JsonLogger<JsonLoggerTestModel>(

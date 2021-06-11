@@ -93,7 +93,7 @@ namespace LoggerTest
     
         private void DeleteOldLogFile()
         {
-            if (_logger.LogFile.Exists)
+            if (File.Exists(_logger.LogFile.FullName))
             {
                 File.Delete(_logger.LogFile.FullName);
             }
