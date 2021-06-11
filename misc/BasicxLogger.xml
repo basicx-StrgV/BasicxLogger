@@ -312,54 +312,24 @@
         </member>
         <member name="P:BasicxLogger.Timestamp.Format">
             <summary>
-            Format of the timestamp
+            Gets the datetime format used by the current timestamp instance
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.DateSeparator">
+            <summary>
+            Gets or Sets the char, that is used to separate each part of the date
             </summary>
         </member>
         <member name="P:BasicxLogger.Timestamp.Culture">
             <summary>
-            Culture setting for the formation of AM and PM
+            Gets or Sets the culture setting for the formation of AM and PM
             </summary>
-        </member>
-        <member name="M:BasicxLogger.Timestamp.#ctor(BasicxLogger.TimestampFormat)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
-            </summary>
-            <param name="format">Formating of the timstamp</param>
-        </member>
-        <member name="M:BasicxLogger.Timestamp.#ctor(BasicxLogger.TimestampFormat,System.Char)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
-            </summary>
-            <param name="format">Formating of the timstamp</param>
-            <param name="dateSeparator">Char that separates the day, month and year</param>
         </member>
         <member name="M:BasicxLogger.Timestamp.#ctor(System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
             </summary>
             <param name="format">Formating of the timstamp</param>
-        </member>
-        <member name="M:BasicxLogger.Timestamp.#ctor(BasicxLogger.TimestampFormat,System.Globalization.CultureInfo)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
-            </summary>
-            <param name="format">Formating of the timstamp</param>
-            <param name="cultureInfo">Culture information to customize the formation of AM and PM</param>
-        </member>
-        <member name="M:BasicxLogger.Timestamp.#ctor(BasicxLogger.TimestampFormat,System.Char,System.Globalization.CultureInfo)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
-            </summary>
-            <param name="format">Formating of the timstamp</param>
-            <param name="dateSeparator">Char that separates the day, month and year</param>
-            <param name="cultureInfo">Culture information to customize the formation of AM and PM</param>
-        </member>
-        <member name="M:BasicxLogger.Timestamp.#ctor(System.String,System.Globalization.CultureInfo)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
-            </summary>
-            <param name="format">Formating of the timstamp</param>
-            <param name="cultureInfo">Culture information to customize the formation of AM and PM</param>
         </member>
         <member name="M:BasicxLogger.Timestamp.GetTimestamp">
             <summary>
@@ -369,180 +339,69 @@
             Timstamp as string
             </returns>
         </member>
-        <member name="T:BasicxLogger.TimestampFormat">
+        <member name="P:BasicxLogger.Timestamp.year_month_day_hour24_min_sec">
             <summary>
-            Enum that contains every supported timestamp format
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour24_min">
-            <summary>
-            Formate: "yyyy'/'MM'/'dd HH:mm"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour24_min_sec">
-            <summary>
+            <remarks>
             Formate: "yyyy'/'MM'/'dd HH:mm:ss"
-            </summary>
+            </remarks>
         </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour24_min_sec_millisec">
+        <member name="P:BasicxLogger.Timestamp.year_month_day_hour12_min_sec">
             <summary>
-            Formate: "yyyy'/'MM'/'dd HH:mm:ss.fff"
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour12_min">
-            <summary>
-            Formate: "yyyy'/'MM'/'dd hh:mm tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour12_min_sec">
-            <summary>
+            <remarks>
             Formate: "yyyy'/'MM'/'dd hh:mm:ss tt"
-            </summary>
+            </remarks>
         </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_month_day_hour12_min_sec_millisec">
+        <member name="P:BasicxLogger.Timestamp.year_day_month_hour24_min_sec">
             <summary>
-            Formate: "yyyy'/'MM'/'dd hh:mm:ss.fff tt"
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour24_min">
-            <summary>
-            Formate: "yyyy'/'dd'/'MM HH:mm"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour24_min_sec">
-            <summary>
+            <remarks>
             Formate: "yyyy'/'dd'/'MM HH:mm:ss"
-            </summary>
+            </remarks>
         </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour24_min_sec_millisec">
+        <member name="P:BasicxLogger.Timestamp.year_day_month_hour12_min_sec">
             <summary>
-            Formate: "yyyy'/'dd'/'MM HH:mm:ss.fff"
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour12_min">
-            <summary>
-            Formate: "yyyy'/'dd'/'MM hh:mm tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour12_min_sec">
-            <summary>
+            <remarks>
             Formate: "yyyy'/'dd'/'MM hh:mm:ss tt"
-            </summary>
+            </remarks>
         </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_day_month_hour12_min_sec_millisec">
+        <member name="P:BasicxLogger.Timestamp.day_month_year_hour24_min_sec">
             <summary>
-            Formate: "yyyy'/'dd'/'MM hh:mm:ss.fff tt"
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour24_min">
-            <summary>
-            Formate: "dd'/'MM'/'yyyy HH:mm"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour24_min_sec">
-            <summary>
+            <remarks>
             Formate: "dd'/'MM'/'yyyy HH:mm:ss"
-            </summary>
+            </remarks>
         </member>
-        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour24_min_sec_millisec">
+        <member name="P:BasicxLogger.Timestamp.day_month_year_hour12_min_sec">
             <summary>
-            Formate: "dd'/'MM'/'yyyy HH:mm:ss.fff"
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour12_min">
-            <summary>
-            Formate: "dd'/'MM'/'yyyy hh:mm tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour12_min_sec">
-            <summary>
+            <remarks>
             Formate: "dd'/'MM'/'yyyy hh:mm:ss tt"
-            </summary>
+            </remarks>
         </member>
-        <member name="F:BasicxLogger.TimestampFormat.day_month_year_hour12_min_sec_millisec">
+        <member name="P:BasicxLogger.Timestamp.month_day_year_hour24_min_sec">
             <summary>
-            Formate: "dd'/'MM'/'yyyy hh:mm:ss.fff tt"
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour24_min">
-            <summary>
-            Formate: "MM'/'dd'/'yyyy HH:mm"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour24_min_sec">
-            <summary>
+            <remarks>
             Formate: "MM'/'dd'/'yyyy HH:mm:ss"
-            </summary>
+            </remarks>
         </member>
-        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour24_min_sec_millisec">
+        <member name="P:BasicxLogger.Timestamp.month_day_year_hour12_min_sec">
             <summary>
-            Formate: "MM'/'dd'/'yyyy HH:mm:ss.fff"
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour12_min">
-            <summary>
-            Formate: "MM'/'dd'/'yyyy hh:mm tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour12_min_sec">
-            <summary>
+            <remarks>
             Formate: "MM'/'dd'/'yyyy hh:mm:ss tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.month_day_year_hour12_min_sec_millisec">
-            <summary>
-            Formate: "MM'/'dd'/'yyyy hh:mm:ss.fff tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_month_day">
-            <summary>
-            Formate: "yyyy'/'MM'/'dd"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.year_day_month">
-            <summary>
-            Formate: "yyyy'/'dd'/'MM"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.day_month_year">
-            <summary>
-            Formate: "dd'/'MM'/'yyyy"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.month_day_year">
-            <summary>
-            Formate: "MM'/'dd'/'yyyy"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.hour24_min">
-            <summary>
-            Formate: "HH:mm"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.hour24_min_sec">
-            <summary>
-            Formate: "HH:mm:ss"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.hour24_min_sec_millisec">
-            <summary>
-            Formate: "HH:mm:ss.fff"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.hour12_min">
-            <summary>
-            Formate:  "hh:mm tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.hour12_min_sec">
-            <summary>
-            Formate:  "hh:mm:ss tt"
-            </summary>
-        </member>
-        <member name="F:BasicxLogger.TimestampFormat.hour12_min_sec_millisec">
-            <summary>
-            Formate: "hh:mm:ss.fff tt"
-            </summary>
+            </remarks>
         </member>
         <member name="T:BasicxLogger.Exceptions.NoLoggerAddedException">
             <summary>
@@ -767,11 +626,6 @@
         <member name="P:BasicxLogger.FileLogger.DefaultTag">
             <summary>
             A default message tag that will be used if no tag is selected
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.FileLogger.TextEncoding">
-            <summary>
-            The text encoding used by the logger
             </summary>
         </member>
         <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.ILogFile)">

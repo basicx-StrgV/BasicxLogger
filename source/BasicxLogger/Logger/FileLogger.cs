@@ -12,7 +12,6 @@
  *                                                                          *
  * **************************************************************************/
 using System;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BasicxLogger
@@ -34,13 +33,13 @@ namespace BasicxLogger
         /// Supportet file extension are: .txt, .log, .json, .xml
         /// </remarks>
         public ILogFile LogFile { get; } = new TxtLogFile(
-            String.Format("{0}/{1}/", Environment.CurrentDirectory, "Logs"), "Log"); 
+            String.Format("{0}/{1}/", Environment.CurrentDirectory, "Logs"), "Log");
 
         /// <summary>
         /// Timestamp used for the logging
         /// </summary>
-        public Timestamp MessageTimestamp { get; } = new Timestamp(TimestampFormat.year_month_day_hour24_min_sec);
-
+        public Timestamp MessageTimestamp { get; } = Timestamp.year_month_day_hour24_min_sec;
+        
         /// <summary>
         /// A default message tag that will be used if no tag is selected
         /// </summary>

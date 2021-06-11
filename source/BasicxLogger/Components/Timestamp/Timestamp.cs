@@ -4,7 +4,6 @@
 //--------------------------------------------------//
 using System;
 using System.Globalization;
-using System.Collections.Generic;
 
 namespace BasicxLogger
 {
@@ -14,85 +13,29 @@ namespace BasicxLogger
     public class Timestamp
     {
         /// <summary>
-        /// Format of the timestamp
+        /// Gets the datetime format used by the current timestamp instance
         /// </summary>
-        public string Format { get; }
+        public string Format { get { return String.Format(_format, DateSeparator); } }
         /// <summary>
-        /// Culture setting for the formation of AM and PM
+        /// Gets or Sets the char, that is used to separate each part of the date
         /// </summary>
-        public CultureInfo Culture { get; } = CultureInfo.InvariantCulture;
-
-        private char _dateSeparator = '/';
-        private List<string> _timestampFormateList;
-
+        public char DateSeparator { get; set; } = '/';
         /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.Timestamp"/> class
+        /// Gets or Sets the culture setting for the formation of AM and PM
         /// </summary>
-        /// <param name="format">Formating of the timstamp</param>
-        public Timestamp(TimestampFormat format)
-        {
-            InitalizeList();
-            Format = _timestampFormateList[(int)format];
-        }
+        public CultureInfo Culture { get; set; } = CultureInfo.InvariantCulture;
+
+
+        private string _format;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BasicxLogger.Timestamp"/> class
         /// </summary>
         /// <param name="format">Formating of the timstamp</param>
-        /// <param name="dateSeparator">Char that separates the day, month and year</param>
-        public Timestamp(TimestampFormat format, char dateSeparator)
+        private Timestamp(string format)
         {
-            _dateSeparator = dateSeparator;
-            InitalizeList();
-            Format = _timestampFormateList[(int)format];
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.Timestamp"/> class
-        /// </summary>
-        /// <param name="format">Formating of the timstamp</param>
-        public Timestamp(string format)
-        {
-            InitalizeList();
-            Format = format;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.Timestamp"/> class
-        /// </summary>
-        /// <param name="format">Formating of the timstamp</param>
-        /// <param name="cultureInfo">Culture information to customize the formation of AM and PM</param>
-        public Timestamp(TimestampFormat format, CultureInfo cultureInfo)
-        {
-            Culture = cultureInfo;
-            InitalizeList();
-            Format = _timestampFormateList[(int)format];
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.Timestamp"/> class
-        /// </summary>
-        /// <param name="format">Formating of the timstamp</param>
-        /// <param name="dateSeparator">Char that separates the day, month and year</param>
-        /// <param name="cultureInfo">Culture information to customize the formation of AM and PM</param>
-        public Timestamp(TimestampFormat format, char dateSeparator, CultureInfo cultureInfo)
-        {
-            Culture = cultureInfo;
-            _dateSeparator = dateSeparator;
-            InitalizeList();
-            Format = _timestampFormateList[(int)format];
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.Timestamp"/> class
-        /// </summary>
-        /// <param name="format">Formating of the timstamp</param>
-        /// <param name="cultureInfo">Culture information to customize the formation of AM and PM</param>
-        public Timestamp(string format, CultureInfo cultureInfo)
-        {
-            Culture = cultureInfo;
-            InitalizeList();
-            Format = format;
+            _format = format;
         }
 
 
@@ -108,50 +51,61 @@ namespace BasicxLogger
         }
 
 
-        private void InitalizeList()
-        {
-            _timestampFormateList = new List<string>
-            {
-                String.Format("yyyy'{0}'MM'{0}'dd HH:mm", _dateSeparator),
-                String.Format("yyyy'{0}'MM'{0}'dd HH:mm:ss", _dateSeparator),
-                String.Format("yyyy'{0}'MM'{0}'dd HH:mm:ss.fff", _dateSeparator),
-                String.Format("yyyy'{0}'MM'{0}'dd hh:mm tt", _dateSeparator),
-                String.Format("yyyy'{0}'MM'{0}'dd hh:mm:ss tt", _dateSeparator),
-                String.Format("yyyy'{0}'MM'{0}'dd hh:mm:ss.fff tt", _dateSeparator),
-                //-------------------------------
-                String.Format("yyyy'{0}'dd'{0}'MM HH:mm", _dateSeparator),
-                String.Format("yyyy'{0}'dd'{0}'MM HH:mm:ss", _dateSeparator),
-                String.Format("yyyy'{0}'dd'{0}'MM HH:mm:ss.fff", _dateSeparator),
-                String.Format("yyyy'{0}'dd'{0}'MM hh:mm tt", _dateSeparator),
-                String.Format("yyyy'{0}'dd'{0}'MM hh:mm:ss tt", _dateSeparator),
-                String.Format("yyyy'{0}'dd'{0}'MM hh:mm:ss.fff tt", _dateSeparator),
-                //-------------------------------
-                String.Format("dd'{0}'MM'{0}'yyyy HH:mm", _dateSeparator),
-                String.Format("dd'{0}'MM'{0}'yyyy HH:mm:ss", _dateSeparator),
-                String.Format("dd'{0}'MM'{0}'yyyy HH:mm:ss.fff", _dateSeparator),
-                String.Format("dd'{0}'MM'{0}'yyyy hh:mm tt", _dateSeparator),
-                String.Format("dd'{0}'MM'{0}'yyyy hh:mm:ss tt", _dateSeparator),
-                String.Format("dd'{0}'MM'{0}'yyyy hh:mm:ss.fff tt", _dateSeparator),
-                //-------------------------------
-                String.Format("MM'{0}'dd'{0}'yyyy HH:mm", _dateSeparator),
-                String.Format("MM'{0}'dd'{0}'yyyy HH:mm:ss", _dateSeparator),
-                String.Format("MM'{0}'dd'{0}'yyyy HH:mm:ss.fff", _dateSeparator),
-                String.Format("MM'{0}'dd'{0}'yyyy hh:mm tt", _dateSeparator),
-                String.Format("MM'{0}'dd'{0}'yyyy hh:mm:ss tt", _dateSeparator),
-                String.Format("MM'{0}'dd'{0}'yyyy hh:mm:ss.fff tt", _dateSeparator),
-                //-------------------------------
-                String.Format("yyyy'{0}'MM'{0}'dd", _dateSeparator),
-                String.Format("yyyy'{0}'dd'{0}'MM", _dateSeparator),
-                String.Format("dd'{0}'MM'{0}'yyyy", _dateSeparator),
-                String.Format("MM'{0}'dd'{0}'yyyy", _dateSeparator),
-                //-------------------------------
-                "HH:mm",
-                "HH:mm:ss",
-                "HH:mm:ss.fff",
-                "hh:mm tt",
-                "hh:mm:ss tt",
-                "hh:mm:ss.fff tt"
-            };
-        }
+        /// <summary>
+        /// Gets a <see cref="BasicxLogger.Timestamp"/> with the selected format
+        /// </summary>
+        /// <remarks>
+        /// Formate: "yyyy'/'MM'/'dd HH:mm:ss"
+        /// </remarks>
+        public static Timestamp year_month_day_hour24_min_sec { get { return new Timestamp("yyyy'{0}'MM'{0}'dd HH:mm:ss"); } }
+        /// <summary>
+        /// Gets a <see cref="BasicxLogger.Timestamp"/> with the selected format
+        /// </summary>
+        /// <remarks>
+        /// Formate: "yyyy'/'MM'/'dd hh:mm:ss tt"
+        /// </remarks>
+        public static Timestamp year_month_day_hour12_min_sec { get { return new Timestamp("yyyy'{0}'MM'{0}'dd hh:mm:ss tt"); } }
+        /// <summary>
+        /// Gets a <see cref="BasicxLogger.Timestamp"/> with the selected format
+        /// </summary>
+        /// <remarks>
+        /// Formate: "yyyy'/'dd'/'MM HH:mm:ss"
+        /// </remarks>
+        public static Timestamp year_day_month_hour24_min_sec { get { return new Timestamp("yyyy'{0}'dd'{0}'MM HH:mm:ss"); } }
+        /// <summary>
+        /// Gets a <see cref="BasicxLogger.Timestamp"/> with the selected format
+        /// </summary>
+        /// <remarks>
+        /// Formate: "yyyy'/'dd'/'MM hh:mm:ss tt"
+        /// </remarks>
+        public static Timestamp year_day_month_hour12_min_sec { get { return new Timestamp("yyyy'{0}'dd'{0}'MM hh:mm:ss tt"); } }
+        /// <summary>
+        /// Gets a <see cref="BasicxLogger.Timestamp"/> with the selected format
+        /// </summary>
+        /// <remarks>
+        /// Formate: "dd'/'MM'/'yyyy HH:mm:ss"
+        /// </remarks>
+        public static Timestamp day_month_year_hour24_min_sec { get { return new Timestamp("dd'{0}'MM'{0}'yyyy HH:mm:ss"); } }
+        /// <summary>
+        /// Gets a <see cref="BasicxLogger.Timestamp"/> with the selected format
+        /// </summary>
+        /// <remarks>
+        /// Formate: "dd'/'MM'/'yyyy hh:mm:ss tt"
+        /// </remarks>
+        public static Timestamp day_month_year_hour12_min_sec { get { return new Timestamp("dd'{0}'MM'{0}'yyyy hh:mm:ss tt"); } }
+        /// <summary>
+        /// Gets a <see cref="BasicxLogger.Timestamp"/> with the selected format
+        /// </summary>
+        /// <remarks>
+        /// Formate: "MM'/'dd'/'yyyy HH:mm:ss"
+        /// </remarks>
+        public static Timestamp month_day_year_hour24_min_sec { get { return new Timestamp("MM'{0}'dd'{0}'yyyy HH:mm:ss"); } }
+        /// <summary>
+        /// Gets a <see cref="BasicxLogger.Timestamp"/> with the selected format
+        /// </summary>
+        /// <remarks>
+        /// Formate: "MM'/'dd'/'yyyy hh:mm:ss tt"
+        /// </remarks>
+        public static Timestamp month_day_year_hour12_min_sec { get { return new Timestamp("MM'{0}'dd'{0}'yyyy hh:mm:ss tt"); } }
     }
 }

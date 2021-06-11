@@ -46,9 +46,8 @@ namespace BasicxLogger
             {
                 directoryPath += '/';
             }
-
-            _file = new FileInfo(directoryPath + fileName.Split('.')[0].Trim() + ".txt");
             
+            _file = new FileInfo(directoryPath + fileName.Split('.')[0].Trim() + ".txt");
         }
 
         /// <summary>
