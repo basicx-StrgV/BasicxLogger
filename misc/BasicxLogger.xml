@@ -118,6 +118,8 @@
             <summary>
             Initializes a new instance of the <see cref="T:BasicxLogger.JsonLogFile"/> class
             </summary>
+            <param name="directoryPath">The path where the file will be stored</param>
+            <param name="fileName">The name of the file, without the extension</param>
         </member>
         <member name="M:BasicxLogger.JsonLogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
             <summary>
@@ -127,6 +129,12 @@
             <param name="timestamp">The timestamp for the log message</param>
             <param name="message">The message that should be logged</param>
             <param name="id">The id for the log message</param>
+        </member>
+        <member name="M:BasicxLogger.JsonLogFile.WriteToFile``1(``0)">
+            <summary>
+            Writes the given object to the log file
+            </summary>
+            <param name="logObject">The object that will be writen to the json file</param>
         </member>
         <member name="T:BasicxLogger.LogLogFile">
             <summary>
@@ -157,6 +165,8 @@
             <summary>
             Initializes a new instance of the <see cref="T:BasicxLogger.LogLogFile"/> class
             </summary>
+            <param name="directoryPath">The path where the file will be stored</param>
+            <param name="fileName">The name of the file, without the extension</param>
         </member>
         <member name="M:BasicxLogger.LogLogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
             <summary>
@@ -196,6 +206,8 @@
             <summary>
             Initializes a new instance of the <see cref="T:BasicxLogger.TxtLogFile"/> class
             </summary>
+            <param name="directoryPath">The path where the file will be stored</param>
+            <param name="fileName">The name of the file, without the extension</param>
         </member>
         <member name="M:BasicxLogger.TxtLogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
             <summary>
@@ -235,6 +247,8 @@
             <summary>
             Initializes a new instance of the <see cref="T:BasicxLogger.XmlLogFile"/> class
             </summary>
+            <param name="directoryPath">The path where the file will be stored</param>
+            <param name="fileName">The name of the file, without the extension</param>
         </member>
         <member name="M:BasicxLogger.XmlLogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
             <summary>
@@ -317,7 +331,7 @@
         </member>
         <member name="P:BasicxLogger.Timestamp.DateSeparator">
             <summary>
-            Gets or Sets the char, that is used to separate each part of the date
+            Gets or Sets the string, that is used to separate each part of the date
             </summary>
         </member>
         <member name="P:BasicxLogger.Timestamp.Culture">
@@ -331,6 +345,13 @@
             </summary>
             <param name="format">Formating of the timstamp</param>
         </member>
+        <member name="M:BasicxLogger.Timestamp.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BasicxLogger.Timestamp"/> class
+            </summary>
+            <param name="format">Formating of the timstamp</param>
+            <param name="dateSeparator">The string, that is used to separate each part of the date</param>
+        </member>
         <member name="M:BasicxLogger.Timestamp.GetTimestamp">
             <summary>
             Get the current timestamp
@@ -339,7 +360,37 @@
             Timstamp as string
             </returns>
         </member>
-        <member name="P:BasicxLogger.Timestamp.year_month_day_hour24_min_sec">
+        <member name="M:BasicxLogger.Timestamp.Parse(System.Globalization.DateTimeFormatInfo)">
+            <summary>
+            Converts the <see cref="T:System.Globalization.DateTimeFormatInfo"/> representation of a date and time to its <see cref="T:BasicxLogger.Timestamp"/> equivalent
+            </summary>
+            <remarks>
+            The Parse function uses the FullDateTimePattern
+            </remarks>
+            <returns>
+            A new timestamp object, that uses the given date time format
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.Timestamp.Parse(System.Globalization.CultureInfo)">
+            <summary>
+            Converts the <see cref="T:System.Globalization.CultureInfo"/> representation of a date and time to its <see cref="T:BasicxLogger.Timestamp"/> equivalent
+            </summary>
+            <remarks>
+            The Parse function uses the FullDateTimePattern
+            </remarks>
+            <returns>
+            A new timestamp object, that uses the given date time format
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.Timestamp.Parse(System.String)">
+            <summary>
+            Converts the string representation of a date and time to its <see cref="T:BasicxLogger.Timestamp"/> equivalent
+            </summary>
+            <returns>
+            A new timestamp object, that uses the given date time format
+            </returns>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Year_Month_Day_Hour24_Min_Sec">
             <summary>
             Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
@@ -347,7 +398,7 @@
             Formate: "yyyy'/'MM'/'dd HH:mm:ss"
             </remarks>
         </member>
-        <member name="P:BasicxLogger.Timestamp.year_month_day_hour12_min_sec">
+        <member name="P:BasicxLogger.Timestamp.Year_Month_Day_Hour12_Min_Sec">
             <summary>
             Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
@@ -355,7 +406,7 @@
             Formate: "yyyy'/'MM'/'dd hh:mm:ss tt"
             </remarks>
         </member>
-        <member name="P:BasicxLogger.Timestamp.year_day_month_hour24_min_sec">
+        <member name="P:BasicxLogger.Timestamp.Year_Day_Month_Hour24_Min_Sec">
             <summary>
             Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
@@ -363,7 +414,7 @@
             Formate: "yyyy'/'dd'/'MM HH:mm:ss"
             </remarks>
         </member>
-        <member name="P:BasicxLogger.Timestamp.year_day_month_hour12_min_sec">
+        <member name="P:BasicxLogger.Timestamp.Year_Day_Month_Hour12_Min_Sec">
             <summary>
             Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
@@ -371,7 +422,7 @@
             Formate: "yyyy'/'dd'/'MM hh:mm:ss tt"
             </remarks>
         </member>
-        <member name="P:BasicxLogger.Timestamp.day_month_year_hour24_min_sec">
+        <member name="P:BasicxLogger.Timestamp.Day_Month_Year_Hour24_Min_Sec">
             <summary>
             Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
@@ -379,7 +430,7 @@
             Formate: "dd'/'MM'/'yyyy HH:mm:ss"
             </remarks>
         </member>
-        <member name="P:BasicxLogger.Timestamp.day_month_year_hour12_min_sec">
+        <member name="P:BasicxLogger.Timestamp.Day_Month_Year_Hour12_Min_Sec">
             <summary>
             Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
@@ -387,7 +438,7 @@
             Formate: "dd'/'MM'/'yyyy hh:mm:ss tt"
             </remarks>
         </member>
-        <member name="P:BasicxLogger.Timestamp.month_day_year_hour24_min_sec">
+        <member name="P:BasicxLogger.Timestamp.Month_Day_Year_Hour24_Min_Sec">
             <summary>
             Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
@@ -395,7 +446,7 @@
             Formate: "MM'/'dd'/'yyyy HH:mm:ss"
             </remarks>
         </member>
-        <member name="P:BasicxLogger.Timestamp.month_day_year_hour12_min_sec">
+        <member name="P:BasicxLogger.Timestamp.Month_Day_Year_Hour12_Min_Sec">
             <summary>
             Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format
             </summary>
@@ -930,11 +981,12 @@
             This logger only supports .json files
             </remarks>
         </member>
-        <member name="M:BasicxLogger.JsonLogger`1.#ctor(System.IO.FileInfo)">
+        <member name="M:BasicxLogger.JsonLogger`1.#ctor(System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="!:BasicxLogger.JsonLogger"/> class
+            Initializes a new instance of the <see cref="T:BasicxLogger.JsonLogger`1"/> class
             </summary>
-            <param name="logFile">The log file of the logger</param>
+            <param name="directoryPath">The path where the file will be stored</param>
+            <param name="fileName">The name of the file, without the extension</param>
         </member>
         <member name="M:BasicxLogger.JsonLogger`1.Log(`0)">
             <summary>

@@ -41,6 +41,8 @@ namespace BasicxLogger
         /// <summary>
         /// Initializes a new instance of the <see cref="BasicxLogger.JsonLogFile"/> class
         /// </summary>
+        /// <param name="directoryPath">The path where the file will be stored</param>
+        /// <param name="fileName">The name of the file, without the extension</param>
         public JsonLogFile(string directoryPath, string fileName)
         {
             if (!(directoryPath.EndsWith("\\") || directoryPath.EndsWith("/")))
@@ -92,6 +94,52 @@ namespace BasicxLogger
                 newLogEntry.message = message;
 
                 logFile.entrys.Add(newLogEntry);
+
+                string newFileContent = JsonSerializer.Serialize(logFile);
+
+                FileStream fileWriter = File.OpenWrite(_file.FullName);
+                Utf8JsonWriter jsonWriter = new Utf8JsonWriter(fileWriter, new JsonWriterOptions { Indented = true });
+
+                JsonDocument jsonFile = JsonDocument.Parse(newFileContent);
+
+                jsonFile.WriteTo(jsonWriter);
+
+                jsonWriter.Flush();
+
+                jsonWriter.Dispose();
+
+                fileWriter.Close();
+                fileWriter.Dispose();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Writes the given object to the log file
+        /// </summary>
+        /// <param name="logObject">The object that will be writen to the json file</param>
+        public void WriteToFile<T>(T logObject)
+        {
+            try
+            {
+                if (!Directory.Exists(_file.DirectoryName))
+                {
+                    Directory.CreateDirectory(_file.DirectoryName);
+                }
+
+                if (!File.Exists(_file.FullName))
+                {
+                    CreateJsonFile();
+                }
+
+                string fileContent = File.ReadAllText(_file.FullName);
+
+                CustomJsonLogModel<T> logFile = JsonSerializer.Deserialize<CustomJsonLogModel<T>>(fileContent);
+
+                logFile.entrys.Add(logObject);
 
                 string newFileContent = JsonSerializer.Serialize(logFile);
 

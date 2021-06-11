@@ -41,6 +41,8 @@ namespace BasicxLogger
         /// <summary>
         /// Initializes a new instance of the <see cref="BasicxLogger.XmlLogFile"/> class
         /// </summary>
+        /// <param name="directoryPath">The path where the file will be stored</param>
+        /// <param name="fileName">The name of the file, without the extension</param>
         public XmlLogFile(string directoryPath, string fileName)
         {
             if (!(directoryPath.EndsWith("\\") || directoryPath.EndsWith("/")))

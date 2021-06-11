@@ -62,7 +62,7 @@ namespace LoggerTest
             fileLogger.LogId("Test");
 
             JsonLogger<testJson> jsonLogger = new JsonLogger<testJson>(
-                            new FileInfo(String.Format("{0}/{1}/JsonLoggerTest.json", DirConfig.TestOutputDir, "CustomTest")));
+                String.Format("{0}/{1}/", DirConfig.TestOutputDir, "CustomTest"), "JsonLoggerTest.json");
             jsonLogger.Log(new testJson() { test = "Test"});
         }
 
@@ -103,7 +103,7 @@ namespace LoggerTest
 
             //Json Logger
             _jsonLogger = new JsonLogger<JsonLoggerTestModel>(
-                            new FileInfo(String.Format("{0}/{1}/JsonLoggerTest.json", DirConfig.TestOutputDir, "JsonLoggerTestOutput")));
+                        String.Format("{0}/{1}/", DirConfig.TestOutputDir, "JsonLoggerTestOutput"), "JsonLoggerTest.json");
 
 
             //MySql Logger

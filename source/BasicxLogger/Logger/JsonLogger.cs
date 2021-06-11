@@ -12,8 +12,6 @@
  *                                                                          *
  * **************************************************************************/
 using System;
-using System.IO;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace BasicxLogger
@@ -31,18 +29,19 @@ namespace BasicxLogger
         /// The file name must contain the full path and the file extension.
         /// This logger only supports .json files
         /// </remarks>
-        public FileInfo LogFile { get; } = new FileInfo(
-            String.Format("{0}/{1}/Log.json", Environment.CurrentDirectory, "Logs"));
+        public JsonLogFile LogFile { get; } = new JsonLogFile(
+            String.Format("{0}/{1}/", Environment.CurrentDirectory, "Logs"), "Log");
         //----------------------------------------------------------------------------------------------
 
         //-Constructors---------------------------------------------------------------------------------
         /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.JsonLogger"/> class
+        /// Initializes a new instance of the <see cref="BasicxLogger.JsonLogger{T}"/> class
         /// </summary>
-        /// <param name="logFile">The log file of the logger</param>
-        public JsonLogger(FileInfo logFile)
+        /// <param name="directoryPath">The path where the file will be stored</param>
+        /// <param name="fileName">The name of the file, without the extension</param>
+        public JsonLogger(string directoryPath, string fileName)
         {
-            LogFile = logFile;
+            LogFile = new JsonLogFile(directoryPath, fileName);
         }
         //----------------------------------------------------------------------------------------------
 
@@ -69,17 +68,7 @@ namespace BasicxLogger
         {
             try
             {
-                if (!Directory.Exists(LogFile.DirectoryName))
-                {
-                    CreateDirectory();
-                }
-
-                if (!File.Exists(LogFile.FullName))
-                {
-                    CreateJsonFile();
-                }
-
-                LogToJson(logObject);
+                LogFile.WriteToFile(logObject);
             }
             catch (Exception e)
             {
@@ -120,70 +109,6 @@ namespace BasicxLogger
         }
         //-------------------
 
-        //----------------------------------------------------------------------------------------------
-
-        //-Private-Methods------------------------------------------------------------------------------
-        private void CreateDirectory()
-        {
-            try
-            {
-                if (!Directory.Exists(LogFile.DirectoryName))
-                {
-                    Directory.CreateDirectory(LogFile.DirectoryName);
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        private void CreateJsonFile()
-        {
-            try
-            {
-                if (!File.Exists(LogFile.FullName))
-                {
-                    File.WriteAllText(LogFile.FullName, "{ \"entrys\": []}");
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        private void LogToJson(T logObject)
-        {
-            try
-            {
-                string fileContent = File.ReadAllText(LogFile.FullName);
-
-                CustomJsonLogModel<T> logFile = JsonSerializer.Deserialize<CustomJsonLogModel<T>>(fileContent);
-
-                logFile.entrys.Add(logObject);
-
-                string newFileContent = JsonSerializer.Serialize(logFile);
-
-                FileStream fileWriter = File.OpenWrite(LogFile.FullName);
-                Utf8JsonWriter jsonWriter = new Utf8JsonWriter(fileWriter, new JsonWriterOptions { Indented = true });
-
-                JsonDocument jsonFile = JsonDocument.Parse(newFileContent);
-
-                jsonFile.WriteTo(jsonWriter);
-
-                jsonWriter.Flush();
-
-                jsonWriter.Dispose();
-
-                fileWriter.Close();
-                fileWriter.Dispose();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
         //----------------------------------------------------------------------------------------------
     }
 }

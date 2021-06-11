@@ -38,7 +38,7 @@ namespace BasicxLogger
         /// <summary>
         /// Timestamp used for the logging
         /// </summary>
-        public Timestamp MessageTimestamp { get; } = Timestamp.year_month_day_hour24_min_sec;
+        public Timestamp MessageTimestamp { get; } = Timestamp.Year_Month_Day_Hour24_Min_Sec;
         
         /// <summary>
         /// A default message tag that will be used if no tag is selected
