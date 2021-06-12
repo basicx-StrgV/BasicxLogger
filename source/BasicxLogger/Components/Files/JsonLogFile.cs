@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.Json;
 using BasicxLogger.Models;
 
-namespace BasicxLogger
+namespace BasicxLogger.Files
 {
     /// <summary>
     /// Class that represents a log file with the file extension .json
@@ -40,7 +40,7 @@ namespace BasicxLogger
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.JsonLogFile"/> class
+        /// Initializes a new instance of the <see cref="BasicxLogger.Files.JsonLogFile"/> class
         /// </summary>
         /// <param name="directoryPath">The path where the file will be stored</param>
         /// <param name="fileName">The name of the file, without the extension</param>

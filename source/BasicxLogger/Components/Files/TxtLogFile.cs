@@ -6,7 +6,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace BasicxLogger
+namespace BasicxLogger.Files
 {
     /// <summary>
     /// Class that represents a log file with the file extension .txt
@@ -38,7 +38,7 @@ namespace BasicxLogger
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.TxtLogFile"/> class
+        /// Initializes a new instance of the <see cref="BasicxLogger.Files.TxtLogFile"/> class
         /// </summary>
         /// <param name="directoryPath">The path where the file will be stored</param>
         /// <param name="fileName">The name of the file, without the extension</param>

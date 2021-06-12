@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using BasicxLogger;
+using BasicxLogger.Files;
 using BasicxLogger.Databases;
 
 namespace LoggerTest
@@ -24,7 +25,7 @@ namespace LoggerTest
         private JsonLogger<JsonLoggerTestModel> _jsonLogger;
 
         //MySql Logger
-        private MySqlLogger _mySqlLogger;
+        private DatabaseLogger _mySqlLogger;
 
         //Multi Logger
         private MultiLogger _multiLogger;
@@ -56,36 +57,14 @@ namespace LoggerTest
 
         private void CustomTest()
         {
-            List<string> test = new List<string>();
-            test.Add("test");
-            test.Add("test");
-            test.Add("test");
-            test.Add("test");
-            test.Add("test");
-            test.Add("test");
-            //---Test-code-for-any-sort-of-tests-goes-here---
-            FileLogger fileLogger = new FileLogger(
-                        new XmlLogFile(String.Format("{0}/{1}/", DirConfig.TestOutputDir, "CustomTest"), "Log"));
-            fileLogger.Log("Test");
-            fileLogger.UseId = false;
-            fileLogger.Log("Test");
-            fileLogger.UseId = true;
-
-            JsonLogger<testJson> jsonLogger = new JsonLogger<testJson>(
-                String.Format("{0}/{1}/", DirConfig.TestOutputDir, "CustomTest"), "JsonLoggerTest.json");
-            jsonLogger.Log(new testJson() { test = "Test"});
-
-            FileLogger fileLogger2 = new FileLogger(
-                        new TxtLogFile(String.Format("{0}/{1}/", DirConfig.TestOutputDir, "CustomTest"), "Log"));
-            MySqlLogger mySqlLogger = new MySqlLogger(new MySqlDatabase("", "", "", ""), "");
-            MultiLogger multiLogger = new MultiLogger();
-            multiLogger.Add(fileLogger);
-            multiLogger.Add(fileLogger2);
-            foreach (ILogger i in multiLogger)
-            {
-                i.Log("123321");
-            }
-            string[] ids = multiLogger.Log("Multilogger Entry");
+            DatabaseLogger dbLogger = new DatabaseLogger(
+                new MySqlDatabase("localhost", "buchausleihe", "logtest", "root", "admin"));
+            dbLogger.Log("Test 1");
+            dbLogger.Log(LogTag.DEBUGGING, "Test 2");
+            Task t1 = dbLogger.LogAsync("Test 3");
+            t1.Wait();
+            Task t2 = dbLogger.LogAsync(LogTag.DEBUGGING, "Test 4");
+            t2.Wait();
         }
 
         private void DefaultTest()
@@ -125,17 +104,17 @@ namespace LoggerTest
 
             //Json Logger
             _jsonLogger = new JsonLogger<JsonLoggerTestModel>(
-                        String.Format("{0}/{1}/", DirConfig.TestOutputDir, "JsonLoggerTestOutput"), "JsonLoggerTest.json");
+                new JsonLogFile(String.Format("{0}/{1}/", DirConfig.TestOutputDir, "JsonLoggerTestOutput"), "JsonLoggerTest"));
 
 
             //MySql Logger
             try
             {
-                _mySqlLogger = new MySqlLogger(new MySqlDatabase("localhost", "test", "root", "admin"), "logTest");
+                _mySqlLogger = new DatabaseLogger(new MySqlDatabase("localhost", "buchausleihe", "logtest", "root", "admin"));
             }
             catch (Exception)
             {
-                _multiLogger = null;
+                _mySqlLogger = null;
             }
 
             //Multi Logger

@@ -12,9 +12,9 @@ namespace BasicxLogger
     public interface ILogger
     {
         /// <summary>
-        /// Gets or Sets the <see cref="BasicxLogger.Timestamp"/> that is used by the logger.
+        /// Gets the <see cref="BasicxLogger.Timestamp"/> that is used by the logger.
         /// </summary>
-        Timestamp MessageTimestamp { get; set; }
+        Timestamp MessageTimestamp { get; }
         /// <summary>
         /// Gets or Sets a default message tag that will be used if no tag is selected.
         /// </summary>

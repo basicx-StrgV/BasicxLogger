@@ -13,6 +13,7 @@
  * **************************************************************************/
 using System;
 using System.Threading.Tasks;
+using BasicxLogger.Files;
 
 namespace BasicxLogger
 {
@@ -23,7 +24,7 @@ namespace BasicxLogger
     {
         //-Properties-----------------------------------------------------------------------------------
         /// <summary>
-        /// Gets the <see cref="BasicxLogger.JsonLogFile"/> that is used by the logger.
+        /// Gets the <see cref="BasicxLogger.Files.JsonLogFile"/> that is used by the logger.
         /// </summary>
         public JsonLogFile LogFile { get; } = new JsonLogFile(
             String.Format("{0}/{1}/", Environment.CurrentDirectory, "Logs"), "Log");
@@ -33,11 +34,10 @@ namespace BasicxLogger
         /// <summary>
         /// Initializes a new instance of the <see cref="BasicxLogger.JsonLogger{T}"/> class.
         /// </summary>
-        /// <param name="directoryPath">The path where the file will be stored</param>
-        /// <param name="fileName">The name of the file, without the extension</param>
-        public JsonLogger(string directoryPath, string fileName)
+        /// <param name="jsonLogFile">The json log file used by the logger</param>
+        public JsonLogger(JsonLogFile jsonLogFile)
         {
-            LogFile = new JsonLogFile(directoryPath, fileName);
+            LogFile = jsonLogFile;
         }
         //----------------------------------------------------------------------------------------------
 

@@ -13,27 +13,22 @@
  * **************************************************************************/
 using System;
 using System.Threading.Tasks;
-using BasicxLogger.Files;
 
 namespace BasicxLogger
 {
     /// <summary>
-    /// File logger that contains everything needed to write a message to a log file.
+    /// Logger that contains everything needed to log to an MySql database.
     /// </summary>
-    /// <remarks>
-    /// This logger supports the following file formats: txt, log, xml and json
-    /// </remarks>
-    public class FileLogger : ILogger
+    public class DatabaseLogger : ILogger
     {
         /// <summary>
-        /// Gets the <see cref="BasicxLogger.ILogFile"/> that is used by the logger.
+        /// Gets the database that the logger uses.
         /// </summary>
-        public ILogFile LogFile { get; } = new TxtLogFile(
-            String.Format("{0}/{1}/", Environment.CurrentDirectory, "Logs"), "Log");
+        public ILogDatabase Database { get; }
         /// <summary>
         /// Gets or Sets the <see cref="BasicxLogger.Timestamp"/> that is used by the logger.
         /// </summary>
-        public Timestamp MessageTimestamp { get; set; } = Timestamp.Year_Month_Day_Hour24_Min_Sec;
+        public Timestamp MessageTimestamp { get; } = Timestamp.Year_Month_Day_Hour24_Min_Sec;
         /// <summary>
         /// Gets or Sets a default message tag that will be used if no tag is selected.
         /// </summary>
@@ -45,29 +40,22 @@ namespace BasicxLogger
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.FileLogger"/> class,
-        /// that uses the default settings.
+        /// Initializes a new instance of the <see cref="BasicxLogger.DatabaseLogger"/> class.
         /// </summary>
-        public FileLogger()
+        /// <param name="database">The database the logger should use.</param>
+        public DatabaseLogger(ILogDatabase database)
         {
-        }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.FileLogger"/> class.
-        /// </summary>
-        /// <param name="logFile">The log file of the logger</param>
-        public FileLogger(ILogFile logFile)
-        {
-            LogFile = logFile;
+            Database = database;
         }
 
 
         /// <summary>
-        /// Writes the given message to the log file.
+        /// Writes the given message to the table.
         /// </summary>
-        /// <param name="message">The message that will be writen to the file</param>
+        /// <param name="message">The message that will be writen to the table</param>
         /// <returns>
-        /// The unique id for the log entry if <see cref="BasicxLogger.FileLogger.UseId"/> is true 
-        /// or null if <see cref="BasicxLogger.FileLogger.UseId"/> is false.
+        /// The unique id for the log entry if <see cref="BasicxLogger.DatabaseLogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.DatabaseLogger.UseId"/> is false.
         /// </returns>
         public string Log(string message)
         {
@@ -76,12 +64,15 @@ namespace BasicxLogger
                 if (UseId)
                 {
                     string id = IdHandler.UniqueId;
-                    LogFile.WriteToFile(DefaultTag, MessageTimestamp.GetTimestamp(), message, id);
+
+                    Database.LogToDatabase(DefaultTag, MessageTimestamp.GetTimestamp(), message, id);
+
                     return id;
                 }
                 else
                 {
-                    LogFile.WriteToFile(DefaultTag, MessageTimestamp.GetTimestamp(), message);
+                    Database.LogToDatabase(DefaultTag, MessageTimestamp.GetTimestamp(), message);
+
                     return null;
                 }
             }
@@ -91,15 +82,15 @@ namespace BasicxLogger
             }
         }
         /// <summary>
-        /// Writes the given message to the log file.
+        /// Writes the given message to the table.
         /// </summary>
-        /// <param name="message">The message that will be writen to the file</param>
+        /// <param name="message">The message that will be writen to the table</param>
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
         /// <returns>
-        /// The unique id for the log entry if <see cref="BasicxLogger.FileLogger.UseId"/> is true 
-        /// or null if <see cref="BasicxLogger.FileLogger.UseId"/> is false.
+        /// The unique id for the log entry if <see cref="BasicxLogger.DatabaseLogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.DatabaseLogger.UseId"/> is false.
         /// </returns>
         public string Log(LogTag messageTag, string message)
         {
@@ -108,12 +99,15 @@ namespace BasicxLogger
                 if (UseId)
                 {
                     string id = IdHandler.UniqueId;
-                    LogFile.WriteToFile(messageTag, MessageTimestamp.GetTimestamp(), message, id);
+
+                    Database.LogToDatabase(messageTag, MessageTimestamp.GetTimestamp(), message, id);
+
                     return id;
                 }
                 else
                 {
-                    LogFile.WriteToFile(messageTag, MessageTimestamp.GetTimestamp(), message);
+                    Database.LogToDatabase(messageTag, MessageTimestamp.GetTimestamp(), message);
+
                     return null;
                 }
             }
@@ -124,12 +118,12 @@ namespace BasicxLogger
         }
 
         /// <summary>
-        /// Asynchronous writes the given message to the log file.
+        /// Asynchronous writes the given message to the table.
         /// </summary>
-        /// <param name="message">The message that will be writen to the file</param>
+        /// <param name="message">The message that will be writen to the table</param>
         /// <returns>
-        /// The unique id for the log entry if <see cref="BasicxLogger.FileLogger.UseId"/> is true 
-        /// or null if <see cref="BasicxLogger.FileLogger.UseId"/> is false.
+        /// The unique id for the log entry if <see cref="BasicxLogger.DatabaseLogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.DatabaseLogger.UseId"/> is false.
         /// </returns>
         public async Task<string> LogAsync(string message)
         {
@@ -145,15 +139,15 @@ namespace BasicxLogger
             }
         }
         /// <summary>
-        /// Asynchronous writes the given message to the log file.
+        /// Asynchronous writes the given message to table.
         /// </summary>
-        /// <param name="message">The message that will be writen to the file</param>
+        /// <param name="message">The message that will be writen to the table</param>
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
         /// <returns>
-        /// The unique id for the log entry if <see cref="BasicxLogger.FileLogger.UseId"/> is true 
-        /// or null if <see cref="BasicxLogger.FileLogger.UseId"/> is false.
+        /// The unique id for the log entry if <see cref="BasicxLogger.DatabaseLogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.DatabaseLogger.UseId"/> is false.
         /// </returns>
         public async Task<string> LogAsync(LogTag messageTag, string message)
         {

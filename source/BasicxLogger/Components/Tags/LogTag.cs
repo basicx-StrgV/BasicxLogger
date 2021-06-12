@@ -5,7 +5,7 @@
 namespace BasicxLogger
 {
     /// <summary>
-    /// Enum that contains every message tag you can use
+    /// Enum that contains the message tags, that can be used for logging
     /// </summary>
     public enum LogTag
     {
@@ -50,7 +50,7 @@ namespace BasicxLogger
         /// </summary>
         TEST,
         /// <summary>
-        /// If you dont want to have a tag
+        /// No Tag. Default value for the DefaultTag
         /// </summary>
         none
     }
