@@ -12,130 +12,60 @@ namespace BasicxLogger
     public interface ILogger
     {
         /// <summary>
-        /// Logs the given message and the current time.
+        /// Gets or Sets the <see cref="BasicxLogger.Timestamp"/> that is used by the logger.
         /// </summary>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
-        void Log(string message);
+        Timestamp MessageTimestamp { get; set; }
         /// <summary>
-        /// Logs the given message with the given tag and the current time stamp.
+        /// Gets or Sets a default message tag that will be used if no tag is selected.
         /// </summary>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        void Log(LogTag messageTag, string message);
+        LogTag DefaultTag { get; set; }
         /// <summary>
-        /// Logs the given message, a message ID and the current time stamp.
+        /// Gets or Sets if each log entry should contain a unique id or not.
         /// </summary>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
+        bool UseId { get; set; }
+
+
+        /// <summary>
+        /// Logs the given message.
+        /// </summary>
+        /// <param name="message">The message that will be logged</param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+        /// The unique id for the log entry if <see cref="BasicxLogger.ILogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.ILogger.UseId"/> is false.
         /// </returns>
-        string LogId(string message);
+        string Log(string message);
         /// <summary>
-        /// Logs the given message with the given tag, a message ID and the current time stamp.
+        /// Logs the given message.
         /// </summary>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
+        /// <param name="message">The message that will be logged</param>
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+        /// The unique id for the log entry if <see cref="BasicxLogger.ILogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.ILogger.UseId"/> is false.
         /// </returns>
-        string LogId(LogTag messageTag, string message);
+        string Log(LogTag messageTag, string message);
         /// <summary>
-        /// Logs the given message, the given ID and the current time stamp.
+        /// Asynchronous logs the given message.
         /// </summary>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
-        void LogCustomId(string id, string message);
-        /// <summary>
-        /// Logs the given message with the given tag, the given ID and the current time stamp.
-        /// </summary>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        void LogCustomId(string id, LogTag messageTag, string message);
-        /// <summary>
-        /// Asynchronous logs the given message and the current time stamp.
-        /// </summary>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
-        Task LogAsync(string message);
-        /// <summary>
-        /// Asynchronous logs the given message with the given tag and the current time stamp.
-        /// </summary>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        Task LogAsync(LogTag messageTag, string message);
-        /// <summary>
-        /// Asynchronous logs the given message, a message ID and the current time stamp.
-        /// </summary>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
+        /// <param name="message">The message that will be logged</param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+        /// The unique id for the log entry if <see cref="BasicxLogger.ILogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.ILogger.UseId"/> is false.
         /// </returns>
-        Task<string> LogIdAsync(string message);
+        Task<string> LogAsync(string message);
         /// <summary>
-        /// Asynchronous logs the given message with the given tag, a message ID and the current time stamp.
+        /// Asynchronous logs the given message.
         /// </summary>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
+        /// <param name="message">The message that will be logged</param>
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+        /// The unique id for the log entry if <see cref="BasicxLogger.ILogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.ILogger.UseId"/> is false.
         /// </returns>
-        Task<string> LogIdAsync(LogTag messageTag, string message);
-        /// <summary>
-        /// Asynchronous logs the given message, the given ID and the current time stamp.
-        /// </summary>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
-        Task LogCustomIdAsync(string id, string message);
-        /// <summary>
-        /// Asynchronous logs the given message with the given tag, the given ID and the current time stamp.
-        /// </summary>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be loged
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        Task LogCustomIdAsync(string id, LogTag messageTag, string message);
+        Task<string> LogAsync(LogTag messageTag, string message);
     }
 }

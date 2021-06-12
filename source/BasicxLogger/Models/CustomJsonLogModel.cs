@@ -4,8 +4,9 @@
 //--------------------------------------------------//
 using System.Collections.Generic;
 
-namespace BasicxLogger
+namespace BasicxLogger.Models
 {
+#pragma warning disable
     /// <summary>
     /// Data model for the custom json log file
     /// </summary>

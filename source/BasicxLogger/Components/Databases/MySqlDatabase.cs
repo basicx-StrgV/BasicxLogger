@@ -63,7 +63,7 @@ namespace BasicxLogger.Databases
         public MySqlConnection Connection { get; }
 
 
-        private string _connectionStringTemplate = "server={0}; port={1}; user id={2}; password={3}; database={4}; SslMode={5}";
+        private readonly string _connectionStringTemplate = "server={0}; port={1}; user id={2}; password={3}; database={4}; SslMode={5}";
 
 
         /// <summary>

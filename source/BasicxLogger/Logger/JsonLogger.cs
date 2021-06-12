@@ -23,19 +23,15 @@ namespace BasicxLogger
     {
         //-Properties-----------------------------------------------------------------------------------
         /// <summary>
-        /// The log file of the logger.
+        /// Gets the <see cref="BasicxLogger.JsonLogFile"/> that is used by the logger.
         /// </summary>
-        /// <remarks>
-        /// The file name must contain the full path and the file extension.
-        /// This logger only supports .json files
-        /// </remarks>
         public JsonLogFile LogFile { get; } = new JsonLogFile(
             String.Format("{0}/{1}/", Environment.CurrentDirectory, "Logs"), "Log");
         //----------------------------------------------------------------------------------------------
 
         //-Constructors---------------------------------------------------------------------------------
         /// <summary>
-        /// Initializes a new instance of the <see cref="BasicxLogger.JsonLogger{T}"/> class
+        /// Initializes a new instance of the <see cref="BasicxLogger.JsonLogger{T}"/> class.
         /// </summary>
         /// <param name="directoryPath">The path where the file will be stored</param>
         /// <param name="fileName">The name of the file, without the extension</param>

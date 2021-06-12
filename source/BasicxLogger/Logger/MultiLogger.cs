@@ -12,9 +12,9 @@
  *                                                                          *
  * **************************************************************************/
 using System;
+using System.Collections;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using BasicxLogger.Exceptions;
 
 namespace BasicxLogger
 {
@@ -25,146 +25,80 @@ namespace BasicxLogger
     /// <remarks>
     /// The multi logger supports all logger that uses the ILogger intaterface.
     /// </remarks>
-    public class MultiLogger
+    public class MultiLogger : IList<ILogger>
     {
+        /// <summary>
+        /// Gets a value indicating whether the <see cref="BasicxLogger.MultiLogger"/> is read-only.
+        /// </summary>
+        /// <returns>
+        /// true if the <see cref="BasicxLogger.MultiLogger"/> is read-only; otherwise, false.
+        /// </returns>
+        public bool IsReadOnly { get; } = false;
+        /// <summary>
+        /// Gets the number of elements contained in the <see cref="BasicxLogger.MultiLogger"/>.
+        /// </summary>
+        /// <returns>
+        /// The number of elements contained in the <see cref="BasicxLogger.MultiLogger"/>.
+        /// </returns>
+        public int Count { get { return _loggerList.Count; } }
+        /// <summary>
+        /// Gets or sets the element at the specified index.
+        /// </summary>
+        /// <param name="index">The zero-based index of the element to get or set.</param>
+        /// <returns>
+        /// The element at the specified index.
+        /// </returns>
+        ILogger IList<ILogger>.this[int index] { get { return _loggerList[index]; } set { _loggerList[index] = value; } }
+        /// <summary>
+        /// Gets or sets the element at the specified index.
+        /// </summary>
+        /// <param name="index">The zero-based index of the element to get or set.</param>
+        /// <returns>
+        /// The element at the specified index.
+        /// </returns>
+        public ILogger this[int index] { get { return _loggerList[index]; } set { _loggerList[index] = value; } }
 
-        private readonly List<ILogger> _loggerList = new List<ILogger>();
 
-        //-Constructors---------------------------------------------------------------------------------
+        private List<ILogger> _loggerList = new List<ILogger>();
+
+
         /// <summary>
         /// Initializes a new instance of the <see cref="BasicxLogger.MultiLogger"/> class
         /// </summary>
         public MultiLogger()
         {
         }
-        //----------------------------------------------------------------------------------------------
 
-        //-Public-Methods-------------------------------------------------------------------------------
-        /// <summary>
-        /// Logs the given message and the current time stamp with every logger that was added to the multi logger.
-        /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public void Log(string message)
-        {
-            try
-            {
-                if(_loggerList.Count > 0)
-                {
-                    foreach (ILogger logger in _loggerList)
-                    {
-                        logger.Log(message);
-                    }
-                }
-                else
-                {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
 
         /// <summary>
-        /// Logs the given message with the given tag and the current time stamp with every logger that was added to the multi logger.
+        /// Logs the given message with every <see cref="BasicxLogger.ILogger"/> 
+        /// that was added to the <see cref="BasicxLogger.MultiLogger"/>.
         /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public void Log(LogTag messageTag, string message)
-        {
-            try
-            {
-                if (_loggerList.Count > 0)
-                {
-                    foreach (ILogger logger in _loggerList)
-                    {
-                        logger.Log(messageTag, message);
-                    }
-                }
-                else
-                {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Logs the given message, a message ID and the current time stamp with every logger that was added to the multi logger.
-        /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
+        /// <param name="message">The message that will be logged</param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+        /// A string array conataining all message id's that each logger returned.
         /// </returns>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public string LogId(string message)
+        public string[] Log(string message)
         {
             try
             {
-                if (_loggerList.Count > 0)
+                List<string> idList = new List<string>();
+                foreach (ILogger logger in _loggerList)
                 {
-                    string id = IdHandler.UniqueId;
-
-                    foreach (ILogger logger in _loggerList)
+                    string id = logger.Log(message);
+                    if (id != null)
                     {
-                        logger.LogCustomId(id, message);
+                        idList.Add(id);
                     }
+                }
 
-                    return id;
+                if(idList.Count > 0)
+                {
+                    return idList.ToArray();
                 }
                 else
                 {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
+                    return new string[1];
                 }
             }
             catch (Exception e)
@@ -172,50 +106,38 @@ namespace BasicxLogger
                 throw e;
             }
         }
-
         /// <summary>
-        /// Logs the given message with the given tag, a message ID and the current time stamp with every logger that was added to the multi logger.
+        /// Logs the given message with every <see cref="BasicxLogger.ILogger"/> 
+        /// that was added to the <see cref="BasicxLogger.MultiLogger"/>.
         /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
+        /// <param name="message">The message that will be logged</param>
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+        /// A string array conataining all message id's that each logger returned.
         /// </returns>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public string LogId(LogTag messageTag, string message)
+        public string[] Log(LogTag messageTag, string message)
         {
-            try
+            try 
             {
-                if (_loggerList.Count > 0)
+                List<string> idList = new List<string>();
+                foreach (ILogger logger in _loggerList)
                 {
-                    string id = IdHandler.UniqueId;
-
-                    foreach (ILogger logger in _loggerList)
+                    string id = logger.Log(messageTag, message);
+                    if (id != null)
                     {
-                        logger.LogCustomId(id, messageTag, message);
+                        idList.Add(id);
                     }
+                }
 
-                    return id;
+                if (idList.Count > 0)
+                {
+                    return idList.ToArray();
                 }
                 else
                 {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
+                    return new string[1];
                 }
             }
             catch (Exception e)
@@ -223,276 +145,45 @@ namespace BasicxLogger
                 throw e;
             }
         }
-
         /// <summary>
-        /// Logs the given message, the given ID and the current time stamp with every logger that was added to the multi logger.
+        /// Asynchronous logs the given message with every <see cref="BasicxLogger.ILogger"/> 
+        /// that was added to the <see cref="BasicxLogger.MultiLogger"/>.
         /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public void LogCustomId(string id, string message)
-        {
-            try
-            {
-                if (_loggerList.Count > 0)
-                {
-                    foreach (ILogger logger in _loggerList)
-                    {
-                        logger.LogCustomId(id, message);
-                    }
-                }
-                else
-                {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Logs the given message with the given tag, the given ID and the current time stampwith every logger that was added to the multi logger.
-        /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public void LogCustomId(string id, LogTag messageTag, string message)
-        {
-            try
-            {
-                if (_loggerList.Count > 0)
-                {
-                    foreach (ILogger logger in _loggerList)
-                    {
-                        logger.LogCustomId(id, messageTag, message);
-                    }
-                }
-                else
-                {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        //-Async-methods-----
-        /// <summary>
-        /// Asynchronous logs the given message and the current time stamp with every logger that was added to the multi logger.
-        /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public async Task LogAsync(string message)
-        {
-            try
-            {
-                if (_loggerList.Count > 0)
-                {
-                    foreach (ILogger logger in _loggerList)
-                    {
-                        await logger.LogAsync(message);
-                    }
-                }
-                else
-                {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Asynchronous logs the given message with the given tag and the current time stamp with every logger that was added to the multi logger.
-        /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public async Task LogAsync(LogTag messageTag, string message)
-        {
-            try
-            {
-                if (_loggerList.Count > 0)
-                {
-                    foreach (ILogger logger in _loggerList)
-                    {
-                        await logger.LogAsync(messageTag, message);
-                    }
-                }
-                else
-                {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Asynchronous logs the given message, a message ID and the current time stamp with every logger that was added to the multi logger.
-        /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
+        /// <param name="message">The message that will be logged</param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+        /// A string array conataining all message id's that each logger returned.
         /// </returns>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public async Task<string> LogIdAsync(string message)
+        public async Task<string[]> LogAsync(string message)
         {
             try
             {
-                if (_loggerList.Count > 0)
-                {
-                    string id = IdHandler.UniqueId;
-
-                    foreach (ILogger logger in _loggerList)
-                    {
-                        await logger.LogCustomIdAsync(id, message);
-                    }
-                    
-                    return id;
-                }
-                else
-                {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
-                }
+                Task<string[]> logTask = Task.Run(() => Log(message));
+                await logTask;
+                return logTask.Result;
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-
         /// <summary>
-        /// Asynchronous logs the given message with the given tag, a message ID and the current time stamp with every logger that was added to the multi logger.
+        /// Asynchronous logs the given message with every <see cref="BasicxLogger.ILogger"/> 
+        /// that was added to the <see cref="BasicxLogger.MultiLogger"/>.
         /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
+        /// <param name="message">The message that will be logged</param>
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+        /// A string array conataining all message id's that each logger returned.
         /// </returns>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public async Task<string> LogIdAsync(LogTag messageTag, string message)
+        public async Task<string[]> LogAsync(LogTag messageTag, string message)
         {
             try
             {
-                if (_loggerList.Count > 0)
-                {
-                    string id = IdHandler.UniqueId;
-
-                    foreach (ILogger logger in _loggerList)
-                    {
-                        await logger.LogCustomIdAsync(id, messageTag, message);
-                    }
-
-                    return id;
-                }
-                else
-                {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
-                }
+                Task<string[]> logTask = Task.Run(() => Log(messageTag,  message));
+                await logTask;
+                return logTask.Result;
             }
             catch (Exception e)
             {
@@ -500,108 +191,181 @@ namespace BasicxLogger
             }
         }
 
+
         /// <summary>
-        /// Asynchronous logs the given message, the given ID and the current time stamp with every logger that was added to the multi logger.
+        /// Determines the index of a specific item in the <see cref="BasicxLogger.MultiLogger"/>.
         /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public async Task LogCustomIdAsync(string id, string message)
+        /// <param name="item">The object to locate in the <see cref="BasicxLogger.MultiLogger"/>.</param>
+        /// <returns>
+        /// The index of item if found in the list; otherwise, -1.
+        /// </returns>
+        public int IndexOf(ILogger item)
+        {
+            return _loggerList.IndexOf(item);
+        }
+        /// <summary>
+        /// Inserts an item to the <see cref="BasicxLogger.MultiLogger"/> at the specified index.
+        /// </summary>
+        /// <param name="index">The zero-based index at which item should be inserted.</param>
+        /// <param name="item">The object to insert into the <see cref="BasicxLogger.MultiLogger"/>.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">index is not a valid index in the <see cref="BasicxLogger.MultiLogger"/>.</exception>
+        /// <exception cref="System.NotSupportedException">The <see cref="BasicxLogger.MultiLogger"/> is read-only.</exception>
+        public void Insert(int index, ILogger item)
         {
             try
             {
-                if (_loggerList.Count > 0)
-                {
-                    foreach (ILogger logger in _loggerList)
-                    {
-                        await logger.LogCustomIdAsync(id, message);
-                    }
-                }
-                else
-                {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
-                }
+                _loggerList.Insert(index, item);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                throw new ArgumentOutOfRangeException(String.Format("{0} is not a valid index in the MultiLogger", index));
+            }
+            catch (NotSupportedException)
+            {
+                throw new NotSupportedException("MultiLogger is read-only");
+            }
+        }
+        /// <summary>
+        /// Removes the <see cref="BasicxLogger.MultiLogger"/> item at the specified index.
+        /// </summary>
+        /// <param name="index">The zero-based index of the item to remove.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">index is not a valid index in the <see cref="BasicxLogger.MultiLogger"/>.</exception>
+        /// <exception cref="System.NotSupportedException">The <see cref="BasicxLogger.MultiLogger"/> is read-only.</exception>
+        public void RemoveAt(int index)
+        {
+            try
+            {
+                _loggerList.RemoveAt(index);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                throw new ArgumentOutOfRangeException(String.Format("{0} is not a valid index in the MultiLogger", index));
+            }
+            catch (NotSupportedException)
+            {
+                throw new NotSupportedException("MultiLogger is read-only");
+            }
+        }
+        /// <summary>
+        /// Adds an item to the <see cref="BasicxLogger.MultiLogger"/>.
+        /// </summary>
+        /// <param name="item">The object to add to the <see cref="BasicxLogger.MultiLogger"/>.</param>
+        /// <exception cref="System.NotSupportedException">The <see cref="BasicxLogger.MultiLogger"/> is read-only.</exception>
+        public void Add(ILogger item)
+        {
+            try
+            {
+                _loggerList.Add(item);
+            }
+            catch (NotSupportedException)
+            {
+                throw new NotSupportedException("MultiLogger is read-only");
+            }
+        }
+        /// <summary>
+        /// Removes all items from the <see cref="BasicxLogger.MultiLogger"/>.
+        /// </summary>
+        /// <exception cref="System.NotSupportedException">The <see cref="BasicxLogger.MultiLogger"/> is read-only.</exception>
+        public void Clear()
+        {
+            try
+            {
+                _loggerList.Clear();
+            }
+            catch (NotSupportedException)
+            {
+                throw new NotSupportedException("MultiLogger is read-only");
+            }
+        }
+        /// <summary>
+        /// Determines whether the <see cref="BasicxLogger.MultiLogger"/> contains a specific value.
+        /// </summary>
+        /// <param name="item">The object to locate in the <see cref="BasicxLogger.MultiLogger"/>.</param>
+        /// <returns>
+        /// true if item is found in the System.Collections.Generic.ICollection`1; otherwise, false.
+        /// </returns>
+        public bool Contains(ILogger item)
+        {
+            return _loggerList.Contains(item);
+        }
+        /// <summary>
+        /// Copies the elements of the <see cref="BasicxLogger.MultiLogger"/> to an <seealso cref="System.Array"/>,
+        /// starting at a particular <seealso cref="System.Array"/> index.
+        /// </summary>
+        /// <param name="array">
+        /// The one-dimensional System.Array that is the destination of the elements copied 
+        /// from <see cref="BasicxLogger.MultiLogger"/>. The <seealso cref="System.Array"/> must have zero-based indexing.
+        /// </param>
+        /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
+        /// <exception cref="System.ArgumentNullException">array is null.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">arrayIndex is less than 0.</exception>
+        /// <exception cref="System.ArgumentException">
+        /// The number of elements in the source <see cref="BasicxLogger.MultiLogger"/>
+        /// is greater than the available space from arrayIndex to the end of the destination array.
+        /// </exception>
+        public void CopyTo(ILogger[] array, int arrayIndex)
+        {
+            try
+            {
+                _loggerList.CopyTo(array, arrayIndex);
+            }
+            catch (ArgumentException)
+            {
+                throw new ArgumentException("The number of elements in the MultiLogger " +
+                    "is greater than the available space from arrayIndex to the end of the destination array.");
             }
             catch (Exception e)
             {
                 throw e;
-            }
+            }    
         }
-
         /// <summary>
-        /// Asynchronous logs the given message with the given tag, the given ID and the current time stampwith every logger that was added to the multi logger.
+        /// Removes the first occurrence of a specific object from the <see cref="BasicxLogger.MultiLogger"/>.
         /// </summary>
-        /// <remarks>
-        /// If the log file and/or directory is missing, the method will automatically create them.
-        /// </remarks>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.NotSupportedException"></exception>
-        /// <exception cref="System.NullReferenceException"></exception>
-        /// <exception cref="System.UnauthorizedAccessException"></exception>
-        /// <exception cref="System.IO.IOException"></exception>
-        /// <exception cref="System.IO.PathTooLongException"></exception>
-        /// <exception cref="System.IO.DirectoryNotFoundException"></exception>
-        /// <exception cref="System.Security.SecurityException"></exception>
-        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException"></exception>
-        public async Task LogCustomIdAsync(string id, LogTag messageTag, string message)
+        /// <param name="item">The object to remove from the <see cref="BasicxLogger.MultiLogger"/>.</param>
+        /// <returns>
+        /// true if item was successfully removed from the <see cref="BasicxLogger.MultiLogger"/> otherwise, false. 
+        /// This method also returns false if item is not found in the original <see cref="BasicxLogger.MultiLogger"/>.
+        /// </returns>
+        /// <exception cref="System.NotSupportedException">The <see cref="BasicxLogger.MultiLogger"/> is read-only.</exception>
+        public bool Remove(ILogger item)
         {
             try
             {
-                if (_loggerList.Count > 0)
-                {
-                    foreach (ILogger logger in _loggerList)
-                    {
-                        await logger.LogCustomIdAsync(id, messageTag, message);
-                    }
-                }
-                else
-                {
-                    throw new NoLoggerAddedException("The multi logger does not contain any loggers.");
-                }
+                return _loggerList.Remove(item);
             }
-            catch (Exception e)
+            catch (NotSupportedException)
             {
-                throw e;
+                throw new NotSupportedException("MultiLogger is read-only");
             }
         }
-
-        //-------------------
-
         /// <summary>
-        /// Adds the given logger to the multi logger
+        /// Returns an enumerator that iterates through the <see cref="BasicxLogger.ILogger"/> collection.
         /// </summary>
-        /// <param name="logger">The logger to add</param>
-        public void AddLogger(ILogger logger)
+        /// <returns>
+        /// An <see cref="System.Collections.IEnumerator"/> object that can be used to
+        /// iterate through the <see cref="BasicxLogger.ILogger"/> collection.
+        /// </returns>
+        public IEnumerator GetEnumerator()
         {
-            _loggerList.Add(logger);
+            foreach (ILogger i in _loggerList)
+            {
+                yield return i;
+            }
         }
-
-        //----------------------------------------------------------------------------------------------
+        /// <summary>
+        /// Returns an enumerator that iterates through the <see cref="BasicxLogger.ILogger"/> collection.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="System.Collections.IEnumerator"/> object that can be used to
+        /// iterate through the <see cref="BasicxLogger.ILogger"/> collection.
+        /// </returns>
+        IEnumerator<ILogger> IEnumerable<ILogger>.GetEnumerator()
+        {
+            foreach (ILogger i in _loggerList)
+            {
+                yield return i;
+            }
+        }
     }
 }

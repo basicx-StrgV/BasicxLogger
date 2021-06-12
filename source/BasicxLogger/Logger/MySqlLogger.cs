@@ -12,10 +12,8 @@
  *                                                                          *
  * **************************************************************************/
 using System;
-using System.Data;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using System.Collections.Generic;
 using BasicxLogger.Databases;
 
 namespace BasicxLogger
@@ -25,7 +23,6 @@ namespace BasicxLogger
     /// </summary>
     public class MySqlLogger : ILogger
     {
-        //-Properties-----------------------------------------------------------------------------------
         /// <summary>
         /// Name of the table the logger will create and insert logs into
         /// </summary>
@@ -35,14 +32,21 @@ namespace BasicxLogger
         /// </summary>
         public MySqlDatabase Database { get; }
         /// <summary>
-        /// A default message tag that will be used if no tag is selected
+        /// Gets or Sets the <see cref="BasicxLogger.Timestamp"/> that is used by the logger.
         /// </summary>
-        public LogTag DefaultTag { get; } = LogTag.none;
-        //----------------------------------------------------------------------------------------------
-
-        //-Constructors---------------------------------------------------------------------------------
+        public Timestamp MessageTimestamp { get; set; } = Timestamp.Year_Month_Day_Hour24_Min_Sec;
         /// <summary>
-        /// Constructor to create a MySqlLogger
+        /// Gets or Sets a default message tag that will be used if no tag is selected.
+        /// </summary>
+        public LogTag DefaultTag { get; set; } = LogTag.none;
+        /// <summary>
+        /// Gets or Sets if each log entry should contain a unique id or not.
+        /// </summary>
+        public bool UseId { get; set; } = true;
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BasicxLogger.MySqlLogger"/> class.
         /// </summary>
         /// <remarks>
         /// The messege formate will use the default settings with this constructor
@@ -60,7 +64,46 @@ namespace BasicxLogger
                 this.Database = database;
                 this.Table = logTable;
 
-                CreateLogTable(Table);
+                //CreateLogTable(Table);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        /// <summary>
+        /// Writes the given message to the table.
+        /// </summary>
+        /// <param name="message">The message that will be writen to the table</param>
+        /// <returns>
+        /// The unique id for the log entry if <see cref="BasicxLogger.FileLogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.FileLogger.UseId"/> is false.
+        /// </returns>
+        public string Log(string message)
+        {
+            try
+            {
+                if (UseId)
+                {
+                    string id = IdHandler.UniqueId;
+                    Database.Connection.Open();
+
+                    LogToTable(DefaultTag, message, id);
+
+                    Database.Connection.Close();
+                    return id;
+                }
+                else
+                {
+                    Database.Connection.Open();
+
+                    LogToTable(DefaultTag, message);
+
+                    Database.Connection.Close();
+                    return null;
+                }
             }
             catch (Exception e)
             {
@@ -68,255 +111,83 @@ namespace BasicxLogger
             }
         }
         /// <summary>
-        /// Constructor to create a MySqlLogger
+        /// Writes the given message to the table.
         /// </summary>
-        /// <param name="database">
-        /// Holds all informations about the MySqlDatabase used for logging
+        /// <param name="message">The message that will be writen to the table</param>
+        /// <param name="messageTag">
+        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
-        /// <param name="logTable">
-        /// Name of the table the logger will log to. This table will be created by the logger.
-        /// </param>
-        /// <param name="defaultTag">
-        /// A default message tag that will be used if no tag is selected
-        /// </param>
-        public MySqlLogger(MySqlDatabase database, string logTable, LogTag defaultTag)
+        /// <returns>
+        /// The unique id for the log entry if <see cref="BasicxLogger.FileLogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.FileLogger.UseId"/> is false.
+        /// </returns>
+        public string Log(LogTag messageTag, string message)
         {
             try
             {
-                this.Database = database;
-                this.Table = logTable;
-                this.DefaultTag = defaultTag;
+                if (UseId)
+                {
+                    string id = IdHandler.UniqueId;
+                    Database.Connection.Open();
 
-                CreateLogTable(Table);
+                    LogToTable(messageTag, message, id);
+
+                    Database.Connection.Close();
+                    return id;
+                }
+                else
+                {
+                    Database.Connection.Open();
+
+                    LogToTable(DefaultTag, message);
+
+                    Database.Connection.Close();
+                    return null;
+                }
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        //----------------------------------------------------------------------------------------------
-
-        //-Public-Methods-------------------------------------------------------------------------------
-        /// <summary>
-        /// Inserts the given message and the current time stamp into the log table.
-        /// </summary>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public void Log(string message)
-        {
-            Database.Connection.Open();
-
-            LogToTable(DefaultTag, message);
-
-            Database.Connection.Close();
-        }
 
         /// <summary>
-        /// Inserts the given message and the current time stamp into the log table.
+        /// Asynchronous writes the given message to the table.
         /// </summary>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public void Log(LogTag messageTag, string message)
-        {
-            Database.Connection.Open();
-
-            LogToTable(messageTag, message);
-
-            Database.Connection.Close();
-        }
-
-        /// <summary>
-        /// Inserts the given message and the current time stamp into the log table.
-        /// </summary>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
+        /// <param name="message">The message that will be writen to the table</param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+        /// The unique id for the log entry if <see cref="BasicxLogger.FileLogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.FileLogger.UseId"/> is false.
         /// </returns>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public string LogId(string message)
-        {
-            Database.Connection.Open();
-
-            string id = IdHandler.UniqueId;
-
-            LogToTable(DefaultTag, message, id);
-
-            Database.Connection.Close();
-
-            return id;
-        }
-
-        /// <summary>
-        /// Inserts the given message and the current time stamp into the log table.
-        /// </summary>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
-        /// </returns>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public string LogId(LogTag messageTag, string message)
-        {
-            Database.Connection.Open();
-
-            string id = IdHandler.UniqueId;
-
-            LogToTable(messageTag, message, id);
-
-            Database.Connection.Close();
-
-            return id;
-        }
-
-        /// <summary>
-        /// Inserts the given message and the current time stamp into the log table.
-        /// </summary>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public void LogCustomId(string id, string message)
-        {
-            Database.Connection.Open();
-
-            LogToTable(DefaultTag, message, id);
-
-            Database.Connection.Close();
-        }
-
-        /// <summary>
-        /// Inserts the given message and the current time stamp into the log table.
-        /// </summary>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public void LogCustomId(string id, LogTag messageTag, string message)
-        {
-            Database.Connection.Open();
-
-            LogToTable(messageTag, message, id);
-
-            Database.Connection.Close();
-        }
-
-        //-Async-methods-----
-        /// <summary>
-        /// Asynchronous inserts the given message and the current time stamp into the log table.
-        /// </summary>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task LogAsync(string message)
+        public async Task<string> LogAsync(string message)
         {
             try
             {
-                Task logTask = Task.Run(() => Log(message));
+                Task<string> logTask = Task.Run(() => Log(message));
                 await logTask;
+                return logTask.Result;
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-
         /// <summary>
-        /// Asynchronous inserts the given message and the current time stamp into the log table.
+        /// Asynchronous writes the given message to table.
         /// </summary>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
+        /// <param name="message">The message that will be writen to the table</param>
         /// <param name="messageTag">
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task LogAsync(LogTag messageTag, string message)
-        {
-            try
-            {
-                Task logTask = Task.Run(() => Log(messageTag, message));
-                await logTask;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Asynchronous inserts the given message and the current time stamp into the log table.
-        /// </summary>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
         /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
+        /// The unique id for the log entry if <see cref="BasicxLogger.FileLogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.FileLogger.UseId"/> is false.
         /// </returns>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task<string> LogIdAsync(string message)
+        public async Task<string> LogAsync(LogTag messageTag, string message)
         {
             try
             {
-                Task<string> logTask = Task.Run(() => LogId(message));
+                Task<string> logTask = Task.Run(() => Log(messageTag, message));
                 await logTask;
                 return logTask.Result;
             }
@@ -326,98 +197,7 @@ namespace BasicxLogger
             }
         }
 
-        /// <summary>
-        /// Asynchronous inserts the given message and the current time stamp into the log table.
-        /// </summary>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <returns>
-        /// The message ID that was automatically assigned to the message. It can be used to identify a specific message.
-        /// </returns>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task<string> LogIdAsync(LogTag messageTag, string message)
-        {
-            try
-            {
-                Task<string> logTask = Task.Run(() => LogId(messageTag, message));
-                await logTask;
-                return logTask.Result;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
 
-        /// <summary>
-        /// Asynchronous inserts the given message and the current time stamp into the log table.
-        /// </summary>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task LogCustomIdAsync(string id, string message)
-        {
-            try
-            {
-                Task logTask = Task.Run(() => LogCustomId(id, message));
-                await logTask;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Asynchronous inserts the given message and the current time stamp into the log table.
-        /// </summary>
-        /// <param name="id">
-        /// The id of the log message
-        /// </param>
-        /// <param name="message">
-        /// The message that will be writen to the file
-        /// </param>
-        /// <param name="messageTag">
-        /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
-        /// </param>
-        /// <exception cref="System.FormatException"></exception>
-        /// <exception cref="System.AggregateException"></exception>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        /// <exception cref="System.InvalidOperationException"></exception>
-        /// <exception cref="System.Data.Common.DbException"></exception>
-        public async Task LogCustomIdAsync(string id, LogTag messageTag, string message)
-        {
-            try
-            {
-                Task logTask = Task.Run(() => LogCustomId(id, messageTag, message));
-                await logTask;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-        //-------------------
-
-        //----------------------------------------------------------------------------------------------
-
-        //-Private-Methods------------------------------------------------------------------------------
         private string GetTimestemp()
         {
             try
@@ -511,6 +291,5 @@ namespace BasicxLogger
                 throw e;
             }
         }
-        //----------------------------------------------------------------------------------------------
     }
 }

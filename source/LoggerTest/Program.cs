@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using BasicxLogger;
 using BasicxLogger.Databases;
@@ -55,15 +56,36 @@ namespace LoggerTest
 
         private void CustomTest()
         {
+            List<string> test = new List<string>();
+            test.Add("test");
+            test.Add("test");
+            test.Add("test");
+            test.Add("test");
+            test.Add("test");
+            test.Add("test");
             //---Test-code-for-any-sort-of-tests-goes-here---
             FileLogger fileLogger = new FileLogger(
                         new XmlLogFile(String.Format("{0}/{1}/", DirConfig.TestOutputDir, "CustomTest"), "Log"));
             fileLogger.Log("Test");
-            fileLogger.LogId("Test");
+            fileLogger.UseId = false;
+            fileLogger.Log("Test");
+            fileLogger.UseId = true;
 
             JsonLogger<testJson> jsonLogger = new JsonLogger<testJson>(
                 String.Format("{0}/{1}/", DirConfig.TestOutputDir, "CustomTest"), "JsonLoggerTest.json");
             jsonLogger.Log(new testJson() { test = "Test"});
+
+            FileLogger fileLogger2 = new FileLogger(
+                        new TxtLogFile(String.Format("{0}/{1}/", DirConfig.TestOutputDir, "CustomTest"), "Log"));
+            MySqlLogger mySqlLogger = new MySqlLogger(new MySqlDatabase("", "", "", ""), "");
+            MultiLogger multiLogger = new MultiLogger();
+            multiLogger.Add(fileLogger);
+            multiLogger.Add(fileLogger2);
+            foreach (ILogger i in multiLogger)
+            {
+                i.Log("123321");
+            }
+            string[] ids = multiLogger.Log("Multilogger Entry");
         }
 
         private void DefaultTest()
@@ -122,10 +144,10 @@ namespace LoggerTest
 
         private void MultiLoggerSetup()
         {
-            _multiLogger.AddLogger(_txtFileLogger);
-            _multiLogger.AddLogger(_logFileLogger);
-            _multiLogger.AddLogger(_xmlFileLogger);
-            _multiLogger.AddLogger(_jsonFileLogger);
+            _multiLogger.Add(_txtFileLogger);
+            _multiLogger.Add(_logFileLogger);
+            _multiLogger.Add(_xmlFileLogger);
+            _multiLogger.Add(_jsonFileLogger);
         }
 
         private void OutputTestStatus(bool testSuccess)

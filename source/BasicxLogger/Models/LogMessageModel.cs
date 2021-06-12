@@ -2,8 +2,9 @@
 // Created by basicx-StrgV                          //
 // https://github.com/basicx-StrgV/BasicxLogger     //
 //--------------------------------------------------//
-namespace BasicxLogger
+namespace BasicxLogger.Models
 {
+#pragma warning disable
     /// <summary>
     /// Data model for one log message in a json log file
     /// </summary>

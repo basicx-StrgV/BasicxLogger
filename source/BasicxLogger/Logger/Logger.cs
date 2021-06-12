@@ -19,10 +19,15 @@ using System.Text.Json;
 using System.Globalization;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using BasicxLogger.Models;
+using BasicxLogger.LoggerFile;
+using BasicxLogger.LoggerDirectory;
+using BasicxLogger.Message;
 
+#pragma warning disable
 namespace BasicxLogger
 {
-#pragma warning disable
+
     /// <summary>
     /// Default Logger class that contains everything needed to write a message to a log file.
     /// </summary>
@@ -1159,9 +1164,123 @@ namespace BasicxLogger
         }
         //----------------------------------------------------------------------------------------------
     }
+}
+
+namespace BasicxLogger.LoggerFile
+{
+    /// <summary>
+    /// Contains all informations about the log file
+    /// </summary>
+    [Obsolete("This class is obsolete and won't receive updates. It only exists for the also obsolete Logger class", false)]
+    public class LogFile
+    {
+        /// <summary>
+        /// Name of the log file
+        /// </summary>
+        public string Name { get; }
+        /// <summary>
+        /// File type of the log file
+        /// </summary>
+        public FileType Type { get; }
+        /// <summary>
+        /// Full file name (name + file type : e.g. sample.txt)
+        /// </summary>
+        public string FullName { get; }
+
+        /// <summary>
+        /// Constructor, to create a LogFile object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom file for the logger
+        /// </remarks>
+        /// <param name="name">
+        /// Name of the log file
+        /// </param>
+        /// <param name="type">
+        /// File type of the log file
+        /// </param>
+        public LogFile(string name, FileType type)
+        {
+            this.Name = name;
+            this.Type = type;
+            this.FullName = name + "." + type;
+        }
+    }
+    /// <summary>
+    /// Enum that contains every supported file type
+    /// </summary>
+    [Obsolete("This class is obsolete and won't receive updates. It only exists for the also obsolete Logger class", false)]
+    public enum FileType
+    {
+        /// <summary>
+        /// File type: .txt
+        /// </summary>
+        txt,
+        /// <summary>
+        /// File type: .log
+        /// </summary>
+        log,
+        /// <summary>
+        /// File type: .xml
+        /// </summary>
+        xml,
+        /// <summary>
+        /// File type: .json
+        /// </summary>
+        json
+    }
+
+}
+
+namespace BasicxLogger.LoggerDirectory
+{
+    /// <summary>
+    /// Contains all informations about the log directory
+    /// </summary>
+    [Obsolete("This class is obsolete and won't receive updates. It only exists for the also obsolete Logger class", false)]
+    public class LogDirectory
+    {
+        /// <summary>
+        /// Path were the log directory is located
+        /// </summary>
+        public string Path { get; }
+        /// <summary>
+        /// Name of the log directory
+        /// </summary>
+        public string Name { get; }
+        /// <summary>
+        /// Full directory path (path + name)
+        /// </summary>
+        public string FullPath { get; }
+
+        /// <summary>
+        /// Constructor, to create a LogDirectory object.
+        /// </summary>
+        /// <remarks>
+        /// Can be used to configure a custom directory for the logger
+        /// </remarks>
+        /// <param name="path">
+        /// Path where the directory is located
+        /// </param>
+        /// <param name="name">
+        /// Name of the log directory
+        /// </param>
+        public LogDirectory(string path, string name)
+        {
+            this.Path = path;
+            this.Name = name;
+            this.FullPath = this.Path + "\\" + this.Name;
+        }
+    }
+
+}
+
+namespace BasicxLogger.Message
+{
     /// <summary>
     /// Contains the information about the date formatting for the log message
     /// </summary>
+    [Obsolete("This class is obsolete and won't receive updates. It only exists for the also obsolete Logger class", false)]
     public class Date
     {
         /// <summary>
@@ -1231,6 +1350,7 @@ namespace BasicxLogger
     /// <summary>
     /// Enum that contains every supported date format
     /// </summary>
+    [Obsolete("This class is obsolete and won't receive updates. It only exists for the also obsolete Logger class", false)]
     public enum DateFormat
     {
         /// <summary>
@@ -1257,6 +1377,7 @@ namespace BasicxLogger
     /// <summary>
     /// Contains the information about the time formatting for the log message
     /// </summary>
+    [Obsolete("This class is obsolete and won't receive updates. It only exists for the also obsolete Logger class", false)]
     public class Time
     {
         /// <summary>
@@ -1327,6 +1448,7 @@ namespace BasicxLogger
     /// <summary>
     /// Enum that contains every supported time format
     /// </summary>
+    [Obsolete("This class is obsolete and won't receive updates. It only exists for the also obsolete Logger class", false)]
     public enum TimeFormat
     {
         /// <summary>
@@ -1361,6 +1483,7 @@ namespace BasicxLogger
     /// <summary>
     /// Contains all informations about the formatting of the log messages
     /// </summary>
+    [Obsolete("This class is obsolete and won't receive updates. It only exists for the also obsolete Logger class", false)]
     public class MessageFormat
     {
         /// <summary>
@@ -1543,6 +1666,7 @@ namespace BasicxLogger
     /// <summary>
     /// Enum that contains every message tag you can use
     /// </summary>
+    [Obsolete("This class is obsolete and won't receive updates. It only exists for the also obsolete Logger class", false)]
     public enum Tag
     {
         /// <summary>
@@ -1589,101 +1713,5 @@ namespace BasicxLogger
         /// If you dont want to have a tag
         /// </summary>
         none
-    }
-    /// <summary>
-    /// Contains all informations about the log directory
-    /// </summary>
-    public class LogDirectory
-    {
-        /// <summary>
-        /// Path were the log directory is located
-        /// </summary>
-        public string Path { get; }
-        /// <summary>
-        /// Name of the log directory
-        /// </summary>
-        public string Name { get; }
-        /// <summary>
-        /// Full directory path (path + name)
-        /// </summary>
-        public string FullPath { get; }
-
-        /// <summary>
-        /// Constructor, to create a LogDirectory object.
-        /// </summary>
-        /// <remarks>
-        /// Can be used to configure a custom directory for the logger
-        /// </remarks>
-        /// <param name="path">
-        /// Path where the directory is located
-        /// </param>
-        /// <param name="name">
-        /// Name of the log directory
-        /// </param>
-        public LogDirectory(string path, string name)
-        {
-            this.Path = path;
-            this.Name = name;
-            this.FullPath = this.Path + "\\" + this.Name;
-        }
-    }
-    /// <summary>
-    /// Contains all informations about the log file
-    /// </summary>
-    public class LogFile
-    {
-        /// <summary>
-        /// Name of the log file
-        /// </summary>
-        public string Name { get; }
-        /// <summary>
-        /// File type of the log file
-        /// </summary>
-        public FileType Type { get; }
-        /// <summary>
-        /// Full file name (name + file type : e.g. sample.txt)
-        /// </summary>
-        public string FullName { get; }
-
-        /// <summary>
-        /// Constructor, to create a LogFile object.
-        /// </summary>
-        /// <remarks>
-        /// Can be used to configure a custom file for the logger
-        /// </remarks>
-        /// <param name="name">
-        /// Name of the log file
-        /// </param>
-        /// <param name="type">
-        /// File type of the log file
-        /// </param>
-        public LogFile(string name, FileType type)
-        {
-            this.Name = name;
-            this.Type = type;
-            this.FullName = name + "." + type;
-        }
-    }
-    /// <summary>
-    /// Enum that contains every supported file type
-    /// </summary>
-    public enum FileType
-    {
-        /// <summary>
-        /// File type: .txt
-        /// </summary>
-        txt,
-        /// <summary>
-        /// File type: .log
-        /// </summary>
-        log,
-        /// <summary>
-        /// File type: .xml
-        /// </summary>
-        xml,
-        /// <summary>
-        /// File type: .json
-        /// </summary>
-        json
     }
 }
