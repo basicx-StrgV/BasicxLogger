@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Company>-</Company>
     <Authors>basicx-StrgV</Authors>
-    <Description>An easy and simple logger that can be fully customized</Description>
+    <Description>An easy and simple logger library for dotnet</Description>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://basicx-strgv.github.io/BasicxLogger/</PackageProjectUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>

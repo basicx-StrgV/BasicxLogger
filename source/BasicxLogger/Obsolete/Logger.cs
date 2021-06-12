@@ -34,7 +34,7 @@ namespace BasicxLogger
     /// <remarks>
     /// This logger supports the following file formats: txt, log, xml and json
     /// </remarks>
-    [Obsolete("The Logger class is obsolete and won't receive updates. Please use the FileLogger class instead", false)]
+    [Obsolete("The Logger class is obsolete and will be removed with the next update. Please use the FileLogger class instead", true)]
     public class Logger
     {
         //-Properties-----------------------------------------------------------------------------------
