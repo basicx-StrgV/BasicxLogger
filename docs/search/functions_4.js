@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['jsonlogger_113',['JsonLogger',['../a00090.html#a1e7c483bf2eb33b2b057e3c8fcfbd950',1,'BasicxLogger.JsonLogger.JsonLogger()'],['../a00090.html#adfbf85caa6268549d7948207069a8a72',1,'BasicxLogger.JsonLogger.JsonLogger(string fileName)'],['../a00090.html#ad8ce416e5d30729c631211c0d6143b23',1,'BasicxLogger.JsonLogger.JsonLogger(string fileName, LogDirectory logDirectory)'],['../a00090.html#a81c193a48dbe5387f86bd1e1e07e77f8',1,'BasicxLogger.JsonLogger.JsonLogger(LogDirectory logDirectory)'],['../a00090.html#afcc03e57cee66a007331e84e41297437',1,'BasicxLogger.JsonLogger.JsonLogger(LogDirectory logDirectory, string fileName)']]]
+  ['getenumerator_110',['GetEnumerator',['../a00136.html#ad19476cfb4d976e78979b64394b9adeb',1,'BasicxLogger::MultiLogger']]],
+  ['gettimestamp_111',['GetTimestamp',['../a00104.html#a14400de9e979afb926056b12c254981f',1,'BasicxLogger::Timestamp']]]
 ];

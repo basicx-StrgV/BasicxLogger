@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['time_102',['Time',['../a00126.html',1,'BasicxLogger::Message']]]
+  ['nologgeraddedexception_95',['NoLoggerAddedException',['../a00108.html',1,'BasicxLogger::Exceptions']]]
 ];

@@ -1,16 +1,11 @@
 var searchData=
 [
-  ['database_10',['database',['../a00106.html#a770b3172adbf0820f51f547ca33e7d80',1,'BasicxLogger::LoggerDatabase::MySqlDatabase']]],
-  ['date_11',['Date',['../a00118.html',1,'BasicxLogger::Message']]],
-  ['date_12',['date',['../a00122.html#a0e8babf57d749fd886535dc105e6f138',1,'BasicxLogger::Message::MessageFormat']]],
-  ['date_13',['Date',['../a00118.html#a0082ebff1b8fd7b9d3e1581eac0ae913',1,'BasicxLogger.Message.Date.Date(DateFormat dateFormat)'],['../a00118.html#aec948ea4da24d7515ad15e4c0d2774ce',1,'BasicxLogger.Message.Date.Date(DateFormat dateFormat, char dateSeparator)']]],
-  ['dateformat_14',['dateFormat',['../a00118.html#ab2eefc2ec030bc51410ca220bdbec168',1,'BasicxLogger::Message::Date']]],
-  ['dateformat_15',['DateFormat',['../a00060.html#a6b2f42cc9ece472692bb6249abe5224e',1,'BasicxLogger::Message']]],
-  ['dateformatstring_16',['dateFormatString',['../a00118.html#aed9cd46028bf8c4b25d48c2dacaaef46',1,'BasicxLogger::Message::Date']]],
-  ['dateseparator_17',['dateSeparator',['../a00118.html#a835e04d406d01050d6ab36282c808092',1,'BasicxLogger::Message::Date']]],
-  ['day_5fmonth_5fyear_18',['day_month_year',['../a00060.html#a6b2f42cc9ece472692bb6249abe5224eada2887fe1086747044b770e275de9ded',1,'BasicxLogger::Message']]],
-  ['debugging_19',['DEBUGGING',['../a00060.html#a4d52c49464175c0f10fd6fb0a937ca23a6e0d2a351777f8e1349133544e885f8a',1,'BasicxLogger::Message']]],
-  ['defaulttag_20',['defaultTag',['../a00122.html#a4d00b58a6581199cb0029379bac6aa18',1,'BasicxLogger::Message::MessageFormat']]],
-  ['deletelogfile_21',['deleteLogFile',['../a00082.html#a7477b47abbf70bb68076d4a914d71e2d',1,'BasicxLogger.FileLogger.deleteLogFile()'],['../a00090.html#a2e41dad5b02a86bae0e7f86398d02efb',1,'BasicxLogger.JsonLogger.deleteLogFile()'],['../a00094.html#a41397b451bac8d51fe0478e930220457',1,'BasicxLogger.Logger.deleteLogFile()']]],
-  ['directory_22',['directory',['../a00110.html#aa999f05361523ee7ac60227789a21687',1,'BasicxLogger::LoggerDirectory::LogDirectory']]]
+  ['database_13',['Database',['../a00080.html#acd05c9e42dac48c97530e13a6d9e6905',1,'BasicxLogger.Databases.MySqlDatabase.Database()'],['../a00112.html#ae4e55186a4f1000bce26bdfd421b2638',1,'BasicxLogger.Databases.ILogDatabase.Database()'],['../a00124.html#a7d7e853e00c6f1c830e08375294ef66d',1,'BasicxLogger.DatabaseLogger.Database()']]],
+  ['databaselogger_14',['DatabaseLogger',['../a00124.html',1,'BasicxLogger.DatabaseLogger'],['../a00124.html#a6b4913c2cf078baf1c1faa1e0499f088',1,'BasicxLogger.DatabaseLogger.DatabaseLogger()']]],
+  ['dateseparator_15',['DateSeparator',['../a00104.html#aa6197b3e6b7b3a081586c76e3dae08a5',1,'BasicxLogger::Timestamp']]],
+  ['day_5fmonth_5fyear_5fhour12_5fmin_5fsec_16',['Day_Month_Year_Hour12_Min_Sec',['../a00104.html#a4e44c8a4c4eeb7c924ceb27f64761d16',1,'BasicxLogger::Timestamp']]],
+  ['day_5fmonth_5fyear_5fhour24_5fmin_5fsec_17',['Day_Month_Year_Hour24_Min_Sec',['../a00104.html#ab094e02bb191a113c7cbd9950cecf41a',1,'BasicxLogger::Timestamp']]],
+  ['debugging_18',['DEBUGGING',['../a00062.html#a0768f6cb40899c29cccd5471f354b2b5a6e0d2a351777f8e1349133544e885f8a',1,'BasicxLogger']]],
+  ['defaulttag_19',['DefaultTag',['../a00120.html#aa179706451dc7baf49a2b9da05f5d8d5',1,'BasicxLogger.ILogger.DefaultTag()'],['../a00124.html#a494a2575a8fd69a34521fd1827cdf691',1,'BasicxLogger.DatabaseLogger.DefaultTag()'],['../a00128.html#a2db04e7ff7d6f2a20f608cb2af52598c',1,'BasicxLogger.FileLogger.DefaultTag()']]],
+  ['directoryname_20',['DirectoryName',['../a00084.html#a7bce630184811e5f175f1549f90dc95a',1,'BasicxLogger.Files.JsonLogFile.DirectoryName()'],['../a00088.html#add3dc74a11107d89c2b81f3bf77a3d90',1,'BasicxLogger.Files.LogLogFile.DirectoryName()'],['../a00092.html#a26670187e893a657b4a26136a1d2de6b',1,'BasicxLogger.Files.TxtLogFile.DirectoryName()'],['../a00096.html#a989af394e931b432ace1cf9b85dc9855',1,'BasicxLogger.Files.XmlLogFile.DirectoryName()'],['../a00116.html#ac5726429a5cca85369ebb832493d417e',1,'BasicxLogger.Files.ILogFile.DirectoryName()']]]
 ];

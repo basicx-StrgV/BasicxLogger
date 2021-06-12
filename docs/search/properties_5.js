@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['messageformat_170',['messageFormat',['../a00082.html#a485393b5830edd703ac10a5de176ac9f',1,'BasicxLogger.FileLogger.messageFormat()'],['../a00094.html#a2751ddb79cb17d32d75e161ed0d2bd1a',1,'BasicxLogger.Logger.messageFormat()']]],
-  ['mysqldatabase_171',['mySqlDatabase',['../a00102.html#a030d9a1be34ef687fe5aab8ed871eedc',1,'BasicxLogger::MySqlLogger']]]
+  ['logfile_155',['LogFile',['../a00128.html#a4e6d299e79334fd1da30f04407b4bce0',1,'BasicxLogger.FileLogger.LogFile()'],['../a00132.html#ad65c6308350d2ea61df7abbbe1a41473',1,'BasicxLogger.JsonLogger.LogFile()']]]
 ];

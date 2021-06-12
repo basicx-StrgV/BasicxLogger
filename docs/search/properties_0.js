@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['connection_155',['connection',['../a00106.html#af27fb88e827fd86faeaa0e56586b083e',1,'BasicxLogger::LoggerDatabase::MySqlDatabase']]],
-  ['connectionstring_156',['connectionString',['../a00106.html#ad277e81efed77ee4c8db5823b11ab147',1,'BasicxLogger::LoggerDatabase::MySqlDatabase']]],
-  ['cultureinfo_157',['cultureInfo',['../a00126.html#ac9229cd948bc874155c80e5b7be5e667',1,'BasicxLogger::Message::Time']]]
+  ['count_141',['Count',['../a00136.html#a96de394afef77a06bec6b95dad032eb3',1,'BasicxLogger::MultiLogger']]],
+  ['culture_142',['Culture',['../a00104.html#ad930b02283010655d1f204a67be4e827',1,'BasicxLogger::Timestamp']]]
 ];

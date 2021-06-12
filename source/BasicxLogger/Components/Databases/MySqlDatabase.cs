@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 namespace BasicxLogger.Databases
 {
     /// <summary>
-    /// Holds all informations about the MySqlDatabase used for logging
+    /// Class that represents a database
     /// </summary>
     public class MySqlDatabase : ILogDatabase
     {

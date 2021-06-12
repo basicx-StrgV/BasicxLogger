@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getfullfilepath_112',['getFullFilePath',['../a00082.html#a063f1a2d1536ff0ee5ab5b2480d7266d',1,'BasicxLogger.FileLogger.getFullFilePath()'],['../a00090.html#aa1aaef7f4d56059089ce1e345c40c490',1,'BasicxLogger.JsonLogger.getFullFilePath()'],['../a00094.html#a9f57414379bfdd71997ce1d3ec237932',1,'BasicxLogger.Logger.getFullFilePath()']]]
+  ['filelogger_109',['FileLogger',['../a00128.html#a538065ee3f2004fe353d94df70574f86',1,'BasicxLogger.FileLogger.FileLogger()'],['../a00128.html#a06e52f718015c8bb557c9577e8096c21',1,'BasicxLogger.FileLogger.FileLogger(ILogFile logFile)']]]
 ];

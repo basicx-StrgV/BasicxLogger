@@ -6,7 +6,7 @@
     <members>
         <member name="T:BasicxLogger.Databases.MySqlDatabase">
             <summary>
-            Holds all informations about the MySqlDatabase used for logging
+            Class that represents a database
             </summary>
         </member>
         <member name="P:BasicxLogger.Databases.MySqlDatabase.Server">
@@ -43,6 +43,35 @@
             <param name="sslMode">SSL Mode setting</param>
         </member>
         <member name="M:BasicxLogger.Databases.MySqlDatabase.LogToDatabase(BasicxLogger.LogTag,System.String,System.String,System.String)">
+            <summary>
+            Writes a log message with the given data to the Table in the Database.
+            </summary>
+            <param name="messageTag">The message tag for the log message</param>
+            <param name="timestamp">The timestamp for the log message</param>
+            <param name="message">The message that should be logged</param>
+            <param name="id">The id for the log message</param>
+        </member>
+        <member name="T:BasicxLogger.Databases.ILogDatabase">
+            <summary>
+            Interface that represents a database for the <see cref="T:BasicxLogger.DatabaseLogger"/>
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Databases.ILogDatabase.Server">
+            <summary>
+            URL of the database server
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Databases.ILogDatabase.Database">
+            <summary>
+            Name of the database that will contain the logs
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Databases.ILogDatabase.Table">
+            <summary>
+            Name of the table the logger will create and insert logs into
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Databases.ILogDatabase.LogToDatabase(BasicxLogger.LogTag,System.String,System.String,System.String)">
             <summary>
             Writes a log message with the given data to the Table in the Database.
             </summary>
@@ -215,6 +244,40 @@
         <member name="M:BasicxLogger.Files.XmlLogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
             <summary>
             Writes a log message with the given data to the log file
+            </summary>
+            <param name="messageTag">The message tag for the log message</param>
+            <param name="timestamp">The timestamp for the log message</param>
+            <param name="message">The message that should be logged</param>
+            <param name="id">The id for the log message</param>
+        </member>
+        <member name="T:BasicxLogger.Files.ILogFile">
+            <summary>
+            Interface that represents a file for the <see cref="T:BasicxLogger.FileLogger"/>
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Files.ILogFile.TextEncoding">
+            <summary>
+            Gets or Sets the text encoding for the file.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Files.ILogFile.DirectoryName">
+            <summary>
+            Gets a string representing the directory's full path.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Files.ILogFile.FullName">
+            <summary>
+            Gets the full path of the file.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Files.ILogFile.Extension">
+            <summary>
+            Gets the string representing the extension part of the file.
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Files.ILogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
+            <summary>
+            Writes a log message with the given data to the log file.
             </summary>
             <param name="messageTag">The message tag for the log message</param>
             <param name="timestamp">The timestamp for the log message</param>
@@ -407,69 +470,6 @@
             Initializes a new instance of the <see cref="T:BasicxLogger.Exceptions.NoLoggerAddedException"/> class
             </summary>
         </member>
-        <member name="T:BasicxLogger.ILogDatabase">
-            <summary>
-            Interface that represents a database for the <see cref="T:BasicxLogger.DatabaseLogger"/>
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.ILogDatabase.Server">
-            <summary>
-            URL of the database server
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.ILogDatabase.Database">
-            <summary>
-            Name of the database that will contain the logs
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.ILogDatabase.Table">
-            <summary>
-            Name of the table the logger will create and insert logs into
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.ILogDatabase.LogToDatabase(BasicxLogger.LogTag,System.String,System.String,System.String)">
-            <summary>
-            Writes a log message with the given data to the Table in the Database.
-            </summary>
-            <param name="messageTag">The message tag for the log message</param>
-            <param name="timestamp">The timestamp for the log message</param>
-            <param name="message">The message that should be logged</param>
-            <param name="id">The id for the log message</param>
-        </member>
-        <member name="T:BasicxLogger.ILogFile">
-            <summary>
-            Interface that represents a file for the <see cref="T:BasicxLogger.FileLogger"/>
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.ILogFile.TextEncoding">
-            <summary>
-            Gets or Sets the text encoding for the file.
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.ILogFile.DirectoryName">
-            <summary>
-            Gets a string representing the directory's full path.
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.ILogFile.FullName">
-            <summary>
-            Gets the full path of the file.
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.ILogFile.Extension">
-            <summary>
-            Gets the string representing the extension part of the file.
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.ILogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
-            <summary>
-            Writes a log message with the given data to the log file.
-            </summary>
-            <param name="messageTag">The message tag for the log message</param>
-            <param name="timestamp">The timestamp for the log message</param>
-            <param name="message">The message that should be logged</param>
-            <param name="id">The id for the log message</param>
-        </member>
         <member name="T:BasicxLogger.ILogger">
             <summary>
             Interface for BasicxLogger
@@ -561,7 +561,7 @@
             Gets or Sets if each log entry should contain a unique id or not.
             </summary>
         </member>
-        <member name="M:BasicxLogger.DatabaseLogger.#ctor(BasicxLogger.ILogDatabase)">
+        <member name="M:BasicxLogger.DatabaseLogger.#ctor(BasicxLogger.Databases.ILogDatabase)">
             <summary>
             Initializes a new instance of the <see cref="T:BasicxLogger.DatabaseLogger"/> class.
             </summary>
@@ -623,7 +623,7 @@
         </member>
         <member name="P:BasicxLogger.FileLogger.LogFile">
             <summary>
-            Gets the <see cref="T:BasicxLogger.ILogFile"/> that is used by the logger.
+            Gets the <see cref="!:BasicxLogger.ILogFile"/> that is used by the logger.
             </summary>
         </member>
         <member name="P:BasicxLogger.FileLogger.MessageTimestamp">
@@ -647,7 +647,7 @@
             that uses the default settings.
             </summary>
         </member>
-        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.ILogFile)">
+        <member name="M:BasicxLogger.FileLogger.#ctor(BasicxLogger.Files.ILogFile)">
             <summary>
             Initializes a new instance of the <see cref="T:BasicxLogger.FileLogger"/> class.
             </summary>
@@ -899,12 +899,12 @@
         </member>
         <member name="M:BasicxLogger.MultiLogger.CopyTo(BasicxLogger.ILogger[],System.Int32)">
             <summary>
-            Copies the elements of the <see cref="T:BasicxLogger.MultiLogger"/> to an <seealso cref="T:System.Array"/>,
-            starting at a particular <seealso cref="T:System.Array"/> index.
+            Copies the elements of the <see cref="T:BasicxLogger.MultiLogger"/> to an <see cref="T:System.Array"/>,
+            starting at a particular <see cref="T:System.Array"/> index.
             </summary>
             <param name="array">
             The one-dimensional System.Array that is the destination of the elements copied 
-            from <see cref="T:BasicxLogger.MultiLogger"/>. The <seealso cref="T:System.Array"/> must have zero-based indexing.
+            from <see cref="T:BasicxLogger.MultiLogger"/>. The <see cref="T:System.Array"/> must have zero-based indexing.
             </param>
             <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
             <exception cref="T:System.ArgumentNullException">array is null.</exception>

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['time_178',['time',['../a00122.html#af2a0ff7307b89488a4862d22085d439c',1,'BasicxLogger::Message::MessageFormat']]],
-  ['timeformat_179',['timeFormat',['../a00126.html#a2885d6df82be0d80e25521720d25789d',1,'BasicxLogger::Message::Time']]],
-  ['timeformatstring_180',['timeFormatString',['../a00126.html#a20b4b77ac6ae0a8fc0b1f31a3a22ad72',1,'BasicxLogger::Message::Time']]],
-  ['type_181',['type',['../a00114.html#a52466413b3e075bf0b73281cc6007bab',1,'BasicxLogger::LoggerFile::LogFile']]]
+  ['uniqueid_166',['UniqueId',['../a00100.html#a8dd271923e3c6ac7af3b526f2691fe25',1,'BasicxLogger::IdHandler']]],
+  ['useid_167',['UseId',['../a00120.html#a3656c33eff5f49a5feccf0c18cd9ae32',1,'BasicxLogger.ILogger.UseId()'],['../a00124.html#a1e9286a3ab7fcc23da8958648186fafd',1,'BasicxLogger.DatabaseLogger.UseId()'],['../a00128.html#a48a1c426d0115309dc19c68a31b9dabe',1,'BasicxLogger.FileLogger.UseId()']]]
 ];

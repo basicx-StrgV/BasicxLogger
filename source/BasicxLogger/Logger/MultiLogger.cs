@@ -289,12 +289,12 @@ namespace BasicxLogger
             return _loggerList.Contains(item);
         }
         /// <summary>
-        /// Copies the elements of the <see cref="BasicxLogger.MultiLogger"/> to an <seealso cref="System.Array"/>,
-        /// starting at a particular <seealso cref="System.Array"/> index.
+        /// Copies the elements of the <see cref="BasicxLogger.MultiLogger"/> to an <see cref="System.Array"/>,
+        /// starting at a particular <see cref="System.Array"/> index.
         /// </summary>
         /// <param name="array">
         /// The one-dimensional System.Array that is the destination of the elements copied 
-        /// from <see cref="BasicxLogger.MultiLogger"/>. The <seealso cref="System.Array"/> must have zero-based indexing.
+        /// from <see cref="BasicxLogger.MultiLogger"/>. The <see cref="System.Array"/> must have zero-based indexing.
         /// </param>
         /// <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
         /// <exception cref="System.ArgumentNullException">array is null.</exception>

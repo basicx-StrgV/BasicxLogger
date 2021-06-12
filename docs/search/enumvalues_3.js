@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fatal_137',['FATAL',['../a00060.html#a4d52c49464175c0f10fd6fb0a937ca23a19da7170bea36556dde582519795f3fc',1,'BasicxLogger::Message']]]
+  ['fatal_135',['FATAL',['../a00062.html#a0768f6cb40899c29cccd5471f354b2b5a19da7170bea36556dde582519795f3fc',1,'BasicxLogger']]]
 ];

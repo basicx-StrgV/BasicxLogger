@@ -1,27 +1,31 @@
 var annotated_dup =
 [
-    [ "BasicxLogger", "a00056.html", [
-      [ "LoggerDatabase", "a00057.html", [
-        [ "MySqlDatabase", "a00106.html", "a00106" ]
+    [ "BasicxLogger", "a00062.html", [
+      [ "Databases", "a00063.html", [
+        [ "MySqlDatabase", "a00080.html", "a00080" ],
+        [ "ILogDatabase", "a00112.html", "a00112" ]
       ] ],
-      [ "LoggerDirectory", "a00058.html", [
-        [ "LogDirectory", "a00110.html", "a00110" ]
+      [ "Exceptions", "a00065.html", [
+        [ "NoLoggerAddedException", "a00108.html", "a00108" ]
       ] ],
-      [ "LoggerFile", "a00059.html", [
-        [ "LogFile", "a00114.html", "a00114" ]
+      [ "Files", "a00064.html", [
+        [ "JsonLogFile", "a00084.html", "a00084" ],
+        [ "LogLogFile", "a00088.html", "a00088" ],
+        [ "TxtLogFile", "a00092.html", "a00092" ],
+        [ "XmlLogFile", "a00096.html", "a00096" ],
+        [ "ILogFile", "a00116.html", "a00116" ]
       ] ],
-      [ "Message", "a00060.html", [
-        [ "Date", "a00118.html", "a00118" ],
-        [ "MessageFormat", "a00122.html", "a00122" ],
-        [ "Time", "a00126.html", "a00126" ]
+      [ "Models", "a00066.html", [
+        [ "CustomJsonLogModel", "a00140.html", "a00140" ],
+        [ "JsonLogModel", "a00144.html", "a00144" ],
+        [ "LogMessageModel", "a00148.html", "a00148" ]
       ] ],
-      [ "NoLoggerAddedException", "a00074.html", "a00074" ],
-      [ "ILogger", "a00078.html", "a00078" ],
-      [ "FileLogger", "a00082.html", "a00082" ],
-      [ "LogMessage", "a00086.html", "a00086" ],
-      [ "JsonLogger", "a00090.html", "a00090" ],
-      [ "Logger", "a00094.html", "a00094" ],
-      [ "MultiLogger", "a00098.html", "a00098" ],
-      [ "MySqlLogger", "a00102.html", "a00102" ]
+      [ "IdHandler", "a00100.html", "a00100" ],
+      [ "Timestamp", "a00104.html", "a00104" ],
+      [ "ILogger", "a00120.html", "a00120" ],
+      [ "DatabaseLogger", "a00124.html", "a00124" ],
+      [ "FileLogger", "a00128.html", "a00128" ],
+      [ "JsonLogger", "a00132.html", "a00132" ],
+      [ "MultiLogger", "a00136.html", "a00136" ]
     ] ]
 ];

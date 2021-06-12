@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['hour12_5fmin_31',['hour12_min',['../a00060.html#af146436e4f41a81c5f0bd8d395616510ac1c4d6769c9188c487a10d433c550c84',1,'BasicxLogger::Message']]],
-  ['hour12_5fmin_5fsec_32',['hour12_min_sec',['../a00060.html#af146436e4f41a81c5f0bd8d395616510a4e755abc1d2b08ba2e8b33254684bfb7',1,'BasicxLogger::Message']]],
-  ['hour12_5fmin_5fsec_5fmillisec_33',['hour12_min_sec_millisec',['../a00060.html#af146436e4f41a81c5f0bd8d395616510acfcd2646ae3508274db15efcf00fcab3',1,'BasicxLogger::Message']]],
-  ['hour24_5fmin_34',['hour24_min',['../a00060.html#af146436e4f41a81c5f0bd8d395616510ac331f22043b329aebd52645740a7b5f9',1,'BasicxLogger::Message']]],
-  ['hour24_5fmin_5fsec_35',['hour24_min_sec',['../a00060.html#af146436e4f41a81c5f0bd8d395616510a006d28d5c44e89c9599731b43d0afd80',1,'BasicxLogger::Message']]],
-  ['hour24_5fmin_5fsec_5fmillisec_36',['hour24_min_sec_millisec',['../a00060.html#af146436e4f41a81c5f0bd8d395616510a7010f3d2104163b226a32f6a07b9ca6d',1,'BasicxLogger::Message']]]
+  ['id_32',['id',['../a00148.html#a2e590a7f3796a21a9324cb7a2cd1a896',1,'BasicxLogger::Models::LogMessageModel']]],
+  ['idhandler_33',['IdHandler',['../a00100.html',1,'BasicxLogger']]],
+  ['ilogdatabase_34',['ILogDatabase',['../a00112.html',1,'BasicxLogger::Databases']]],
+  ['ilogfile_35',['ILogFile',['../a00116.html',1,'BasicxLogger::Files']]],
+  ['ilogger_36',['ILogger',['../a00120.html',1,'BasicxLogger']]],
+  ['indexof_37',['IndexOf',['../a00136.html#a2d2bef198c4cd93e0519ef473224c9b6',1,'BasicxLogger::MultiLogger']]],
+  ['info_38',['INFO',['../a00062.html#a0768f6cb40899c29cccd5471f354b2b5a551b723eafd6a31d444fcb2f5920fbd3',1,'BasicxLogger']]],
+  ['insert_39',['Insert',['../a00136.html#af8f7c58ac2cf35125b414db52b003131',1,'BasicxLogger::MultiLogger']]],
+  ['isreadonly_40',['IsReadOnly',['../a00136.html#a1b03c8d42d210035c3e80204f0451846',1,'BasicxLogger::MultiLogger']]]
 ];

@@ -4,7 +4,7 @@
 //--------------------------------------------------//
 using System.Text;
 
-namespace BasicxLogger
+namespace BasicxLogger.Files
 {
     /// <summary>
     /// Interface that represents a file for the <see cref="BasicxLogger.FileLogger"/>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dateformat_127',['DateFormat',['../a00060.html#a6b2f42cc9ece472692bb6249abe5224e',1,'BasicxLogger::Message']]]
+  ['logtag_129',['LogTag',['../a00062.html#a0768f6cb40899c29cccd5471f354b2b5',1,'BasicxLogger']]]
 ];

@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['connection_7',['connection',['../a00106.html#af27fb88e827fd86faeaa0e56586b083e',1,'BasicxLogger::LoggerDatabase::MySqlDatabase']]],
-  ['connectionstring_8',['connectionString',['../a00106.html#ad277e81efed77ee4c8db5823b11ab147',1,'BasicxLogger::LoggerDatabase::MySqlDatabase']]],
-  ['cultureinfo_9',['cultureInfo',['../a00126.html#ac9229cd948bc874155c80e5b7be5e667',1,'BasicxLogger::Message::Time']]]
+  ['clear_7',['Clear',['../a00136.html#a660096917341e23b715bee4e17de637d',1,'BasicxLogger::MultiLogger']]],
+  ['contains_8',['Contains',['../a00136.html#aad62bb754615be9eadcfc816e620b376',1,'BasicxLogger::MultiLogger']]],
+  ['copyto_9',['CopyTo',['../a00136.html#af81fd123f8f75121e77e5302aa6cb756',1,'BasicxLogger::MultiLogger']]],
+  ['count_10',['Count',['../a00136.html#a96de394afef77a06bec6b95dad032eb3',1,'BasicxLogger::MultiLogger']]],
+  ['culture_11',['Culture',['../a00104.html#ad930b02283010655d1f204a67be4e827',1,'BasicxLogger::Timestamp']]],
+  ['customjsonlogmodel_12',['CustomJsonLogModel',['../a00140.html',1,'BasicxLogger::Models']]]
 ];

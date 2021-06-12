@@ -9,25 +9,20 @@
 ## ⭐ Features
 
 - Easy to use
-- File logging can be used without configuration
-- Fully customizable
+- Customizable
+- File logging
+- Database logging
+- Json object logging
 - Use tags to easier differentiate between different log messages
 - Log messages with IDs to easier locate them in a big log file
 - Asynchronous logging
-- File logging supports different file formats
-  - txt
-  - log
-  - xml
-  - json
+- Multi logging
 
-- Log to a MySQL database
-- Log your owne objects to a json file
-- Log to multiple files and/or databases at ones
 
 ## 📄 Logger
 
 - FileLogger
-- MySqlLogger
+- DatabaseLogger
 - JsonLogger
 - MultiLogger
 
@@ -38,84 +33,3 @@ You can get the nuget package here: https://www.nuget.org/packages/BasicxLogger/
 ## 📖 Documentation
 
 You can finde the documentation here: https://basicx-strgv.github.io/BasicxLogger/
-
-## 📋 Samples
-
-### FileLogger
-```cs
-using BasicxLogger;
-
-namespace Sample
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            //Create a logger object
-            FileLogger logger = new FileLogger();
-            //Write a log message
-            logger.log("SampleMessage");
-            /* 
-              Path: C:\myProgramRunningDirectory\Logs\log.txt 
-              Output in the log file:
-              [2021/05/13 11:25:38] SampleMessage
-            */
-        }
-    }
-}
-```
-
-### FileLogger (Custom File and Directory)
-```cs
-using BasicxLogger;
-using BasicxLogger.LoggerFile;
-using BasicxLogger.LoggerDirectory;
-
-namespace Sample
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            //Create a logger object
-            FileLogger logger = new FileLogger(
-                new LogFile("myLogFile", LogFileType.txt),
-                new LogDirectory("C:\\Program Files", "myProgramFolder"));
-            //Write a log message
-            logger.log("SampleMessage");
-            /* 
-              Path: C:\Program Files\myProgramFolder\myLogFile.txt
-              Output in the log file:
-              [2021/05/13 11:25:38] SampleMessage
-            */
-        }
-    }
-}
-```
-
-### FileLogger (Custom Message)
-```cs
-using BasicxLogger;
-using BasicxLogger.Message;
-
-namespace Sample
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            //Create a logger object
-            FileLogger logger = new FileLogger(
-				new MessageFormat(
-					new Date(DateFormat.day_month_year, '.')));
-            //Write a log message
-            logger.log("SampleMessage");
-            /* 
-              Path: C:\myProgramRunningDirectory\Logs\log.txt 
-              Output in the log file:
-              [13.05.2021 11:25:38] SampleMessage
-            */
-        }
-    }
-}
-```
