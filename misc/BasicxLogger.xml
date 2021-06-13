@@ -812,6 +812,9 @@
             <returns>
             A string array conataining all message id's that each logger returned.
             </returns>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException">
+            The <see cref="T:BasicxLogger.MultiLogger"/> does not contain any <see cref="T:BasicxLogger.ILogger"/>.
+            </exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.Log(BasicxLogger.LogTag,System.String)">
             <summary>
@@ -825,6 +828,9 @@
             <returns>
             A string array conataining all message id's that each logger returned.
             </returns>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException">
+            The <see cref="T:BasicxLogger.MultiLogger"/> does not contain any <see cref="T:BasicxLogger.ILogger"/>.
+            </exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogAsync(System.String)">
             <summary>
@@ -835,6 +841,9 @@
             <returns>
             A string array conataining all message id's that each logger returned.
             </returns>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException">
+            The <see cref="T:BasicxLogger.MultiLogger"/> does not contain any <see cref="T:BasicxLogger.ILogger"/>.
+            </exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.LogAsync(BasicxLogger.LogTag,System.String)">
             <summary>
@@ -848,6 +857,9 @@
             <returns>
             A string array conataining all message id's that each logger returned.
             </returns>
+            <exception cref="T:BasicxLogger.Exceptions.NoLoggerAddedException">
+            The <see cref="T:BasicxLogger.MultiLogger"/> does not contain any <see cref="T:BasicxLogger.ILogger"/>.
+            </exception>
         </member>
         <member name="M:BasicxLogger.MultiLogger.IndexOf(BasicxLogger.ILogger)">
             <summary>

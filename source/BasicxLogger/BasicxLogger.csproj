@@ -11,23 +11,8 @@
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
     <PackageTags>logger, logging, C#, .NET-Standard, netcore</PackageTags>
-    <PackageReleaseNotes>- Added a FileLogger class (Replaces the Logger class)
-- Added a JsonLogger class
-- Added a DatabaseLogger class
-- Added a MultiLogger class
-- Added file classes, that represents FileLogger supported files
-          - TxtLogFile
-          - LogLogFile
-          - XmlLogFile
-          - JsonLogFile
-- Added database classes, that represents DatabaseLogger supported databases
-          - MySqlDatabase
-- Added ILogFile interface
-- Added ILogDatabase interface
-- Changed the ILogger interface to fit the new logger classes
-
-More infos: https://basicx-strgv.github.io/BasicxLogger/</PackageReleaseNotes>
-    <Version>2.0.0</Version>
+    <PackageReleaseNotes>- Fixed the exception handling in the MultiLogger class</PackageReleaseNotes>
+    <Version>2.0.1</Version>
     <PackageIconUrl />
     <ApplicationIcon />
     <OutputType>Library</OutputType>

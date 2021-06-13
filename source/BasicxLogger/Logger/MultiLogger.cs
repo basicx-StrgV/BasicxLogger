@@ -15,6 +15,7 @@ using System;
 using System.Collections;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using BasicxLogger.Exceptions;
 
 namespace BasicxLogger
 {
@@ -78,8 +79,16 @@ namespace BasicxLogger
         /// <returns>
         /// A string array conataining all message id's that each logger returned.
         /// </returns>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException">
+        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.ILogger"/>.
+        /// </exception>
         public string[] Log(string message)
         {
+            if (_loggerList.Count <= 0)
+            {
+                throw new NoLoggerAddedException("MultiLogger does not contain any ILogger to log with.");
+            }
+
             try
             {
                 List<string> idList = new List<string>();
@@ -117,8 +126,16 @@ namespace BasicxLogger
         /// <returns>
         /// A string array conataining all message id's that each logger returned.
         /// </returns>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException">
+        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.ILogger"/>.
+        /// </exception>
         public string[] Log(LogTag messageTag, string message)
         {
+            if (_loggerList.Count <= 0)
+            {
+                throw new NoLoggerAddedException("MultiLogger does not contain any ILogger to log with.");
+            }
+
             try 
             {
                 List<string> idList = new List<string>();
@@ -153,6 +170,9 @@ namespace BasicxLogger
         /// <returns>
         /// A string array conataining all message id's that each logger returned.
         /// </returns>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException">
+        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.ILogger"/>.
+        /// </exception>
         public async Task<string[]> LogAsync(string message)
         {
             try
@@ -177,6 +197,9 @@ namespace BasicxLogger
         /// <returns>
         /// A string array conataining all message id's that each logger returned.
         /// </returns>
+        /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException">
+        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.ILogger"/>.
+        /// </exception>
         public async Task<string[]> LogAsync(LogTag messageTag, string message)
         {
             try

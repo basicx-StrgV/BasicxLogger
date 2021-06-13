@@ -57,14 +57,9 @@ namespace LoggerTest
 
         private void CustomTest()
         {
-            DatabaseLogger dbLogger = new DatabaseLogger(
-                new MySqlDatabase("localhost", "buchausleihe", "logtest", "root", "admin"));
-            dbLogger.Log("Test 1");
-            dbLogger.Log(LogTag.DEBUGGING, "Test 2");
-            Task t1 = dbLogger.LogAsync("Test 3");
-            t1.Wait();
-            Task t2 = dbLogger.LogAsync(LogTag.DEBUGGING, "Test 4");
-            t2.Wait();
+            MultiLogger multiLogger = new MultiLogger();
+            multiLogger.Add(_txtFileLogger);
+            multiLogger.Log("Test");
         }
 
         private void DefaultTest()
