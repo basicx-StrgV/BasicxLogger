@@ -2,9 +2,10 @@
 // Created by basicx-StrgV                          //
 // https://github.com/basicx-StrgV/BasicxLogger     //
 //--------------------------------------------------//
+using System.Text.Json.Serialization;
+
 namespace BasicxLogger.Models
 {
-#pragma warning disable
     /// <summary>
     /// Data model for one log message in a json log file
     /// </summary>
@@ -13,18 +14,25 @@ namespace BasicxLogger.Models
         /// <summary>
         /// The log message id
         /// </summary>
-        public string id { get; set; }
+        [JsonPropertyName("id")]
+        public string Id { get; set; }
+
         /// <summary>
         /// The log message timestamp
         /// </summary>
-        public string timestamp { get; set; }
+        [JsonPropertyName("timestamp")]
+        public string Timestamp { get; set; }
+
         /// <summary>
         /// The log message tag
         /// </summary>
-        public string tag { get; set; }
+        [JsonPropertyName("tag")]
+        public string Tag { get; set; }
+
         /// <summary>
         /// The log message
         /// </summary>
-        public string message { get; set; }
+        [JsonPropertyName("message")]
+        public string Message { get; set; }
     }
 }

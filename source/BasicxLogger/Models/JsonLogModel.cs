@@ -3,18 +3,19 @@
 // https://github.com/basicx-StrgV/BasicxLogger     //
 //--------------------------------------------------//
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace BasicxLogger.Models
 {
-#pragma warning disable
     /// <summary>
     /// Data model for the json log file
     /// </summary>
-    public class JsonLogModel
+    public class JsonLogModel<T>
     {
         /// <summary>
         /// List of log messages
         /// </summary>
-        public List<LogMessageModel> entrys { get; set; }
+        [JsonPropertyName("entrys")]
+        public List<T> Entrys { get; set; }
     }
 }

@@ -77,24 +77,24 @@ namespace BasicxLogger.Files
 
                 string fileContent = File.ReadAllText(_file.FullName);
 
-                JsonLogModel logFile = JsonSerializer.Deserialize<JsonLogModel>(fileContent);
+                JsonLogModel<LogMessageModel> logFile = JsonSerializer.Deserialize<JsonLogModel<LogMessageModel>>(fileContent);
 
                 LogMessageModel newLogEntry = new LogMessageModel();
                 if (!id.Equals(""))
                 {
-                    newLogEntry.id = id;
+                    newLogEntry.Id = id;
                 }
 
-                newLogEntry.timestamp = timestamp;
+                newLogEntry.Timestamp = timestamp;
 
                 if (!messageTag.Equals(LogTag.none))
                 {
-                    newLogEntry.tag = messageTag.ToString();
+                    newLogEntry.Tag = messageTag.ToString();
                 }
 
-                newLogEntry.message = message;
+                newLogEntry.Message = message;
 
-                logFile.entrys.Add(newLogEntry);
+                logFile.Entrys.Add(newLogEntry);
 
                 string newFileContent = JsonSerializer.Serialize(logFile);
 
@@ -138,9 +138,9 @@ namespace BasicxLogger.Files
 
                 string fileContent = File.ReadAllText(_file.FullName);
 
-                CustomJsonLogModel<T> logFile = JsonSerializer.Deserialize<CustomJsonLogModel<T>>(fileContent);
+                JsonLogModel<T> logFile = JsonSerializer.Deserialize<JsonLogModel<T>>(fileContent);
 
-                logFile.entrys.Add(logObject);
+                logFile.Entrys.Add(logObject);
 
                 string newFileContent = JsonSerializer.Serialize(logFile);
 

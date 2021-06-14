@@ -1123,21 +1123,21 @@ namespace BasicxLogger
                 LogMessageModel newLog = new LogMessageModel();
                 if (!id.Equals(""))
                 {
-                    newLog.id = id;
+                    newLog.Id = id;
                 }
 
                 if (!messageFormat.Date.Format.Equals(DateFormat.none) ||
                                     !messageFormat.Time.Format.Equals(TimeFormat.none))
                 {
-                    newLog.timestamp = getCurrentTime();
+                    newLog.Timestamp = getCurrentTime();
                 }
 
                 if (!messageTag.Equals(Tag.none))
                 {
-                    newLog.tag = messageTag.ToString();
+                    newLog.Tag = messageTag.ToString();
                 }
 
-                newLog.message = message;
+                newLog.Message = message;
 
                 logs.Add(newLog);
 

@@ -623,7 +623,7 @@
         </member>
         <member name="P:BasicxLogger.FileLogger.LogFile">
             <summary>
-            Gets the <see cref="!:BasicxLogger.ILogFile"/> that is used by the logger.
+            Gets the <see cref="T:BasicxLogger.Files.ILogFile"/> that is used by the logger.
             </summary>
         </member>
         <member name="P:BasicxLogger.FileLogger.MessageTimestamp">
@@ -955,22 +955,12 @@
             iterate through the <see cref="T:BasicxLogger.ILogger"/> collection.
             </returns>
         </member>
-        <member name="T:BasicxLogger.Models.CustomJsonLogModel`1">
-            <summary>
-            Data model for the custom json log file
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Models.CustomJsonLogModel`1.entrys">
-            <summary>
-            List of custom log objects
-            </summary>
-        </member>
-        <member name="T:BasicxLogger.Models.JsonLogModel">
+        <member name="T:BasicxLogger.Models.JsonLogModel`1">
             <summary>
             Data model for the json log file
             </summary>
         </member>
-        <member name="P:BasicxLogger.Models.JsonLogModel.entrys">
+        <member name="P:BasicxLogger.Models.JsonLogModel`1.Entrys">
             <summary>
             List of log messages
             </summary>
@@ -980,22 +970,22 @@
             Data model for one log message in a json log file
             </summary>
         </member>
-        <member name="P:BasicxLogger.Models.LogMessageModel.id">
+        <member name="P:BasicxLogger.Models.LogMessageModel.Id">
             <summary>
             The log message id
             </summary>
         </member>
-        <member name="P:BasicxLogger.Models.LogMessageModel.timestamp">
+        <member name="P:BasicxLogger.Models.LogMessageModel.Timestamp">
             <summary>
             The log message timestamp
             </summary>
         </member>
-        <member name="P:BasicxLogger.Models.LogMessageModel.tag">
+        <member name="P:BasicxLogger.Models.LogMessageModel.Tag">
             <summary>
             The log message tag
             </summary>
         </member>
-        <member name="P:BasicxLogger.Models.LogMessageModel.message">
+        <member name="P:BasicxLogger.Models.LogMessageModel.Message">
             <summary>
             The log message
             </summary>

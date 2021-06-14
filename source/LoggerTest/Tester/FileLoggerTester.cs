@@ -128,22 +128,22 @@ namespace LoggerTest
         private bool TestJsonFile()
         {
             //Read and deseralize the json file
-            JsonLogModel testLog = JsonSerializer.Deserialize<JsonLogModel>(
+            JsonLogModel<LogMessageModel> testLog = JsonSerializer.Deserialize<JsonLogModel<LogMessageModel>>(
                                                                 File.ReadAllText(_logger.LogFile.FullName));
 
             //Check if every test log is at the position we expect it to be
             if (//Default
-                (testLog.entrys[0].message.Contains("Test Message 1")) &&
-                (testLog.entrys[1].message.Contains("Test Message 2") && testLog.entrys[1].tag.Contains("TEST")) &&
-                (testLog.entrys[2].message.Contains("Test Message 3") && testLog.entrys[2].id.Contains(_testIDList[0])) &&
-                (testLog.entrys[3].message.Contains("Test Message 4") && testLog.entrys[3].tag.Contains("TEST") &&
-                testLog.entrys[3].id.Contains(_testIDList[1]))
+                (testLog.Entrys[0].Message.Contains("Test Message 1")) &&
+                (testLog.Entrys[1].Message.Contains("Test Message 2") && testLog.Entrys[1].Tag.Contains("TEST")) &&
+                (testLog.Entrys[2].Message.Contains("Test Message 3") && testLog.Entrys[2].Id.Contains(_testIDList[0])) &&
+                (testLog.Entrys[3].Message.Contains("Test Message 4") && testLog.Entrys[3].Tag.Contains("TEST") &&
+                testLog.Entrys[3].Id.Contains(_testIDList[1]))
                 && //Async
-                (testLog.entrys[4].message.Contains("Test Message 1")) &&
-                (testLog.entrys[5].message.Contains("Test Message 2") && testLog.entrys[5].tag.Contains("TEST")) &&
-                (testLog.entrys[6].message.Contains("Test Message 3") && testLog.entrys[6].id.Contains(_testIDList[2])) &&
-                (testLog.entrys[7].message.Contains("Test Message 4") && testLog.entrys[7].tag.Contains("TEST") &&
-                testLog.entrys[7].id.Contains(_testIDList[3]))
+                (testLog.Entrys[4].Message.Contains("Test Message 1")) &&
+                (testLog.Entrys[5].Message.Contains("Test Message 2") && testLog.Entrys[5].Tag.Contains("TEST")) &&
+                (testLog.Entrys[6].Message.Contains("Test Message 3") && testLog.Entrys[6].Id.Contains(_testIDList[2])) &&
+                (testLog.Entrys[7].Message.Contains("Test Message 4") && testLog.Entrys[7].Tag.Contains("TEST") &&
+                testLog.Entrys[7].Id.Contains(_testIDList[3]))
                 )
             {
                 return true;
