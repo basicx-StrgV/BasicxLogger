@@ -10,16 +10,12 @@
 
 - Easy to use
 - Customizable
-- File logging
-- Database logging
-- Json object logging
-- Use tags to easier differentiate between different log messages
-- Log messages with IDs to easier locate them in a big log file
 - Asynchronous logging
-- Multi logging
+- Use tags to easier differentiate between different log messages
+- Use IDs to locate a specified log entry
 
 
-## 📄 Logger
+## ⚡ Logger
 
 - FileLogger
 - DatabaseLogger
@@ -33,3 +29,7 @@ You can get the nuget package here: https://www.nuget.org/packages/BasicxLogger/
 ## 📖 Documentation
 
 You can finde the documentation here: https://basicx-strgv.github.io/BasicxLogger/
+
+## 📋 Samples
+
+You can find sample code here: https://github.com/basicx-StrgV/BasicxLogger/tree/main/samples
