@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: ILogFile.cs Source File</title>
+<title>BasicxLogger: JsonLogModel.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">2.0.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
   </td>
  </tr>
@@ -84,44 +84,33 @@ $(document).ready(function(){initNavTree('a00032_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ILogFile.cs</div>  </div>
+<div class="title">JsonLogModel.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System.Text;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00064.html">BasicxLogger.Files</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00116.html">   12</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">interface </span><a class="code" href="a00116.html">ILogFile</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a00116.html#abe6fe56346553e462eebe5b17919f016">   17</a></span>&#160;        Encoding <a class="code" href="a00116.html#abe6fe56346553e462eebe5b17919f016">TextEncoding</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00116.html#ac5726429a5cca85369ebb832493d417e">   22</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="a00116.html#ac5726429a5cca85369ebb832493d417e">DirectoryName</a> { <span class="keyword">get</span>; }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="a00116.html#a9e10a80b71e0fc93740082d89b42a56a">   27</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="a00116.html#a9e10a80b71e0fc93740082d89b42a56a">FullName</a> { <span class="keyword">get</span>; }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a00116.html#abc3d937bb881d4ef01775d6b19691377">   32</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="a00116.html#abc3d937bb881d4ef01775d6b19691377">Extension</a> { <span class="keyword">get</span>; }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="a00116.html#ad60170020a67cde67772217b00c9d8ba">   41</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="a00116.html#ad60170020a67cde67772217b00c9d8ba">WriteToFile</a>(<a class="code" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> messageTag, <span class="keywordtype">string</span> timestamp, <span class="keywordtype">string</span> message, <span class="keywordtype">string</span> <span class="keywordtype">id</span> = <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="ttc" id="aa00062_html_a0768f6cb40899c29cccd5471f354b2b5"><div class="ttname"><a href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">BasicxLogger.LogTag</a></div><div class="ttdeci">LogTag</div><div class="ttdoc">Enum that contains the message tags, that can be used for logging</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00010">LogTag.cs:11</a></div></div>
-<div class="ttc" id="aa00064_html"><div class="ttname"><a href="a00064.html">BasicxLogger.Files</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00011">JsonLogFile.cs:12</a></div></div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="a00116.html">BasicxLogger.Files.ILogFile</a></div><div class="ttdoc">Interface that represents a file for the BasicxLogger.FileLogger</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00012">ILogFile.cs:13</a></div></div>
-<div class="ttc" id="aa00116_html_a9e10a80b71e0fc93740082d89b42a56a"><div class="ttname"><a href="a00116.html#a9e10a80b71e0fc93740082d89b42a56a">BasicxLogger.Files.ILogFile.FullName</a></div><div class="ttdeci">string FullName</div><div class="ttdoc">Gets the full path of the file.</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00027">ILogFile.cs:27</a></div></div>
-<div class="ttc" id="aa00116_html_abc3d937bb881d4ef01775d6b19691377"><div class="ttname"><a href="a00116.html#abc3d937bb881d4ef01775d6b19691377">BasicxLogger.Files.ILogFile.Extension</a></div><div class="ttdeci">string Extension</div><div class="ttdoc">Gets the string representing the extension part of the file.</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00032">ILogFile.cs:32</a></div></div>
-<div class="ttc" id="aa00116_html_abe6fe56346553e462eebe5b17919f016"><div class="ttname"><a href="a00116.html#abe6fe56346553e462eebe5b17919f016">BasicxLogger.Files.ILogFile.TextEncoding</a></div><div class="ttdeci">Encoding TextEncoding</div><div class="ttdoc">Gets or Sets the text encoding for the file.</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00017">ILogFile.cs:17</a></div></div>
-<div class="ttc" id="aa00116_html_ac5726429a5cca85369ebb832493d417e"><div class="ttname"><a href="a00116.html#ac5726429a5cca85369ebb832493d417e">BasicxLogger.Files.ILogFile.DirectoryName</a></div><div class="ttdeci">string DirectoryName</div><div class="ttdoc">Gets a string representing the directory's full path.</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00022">ILogFile.cs:22</a></div></div>
-<div class="ttc" id="aa00116_html_ad60170020a67cde67772217b00c9d8ba"><div class="ttname"><a href="a00116.html#ad60170020a67cde67772217b00c9d8ba">BasicxLogger.Files.ILogFile.WriteToFile</a></div><div class="ttdeci">void WriteToFile(LogTag messageTag, string timestamp, string message, string id=&quot;&quot;)</div><div class="ttdoc">Writes a log message with the given data to the log file.</div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System.Collections.Generic;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> System.Text.Json.Serialization;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="a00062.html">    8</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00062.html">BasicxLogger.Models</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00119.html">   13</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00119.html">JsonLogModel</a>&lt;T&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        [JsonPropertyName(<span class="stringliteral">&quot;entrys&quot;</span>)]</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a00119.html#a42fff250a960eec93e84f0d7df68c61c">   19</a></span>&#160;        <span class="keyword">public</span> List&lt;T&gt; <a class="code" href="a00119.html#a42fff250a960eec93e84f0d7df68c61c">Entrys</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="ttc" id="aa00062_html"><div class="ttname"><a href="a00062.html">BasicxLogger.Models</a></div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00008">JsonLogModel.cs:9</a></div></div>
+<div class="ttc" id="aa00119_html"><div class="ttname"><a href="a00119.html">BasicxLogger.Models.JsonLogModel</a></div><div class="ttdoc">Data model for the json log file</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00013">JsonLogModel.cs:14</a></div></div>
+<div class="ttc" id="aa00119_html_a42fff250a960eec93e84f0d7df68c61c"><div class="ttname"><a href="a00119.html#a42fff250a960eec93e84f0d7df68c61c">BasicxLogger.Models.JsonLogModel.Entrys</a></div><div class="ttdeci">List&lt; T &gt; Entrys</div><div class="ttdoc">List of log messages</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00019">JsonLogModel.cs:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_36fd304bbf3c35596dc7dec615dee498.html">Interfaces</a></li><li class="navelem"><b>ILogFile.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_a79c0ebb4680270ef4352bda3c425f4c.html">Models</a></li><li class="navelem"><b>JsonLogModel.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

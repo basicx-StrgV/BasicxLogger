@@ -4,7 +4,7 @@
 //--------------------------------------------------//
 using System.Threading.Tasks;
 
-namespace BasicxLogger
+namespace BasicxLogger.Base
 {
     /// <summary>
     /// Interface for BasicxLogger

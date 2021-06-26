@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: BasicxLogger.Databases.ILogDatabase Interface Reference</title>
+<title>BasicxLogger: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">2.0.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
   </td>
  </tr>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('a00112.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('a00115.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,191 +83,35 @@ $(document).ready(function(){initNavTree('a00112.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#properties">Properties</a> &#124;
-<a href="a00109.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BasicxLogger.Databases.ILogDatabase Interface Reference</div>  </div>
+<div class="title">BasicxLogger.MultiLogger Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface that represents a database for the <a class="el" href="a00124.html" title="Logger that contains everything needed to log to an MySql database.">BasicxLogger.DatabaseLogger</a>  
- <a href="a00112.html#details">More...</a></p>
-<div class="dynheader">
-Inheritance diagram for BasicxLogger.Databases.ILogDatabase:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="a00112.png" usemap="#BasicxLogger.Databases.ILogDatabase_map" alt=""/>
-  <map id="BasicxLogger.Databases.ILogDatabase_map" name="BasicxLogger.Databases.ILogDatabase_map">
-<area href="a00080.html" title="Class that represents a database" alt="BasicxLogger.Databases.MySqlDatabase" shape="rect" coords="0,56,244,80"/>
-  </map>
-</div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ab2cfc07e34ec0a00772b4225fc9d8277"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#ab2cfc07e34ec0a00772b4225fc9d8277">LogToDatabase</a> (<a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> messageTag, string timestamp, string message, string id=&quot;&quot;)</td></tr>
-<tr class="memdesc:ab2cfc07e34ec0a00772b4225fc9d8277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a log message with the given data to the Table in the Database.  <a href="a00112.html#ab2cfc07e34ec0a00772b4225fc9d8277">More...</a><br /></td></tr>
-<tr class="separator:ab2cfc07e34ec0a00772b4225fc9d8277"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:a70edbebf38110eab37f9c9a8220759bf"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#a70edbebf38110eab37f9c9a8220759bf">Server</a><code> [get]</code></td></tr>
-<tr class="memdesc:a70edbebf38110eab37f9c9a8220759bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">URL of the database server  <a href="a00112.html#a70edbebf38110eab37f9c9a8220759bf">More...</a><br /></td></tr>
-<tr class="separator:a70edbebf38110eab37f9c9a8220759bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4e55186a4f1000bce26bdfd421b2638"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#ae4e55186a4f1000bce26bdfd421b2638">Database</a><code> [get]</code></td></tr>
-<tr class="memdesc:ae4e55186a4f1000bce26bdfd421b2638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the database that will contain the logs  <a href="a00112.html#ae4e55186a4f1000bce26bdfd421b2638">More...</a><br /></td></tr>
-<tr class="separator:ae4e55186a4f1000bce26bdfd421b2638"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a177ae228a1647428c60c1526c019500f"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#a177ae228a1647428c60c1526c019500f">Table</a><code> [get]</code></td></tr>
-<tr class="memdesc:a177ae228a1647428c60c1526c019500f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the table the logger will create and insert logs into  <a href="a00112.html#a177ae228a1647428c60c1526c019500f">More...</a><br /></td></tr>
-<tr class="separator:a177ae228a1647428c60c1526c019500f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface that represents a database for the <a class="el" href="a00124.html" title="Logger that contains everything needed to log to an MySql database.">BasicxLogger.DatabaseLogger</a> </p>
-
-<p class="definition">Definition at line <a class="el" href="a00029_source.html#l00010">10</a> of file <a class="el" href="a00029_source.html">ILogDatabase.cs</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab2cfc07e34ec0a00772b4225fc9d8277"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2cfc07e34ec0a00772b4225fc9d8277">&#9670;&nbsp;</a></span>LogToDatabase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BasicxLogger.Databases.ILogDatabase.LogToDatabase </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a>&#160;</td>
-          <td class="paramname"><em>messageTag</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>timestamp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>id</em> = <code>&quot;&quot;</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Writes a log message with the given data to the Table in the Database. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">messageTag</td><td>The message tag for the log message</td></tr>
-    <tr><td class="paramname">timestamp</td><td>The timestamp for the log message</td></tr>
-    <tr><td class="paramname">message</td><td>The message that should be logged</td></tr>
-    <tr><td class="paramname">id</td><td>The id for the log message</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implemented in <a class="el" href="a00080.html#af5629137c89f4b2e4c623376aaaf2a7f">BasicxLogger.Databases.MySqlDatabase</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Property Documentation</h2>
-<a id="ae4e55186a4f1000bce26bdfd421b2638"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4e55186a4f1000bce26bdfd421b2638">&#9670;&nbsp;</a></span>Database</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string BasicxLogger.Databases.ILogDatabase.Database</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Name of the database that will contain the logs </p>
-
-<p class="definition">Definition at line <a class="el" href="a00029_source.html#l00019">19</a> of file <a class="el" href="a00029_source.html">ILogDatabase.cs</a>.</p>
-
-</div>
-</div>
-<a id="a70edbebf38110eab37f9c9a8220759bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70edbebf38110eab37f9c9a8220759bf">&#9670;&nbsp;</a></span>Server</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string BasicxLogger.Databases.ILogDatabase.Server</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>URL of the database server </p>
-
-<p class="definition">Definition at line <a class="el" href="a00029_source.html#l00015">15</a> of file <a class="el" href="a00029_source.html">ILogDatabase.cs</a>.</p>
-
-</div>
-</div>
-<a id="a177ae228a1647428c60c1526c019500f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a177ae228a1647428c60c1526c019500f">&#9670;&nbsp;</a></span>Table</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string BasicxLogger.Databases.ILogDatabase.Table</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Name of the table the logger will create and insert logs into </p>
-
-<p class="definition">Definition at line <a class="el" href="a00029_source.html#l00023">23</a> of file <a class="el" href="a00029_source.html">ILogDatabase.cs</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this interface was generated from the following file:<ul>
-<li><a class="el" href="a00029_source.html">ILogDatabase.cs</a></li>
-</ul>
-</div><!-- contents -->
+<p>This is the complete list of members for <a class="el" href="a00115.html">BasicxLogger.MultiLogger</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="a00115.html#a6054868a97bf55141c1ab7ff2c7675fd">Add</a>(ILogger item)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00115.html#a660096917341e23b715bee4e17de637d">Clear</a>()</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00115.html#aad62bb754615be9eadcfc816e620b376">Contains</a>(ILogger item)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00115.html#af81fd123f8f75121e77e5302aa6cb756">CopyTo</a>(ILogger[] array, int arrayIndex)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00115.html#a96de394afef77a06bec6b95dad032eb3">Count</a></td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00115.html#ad19476cfb4d976e78979b64394b9adeb">GetEnumerator</a>()</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00115.html#a2d2bef198c4cd93e0519ef473224c9b6">IndexOf</a>(ILogger item)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00115.html#af8f7c58ac2cf35125b414db52b003131">Insert</a>(int index, ILogger item)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00115.html#a1b03c8d42d210035c3e80204f0451846">IsReadOnly</a></td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00115.html#a6fc75db7ca7b9d0237c3d54887a52ce9">Log</a>(string message)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00115.html#a8344f9ceeb30dcf734ab9ff87bd7adb9">Log</a>(LogTag messageTag, string message)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00115.html#a0c108e894178472c9946d6c2436a7744">LogAsync</a>(string message)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00115.html#a212368e0f0dd3b81a9eede2fef26f33e">LogAsync</a>(LogTag messageTag, string message)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00115.html#ae1333bfc886262a2fdbd79e92ea7b322">MultiLogger</a>()</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00115.html#a5b23f57e88e9bdfcf379f3ce464d281c">Remove</a>(ILogger item)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00115.html#ae91bb9a04b450bf1cd164de23869e1bb">RemoveAt</a>(int index)</td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00115.html#a08fb2be497a11d23be95ec2ec5648399">this[int index]</a></td><td class="entry"><a class="el" href="a00115.html">BasicxLogger.MultiLogger</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00062.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00063.html">Databases</a></li><li class="navelem"><a class="el" href="a00112.html">ILogDatabase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

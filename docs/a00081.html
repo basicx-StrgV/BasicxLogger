@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: Member List</title>
+<title>BasicxLogger: BasicxLogger.Base Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">2.0.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
   </td>
  </tr>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('a00084.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('a00081.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,25 +83,31 @@ $(document).ready(function(){initNavTree('a00084.html',''); initResizable(); });
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">BasicxLogger.Files.JsonLogFile Member List</div>  </div>
+<div class="title">BasicxLogger.Base Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="a00084.html">BasicxLogger.Files.JsonLogFile</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00084.html#a7bce630184811e5f175f1549f90dc95a">DirectoryName</a></td><td class="entry"><a class="el" href="a00084.html">BasicxLogger.Files.JsonLogFile</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a00084.html#afcaff1ad8fc304fdaed8fc56eefccbc6">Extension</a></td><td class="entry"><a class="el" href="a00084.html">BasicxLogger.Files.JsonLogFile</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00084.html#ad35c8e513f31acc59c3ccebb898b9556">FullName</a></td><td class="entry"><a class="el" href="a00084.html">BasicxLogger.Files.JsonLogFile</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a00084.html#afb269f21eef7c35ea2c750a3d1ba4cb0">JsonLogFile</a>(string directoryPath, string fileName)</td><td class="entry"><a class="el" href="a00084.html">BasicxLogger.Files.JsonLogFile</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00084.html#a20b84923199b604fb576ddc4e3479390">TextEncoding</a></td><td class="entry"><a class="el" href="a00084.html">BasicxLogger.Files.JsonLogFile</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a00084.html#adc72129519c46b689cdda4867e1a62a3">WriteToFile</a>(LogTag messageTag, string timestamp, string message, string id=&quot;&quot;)</td><td class="entry"><a class="el" href="a00084.html">BasicxLogger.Files.JsonLogFile</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00084.html#a31016df6f5a1f8b177e2e14b1238410c">WriteToFile&lt; T &gt;</a>(T logObject)</td><td class="entry"><a class="el" href="a00084.html">BasicxLogger.Files.JsonLogFile</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00150.html">ILogDatabase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface that represents a database for the <a class="el" href="a00122.html" title="Logger that contains everything needed to log to an MySql database.">BasicxLogger.DatabaseLogger</a>  <a href="a00150.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00154.html">ILogFile</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface that represents a file for the <a class="el" href="a00126.html" title="File logger that contains everything needed to write a message to a log file.">BasicxLogger.FileLogger</a>  <a href="a00154.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00158.html">ILogger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for <a class="el" href="a00077.html">BasicxLogger</a>  <a href="a00158.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="a00077.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00081.html">Base</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

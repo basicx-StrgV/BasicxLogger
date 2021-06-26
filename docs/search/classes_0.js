@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['customjsonlogmodel_81',['CustomJsonLogModel',['../a00140.html',1,'BasicxLogger::Models']]]
+  ['databaselogger_80',['DatabaseLogger',['../a00103.html',1,'BasicxLogger']]]
 ];

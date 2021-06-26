@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BasicxLogger.Base</name>
+    </assembly>
+    <members>
+        <member name="T:BasicxLogger.LogTag">
+            <summary>
+            Enum that contains the message tags, that can be used for logging
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.INFO">
+            <summary>
+            Tag: [INFO]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.WARNING">
+            <summary>
+            Tag: [WARNING]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.ERROR">
+            <summary>
+            Tag: [ERROR]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.FATAL">
+            <summary>
+            Tag: [FATAL]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.EXCEPTION">
+            <summary>
+            Tag: [EXCEPTION]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.DEBUGGING">
+            <summary>
+            Tag: [DEBUGGING]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.MESSAGE">
+            <summary>
+            Tag: [MESSAGE]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.ALERT">
+            <summary>
+            Tag: [ALERT]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.EVENT">
+            <summary>
+            Tag: [EVENT]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.TEST">
+            <summary>
+            Tag: [TEST]
+            </summary>
+        </member>
+        <member name="F:BasicxLogger.LogTag.none">
+            <summary>
+            No Tag. Default value for the DefaultTag
+            </summary>
+        </member>
+        <member name="T:BasicxLogger.Timestamp">
+            <summary>
+            Timestamp class to configure and create timestamps
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Format">
+            <summary>
+            Gets the datetime format used by the current timestamp instance.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.DateSeparator">
+            <summary>
+            Gets or Sets the string, that is used to separate each part of the date.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Culture">
+            <summary>
+            Gets or Sets the culture setting for the formation of AM and PM.
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Timestamp.GetTimestamp">
+            <summary>
+            Get the current timestamp.
+            </summary>
+            <returns>
+            Timstamp as string
+            </returns>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Year_Month_Day_Hour24_Min_Sec">
+            <summary>
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format.
+            </summary>
+            <remarks>
+            Formate: "yyyy'/'MM'/'dd HH:mm:ss"
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Year_Month_Day_Hour12_Min_Sec">
+            <summary>
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format.
+            </summary>
+            <remarks>
+            Formate: "yyyy'/'MM'/'dd hh:mm:ss tt"
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Year_Day_Month_Hour24_Min_Sec">
+            <summary>
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format.
+            </summary>
+            <remarks>
+            Formate: "yyyy'/'dd'/'MM HH:mm:ss"
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Year_Day_Month_Hour12_Min_Sec">
+            <summary>
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format.
+            </summary>
+            <remarks>
+            Formate: "yyyy'/'dd'/'MM hh:mm:ss tt"
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Day_Month_Year_Hour24_Min_Sec">
+            <summary>
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format.
+            </summary>
+            <remarks>
+            Formate: "dd'/'MM'/'yyyy HH:mm:ss"
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Day_Month_Year_Hour12_Min_Sec">
+            <summary>
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format.
+            </summary>
+            <remarks>
+            Formate: "dd'/'MM'/'yyyy hh:mm:ss tt"
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Month_Day_Year_Hour24_Min_Sec">
+            <summary>
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format.
+            </summary>
+            <remarks>
+            Formate: "MM'/'dd'/'yyyy HH:mm:ss"
+            </remarks>
+        </member>
+        <member name="P:BasicxLogger.Timestamp.Month_Day_Year_Hour12_Min_Sec">
+            <summary>
+            Gets a <see cref="T:BasicxLogger.Timestamp"/> with the selected format.
+            </summary>
+            <remarks>
+            Formate: "MM'/'dd'/'yyyy hh:mm:ss tt"
+            </remarks>
+        </member>
+        <member name="T:BasicxLogger.Base.ILogDatabase">
+            <summary>
+            Interface that represents a database for the <see cref="!:BasicxLogger.DatabaseLogger"/>
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Base.ILogDatabase.Server">
+            <summary>
+            URL of the database server
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Base.ILogDatabase.Database">
+            <summary>
+            Name of the database that will contain the logs
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Base.ILogDatabase.Table">
+            <summary>
+            Name of the table the logger will create and insert logs into
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Base.ILogDatabase.LogToDatabase(BasicxLogger.LogTag,System.String,System.String,System.String)">
+            <summary>
+            Writes a log message with the given data to the Table in the Database.
+            </summary>
+            <param name="messageTag">The message tag for the log message</param>
+            <param name="timestamp">The timestamp for the log message</param>
+            <param name="message">The message that should be logged</param>
+            <param name="id">The id for the log message</param>
+        </member>
+        <member name="T:BasicxLogger.Base.ILogFile">
+            <summary>
+            Interface that represents a file for the <see cref="!:BasicxLogger.FileLogger"/>
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Base.ILogFile.TextEncoding">
+            <summary>
+            Gets or Sets the text encoding for the file.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Base.ILogFile.DirectoryName">
+            <summary>
+            Gets a string representing the directory's full path.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Base.ILogFile.FullName">
+            <summary>
+            Gets the full path of the file.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Base.ILogFile.Extension">
+            <summary>
+            Gets the string representing the extension part of the file.
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Base.ILogFile.WriteToFile(BasicxLogger.LogTag,System.String,System.String,System.String)">
+            <summary>
+            Writes a log message with the given data to the log file.
+            </summary>
+            <param name="messageTag">The message tag for the log message</param>
+            <param name="timestamp">The timestamp for the log message</param>
+            <param name="message">The message that should be logged</param>
+            <param name="id">The id for the log message</param>
+        </member>
+        <member name="T:BasicxLogger.Base.ILogger">
+            <summary>
+            Interface for BasicxLogger
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Base.ILogger.MessageTimestamp">
+            <summary>
+            Gets the <see cref="T:BasicxLogger.Timestamp"/> that is used by the logger.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Base.ILogger.DefaultTag">
+            <summary>
+            Gets or Sets a default message tag that will be used if no tag is selected.
+            </summary>
+        </member>
+        <member name="P:BasicxLogger.Base.ILogger.UseId">
+            <summary>
+            Gets or Sets if each log entry should contain a unique id or not.
+            </summary>
+        </member>
+        <member name="M:BasicxLogger.Base.ILogger.Log(System.String)">
+            <summary>
+            Logs the given message.
+            </summary>
+            <param name="message">The message that will be logged</param>
+            <returns>
+            The unique id for the log entry if <see cref="!:BasicxLogger.ILogger.UseId"/> is true 
+            or null if <see cref="!:BasicxLogger.ILogger.UseId"/> is false.
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.Base.ILogger.Log(BasicxLogger.LogTag,System.String)">
+            <summary>
+            Logs the given message.
+            </summary>
+            <param name="message">The message that will be logged</param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <returns>
+            The unique id for the log entry if <see cref="!:BasicxLogger.ILogger.UseId"/> is true 
+            or null if <see cref="!:BasicxLogger.ILogger.UseId"/> is false.
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.Base.ILogger.LogAsync(System.String)">
+            <summary>
+            Asynchronous logs the given message.
+            </summary>
+            <param name="message">The message that will be logged</param>
+            <returns>
+            The unique id for the log entry if <see cref="!:BasicxLogger.ILogger.UseId"/> is true 
+            or null if <see cref="!:BasicxLogger.ILogger.UseId"/> is false.
+            </returns>
+        </member>
+        <member name="M:BasicxLogger.Base.ILogger.LogAsync(BasicxLogger.LogTag,System.String)">
+            <summary>
+            Asynchronous logs the given message.
+            </summary>
+            <param name="message">The message that will be logged</param>
+            <param name="messageTag">
+            A Tag that will be added to the message, to make it easy to distinguish between differen log messages
+            </param>
+            <returns>
+            The unique id for the log entry if <see cref="!:BasicxLogger.ILogger.UseId"/> is true 
+            or null if <see cref="!:BasicxLogger.ILogger.UseId"/> is false.
+            </returns>
+        </member>
+    </members>
+</doc>

@@ -1,5 +1,6 @@
 var a00063 =
 [
-    [ "MySqlDatabase", "a00080.html", "a00080" ],
-    [ "ILogDatabase", "a00112.html", "a00112" ]
+    [ "ILogDatabase", "a00131.html", "a00131" ],
+    [ "ILogFile", "a00135.html", "a00135" ],
+    [ "ILogger", "a00139.html", "a00139" ]
 ];

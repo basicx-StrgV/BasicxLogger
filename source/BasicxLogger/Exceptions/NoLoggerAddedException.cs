@@ -8,7 +8,7 @@ namespace BasicxLogger.Exceptions
 {
     /// <summary>
     /// The exception that is thrown when a Log method of the <see cref="BasicxLogger.MultiLogger"/> is called 
-    /// but no <see cref="BasicxLogger.ILogger"/> was added befor  
+    /// but no <see cref="BasicxLogger.Base.ILogger"/> was added befor  
     /// </summary>
     public class NoLoggerAddedException : Exception
     {

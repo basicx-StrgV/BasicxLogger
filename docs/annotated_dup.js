@@ -1,31 +1,32 @@
 var annotated_dup =
 [
-    [ "BasicxLogger", "a00062.html", [
-      [ "Databases", "a00063.html", [
-        [ "MySqlDatabase", "a00080.html", "a00080" ],
-        [ "ILogDatabase", "a00112.html", "a00112" ]
+    [ "BasicxLogger", "a00059.html", [
+      [ "Base", "a00063.html", [
+        [ "ILogDatabase", "a00131.html", "a00131" ],
+        [ "ILogFile", "a00135.html", "a00135" ],
+        [ "ILogger", "a00139.html", "a00139" ]
       ] ],
-      [ "Exceptions", "a00065.html", [
-        [ "NoLoggerAddedException", "a00108.html", "a00108" ]
+      [ "Databases", "a00064.html", [
+        [ "MySqlDatabase", "a00143.html", "a00143" ]
       ] ],
-      [ "Files", "a00064.html", [
-        [ "JsonLogFile", "a00084.html", "a00084" ],
-        [ "LogLogFile", "a00088.html", "a00088" ],
-        [ "TxtLogFile", "a00092.html", "a00092" ],
-        [ "XmlLogFile", "a00096.html", "a00096" ],
-        [ "ILogFile", "a00116.html", "a00116" ]
+      [ "Exceptions", "a00061.html", [
+        [ "NoLoggerAddedException", "a00099.html", "a00099" ]
       ] ],
-      [ "Models", "a00066.html", [
-        [ "CustomJsonLogModel", "a00140.html", "a00140" ],
-        [ "JsonLogModel", "a00144.html", "a00144" ],
-        [ "LogMessageModel", "a00148.html", "a00148" ]
+      [ "Files", "a00060.html", [
+        [ "JsonLogFile", "a00079.html", "a00079" ],
+        [ "LogLogFile", "a00083.html", "a00083" ],
+        [ "TxtLogFile", "a00087.html", "a00087" ],
+        [ "XmlLogFile", "a00091.html", "a00091" ]
       ] ],
-      [ "IdHandler", "a00100.html", "a00100" ],
-      [ "Timestamp", "a00104.html", "a00104" ],
-      [ "ILogger", "a00120.html", "a00120" ],
-      [ "DatabaseLogger", "a00124.html", "a00124" ],
-      [ "FileLogger", "a00128.html", "a00128" ],
-      [ "JsonLogger", "a00132.html", "a00132" ],
-      [ "MultiLogger", "a00136.html", "a00136" ]
+      [ "Models", "a00062.html", [
+        [ "JsonLogModel", "a00119.html", "a00119" ],
+        [ "LogMessageModel", "a00123.html", "a00123" ]
+      ] ],
+      [ "IdHandler", "a00095.html", "a00095" ],
+      [ "DatabaseLogger", "a00103.html", "a00103" ],
+      [ "FileLogger", "a00107.html", "a00107" ],
+      [ "JsonLogger", "a00111.html", "a00111" ],
+      [ "MultiLogger", "a00115.html", "a00115" ],
+      [ "Timestamp", "a00127.html", "a00127" ]
     ] ]
 ];

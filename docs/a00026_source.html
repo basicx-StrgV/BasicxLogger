@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: NoLoggerAddedException.cs Source File</title>
+<title>BasicxLogger: JsonLogger.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">2.0.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
   </td>
  </tr>
@@ -84,43 +84,88 @@ $(document).ready(function(){initNavTree('a00026_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">NoLoggerAddedException.cs</div>  </div>
+<div class="title">JsonLogger.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="a00065.html">    7</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00065.html">BasicxLogger.Exceptions</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00108.html">   13</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00108.html">NoLoggerAddedException</a> : Exception</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00108.html#ae0a4e1012f992fac3163bf20fe87df81">   18</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00108.html#ae0a4e1012f992fac3163bf20fe87df81">NoLoggerAddedException</a>()</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00108.html#a0e40dfd110875d09532d86cc5c5f3747">   25</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00108.html#a0e40dfd110875d09532d86cc5c5f3747">NoLoggerAddedException</a>(<span class="keywordtype">string</span> message) : base(message)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a00108.html#a8639071b54cb44ddb10b154af81ed8cd">   32</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00108.html#a8639071b54cb44ddb10b154af81ed8cd">NoLoggerAddedException</a>(<span class="keywordtype">string</span> message, Exception inner) : base(message, inner)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="a00065.html">BasicxLogger.Exceptions</a></div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00007">NoLoggerAddedException.cs:8</a></div></div>
-<div class="ttc" id="aa00108_html"><div class="ttname"><a href="a00108.html">BasicxLogger.Exceptions.NoLoggerAddedException</a></div><div class="ttdoc">The exception that is thrown when a Log method of the BasicxLogger.MultiLogger is called but no Basic...</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00013">NoLoggerAddedException.cs:14</a></div></div>
-<div class="ttc" id="aa00108_html_a0e40dfd110875d09532d86cc5c5f3747"><div class="ttname"><a href="a00108.html#a0e40dfd110875d09532d86cc5c5f3747">BasicxLogger.Exceptions.NoLoggerAddedException.NoLoggerAddedException</a></div><div class="ttdeci">NoLoggerAddedException(string message)</div><div class="ttdoc">Initializes a new instance of the BasicxLogger.Exceptions.NoLoggerAddedException class</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00025">NoLoggerAddedException.cs:25</a></div></div>
-<div class="ttc" id="aa00108_html_a8639071b54cb44ddb10b154af81ed8cd"><div class="ttname"><a href="a00108.html#a8639071b54cb44ddb10b154af81ed8cd">BasicxLogger.Exceptions.NoLoggerAddedException.NoLoggerAddedException</a></div><div class="ttdeci">NoLoggerAddedException(string message, Exception inner)</div><div class="ttdoc">Initializes a new instance of the BasicxLogger.Exceptions.NoLoggerAddedException class</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00032">NoLoggerAddedException.cs:32</a></div></div>
-<div class="ttc" id="aa00108_html_ae0a4e1012f992fac3163bf20fe87df81"><div class="ttname"><a href="a00108.html#ae0a4e1012f992fac3163bf20fe87df81">BasicxLogger.Exceptions.NoLoggerAddedException.NoLoggerAddedException</a></div><div class="ttdeci">NoLoggerAddedException()</div><div class="ttdoc">Initializes a new instance of the BasicxLogger.Exceptions.NoLoggerAddedException class</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00018">NoLoggerAddedException.cs:18</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *       ____            _           _                                      *</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *      |  _ \          (_)         | |                                     *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *      | |_) | __ _ ___ _  _____  _| |     ___   __ _  __ _  ___ _ __      *</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      |  _ &lt; / _` / __| |/ __\ \/ / |    / _ \ / _` |/ _` |/ _ \ &#39;__|     *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *      | |_) | (_| \__ \ | (__ &gt;  &lt;| |___| (_) | (_| | (_| |  __/ |        *</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *      |____/ \__,_|___/_|\___/_/\_\______\___/ \__, |\__, |\___|_|        *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *                                                __/ | __/ |               *</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *                                               |___/ |___/                *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  by basicx-StrgV                                                         *</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  https://github.com/basicx-StrgV/BasicxLogger                            *</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *                                                                          *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * **************************************************************************/</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using</span> System;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using</span> System.Threading.Tasks;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using</span> <a class="code" href="a00059.html">BasicxLogger</a>.<a class="code" href="a00060.html">Files</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00059.html">BasicxLogger</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a00111.html">   23</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00111.html">JsonLogger</a>&lt;T&gt;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">//-Properties-----------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00111.html#ad65c6308350d2ea61df7abbbe1a41473">   29</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <a class="code" href="a00079.html">JsonLogFile</a> <a class="code" href="a00111.html#ad65c6308350d2ea61df7abbbe1a41473">LogFile</a> { <span class="keyword">get</span>; } = <span class="keyword">new</span> <a class="code" href="a00079.html">JsonLogFile</a>(</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            String.Format(<span class="stringliteral">&quot;{0}/{1}/&quot;</span>, Environment.CurrentDirectory, <span class="stringliteral">&quot;Logs&quot;</span>), <span class="stringliteral">&quot;Log&quot;</span>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">//----------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">//-Constructors---------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00111.html#afd6043f711ff9a0bf3d731e475dac51f">   38</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <a class="code" href="a00111.html#afd6043f711ff9a0bf3d731e475dac51f">JsonLogger</a>(<a class="code" href="a00079.html">JsonLogFile</a> jsonLogFile)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <a class="code" href="a00111.html#ad65c6308350d2ea61df7abbbe1a41473">LogFile</a> = jsonLogFile;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">//----------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//-Public-Methods-------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="a00111.html#a7bc08f7ffe7643cb22e3b1ade2f083ef">   63</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="a00111.html#a7bc08f7ffe7643cb22e3b1ade2f083ef">Log</a>(T logObject)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <a class="code" href="a00111.html#ad65c6308350d2ea61df7abbbe1a41473">LogFile</a>.<a class="code" href="a00079.html#adc72129519c46b689cdda4867e1a62a3">WriteToFile</a>(logObject);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">throw</span> e;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">//-Async-methods-----</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="a00111.html#adfb2ae408810788b9d3556061ab03f21">   94</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> async Task <a class="code" href="a00111.html#adfb2ae408810788b9d3556061ab03f21">LogAsync</a>(T logObject)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">try</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                Task logTask = Task.Run(() =&gt; <a class="code" href="a00111.html#a7bc08f7ffe7643cb22e3b1ade2f083ef">Log</a>(logObject));</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                await logTask;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">throw</span> e;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">//-------------------</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="comment">//----------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
+<div class="ttc" id="aa00059_html"><div class="ttname"><a href="a00059.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00012">JsonLogFile.cs:13</a></div></div>
+<div class="ttc" id="aa00060_html"><div class="ttname"><a href="a00060.html">BasicxLogger.Files</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00012">JsonLogFile.cs:13</a></div></div>
+<div class="ttc" id="aa00079_html"><div class="ttname"><a href="a00079.html">BasicxLogger.Files.JsonLogFile</a></div><div class="ttdoc">Class that represents a log file with the file extension .json</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00017">JsonLogFile.cs:18</a></div></div>
+<div class="ttc" id="aa00079_html_adc72129519c46b689cdda4867e1a62a3"><div class="ttname"><a href="a00079.html#adc72129519c46b689cdda4867e1a62a3">BasicxLogger.Files.JsonLogFile.WriteToFile</a></div><div class="ttdeci">void WriteToFile(LogTag messageTag, string timestamp, string message, string id=&quot;&quot;)</div><div class="ttdoc">Writes a log message with the given data to the log file</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00065">JsonLogFile.cs:65</a></div></div>
+<div class="ttc" id="aa00111_html"><div class="ttname"><a href="a00111.html">BasicxLogger.JsonLogger</a></div><div class="ttdoc">A logger that allows you to log your owne objects to a json file</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00023">JsonLogger.cs:24</a></div></div>
+<div class="ttc" id="aa00111_html_a7bc08f7ffe7643cb22e3b1ade2f083ef"><div class="ttname"><a href="a00111.html#a7bc08f7ffe7643cb22e3b1ade2f083ef">BasicxLogger.JsonLogger.Log</a></div><div class="ttdeci">void Log(T logObject)</div><div class="ttdoc">Adds the given object to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00063">JsonLogger.cs:63</a></div></div>
+<div class="ttc" id="aa00111_html_ad65c6308350d2ea61df7abbbe1a41473"><div class="ttname"><a href="a00111.html#ad65c6308350d2ea61df7abbbe1a41473">BasicxLogger.JsonLogger.LogFile</a></div><div class="ttdeci">JsonLogFile LogFile</div><div class="ttdoc">Gets the BasicxLogger.Files.JsonLogFile that is used by the logger.</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00029">JsonLogger.cs:29</a></div></div>
+<div class="ttc" id="aa00111_html_adfb2ae408810788b9d3556061ab03f21"><div class="ttname"><a href="a00111.html#adfb2ae408810788b9d3556061ab03f21">BasicxLogger.JsonLogger.LogAsync</a></div><div class="ttdeci">async Task LogAsync(T logObject)</div><div class="ttdoc">Asynchronous adds the given object to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00094">JsonLogger.cs:94</a></div></div>
+<div class="ttc" id="aa00111_html_afd6043f711ff9a0bf3d731e475dac51f"><div class="ttname"><a href="a00111.html#afd6043f711ff9a0bf3d731e475dac51f">BasicxLogger.JsonLogger.JsonLogger</a></div><div class="ttdeci">JsonLogger(JsonLogFile jsonLogFile)</div><div class="ttdoc">Initializes a new instance of the BasicxLogger.JsonLogger&lt;T&gt; class.</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00038">JsonLogger.cs:38</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_1b2608002e52b65fcd0713159a247772.html">Exceptions</a></li><li class="navelem"><b>NoLoggerAddedException.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_a8f0aadec61680232e2389aaef228ac0.html">Logger</a></li><li class="navelem"><b>JsonLogger.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: ILogger.cs Source File</title>
+<title>BasicxLogger: LogMessageModel.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">2.0.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
   </td>
  </tr>
@@ -84,47 +84,44 @@ $(document).ready(function(){initNavTree('a00035_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ILogger.cs</div>  </div>
+<div class="title">LogMessageModel.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System.Threading.Tasks;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System.Text.Json.Serialization;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00062.html">BasicxLogger</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00062.html">BasicxLogger.Models</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00120.html">   12</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">interface </span><a class="code" href="a00120.html">ILogger</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00123.html">   12</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00123.html">LogMessageModel</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a00120.html#af78e174028ffd24a872f0bd8c6a6d0a9">   17</a></span>&#160;        <a class="code" href="a00104.html">Timestamp</a> <a class="code" href="a00120.html#af78e174028ffd24a872f0bd8c6a6d0a9">MessageTimestamp</a> { <span class="keyword">get</span>; }</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a00120.html#aa179706451dc7baf49a2b9da05f5d8d5">   21</a></span>&#160;        <a class="code" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> <a class="code" href="a00120.html#aa179706451dc7baf49a2b9da05f5d8d5">DefaultTag</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00120.html#a3656c33eff5f49a5feccf0c18cd9ae32">   25</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00120.html#a3656c33eff5f49a5feccf0c18cd9ae32">UseId</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a00120.html#ac7aed4487e3b1639ae5aa2ab2404a51d">   36</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="a00120.html#ac7aed4487e3b1639ae5aa2ab2404a51d">Log</a>(<span class="keywordtype">string</span> message);</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a00120.html#adf5a378f574849f62445819c09a09c50">   48</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="a00120.html#adf5a378f574849f62445819c09a09c50">Log</a>(<a class="code" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> messageTag, <span class="keywordtype">string</span> message);</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="a00120.html#a0d8eb99146b5498e24a1891200c9ec0d">   57</a></span>&#160;        Task&lt;string&gt; <a class="code" href="a00120.html#a0d8eb99146b5498e24a1891200c9ec0d">LogAsync</a>(<span class="keywordtype">string</span> message);</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="a00120.html#ac272953027ec74b3e720462e3460e0d0">   69</a></span>&#160;        Task&lt;string&gt; <a class="code" href="a00120.html#ac272953027ec74b3e720462e3460e0d0">LogAsync</a>(<a class="code" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> messageTag, <span class="keywordtype">string</span> message);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="ttc" id="aa00062_html"><div class="ttname"><a href="a00062.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00009">MySqlDatabase.cs:10</a></div></div>
-<div class="ttc" id="aa00062_html_a0768f6cb40899c29cccd5471f354b2b5"><div class="ttname"><a href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">BasicxLogger.LogTag</a></div><div class="ttdeci">LogTag</div><div class="ttdoc">Enum that contains the message tags, that can be used for logging</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00010">LogTag.cs:11</a></div></div>
-<div class="ttc" id="aa00104_html"><div class="ttname"><a href="a00104.html">BasicxLogger.Timestamp</a></div><div class="ttdoc">Timestamp class to configure and create timestamps</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00013">Timestamp.cs:14</a></div></div>
-<div class="ttc" id="aa00120_html"><div class="ttname"><a href="a00120.html">BasicxLogger.ILogger</a></div><div class="ttdoc">Interface for BasicxLogger</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.html#l00012">ILogger.cs:13</a></div></div>
-<div class="ttc" id="aa00120_html_a0d8eb99146b5498e24a1891200c9ec0d"><div class="ttname"><a href="a00120.html#a0d8eb99146b5498e24a1891200c9ec0d">BasicxLogger.ILogger.LogAsync</a></div><div class="ttdeci">Task&lt; string &gt; LogAsync(string message)</div><div class="ttdoc">Asynchronous logs the given message.</div></div>
-<div class="ttc" id="aa00120_html_a3656c33eff5f49a5feccf0c18cd9ae32"><div class="ttname"><a href="a00120.html#a3656c33eff5f49a5feccf0c18cd9ae32">BasicxLogger.ILogger.UseId</a></div><div class="ttdeci">bool UseId</div><div class="ttdoc">Gets or Sets if each log entry should contain a unique id or not.</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.html#l00025">ILogger.cs:25</a></div></div>
-<div class="ttc" id="aa00120_html_aa179706451dc7baf49a2b9da05f5d8d5"><div class="ttname"><a href="a00120.html#aa179706451dc7baf49a2b9da05f5d8d5">BasicxLogger.ILogger.DefaultTag</a></div><div class="ttdeci">LogTag DefaultTag</div><div class="ttdoc">Gets or Sets a default message tag that will be used if no tag is selected.</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.html#l00021">ILogger.cs:21</a></div></div>
-<div class="ttc" id="aa00120_html_ac272953027ec74b3e720462e3460e0d0"><div class="ttname"><a href="a00120.html#ac272953027ec74b3e720462e3460e0d0">BasicxLogger.ILogger.LogAsync</a></div><div class="ttdeci">Task&lt; string &gt; LogAsync(LogTag messageTag, string message)</div><div class="ttdoc">Asynchronous logs the given message.</div></div>
-<div class="ttc" id="aa00120_html_ac7aed4487e3b1639ae5aa2ab2404a51d"><div class="ttname"><a href="a00120.html#ac7aed4487e3b1639ae5aa2ab2404a51d">BasicxLogger.ILogger.Log</a></div><div class="ttdeci">string Log(string message)</div><div class="ttdoc">Logs the given message.</div></div>
-<div class="ttc" id="aa00120_html_adf5a378f574849f62445819c09a09c50"><div class="ttname"><a href="a00120.html#adf5a378f574849f62445819c09a09c50">BasicxLogger.ILogger.Log</a></div><div class="ttdeci">string Log(LogTag messageTag, string message)</div><div class="ttdoc">Logs the given message.</div></div>
-<div class="ttc" id="aa00120_html_af78e174028ffd24a872f0bd8c6a6d0a9"><div class="ttname"><a href="a00120.html#af78e174028ffd24a872f0bd8c6a6d0a9">BasicxLogger.ILogger.MessageTimestamp</a></div><div class="ttdeci">Timestamp MessageTimestamp</div><div class="ttdoc">Gets the BasicxLogger.Timestamp that is used by the logger.</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.html#l00017">ILogger.cs:17</a></div></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        [JsonPropertyName(<span class="stringliteral">&quot;id&quot;</span>)]</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00123.html#a8b463df9733bba38a3505d9ccfaec3fb">   18</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00123.html#a8b463df9733bba38a3505d9ccfaec3fb">Id</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        [JsonPropertyName(<span class="stringliteral">&quot;timestamp&quot;</span>)]</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a00123.html#ab02ba3e9fd81b3430d567e9c68e212d7">   24</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00127.html">Timestamp</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        [JsonPropertyName(<span class="stringliteral">&quot;tag&quot;</span>)]</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00123.html#affc2552457e60dbf1b71d87a3956e36d">   30</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00123.html#affc2552457e60dbf1b71d87a3956e36d">Tag</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        [JsonPropertyName(<span class="stringliteral">&quot;message&quot;</span>)]</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a00123.html#aa0d84021b3283b1fcc117980dcd12a42">   36</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00123.html#aa0d84021b3283b1fcc117980dcd12a42">Message</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="ttc" id="aa00062_html"><div class="ttname"><a href="a00062.html">BasicxLogger.Models</a></div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00008">JsonLogModel.cs:9</a></div></div>
+<div class="ttc" id="aa00123_html"><div class="ttname"><a href="a00123.html">BasicxLogger.Models.LogMessageModel</a></div><div class="ttdoc">Data model for one log message in a json log file</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.html#l00012">LogMessageModel.cs:13</a></div></div>
+<div class="ttc" id="aa00123_html_a8b463df9733bba38a3505d9ccfaec3fb"><div class="ttname"><a href="a00123.html#a8b463df9733bba38a3505d9ccfaec3fb">BasicxLogger.Models.LogMessageModel.Id</a></div><div class="ttdeci">string Id</div><div class="ttdoc">The log message id</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.html#l00018">LogMessageModel.cs:18</a></div></div>
+<div class="ttc" id="aa00123_html_aa0d84021b3283b1fcc117980dcd12a42"><div class="ttname"><a href="a00123.html#aa0d84021b3283b1fcc117980dcd12a42">BasicxLogger.Models.LogMessageModel.Message</a></div><div class="ttdeci">string Message</div><div class="ttdoc">The log message</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.html#l00036">LogMessageModel.cs:36</a></div></div>
+<div class="ttc" id="aa00123_html_affc2552457e60dbf1b71d87a3956e36d"><div class="ttname"><a href="a00123.html#affc2552457e60dbf1b71d87a3956e36d">BasicxLogger.Models.LogMessageModel.Tag</a></div><div class="ttdeci">string Tag</div><div class="ttdoc">The log message tag</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.html#l00030">LogMessageModel.cs:30</a></div></div>
+<div class="ttc" id="aa00127_html"><div class="ttname"><a href="a00127.html">BasicxLogger.Timestamp</a></div><div class="ttdoc">Timestamp class to configure and create timestamps</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00013">Timestamp.cs:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_36fd304bbf3c35596dc7dec615dee498.html">Interfaces</a></li><li class="navelem"><b>ILogger.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_a79c0ebb4680270ef4352bda3c425f4c.html">Models</a></li><li class="navelem"><b>LogMessageModel.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

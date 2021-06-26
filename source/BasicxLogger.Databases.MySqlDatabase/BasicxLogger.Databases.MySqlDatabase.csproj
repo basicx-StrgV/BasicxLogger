@@ -17,6 +17,10 @@
     <PackageTags>BasicxLogger, Extension, MySQL, logger, logging, C#, .NET-Standard, netcore</PackageTags>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Bjarne\source\repos\EasyLogger\EasyLogger\xml_documentations\BasicxLogger.Databases.MySqlDatabase.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.25" />
   </ItemGroup>

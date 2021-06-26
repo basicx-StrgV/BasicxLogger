@@ -15,6 +15,7 @@ using System;
 using System.Collections;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using BasicxLogger.Base;
 using BasicxLogger.Exceptions;
 
 namespace BasicxLogger
@@ -72,7 +73,7 @@ namespace BasicxLogger
 
 
         /// <summary>
-        /// Logs the given message with every <see cref="BasicxLogger.ILogger"/> 
+        /// Logs the given message with every <see cref="BasicxLogger.Base.ILogger"/> 
         /// that was added to the <see cref="BasicxLogger.MultiLogger"/>.
         /// </summary>
         /// <param name="message">The message that will be logged</param>
@@ -80,7 +81,7 @@ namespace BasicxLogger
         /// A string array conataining all message id's that each logger returned.
         /// </returns>
         /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException">
-        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.ILogger"/>.
+        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.Base.ILogger"/>.
         /// </exception>
         public string[] Log(string message)
         {
@@ -116,7 +117,7 @@ namespace BasicxLogger
             }
         }
         /// <summary>
-        /// Logs the given message with every <see cref="BasicxLogger.ILogger"/> 
+        /// Logs the given message with every <see cref="BasicxLogger.Base.ILogger"/> 
         /// that was added to the <see cref="BasicxLogger.MultiLogger"/>.
         /// </summary>
         /// <param name="message">The message that will be logged</param>
@@ -127,7 +128,7 @@ namespace BasicxLogger
         /// A string array conataining all message id's that each logger returned.
         /// </returns>
         /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException">
-        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.ILogger"/>.
+        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.Base.ILogger"/>.
         /// </exception>
         public string[] Log(LogTag messageTag, string message)
         {
@@ -163,7 +164,7 @@ namespace BasicxLogger
             }
         }
         /// <summary>
-        /// Asynchronous logs the given message with every <see cref="BasicxLogger.ILogger"/> 
+        /// Asynchronous logs the given message with every <see cref="BasicxLogger.Base.ILogger"/> 
         /// that was added to the <see cref="BasicxLogger.MultiLogger"/>.
         /// </summary>
         /// <param name="message">The message that will be logged</param>
@@ -171,7 +172,7 @@ namespace BasicxLogger
         /// A string array conataining all message id's that each logger returned.
         /// </returns>
         /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException">
-        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.ILogger"/>.
+        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.Base.ILogger"/>.
         /// </exception>
         public async Task<string[]> LogAsync(string message)
         {
@@ -187,7 +188,7 @@ namespace BasicxLogger
             }
         }
         /// <summary>
-        /// Asynchronous logs the given message with every <see cref="BasicxLogger.ILogger"/> 
+        /// Asynchronous logs the given message with every <see cref="BasicxLogger.Base.ILogger"/> 
         /// that was added to the <see cref="BasicxLogger.MultiLogger"/>.
         /// </summary>
         /// <param name="message">The message that will be logged</param>
@@ -198,7 +199,7 @@ namespace BasicxLogger
         /// A string array conataining all message id's that each logger returned.
         /// </returns>
         /// <exception cref="BasicxLogger.Exceptions.NoLoggerAddedException">
-        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.ILogger"/>.
+        /// The <see cref="BasicxLogger.MultiLogger"/> does not contain any <see cref="BasicxLogger.Base.ILogger"/>.
         /// </exception>
         public async Task<string[]> LogAsync(LogTag messageTag, string message)
         {
@@ -363,11 +364,11 @@ namespace BasicxLogger
             }
         }
         /// <summary>
-        /// Returns an enumerator that iterates through the <see cref="BasicxLogger.ILogger"/> collection.
+        /// Returns an enumerator that iterates through the <see cref="BasicxLogger.Base.ILogger"/> collection.
         /// </summary>
         /// <returns>
         /// An <see cref="System.Collections.IEnumerator"/> object that can be used to
-        /// iterate through the <see cref="BasicxLogger.ILogger"/> collection.
+        /// iterate through the <see cref="BasicxLogger.Base.ILogger"/> collection.
         /// </returns>
         public IEnumerator GetEnumerator()
         {
@@ -377,11 +378,11 @@ namespace BasicxLogger
             }
         }
         /// <summary>
-        /// Returns an enumerator that iterates through the <see cref="BasicxLogger.ILogger"/> collection.
+        /// Returns an enumerator that iterates through the <see cref="BasicxLogger.Base.ILogger"/> collection.
         /// </summary>
         /// <returns>
         /// An <see cref="System.Collections.IEnumerator"/> object that can be used to
-        /// iterate through the <see cref="BasicxLogger.ILogger"/> collection.
+        /// iterate through the <see cref="BasicxLogger.Base.ILogger"/> collection.
         /// </returns>
         IEnumerator<ILogger> IEnumerable<ILogger>.GetEnumerator()
         {

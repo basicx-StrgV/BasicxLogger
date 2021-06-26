@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: XmlLogFile.cs Source File</title>
+<title>BasicxLogger: IdHandler.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">2.0.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
   </td>
  </tr>
@@ -84,7 +84,7 @@ $(document).ready(function(){initNavTree('a00014_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">XmlLogFile.cs</div>  </div>
+<div class="title">IdHandler.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
@@ -92,135 +92,32 @@ $(document).ready(function(){initNavTree('a00014_source.html',''); initResizable
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> System.IO;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> System.Xml;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> System.Text;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00064.html">BasicxLogger.Files</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00096.html">   15</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00096.html">XmlLogFile</a> : <a class="code" href="a00116.html">ILogFile</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00096.html#a992c0858db2e2d3e5ad77bbad87820d1">   20</a></span>&#160;        <span class="keyword">public</span> Encoding <a class="code" href="a00096.html#a992c0858db2e2d3e5ad77bbad87820d1">TextEncoding</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; } = Encoding.UTF8;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00059.html">BasicxLogger</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00095.html">   12</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class </span><a class="code" href="a00095.html">IdHandler</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00095.html#a8dd271923e3c6ac7af3b526f2691fe25">   20</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">string</span> <a class="code" href="a00095.html#a8dd271923e3c6ac7af3b526f2691fe25">UniqueId</a> { <span class="keyword">get</span> { <span class="keywordflow">return</span> GenerateUniqueId(); } }</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00096.html#a989af394e931b432ace1cf9b85dc9855">   25</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00096.html#a989af394e931b432ace1cf9b85dc9855">DirectoryName</a> { <span class="keyword">get</span> { <span class="keywordflow">return</span> _file.DirectoryName; } }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00096.html#ad4714b43a089c4939cc2f78c3a819a98">   30</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00096.html#ad4714b43a089c4939cc2f78c3a819a98">FullName</a> { <span class="keyword">get</span> { <span class="keywordflow">return</span> _file.FullName; } }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00096.html#af2938cf1fa214c39bf8120495be28691">   35</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00096.html#af2938cf1fa214c39bf8120495be28691">Extension</a> { <span class="keyword">get</span> { <span class="keywordflow">return</span> _file.Extension; } }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">private</span> readonly FileInfo _file;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00096.html#a1a9bdf71c8650b11192cc4b20b51d107">   46</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00096.html#a1a9bdf71c8650b11192cc4b20b51d107">XmlLogFile</a>(<span class="keywordtype">string</span> directoryPath, <span class="keywordtype">string</span> fileName)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> (!(directoryPath.EndsWith(<span class="stringliteral">&quot;\\&quot;</span>) || directoryPath.EndsWith(<span class="stringliteral">&quot;/&quot;</span>)))</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                directoryPath += <span class="charliteral">&#39;/&#39;</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            _file = <span class="keyword">new</span> FileInfo(directoryPath + fileName.Split(<span class="charliteral">&#39;.&#39;</span>)[0].Trim() + <span class="stringliteral">&quot;.xml&quot;</span>);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="a00096.html#a7fea6826b84c503801a0e4e98f264902">   63</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="a00096.html#a7fea6826b84c503801a0e4e98f264902">WriteToFile</a>(<a class="code" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> messageTag, <span class="keywordtype">string</span> timestamp, <span class="keywordtype">string</span> message, <span class="keywordtype">string</span> <span class="keywordtype">id</span> = <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">if</span> (!Directory.Exists(_file.DirectoryName))</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    Directory.CreateDirectory(_file.DirectoryName);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">if</span> (!File.Exists(_file.FullName))</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    CreateXmlFile();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="comment">//Load the xml file</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                XmlDocument xmlFile = <span class="keyword">new</span> XmlDocument();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                xmlFile.Load(_file.FullName);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="comment">//Get the root node from the file</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                XmlNode rootNode = xmlFile.SelectSingleNode(<span class="stringliteral">&quot;entrys&quot;</span>);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="comment">//Create nodes and add data</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                XmlNode logMessageNode = xmlFile.CreateElement(<span class="stringliteral">&quot;LogMessage&quot;</span>);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                XmlAttribute idAttribute = xmlFile.CreateAttribute(<span class="stringliteral">&quot;id&quot;</span>);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordflow">if</span> (!<span class="keywordtype">id</span>.Equals(<span class="stringliteral">&quot;&quot;</span>))</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    idAttribute.Value = id;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                logMessageNode.Attributes.Append(idAttribute);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                XmlNode timestampNode = xmlFile.CreateElement(<span class="stringliteral">&quot;timestamp&quot;</span>);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                timestampNode.InnerText = timestamp;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                logMessageNode.AppendChild(timestampNode);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                XmlNode tagNode = xmlFile.CreateElement(<span class="stringliteral">&quot;tag&quot;</span>);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">if</span> (!messageTag.Equals(<a class="code" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a>.none))</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    tagNode.InnerText = messageTag.ToString();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                logMessageNode.AppendChild(tagNode);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                XmlNode messageNode = xmlFile.CreateElement(<span class="stringliteral">&quot;message&quot;</span>);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                messageNode.InnerText = message;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                logMessageNode.AppendChild(messageNode);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="comment">//Appand to root node</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                rootNode.AppendChild(logMessageNode);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="comment">//Save the xml file</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                xmlFile.Save(_file.FullName);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordflow">throw</span> e;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            }</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> CreateXmlFile()</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="keywordflow">if</span> (!File.Exists(_file.FullName))</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                    XmlWriterSettings xmlWriterSettings = <span class="keyword">new</span> XmlWriterSettings</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        Encoding = <a class="code" href="a00096.html#a992c0858db2e2d3e5ad77bbad87820d1">TextEncoding</a></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                    };</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    XmlWriter xmlWriter = XmlWriter.Create(_file.FullName, xmlWriterSettings);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                    xmlWriter.WriteStartDocument();</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    xmlWriter.WriteStartElement(<span class="stringliteral">&quot;entrys&quot;</span>);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                    xmlWriter.WriteEndElement();</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                    xmlWriter.Close();</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                }</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            }</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                <span class="keywordflow">throw</span> e;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            }</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        }</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
-<div class="ttc" id="aa00062_html_a0768f6cb40899c29cccd5471f354b2b5"><div class="ttname"><a href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">BasicxLogger.LogTag</a></div><div class="ttdeci">LogTag</div><div class="ttdoc">Enum that contains the message tags, that can be used for logging</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00010">LogTag.cs:11</a></div></div>
-<div class="ttc" id="aa00064_html"><div class="ttname"><a href="a00064.html">BasicxLogger.Files</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00011">JsonLogFile.cs:12</a></div></div>
-<div class="ttc" id="aa00096_html"><div class="ttname"><a href="a00096.html">BasicxLogger.Files.XmlLogFile</a></div><div class="ttdoc">Class that represents a log file with the file extension .xml</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00015">XmlLogFile.cs:16</a></div></div>
-<div class="ttc" id="aa00096_html_a1a9bdf71c8650b11192cc4b20b51d107"><div class="ttname"><a href="a00096.html#a1a9bdf71c8650b11192cc4b20b51d107">BasicxLogger.Files.XmlLogFile.XmlLogFile</a></div><div class="ttdeci">XmlLogFile(string directoryPath, string fileName)</div><div class="ttdoc">Initializes a new instance of the BasicxLogger.Files.XmlLogFile class</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00046">XmlLogFile.cs:46</a></div></div>
-<div class="ttc" id="aa00096_html_a7fea6826b84c503801a0e4e98f264902"><div class="ttname"><a href="a00096.html#a7fea6826b84c503801a0e4e98f264902">BasicxLogger.Files.XmlLogFile.WriteToFile</a></div><div class="ttdeci">void WriteToFile(LogTag messageTag, string timestamp, string message, string id=&quot;&quot;)</div><div class="ttdoc">Writes a log message with the given data to the log file</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00063">XmlLogFile.cs:63</a></div></div>
-<div class="ttc" id="aa00096_html_a989af394e931b432ace1cf9b85dc9855"><div class="ttname"><a href="a00096.html#a989af394e931b432ace1cf9b85dc9855">BasicxLogger.Files.XmlLogFile.DirectoryName</a></div><div class="ttdeci">string DirectoryName</div><div class="ttdoc">Gets a string representing the directory's full path</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00025">XmlLogFile.cs:25</a></div></div>
-<div class="ttc" id="aa00096_html_a992c0858db2e2d3e5ad77bbad87820d1"><div class="ttname"><a href="a00096.html#a992c0858db2e2d3e5ad77bbad87820d1">BasicxLogger.Files.XmlLogFile.TextEncoding</a></div><div class="ttdeci">Encoding TextEncoding</div><div class="ttdoc">Gets or Sets the text encoding for the file</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00020">XmlLogFile.cs:20</a></div></div>
-<div class="ttc" id="aa00096_html_ad4714b43a089c4939cc2f78c3a819a98"><div class="ttname"><a href="a00096.html#ad4714b43a089c4939cc2f78c3a819a98">BasicxLogger.Files.XmlLogFile.FullName</a></div><div class="ttdeci">string FullName</div><div class="ttdoc">Gets the full path of the file</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00030">XmlLogFile.cs:30</a></div></div>
-<div class="ttc" id="aa00096_html_af2938cf1fa214c39bf8120495be28691"><div class="ttname"><a href="a00096.html#af2938cf1fa214c39bf8120495be28691">BasicxLogger.Files.XmlLogFile.Extension</a></div><div class="ttdeci">string Extension</div><div class="ttdoc">Gets the string representing the extension part of the file</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00035">XmlLogFile.cs:35</a></div></div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="a00116.html">BasicxLogger.Files.ILogFile</a></div><div class="ttdoc">Interface that represents a file for the BasicxLogger.FileLogger</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00012">ILogFile.cs:13</a></div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">string</span> GenerateUniqueId()</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordtype">string</span> idPartOne = <span class="keywordtype">int</span>.Parse(DateTime.UtcNow.ToString(<span class="stringliteral">&quot;yyyyMMdd&quot;</span>)).ToString(<span class="stringliteral">&quot;X&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordtype">string</span> idPartTwo = <span class="keywordtype">int</span>.Parse(DateTime.UtcNow.ToString(<span class="stringliteral">&quot;HHmmss&quot;</span>)).ToString(<span class="stringliteral">&quot;X&quot;</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordtype">string</span> idPartThree = <span class="keywordtype">int</span>.Parse(DateTime.UtcNow.ToString(<span class="stringliteral">&quot;fffffff&quot;</span>)).ToString(<span class="stringliteral">&quot;X&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordtype">string</span> uniqueId = idPartOne + idPartTwo + idPartThree;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">return</span> uniqueId;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="ttc" id="aa00059_html"><div class="ttname"><a href="a00059.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00012">JsonLogFile.cs:13</a></div></div>
+<div class="ttc" id="aa00095_html"><div class="ttname"><a href="a00095.html">BasicxLogger.IdHandler</a></div><div class="ttdoc">A static class used for id generation</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00012">IdHandler.cs:13</a></div></div>
+<div class="ttc" id="aa00095_html_a8dd271923e3c6ac7af3b526f2691fe25"><div class="ttname"><a href="a00095.html#a8dd271923e3c6ac7af3b526f2691fe25">BasicxLogger.IdHandler.UniqueId</a></div><div class="ttdeci">static string UniqueId</div><div class="ttdoc">Gets a unique id string</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00020">IdHandler.cs:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_4b9d4dd8dd7e0f90ae3a29d1d5988f0f.html">Components</a></li><li class="navelem"><a class="el" href="dir_72c2f97103c017b6fc466aaf2cd88024.html">Files</a></li><li class="navelem"><b>XmlLogFile.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_4b9d4dd8dd7e0f90ae3a29d1d5988f0f.html">Components</a></li><li class="navelem"><a class="el" href="dir_99c1db09e0428b24dde0dd5fc939f34b.html">IdHandler</a></li><li class="navelem"><b>IdHandler.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['multilogger_93',['MultiLogger',['../a00136.html',1,'BasicxLogger']]],
-  ['mysqldatabase_94',['MySqlDatabase',['../a00080.html',1,'BasicxLogger::Databases']]]
+  ['nologgeraddedexception_93',['NoLoggerAddedException',['../a00099.html',1,'BasicxLogger::Exceptions']]]
 ];

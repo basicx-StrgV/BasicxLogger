@@ -4,12 +4,13 @@
 //--------------------------------------------------//
 using System;
 using System.Threading.Tasks;
+using BasicxLogger.Base;
 using MySql.Data.MySqlClient;
 
 namespace BasicxLogger.Databases
 {
     /// <summary>
-    /// Class that represents a database
+    /// Class that represents a MySql database
     /// </summary>
     public class MySqlDatabase : ILogDatabase
     {

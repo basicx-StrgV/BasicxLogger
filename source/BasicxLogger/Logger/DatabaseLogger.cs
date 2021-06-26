@@ -13,7 +13,7 @@
  * **************************************************************************/
 using System;
 using System.Threading.Tasks;
-using BasicxLogger.Databases;
+using BasicxLogger.Base;
 
 namespace BasicxLogger
 {

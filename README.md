@@ -22,9 +22,13 @@
 - JsonLogger
 - MultiLogger
 
-## 📦 NuGet package
+## 📦 NuGet packages
 
 You can get the nuget package here: https://www.nuget.org/packages/BasicxLogger/
+
+### Extensions
+
+MySql Database for the DatabaseLogger: PLACEHOLDER
 
 ## 📖 Documentation
 

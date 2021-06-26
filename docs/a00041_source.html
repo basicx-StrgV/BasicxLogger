@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: FileLogger.cs Source File</title>
+<title>BasicxLogger: LogTag.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">2.0.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
   </td>
  </tr>
@@ -84,146 +84,49 @@ $(document).ready(function(){initNavTree('a00041_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">FileLogger.cs</div>  </div>
+<div class="title">LogTag.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/****************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *       ____            _           _                                      *</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *      |  _ \          (_)         | |                                     *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *      | |_) | __ _ ___ _  _____  _| |     ___   __ _  __ _  ___ _ __      *</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      |  _ &lt; / _` / __| |/ __\ \/ / |    / _ \ / _` |/ _` |/ _ \ &#39;__|     *</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *      | |_) | (_| \__ \ | (__ &gt;  &lt;| |___| (_) | (_| | (_| |  __/ |        *</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *      |____/ \__,_|___/_|\___/_/\_\______\___/ \__, |\__, |\___|_|        *</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *                                                __/ | __/ |               *</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *                                               |___/ |___/                *</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  by basicx-StrgV                                                         *</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  https://github.com/basicx-StrgV/BasicxLogger                            *</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *                                                                          *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * **************************************************************************/</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using</span> System;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using</span> System.Threading.Tasks;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using</span> <a class="code" href="a00062.html">BasicxLogger</a>.<a class="code" href="a00064.html">Files</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00062.html">BasicxLogger</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a00128.html">   26</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00128.html">FileLogger</a> : <a class="code" href="a00120.html">ILogger</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00128.html#a4e6d299e79334fd1da30f04407b4bce0">   31</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00116.html">ILogFile</a> <a class="code" href="a00128.html#a4e6d299e79334fd1da30f04407b4bce0">LogFile</a> { <span class="keyword">get</span>; } = <span class="keyword">new</span> <a class="code" href="a00092.html">TxtLogFile</a>(</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            String.Format(<span class="stringliteral">&quot;{0}/{1}/&quot;</span>, Environment.CurrentDirectory, <span class="stringliteral">&quot;Logs&quot;</span>), <span class="stringliteral">&quot;Log&quot;</span>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a00128.html#a55d440b2b7c135ea7b725d922f0c525b">   36</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00104.html">Timestamp</a> <a class="code" href="a00128.html#a55d440b2b7c135ea7b725d922f0c525b">MessageTimestamp</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <a class="code" href="a00104.html">Timestamp</a>.<a class="code" href="a00104.html#aedff67cb061655d708fe8c3871dd897b">Year_Month_Day_Hour24_Min_Sec</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a00128.html#a2db04e7ff7d6f2a20f608cb2af52598c">   40</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> <a class="code" href="a00128.html#a2db04e7ff7d6f2a20f608cb2af52598c">DefaultTag</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <a class="code" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a>.none;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00128.html#a48a1c426d0115309dc19c68a31b9dabe">   44</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code" href="a00128.html#a48a1c426d0115309dc19c68a31b9dabe">UseId</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="a00128.html#a538065ee3f2004fe353d94df70574f86">   51</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00128.html#a538065ee3f2004fe353d94df70574f86">FileLogger</a>()</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="a00128.html#a06e52f718015c8bb557c9577e8096c21">   58</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00128.html#a06e52f718015c8bb557c9577e8096c21">FileLogger</a>(<a class="code" href="a00116.html">ILogFile</a> logFile)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="a00128.html#a4e6d299e79334fd1da30f04407b4bce0">LogFile</a> = logFile;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="a00128.html#a973648095bb59e5ea5381432a627deef">   72</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00128.html#a973648095bb59e5ea5381432a627deef">Log</a>(<span class="keywordtype">string</span> message)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="a00128.html#a48a1c426d0115309dc19c68a31b9dabe">UseId</a>)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    <span class="keywordtype">string</span> <span class="keywordtype">id</span> = <a class="code" href="a00100.html">IdHandler</a>.<a class="code" href="a00100.html#a8dd271923e3c6ac7af3b526f2691fe25">UniqueId</a>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    <a class="code" href="a00128.html#a4e6d299e79334fd1da30f04407b4bce0">LogFile</a>.<a class="code" href="a00116.html#ad60170020a67cde67772217b00c9d8ba">WriteToFile</a>(<a class="code" href="a00128.html#a2db04e7ff7d6f2a20f608cb2af52598c">DefaultTag</a>, <a class="code" href="a00128.html#a55d440b2b7c135ea7b725d922f0c525b">MessageTimestamp</a>.<a class="code" href="a00104.html#a14400de9e979afb926056b12c254981f">GetTimestamp</a>(), message, <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="keywordflow">return</span> id;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    <a class="code" href="a00128.html#a4e6d299e79334fd1da30f04407b4bce0">LogFile</a>.<a class="code" href="a00116.html#ad60170020a67cde67772217b00c9d8ba">WriteToFile</a>(<a class="code" href="a00128.html#a2db04e7ff7d6f2a20f608cb2af52598c">DefaultTag</a>, <a class="code" href="a00128.html#a55d440b2b7c135ea7b725d922f0c525b">MessageTimestamp</a>.<a class="code" href="a00104.html#a14400de9e979afb926056b12c254981f">GetTimestamp</a>(), message);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordflow">throw</span> e;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="a00128.html#a3ef83db1aeb36a7e588a3ef0beb347cf">  104</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="a00128.html#a3ef83db1aeb36a7e588a3ef0beb347cf">Log</a>(<a class="code" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> messageTag, <span class="keywordtype">string</span> message)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="a00128.html#a48a1c426d0115309dc19c68a31b9dabe">UseId</a>)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    <span class="keywordtype">string</span> <span class="keywordtype">id</span> = <a class="code" href="a00100.html">IdHandler</a>.<a class="code" href="a00100.html#a8dd271923e3c6ac7af3b526f2691fe25">UniqueId</a>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    <a class="code" href="a00128.html#a4e6d299e79334fd1da30f04407b4bce0">LogFile</a>.<a class="code" href="a00116.html#ad60170020a67cde67772217b00c9d8ba">WriteToFile</a>(messageTag, <a class="code" href="a00128.html#a55d440b2b7c135ea7b725d922f0c525b">MessageTimestamp</a>.<a class="code" href="a00104.html#a14400de9e979afb926056b12c254981f">GetTimestamp</a>(), message, <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    <span class="keywordflow">return</span> id;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    <a class="code" href="a00128.html#a4e6d299e79334fd1da30f04407b4bce0">LogFile</a>.<a class="code" href="a00116.html#ad60170020a67cde67772217b00c9d8ba">WriteToFile</a>(messageTag, <a class="code" href="a00128.html#a55d440b2b7c135ea7b725d922f0c525b">MessageTimestamp</a>.<a class="code" href="a00104.html#a14400de9e979afb926056b12c254981f">GetTimestamp</a>(), message);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">throw</span> e;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="a00128.html#a5656984b3b66f05f68aa049e34756b0c">  134</a></span>&#160;        <span class="keyword">public</span> async Task&lt;string&gt; <a class="code" href="a00128.html#a5656984b3b66f05f68aa049e34756b0c">LogAsync</a>(<span class="keywordtype">string</span> message)</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        {</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                Task&lt;string&gt; logTask = Task.Run(() =&gt; <a class="code" href="a00128.html#a973648095bb59e5ea5381432a627deef">Log</a>(message));</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                await logTask;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                <span class="keywordflow">return</span> logTask.Result;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            {</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="keywordflow">throw</span> e;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            }</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        }</div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="a00128.html#aba589c1e32d560f7abbc2d45438e6b9d">  158</a></span>&#160;        <span class="keyword">public</span> async Task&lt;string&gt; <a class="code" href="a00128.html#aba589c1e32d560f7abbc2d45438e6b9d">LogAsync</a>(<a class="code" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> messageTag, <span class="keywordtype">string</span> message)</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="keywordflow">try</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            {</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                Task&lt;string&gt; logTask = Task.Run(() =&gt; <a class="code" href="a00128.html#a973648095bb59e5ea5381432a627deef">Log</a>(messageTag, message));</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                await logTask;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <span class="keywordflow">return</span> logTask.Result;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            }</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <span class="keywordflow">catch</span> (Exception e)</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                <span class="keywordflow">throw</span> e;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            }</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    }</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}</div>
-<div class="ttc" id="aa00062_html"><div class="ttname"><a href="a00062.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00009">MySqlDatabase.cs:10</a></div></div>
-<div class="ttc" id="aa00062_html_a0768f6cb40899c29cccd5471f354b2b5"><div class="ttname"><a href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">BasicxLogger.LogTag</a></div><div class="ttdeci">LogTag</div><div class="ttdoc">Enum that contains the message tags, that can be used for logging</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00010">LogTag.cs:11</a></div></div>
-<div class="ttc" id="aa00064_html"><div class="ttname"><a href="a00064.html">BasicxLogger.Files</a></div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00011">JsonLogFile.cs:12</a></div></div>
-<div class="ttc" id="aa00092_html"><div class="ttname"><a href="a00092.html">BasicxLogger.Files.TxtLogFile</a></div><div class="ttdoc">Class that represents a log file with the file extension .txt</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00014">TxtLogFile.cs:15</a></div></div>
-<div class="ttc" id="aa00100_html"><div class="ttname"><a href="a00100.html">BasicxLogger.IdHandler</a></div><div class="ttdoc">A static class used for id generation</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00012">IdHandler.cs:13</a></div></div>
-<div class="ttc" id="aa00100_html_a8dd271923e3c6ac7af3b526f2691fe25"><div class="ttname"><a href="a00100.html#a8dd271923e3c6ac7af3b526f2691fe25">BasicxLogger.IdHandler.UniqueId</a></div><div class="ttdeci">static string UniqueId</div><div class="ttdoc">Gets a unique id string</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00020">IdHandler.cs:20</a></div></div>
-<div class="ttc" id="aa00104_html"><div class="ttname"><a href="a00104.html">BasicxLogger.Timestamp</a></div><div class="ttdoc">Timestamp class to configure and create timestamps</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00013">Timestamp.cs:14</a></div></div>
-<div class="ttc" id="aa00104_html_a14400de9e979afb926056b12c254981f"><div class="ttname"><a href="a00104.html#a14400de9e979afb926056b12c254981f">BasicxLogger.Timestamp.GetTimestamp</a></div><div class="ttdeci">string GetTimestamp()</div><div class="ttdoc">Get the current timestamp.</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00044">Timestamp.cs:44</a></div></div>
-<div class="ttc" id="aa00104_html_aedff67cb061655d708fe8c3871dd897b"><div class="ttname"><a href="a00104.html#aedff67cb061655d708fe8c3871dd897b">BasicxLogger.Timestamp.Year_Month_Day_Hour24_Min_Sec</a></div><div class="ttdeci">static Timestamp Year_Month_Day_Hour24_Min_Sec</div><div class="ttdoc">Gets a BasicxLogger.Timestamp with the selected format.</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00056">Timestamp.cs:56</a></div></div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="a00116.html">BasicxLogger.Files.ILogFile</a></div><div class="ttdoc">Interface that represents a file for the BasicxLogger.FileLogger</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00012">ILogFile.cs:13</a></div></div>
-<div class="ttc" id="aa00116_html_ad60170020a67cde67772217b00c9d8ba"><div class="ttname"><a href="a00116.html#ad60170020a67cde67772217b00c9d8ba">BasicxLogger.Files.ILogFile.WriteToFile</a></div><div class="ttdeci">void WriteToFile(LogTag messageTag, string timestamp, string message, string id=&quot;&quot;)</div><div class="ttdoc">Writes a log message with the given data to the log file.</div></div>
-<div class="ttc" id="aa00120_html"><div class="ttname"><a href="a00120.html">BasicxLogger.ILogger</a></div><div class="ttdoc">Interface for BasicxLogger</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.html#l00012">ILogger.cs:13</a></div></div>
-<div class="ttc" id="aa00128_html"><div class="ttname"><a href="a00128.html">BasicxLogger.FileLogger</a></div><div class="ttdoc">File logger that contains everything needed to write a message to a log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00026">FileLogger.cs:27</a></div></div>
-<div class="ttc" id="aa00128_html_a06e52f718015c8bb557c9577e8096c21"><div class="ttname"><a href="a00128.html#a06e52f718015c8bb557c9577e8096c21">BasicxLogger.FileLogger.FileLogger</a></div><div class="ttdeci">FileLogger(ILogFile logFile)</div><div class="ttdoc">Initializes a new instance of the BasicxLogger.FileLogger class.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00058">FileLogger.cs:58</a></div></div>
-<div class="ttc" id="aa00128_html_a2db04e7ff7d6f2a20f608cb2af52598c"><div class="ttname"><a href="a00128.html#a2db04e7ff7d6f2a20f608cb2af52598c">BasicxLogger.FileLogger.DefaultTag</a></div><div class="ttdeci">LogTag DefaultTag</div><div class="ttdoc">Gets or Sets a default message tag that will be used if no tag is selected.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00040">FileLogger.cs:40</a></div></div>
-<div class="ttc" id="aa00128_html_a3ef83db1aeb36a7e588a3ef0beb347cf"><div class="ttname"><a href="a00128.html#a3ef83db1aeb36a7e588a3ef0beb347cf">BasicxLogger.FileLogger.Log</a></div><div class="ttdeci">string Log(LogTag messageTag, string message)</div><div class="ttdoc">Writes the given message to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00104">FileLogger.cs:104</a></div></div>
-<div class="ttc" id="aa00128_html_a48a1c426d0115309dc19c68a31b9dabe"><div class="ttname"><a href="a00128.html#a48a1c426d0115309dc19c68a31b9dabe">BasicxLogger.FileLogger.UseId</a></div><div class="ttdeci">bool UseId</div><div class="ttdoc">Gets or Sets if each log entry should contain a unique id or not.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00044">FileLogger.cs:44</a></div></div>
-<div class="ttc" id="aa00128_html_a4e6d299e79334fd1da30f04407b4bce0"><div class="ttname"><a href="a00128.html#a4e6d299e79334fd1da30f04407b4bce0">BasicxLogger.FileLogger.LogFile</a></div><div class="ttdeci">ILogFile LogFile</div><div class="ttdoc">Gets the BasicxLogger.ILogFile that is used by the logger.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00031">FileLogger.cs:31</a></div></div>
-<div class="ttc" id="aa00128_html_a538065ee3f2004fe353d94df70574f86"><div class="ttname"><a href="a00128.html#a538065ee3f2004fe353d94df70574f86">BasicxLogger.FileLogger.FileLogger</a></div><div class="ttdeci">FileLogger()</div><div class="ttdoc">Initializes a new instance of the BasicxLogger.FileLogger class, that uses the default settings.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00051">FileLogger.cs:51</a></div></div>
-<div class="ttc" id="aa00128_html_a55d440b2b7c135ea7b725d922f0c525b"><div class="ttname"><a href="a00128.html#a55d440b2b7c135ea7b725d922f0c525b">BasicxLogger.FileLogger.MessageTimestamp</a></div><div class="ttdeci">Timestamp MessageTimestamp</div><div class="ttdoc">Gets or Sets the BasicxLogger.Timestamp that is used by the logger.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00036">FileLogger.cs:36</a></div></div>
-<div class="ttc" id="aa00128_html_a5656984b3b66f05f68aa049e34756b0c"><div class="ttname"><a href="a00128.html#a5656984b3b66f05f68aa049e34756b0c">BasicxLogger.FileLogger.LogAsync</a></div><div class="ttdeci">async Task&lt; string &gt; LogAsync(string message)</div><div class="ttdoc">Asynchronous writes the given message to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00134">FileLogger.cs:134</a></div></div>
-<div class="ttc" id="aa00128_html_a973648095bb59e5ea5381432a627deef"><div class="ttname"><a href="a00128.html#a973648095bb59e5ea5381432a627deef">BasicxLogger.FileLogger.Log</a></div><div class="ttdeci">string Log(string message)</div><div class="ttdoc">Writes the given message to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00072">FileLogger.cs:72</a></div></div>
-<div class="ttc" id="aa00128_html_aba589c1e32d560f7abbc2d45438e6b9d"><div class="ttname"><a href="a00128.html#aba589c1e32d560f7abbc2d45438e6b9d">BasicxLogger.FileLogger.LogAsync</a></div><div class="ttdeci">async Task&lt; string &gt; LogAsync(LogTag messageTag, string message)</div><div class="ttdoc">Asynchronous writes the given message to the log file.</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00158">FileLogger.cs:158</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by basicx-StrgV                          //</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// https://github.com/basicx-StrgV/BasicxLogger     //</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00059.html">BasicxLogger</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">enum</span> <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a551b723eafd6a31d444fcb2f5920fbd3">INFO</a>,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a059e9861e0400dfbe05c98a841f3f96b">WARNING</a>,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a19da7170bea36556dde582519795f3fc">FATAL</a>,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5acccc265b14c17af799a1834f4fbbe7cf">EXCEPTION</a>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a6e0d2a351777f8e1349133544e885f8a">DEBUGGING</a>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a90791ed805bd5b00d78527d39d9ef7e4">MESSAGE</a>,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a320f86f60f25459ba5550e000b2c3929">ALERT</a>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a030d962d0faa148f02848881a3b4fdb6">EVENT</a>,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a033bd94b1168d7e4f0d644c3c95e35bf">TEST</a>,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a334c4a4c42fdb79d7ebc3e73b517e6f8">none</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="ttc" id="aa00059_html"><div class="ttname"><a href="a00059.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00012">JsonLogFile.cs:13</a></div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5">BasicxLogger.LogTag</a></div><div class="ttdeci">LogTag</div><div class="ttdoc">Enum that contains the message tags, that can be used for logging</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00010">LogTag.cs:11</a></div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5a030d962d0faa148f02848881a3b4fdb6"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a030d962d0faa148f02848881a3b4fdb6">BasicxLogger.LogTag.EVENT</a></div><div class="ttdeci">@ EVENT</div><div class="ttdoc">Tag: [EVENT]</div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5a033bd94b1168d7e4f0d644c3c95e35bf"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a033bd94b1168d7e4f0d644c3c95e35bf">BasicxLogger.LogTag.TEST</a></div><div class="ttdeci">@ TEST</div><div class="ttdoc">Tag: [TEST]</div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5a059e9861e0400dfbe05c98a841f3f96b"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a059e9861e0400dfbe05c98a841f3f96b">BasicxLogger.LogTag.WARNING</a></div><div class="ttdeci">@ WARNING</div><div class="ttdoc">Tag: [WARNING]</div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5a19da7170bea36556dde582519795f3fc"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a19da7170bea36556dde582519795f3fc">BasicxLogger.LogTag.FATAL</a></div><div class="ttdeci">@ FATAL</div><div class="ttdoc">Tag: [FATAL]</div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5a320f86f60f25459ba5550e000b2c3929"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a320f86f60f25459ba5550e000b2c3929">BasicxLogger.LogTag.ALERT</a></div><div class="ttdeci">@ ALERT</div><div class="ttdoc">Tag: [ALERT]</div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5a334c4a4c42fdb79d7ebc3e73b517e6f8"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a334c4a4c42fdb79d7ebc3e73b517e6f8">BasicxLogger.LogTag.none</a></div><div class="ttdeci">@ none</div><div class="ttdoc">No Tag. Default value for the DefaultTag</div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5a551b723eafd6a31d444fcb2f5920fbd3"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a551b723eafd6a31d444fcb2f5920fbd3">BasicxLogger.LogTag.INFO</a></div><div class="ttdeci">@ INFO</div><div class="ttdoc">Tag: [INFO]</div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5a6e0d2a351777f8e1349133544e885f8a"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a6e0d2a351777f8e1349133544e885f8a">BasicxLogger.LogTag.DEBUGGING</a></div><div class="ttdeci">@ DEBUGGING</div><div class="ttdoc">Tag: [DEBUGGING]</div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5a90791ed805bd5b00d78527d39d9ef7e4"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5a90791ed805bd5b00d78527d39d9ef7e4">BasicxLogger.LogTag.MESSAGE</a></div><div class="ttdeci">@ MESSAGE</div><div class="ttdoc">Tag: [MESSAGE]</div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5abb1ca97ec761fc37101737ba0aa2e7c5"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5abb1ca97ec761fc37101737ba0aa2e7c5">BasicxLogger.LogTag.ERROR</a></div><div class="ttdeci">@ ERROR</div><div class="ttdoc">Tag: [ERROR]</div></div>
+<div class="ttc" id="aa00059_html_a0768f6cb40899c29cccd5471f354b2b5acccc265b14c17af799a1834f4fbbe7cf"><div class="ttname"><a href="a00059.html#a0768f6cb40899c29cccd5471f354b2b5acccc265b14c17af799a1834f4fbbe7cf">BasicxLogger.LogTag.EXCEPTION</a></div><div class="ttdeci">@ EXCEPTION</div><div class="ttdoc">Tag: [EXCEPTION]</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_a8f0aadec61680232e2389aaef228ac0.html">Logger</a></li><li class="navelem"><b>FileLogger.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_ca7f665ebbd5bafad176321f16985d91.html">BasicxLogger.Base</a></li><li class="navelem"><a class="el" href="dir_7b54658715f976a33a302311b2da56d4.html">Components</a></li><li class="navelem"><a class="el" href="dir_b859e3a45f234141c0fc3b1fc7eaa470.html">Tags</a></li><li class="navelem"><b>LogTag.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

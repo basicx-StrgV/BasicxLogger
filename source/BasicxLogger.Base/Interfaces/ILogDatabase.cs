@@ -2,7 +2,7 @@
 // Created by basicx-StrgV                          //
 // https://github.com/basicx-StrgV/BasicxLogger     //
 //--------------------------------------------------//
-namespace BasicxLogger.Databases
+namespace BasicxLogger.Base
 {
     /// <summary>
     /// Interface that represents a database for the <see cref="BasicxLogger.DatabaseLogger"/>

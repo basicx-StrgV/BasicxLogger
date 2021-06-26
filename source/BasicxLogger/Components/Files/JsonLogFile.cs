@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Text.Json;
+using BasicxLogger.Base;
 using BasicxLogger.Models;
 
 namespace BasicxLogger.Files

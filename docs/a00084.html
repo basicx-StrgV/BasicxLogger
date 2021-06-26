@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: BasicxLogger.Files.JsonLogFile Class Reference</title>
+<title>BasicxLogger: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">2.0.0</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
   </td>
  </tr>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('a00084.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('a00087.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,309 +83,24 @@ $(document).ready(function(){initNavTree('a00084.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#properties">Properties</a> &#124;
-<a href="a00081.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BasicxLogger.Files.JsonLogFile Class Reference</div>  </div>
+<div class="title">BasicxLogger.Files.TxtLogFile Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class that represents a log file with the file extension .json  
- <a href="a00084.html#details">More...</a></p>
-<div class="dynheader">
-Inheritance diagram for BasicxLogger.Files.JsonLogFile:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="a00084.png" usemap="#BasicxLogger.Files.JsonLogFile_map" alt=""/>
-  <map id="BasicxLogger.Files.JsonLogFile_map" name="BasicxLogger.Files.JsonLogFile_map">
-<area href="a00116.html" title="Interface that represents a file for the BasicxLogger.FileLogger" alt="BasicxLogger.Files.ILogFile" shape="rect" coords="0,0,193,24"/>
-  </map>
-</div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:afb269f21eef7c35ea2c750a3d1ba4cb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00084.html#afb269f21eef7c35ea2c750a3d1ba4cb0">JsonLogFile</a> (string directoryPath, string fileName)</td></tr>
-<tr class="memdesc:afb269f21eef7c35ea2c750a3d1ba4cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="a00084.html" title="Class that represents a log file with the file extension .json">BasicxLogger.Files.JsonLogFile</a> class  <a href="a00084.html#afb269f21eef7c35ea2c750a3d1ba4cb0">More...</a><br /></td></tr>
-<tr class="separator:afb269f21eef7c35ea2c750a3d1ba4cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc72129519c46b689cdda4867e1a62a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00084.html#adc72129519c46b689cdda4867e1a62a3">WriteToFile</a> (<a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> messageTag, string timestamp, string message, string id=&quot;&quot;)</td></tr>
-<tr class="memdesc:adc72129519c46b689cdda4867e1a62a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a log message with the given data to the log file  <a href="a00084.html#adc72129519c46b689cdda4867e1a62a3">More...</a><br /></td></tr>
-<tr class="separator:adc72129519c46b689cdda4867e1a62a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31016df6f5a1f8b177e2e14b1238410c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00084.html#a31016df6f5a1f8b177e2e14b1238410c">WriteToFile&lt; T &gt;</a> (T logObject)</td></tr>
-<tr class="memdesc:a31016df6f5a1f8b177e2e14b1238410c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the given object to the log file  <a href="a00084.html#a31016df6f5a1f8b177e2e14b1238410c">More...</a><br /></td></tr>
-<tr class="separator:a31016df6f5a1f8b177e2e14b1238410c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
-Properties</h2></td></tr>
-<tr class="memitem:a20b84923199b604fb576ddc4e3479390"><td class="memItemLeft" align="right" valign="top">Encoding&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00084.html#a20b84923199b604fb576ddc4e3479390">TextEncoding</a> = Encoding.UTF8<code> [get, set]</code></td></tr>
-<tr class="memdesc:a20b84923199b604fb576ddc4e3479390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or Sets the text encoding for the file  <a href="a00084.html#a20b84923199b604fb576ddc4e3479390">More...</a><br /></td></tr>
-<tr class="separator:a20b84923199b604fb576ddc4e3479390"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bce630184811e5f175f1549f90dc95a"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00084.html#a7bce630184811e5f175f1549f90dc95a">DirectoryName</a><code> [get]</code></td></tr>
-<tr class="memdesc:a7bce630184811e5f175f1549f90dc95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a string representing the directory's full path  <a href="a00084.html#a7bce630184811e5f175f1549f90dc95a">More...</a><br /></td></tr>
-<tr class="separator:a7bce630184811e5f175f1549f90dc95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad35c8e513f31acc59c3ccebb898b9556"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00084.html#ad35c8e513f31acc59c3ccebb898b9556">FullName</a><code> [get]</code></td></tr>
-<tr class="memdesc:ad35c8e513f31acc59c3ccebb898b9556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the full path of the file  <a href="a00084.html#ad35c8e513f31acc59c3ccebb898b9556">More...</a><br /></td></tr>
-<tr class="separator:ad35c8e513f31acc59c3ccebb898b9556"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcaff1ad8fc304fdaed8fc56eefccbc6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00084.html#afcaff1ad8fc304fdaed8fc56eefccbc6">Extension</a><code> [get]</code></td></tr>
-<tr class="memdesc:afcaff1ad8fc304fdaed8fc56eefccbc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the string representing the extension part of the file  <a href="a00084.html#afcaff1ad8fc304fdaed8fc56eefccbc6">More...</a><br /></td></tr>
-<tr class="separator:afcaff1ad8fc304fdaed8fc56eefccbc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_a00116"><td colspan="2" onclick="javascript:toggleInherit('properties_a00116')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="a00116.html">BasicxLogger.Files.ILogFile</a></td></tr>
-<tr class="memitem:abe6fe56346553e462eebe5b17919f016 inherit properties_a00116"><td class="memItemLeft" align="right" valign="top">Encoding&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#abe6fe56346553e462eebe5b17919f016">TextEncoding</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:abe6fe56346553e462eebe5b17919f016 inherit properties_a00116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or Sets the text encoding for the file.  <a href="a00116.html#abe6fe56346553e462eebe5b17919f016">More...</a><br /></td></tr>
-<tr class="separator:abe6fe56346553e462eebe5b17919f016 inherit properties_a00116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5726429a5cca85369ebb832493d417e inherit properties_a00116"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#ac5726429a5cca85369ebb832493d417e">DirectoryName</a><code> [get]</code></td></tr>
-<tr class="memdesc:ac5726429a5cca85369ebb832493d417e inherit properties_a00116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a string representing the directory's full path.  <a href="a00116.html#ac5726429a5cca85369ebb832493d417e">More...</a><br /></td></tr>
-<tr class="separator:ac5726429a5cca85369ebb832493d417e inherit properties_a00116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e10a80b71e0fc93740082d89b42a56a inherit properties_a00116"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a9e10a80b71e0fc93740082d89b42a56a">FullName</a><code> [get]</code></td></tr>
-<tr class="memdesc:a9e10a80b71e0fc93740082d89b42a56a inherit properties_a00116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the full path of the file.  <a href="a00116.html#a9e10a80b71e0fc93740082d89b42a56a">More...</a><br /></td></tr>
-<tr class="separator:a9e10a80b71e0fc93740082d89b42a56a inherit properties_a00116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc3d937bb881d4ef01775d6b19691377 inherit properties_a00116"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#abc3d937bb881d4ef01775d6b19691377">Extension</a><code> [get]</code></td></tr>
-<tr class="memdesc:abc3d937bb881d4ef01775d6b19691377 inherit properties_a00116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the string representing the extension part of the file.  <a href="a00116.html#abc3d937bb881d4ef01775d6b19691377">More...</a><br /></td></tr>
-<tr class="separator:abc3d937bb881d4ef01775d6b19691377 inherit properties_a00116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class that represents a log file with the file extension .json </p>
-
-<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00016">16</a> of file <a class="el" href="a00005_source.html">JsonLogFile.cs</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afb269f21eef7c35ea2c750a3d1ba4cb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb269f21eef7c35ea2c750a3d1ba4cb0">&#9670;&nbsp;</a></span>JsonLogFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BasicxLogger.Files.JsonLogFile.JsonLogFile </td>
-          <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>directoryPath</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>fileName</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes a new instance of the <a class="el" href="a00084.html" title="Class that represents a log file with the file extension .json">BasicxLogger.Files.JsonLogFile</a> class </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">directoryPath</td><td>The path where the file will be stored</td></tr>
-    <tr><td class="paramname">fileName</td><td>The name of the file, without the extension</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00047">47</a> of file <a class="el" href="a00005_source.html">JsonLogFile.cs</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="adc72129519c46b689cdda4867e1a62a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc72129519c46b689cdda4867e1a62a3">&#9670;&nbsp;</a></span>WriteToFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BasicxLogger.Files.JsonLogFile.WriteToFile </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a>&#160;</td>
-          <td class="paramname"><em>messageTag</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>timestamp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>id</em> = <code>&quot;&quot;</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Writes a log message with the given data to the log file </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">messageTag</td><td>The message tag for the log message</td></tr>
-    <tr><td class="paramname">timestamp</td><td>The timestamp for the log message</td></tr>
-    <tr><td class="paramname">message</td><td>The message that should be logged</td></tr>
-    <tr><td class="paramname">id</td><td>The id for the log message</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="a00116.html#ad60170020a67cde67772217b00c9d8ba">BasicxLogger.Files.ILogFile</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00064">64</a> of file <a class="el" href="a00005_source.html">JsonLogFile.cs</a>.</p>
-
-</div>
-</div>
-<a id="a31016df6f5a1f8b177e2e14b1238410c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31016df6f5a1f8b177e2e14b1238410c">&#9670;&nbsp;</a></span>WriteToFile&lt; T &gt;()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00084.html#adc72129519c46b689cdda4867e1a62a3">BasicxLogger.Files.JsonLogFile.WriteToFile</a>&lt; T &gt; </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>logObject</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Writes the given object to the log file </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">logObject</td><td>The object that will be writen to the json file</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00125">125</a> of file <a class="el" href="a00005_source.html">JsonLogFile.cs</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Property Documentation</h2>
-<a id="a7bce630184811e5f175f1549f90dc95a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bce630184811e5f175f1549f90dc95a">&#9670;&nbsp;</a></span>DirectoryName</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string BasicxLogger.Files.JsonLogFile.DirectoryName</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets a string representing the directory's full path </p>
-
-<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00026">26</a> of file <a class="el" href="a00005_source.html">JsonLogFile.cs</a>.</p>
-
-</div>
-</div>
-<a id="afcaff1ad8fc304fdaed8fc56eefccbc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcaff1ad8fc304fdaed8fc56eefccbc6">&#9670;&nbsp;</a></span>Extension</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string BasicxLogger.Files.JsonLogFile.Extension</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the string representing the extension part of the file </p>
-
-<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00036">36</a> of file <a class="el" href="a00005_source.html">JsonLogFile.cs</a>.</p>
-
-</div>
-</div>
-<a id="ad35c8e513f31acc59c3ccebb898b9556"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad35c8e513f31acc59c3ccebb898b9556">&#9670;&nbsp;</a></span>FullName</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string BasicxLogger.Files.JsonLogFile.FullName</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the full path of the file </p>
-
-<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00031">31</a> of file <a class="el" href="a00005_source.html">JsonLogFile.cs</a>.</p>
-
-</div>
-</div>
-<a id="a20b84923199b604fb576ddc4e3479390"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20b84923199b604fb576ddc4e3479390">&#9670;&nbsp;</a></span>TextEncoding</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Encoding BasicxLogger.Files.JsonLogFile.TextEncoding = Encoding.UTF8</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets or Sets the text encoding for the file </p>
-
-<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00021">21</a> of file <a class="el" href="a00005_source.html">JsonLogFile.cs</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00005_source.html">JsonLogFile.cs</a></li>
-</ul>
-</div><!-- contents -->
+<p>This is the complete list of members for <a class="el" href="a00087.html">BasicxLogger.Files.TxtLogFile</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="a00087.html#a26670187e893a657b4a26136a1d2de6b">DirectoryName</a></td><td class="entry"><a class="el" href="a00087.html">BasicxLogger.Files.TxtLogFile</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00087.html#aa1c88a4e166079ee80861a88df35d1a3">Extension</a></td><td class="entry"><a class="el" href="a00087.html">BasicxLogger.Files.TxtLogFile</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00087.html#a946ffacc9c3e9d40bf7f4573611a1618">FullName</a></td><td class="entry"><a class="el" href="a00087.html">BasicxLogger.Files.TxtLogFile</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00087.html#a4453f6b36bac8ac8dfb084c85360131a">TextEncoding</a></td><td class="entry"><a class="el" href="a00087.html">BasicxLogger.Files.TxtLogFile</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00087.html#a0f7950e58859fb49a095bc072591abea">TxtLogFile</a>(string directoryPath, string fileName)</td><td class="entry"><a class="el" href="a00087.html">BasicxLogger.Files.TxtLogFile</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00087.html#a631ad47785e129c2ec86c9384f335fe6">WriteToFile</a>(LogTag messageTag, string timestamp, string message, string id=&quot;&quot;)</td><td class="entry"><a class="el" href="a00087.html">BasicxLogger.Files.TxtLogFile</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00062.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00064.html">Files</a></li><li class="navelem"><a class="el" href="a00084.html">JsonLogFile</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

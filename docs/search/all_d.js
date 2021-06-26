@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['server_62',['Server',['../a00080.html#a909b76424120200dddc815017f4a5e47',1,'BasicxLogger.Databases.MySqlDatabase.Server()'],['../a00112.html#a70edbebf38110eab37f9c9a8220759bf',1,'BasicxLogger.Databases.ILogDatabase.Server()']]]
+  ['server_62',['Server',['../a00131.html#a3f0e72244ea298d584e89ac4cd6ad3e0',1,'BasicxLogger.Base.ILogDatabase.Server()'],['../a00143.html#a909b76424120200dddc815017f4a5e47',1,'BasicxLogger.Databases.MySqlDatabase.Server()']]]
 ];

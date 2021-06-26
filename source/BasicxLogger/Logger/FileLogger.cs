@@ -13,6 +13,7 @@
  * **************************************************************************/
 using System;
 using System.Threading.Tasks;
+using BasicxLogger.Base;
 using BasicxLogger.Files;
 
 namespace BasicxLogger
@@ -26,7 +27,7 @@ namespace BasicxLogger
     public class FileLogger : ILogger
     {
         /// <summary>
-        /// Gets the <see cref="BasicxLogger.Files.ILogFile"/> that is used by the logger.
+        /// Gets the <see cref="BasicxLogger.Base.ILogFile"/> that is used by the logger.
         /// </summary>
         public ILogFile LogFile { get; } = new TxtLogFile(
             String.Format("{0}/{1}/", Environment.CurrentDirectory, "Logs"), "Log");

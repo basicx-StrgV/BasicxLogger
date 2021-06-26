@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['loglogfile_91',['LogLogFile',['../a00088.html',1,'BasicxLogger::Files']]],
-  ['logmessagemodel_92',['LogMessageModel',['../a00148.html',1,'BasicxLogger::Models']]]
+  ['multilogger_91',['MultiLogger',['../a00115.html',1,'BasicxLogger']]],
+  ['mysqldatabase_92',['MySqlDatabase',['../a00143.html',1,'BasicxLogger::Databases']]]
 ];
