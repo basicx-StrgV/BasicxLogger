@@ -11,12 +11,13 @@
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
     <PackageTags>logger, logging, C#, .NET-Standard, netcore</PackageTags>
-    <PackageReleaseNotes>- Fixed the exception handling in the MultiLogger class</PackageReleaseNotes>
-    <Version>2.0.1</Version>
+    <PackageReleaseNotes>- Moved the MySQL Database to a separate package to remove the MySQL.Data dependencie from the main library</PackageReleaseNotes>
+    <Version>2.1.0</Version>
     <PackageIconUrl />
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />
+    <Copyright>basicx-StrgV</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -49,12 +50,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="8.0.25" />
     <PackageReference Include="System.Text.Json" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BasicxLogger.Base\BasicxLogger.Base.csproj" />
+    <ProjectReference Include="..\BasicxLogger.Databases.MySqlDatabase\BasicxLogger.Databases.MySqlDatabase.csproj" />
   </ItemGroup>
 
 </Project>

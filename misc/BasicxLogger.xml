@@ -4,53 +4,6 @@
         <name>BasicxLogger</name>
     </assembly>
     <members>
-        <member name="T:BasicxLogger.Databases.MySqlDatabase">
-            <summary>
-            Class that represents a database
-            </summary>
-        </member>
-        <member name="P:BasicxLogger.Databases.MySqlDatabase.Server">
-            <summary>
-            URL of the MySql database server
-            </summary>
-            <remarks>
-            Set by the constructor
-            </remarks>
-        </member>
-        <member name="P:BasicxLogger.Databases.MySqlDatabase.Database">
-            <summary>
-            Name of the database that will contain the logs
-            </summary>
-            <remarks>
-            Set by the constructor
-            </remarks>
-        </member>
-        <member name="P:BasicxLogger.Databases.MySqlDatabase.Table">
-            <summary>
-            Name of the table the logger will create and insert logs into
-            </summary>
-        </member>
-        <member name="M:BasicxLogger.Databases.MySqlDatabase.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:BasicxLogger.Databases.MySqlDatabase"/> class.
-            </summary>
-            <param name="server">URL of the MySql database server</param>
-            <param name="database">Name of the database that will contain the logs</param>
-            <param name="table">Name of the table the logger will create and insert logs into</param>
-            <param name="user">Username of the database user you want to use</param>
-            <param name="password">Password of the given user</param>
-            <param name="port">Port of the database server</param>
-            <param name="sslMode">SSL Mode setting</param>
-        </member>
-        <member name="M:BasicxLogger.Databases.MySqlDatabase.LogToDatabase(BasicxLogger.LogTag,System.String,System.String,System.String)">
-            <summary>
-            Writes a log message with the given data to the Table in the Database.
-            </summary>
-            <param name="messageTag">The message tag for the log message</param>
-            <param name="timestamp">The timestamp for the log message</param>
-            <param name="message">The message that should be logged</param>
-            <param name="id">The id for the log message</param>
-        </member>
         <member name="T:BasicxLogger.Files.JsonLogFile">
             <summary>
             Class that represents a log file with the file extension .json

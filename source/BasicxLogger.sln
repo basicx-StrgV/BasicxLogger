@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerTest", "LoggerTest\Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicxLogger.Base", "BasicxLogger.Base\BasicxLogger.Base.csproj", "{71646F7B-0DD1-4B3E-BEFA-2AC98D88EF46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicxLogger.Databases.MySqlDatabase", "BasicxLogger.Databases.MySqlDatabase\BasicxLogger.Databases.MySqlDatabase.csproj", "{FEBDA1AD-1366-4A85-A2F5-C22F7F8E4184}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{71646F7B-0DD1-4B3E-BEFA-2AC98D88EF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71646F7B-0DD1-4B3E-BEFA-2AC98D88EF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71646F7B-0DD1-4B3E-BEFA-2AC98D88EF46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEBDA1AD-1366-4A85-A2F5-C22F7F8E4184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEBDA1AD-1366-4A85-A2F5-C22F7F8E4184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEBDA1AD-1366-4A85-A2F5-C22F7F8E4184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEBDA1AD-1366-4A85-A2F5-C22F7F8E4184}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

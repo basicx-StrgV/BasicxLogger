@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Extension that adds MySQL Database support to the BasicxLogger library</Description>
+    <Company>-</Company>
+    <Product>BasicxLogger</Product>
+    <Authors>basicx-StrgV</Authors>
+    <PackageProjectUrl>https://basicx-strgv.github.io/BasicxLogger/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageIcon>basicxLoggerIcon.png</PackageIcon>
+    <PackageIconUrl />
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <Copyright>basicx-StrgV</Copyright>
+    <PackageReleaseNotes>Version 1.0</PackageReleaseNotes>
+    <PackageTags>BasicxLogger, Extension, MySQL, logger, logging, C#, .NET-Standard, netcore</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.25" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BasicxLogger.Base\BasicxLogger.Base.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\graphics\basicxLoggerIcon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\licenses\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
