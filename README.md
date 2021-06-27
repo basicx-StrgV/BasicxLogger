@@ -26,7 +26,7 @@
 
 You can get the nuget package here: https://www.nuget.org/packages/BasicxLogger/
 
-### Extensions
+### ➕ Extensions
 
 MySql Database for the DatabaseLogger: PLACEHOLDER
 
