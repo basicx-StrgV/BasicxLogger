@@ -28,9 +28,11 @@ var NAVTREE =
     [ "Packages", "namespaces.html", [
       [ "⭐ Features", "index.html#autotoc_md0", null ],
       [ "⚡ Logger", "index.html#autotoc_md1", null ],
-      [ "📦 NuGet package", "index.html#autotoc_md2", null ],
-      [ "📖 Documentation", "index.html#autotoc_md3", null ],
-      [ "📋 Samples", "index.html#autotoc_md4", null ],
+      [ "📦 NuGet packages", "index.html#autotoc_md2", [
+        [ "➕ Extensions", "index.html#autotoc_md3", null ]
+      ] ],
+      [ "📖 Documentation", "index.html#autotoc_md4", null ],
+      [ "📋 Samples", "index.html#autotoc_md5", null ],
       [ "Packages", "namespaces.html", "namespaces_dup" ],
       [ "Package Functions", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
