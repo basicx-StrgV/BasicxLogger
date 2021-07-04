@@ -2,7 +2,7 @@
 name: Question
 about: Ask a question
 title: ''
-labels: ''
+labels: help wanted
 assignees: basicx-StrgV
 
 ---
