@@ -1,6 +1,6 @@
 ---
-name: Question
-about: Ask a question
+name: Feedback
+about: Give me some feedback
 title: ''
 labels: ''
 assignees: basicx-StrgV
