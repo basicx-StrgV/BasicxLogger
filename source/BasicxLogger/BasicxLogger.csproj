@@ -11,8 +11,8 @@
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
     <PackageTags>logger, logging, C#, .NET-Standard, netcore</PackageTags>
-    <PackageReleaseNotes>- Moved the MySQL Database to a separate package to remove the MySQL.Data dependencie from the main library</PackageReleaseNotes>
-    <Version>2.0.2</Version>
+    <PackageReleaseNotes>- Removed the left in dependency</PackageReleaseNotes>
+    <Version>2.0.2.1</Version>
     <PackageIconUrl />
     <ApplicationIcon />
     <OutputType>Library</OutputType>
@@ -55,7 +55,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BasicxLogger.Base\BasicxLogger.Base.csproj" />
-    <ProjectReference Include="..\BasicxLogger.Databases.MySqlDatabase\BasicxLogger.Databases.MySqlDatabase.csproj" />
   </ItemGroup>
 
 </Project>

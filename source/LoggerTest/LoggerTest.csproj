@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BasicxLogger.Databases.MySqlDatabase\BasicxLogger.Databases.MySqlDatabase.csproj" />
     <ProjectReference Include="..\BasicxLogger\BasicxLogger.csproj" />
   </ItemGroup>
 
