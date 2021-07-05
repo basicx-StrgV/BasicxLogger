@@ -2,6 +2,7 @@
 
 Thanks for wanting to make this library better. Even the little things help a lot. ❤
 
+But befor you start, please read the [code of conduct](https://github.com/basicx-StrgV/BasicxLogger/blob/main/.github/CODE_OF_CONDUCT.md) first.
 
 ## Creating Issues
 
