@@ -10,12 +10,8 @@
 BasicsLogger is a logger library for dotnet, that offers functions to create and  
 write to different types of log files or write logs to a database. 
 
-It is designed to be as easy to use as possibel without losing functionalities.
-
-The library is modular.  
-Because of that its easy to add support for different file formates or databases, or even to add new logger.  
-File support, database support and new logger can also be added as a extension.  
-This will be done, if it will otherwise add to much or unwanted dependencies to the main package.
+It is designed to be as easy to use as possibel without losing functionalities and  
+to be modular so it is easy to add features and extensions. 
 
 ## 👥 Contributing
 
