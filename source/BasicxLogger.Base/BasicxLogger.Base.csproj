@@ -2,10 +2,33 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>basicx-StrgV</Authors>
+    <Company>-</Company>
+    <Product>BasicxLogger.Base</Product>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageIcon>basicxLoggerIcon.png</PackageIcon>
+    <PackageIconUrl />
+    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
+    <PackageProjectUrl>https://basicx-strgv.github.io/BasicxLogger/</PackageProjectUrl>
+    <PackageTags>BasicxLogger</PackageTags>
+    <PackageReleaseNotes>- Version 1.0</PackageReleaseNotes>
+    <Description>BasicxLogger.Base package that contains interfaces and classes used to create logger and file and database support.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>C:\Users\Bjarne\source\repos\EasyLogger\EasyLogger\xml_documentations\BasicxLogger.Base.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\graphics\basicxLoggerIcon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\licenses\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

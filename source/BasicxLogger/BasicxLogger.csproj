@@ -11,8 +11,8 @@
     <RepositoryUrl>https://github.com/basicx-StrgV/BasicxLogger</RepositoryUrl>
     <PackageIcon>basicxLoggerIcon.png</PackageIcon>
     <PackageTags>logger, logging, C#, .NET-Standard, netcore</PackageTags>
-    <PackageReleaseNotes>- Removed the left in dependency</PackageReleaseNotes>
-    <Version>2.0.2.1</Version>
+    <PackageReleaseNotes>- Fixed missing package</PackageReleaseNotes>
+    <Version>2.0.2.2</Version>
     <PackageIconUrl />
     <ApplicationIcon />
     <OutputType>Library</OutputType>
@@ -50,11 +50,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BasicxLogger.Base" Version="1.0.0" />
     <PackageReference Include="System.Text.Json" Version="5.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BasicxLogger.Base\BasicxLogger.Base.csproj" />
   </ItemGroup>
 
 </Project>
