@@ -64,3 +64,12 @@ Remember that you can always ask questions.
 After that you should have a look at the code Conventions.
 
 ## Code Conventions
+
+For the most part we use the default [C# conventions](https://github.com/dotnet/runtime/blob/main/docs/coding-guidelines/coding-style.md).  
+It is fine if yor code is not 100% conform with them but 90-95% would be good.
+
+In addition to that:
+- Never use `var`
+- You can have two empty lines if it helps readability
+- Your code should not have any Errors or Warnings. No Informations is nice to have.
+- Everything that is declared 'public' should have documentation commands
