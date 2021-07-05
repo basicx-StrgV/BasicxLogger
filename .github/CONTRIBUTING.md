@@ -43,7 +43,7 @@ Here are some informations you should know befor you start:
   - Should be named like this: '[DatabaseName]Database'
   - Should use the namespace BasicxLogger.Databases
 - Extensions need to use the BasicxLogger.Base package (https://www.nuget.org/packages/BasicxLogger.Base/)
-- Code Conventions can be found at the end of the document
+- Code Conventions can be found below
 
 #### Add to the main package or create a extension?
 
