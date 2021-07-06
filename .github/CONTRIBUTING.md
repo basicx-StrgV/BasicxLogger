@@ -72,5 +72,5 @@ It is fine if yor code is not 100% conform with them but 90-95% would be good.
 In addition to that:
 - Never use `var`
 - You can have two empty lines if it helps readability
-- Your code should not have any Errors or Warnings. No Informations is nice to have.
+- Your code should not have any Errors or Warnings. No Messages are nice to have.
 - Everything that is declared 'public' should have documentation commands
