@@ -7,5 +7,6 @@ Old versions will not receive security patches.
 
 ## Reporting a Vulnerability
 
-For now, please create a issue if you find a vulnerability.  
-Please use the 'Bug report' template for the issue.
+Please send me an E-Mail at basicx.strgv@gmail.com, if you find a vulnerability.
+
+If I dont answer within two weeks, create an issue with the 'Bug report' template.
