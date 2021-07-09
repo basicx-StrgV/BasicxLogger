@@ -22,6 +22,10 @@
     <DocumentationFile>C:\Users\Bjarne\source\repos\EasyLogger\EasyLogger\xml_documentations\BasicxLogger.Databases.MySqlDatabase.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>..\..\xml_documentations\BasicxLogger.Databases.MySqlDatabase.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="BasicxLogger.Base" Version="1.0.0" />
     <PackageReference Include="MySql.Data" Version="8.0.25" />

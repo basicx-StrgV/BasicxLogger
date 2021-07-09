@@ -20,6 +20,10 @@
     <DocumentationFile>C:\Users\Bjarne\source\repos\EasyLogger\EasyLogger\xml_documentations\BasicxLogger.Base.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>..\..\xml_documentations\BasicxLogger.Base.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Include="..\..\graphics\basicxLoggerIcon.png">
       <Pack>True</Pack>
