@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nologgeraddedexception_93',['NoLoggerAddedException',['../a00099.html',1,'BasicxLogger::Exceptions']]]
+  ['nologgeraddedexception_94',['NoLoggerAddedException',['../a00107.html',1,'BasicxLogger::Exceptions']]]
 ];

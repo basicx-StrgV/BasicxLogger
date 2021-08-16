@@ -1,7 +1,21 @@
 var a00123 =
 [
-    [ "Id", "a00123.html#a8b463df9733bba38a3505d9ccfaec3fb", null ],
-    [ "Message", "a00123.html#aa0d84021b3283b1fcc117980dcd12a42", null ],
-    [ "Tag", "a00123.html#affc2552457e60dbf1b71d87a3956e36d", null ],
-    [ "Timestamp", "a00123.html#ab02ba3e9fd81b3430d567e9c68e212d7", null ]
+    [ "MultiLogger", "a00123.html#ae1333bfc886262a2fdbd79e92ea7b322", null ],
+    [ "Add", "a00123.html#a6054868a97bf55141c1ab7ff2c7675fd", null ],
+    [ "Clear", "a00123.html#a660096917341e23b715bee4e17de637d", null ],
+    [ "Contains", "a00123.html#aad62bb754615be9eadcfc816e620b376", null ],
+    [ "CopyTo", "a00123.html#af81fd123f8f75121e77e5302aa6cb756", null ],
+    [ "GetEnumerator", "a00123.html#ad19476cfb4d976e78979b64394b9adeb", null ],
+    [ "IndexOf", "a00123.html#a2d2bef198c4cd93e0519ef473224c9b6", null ],
+    [ "Insert", "a00123.html#af8f7c58ac2cf35125b414db52b003131", null ],
+    [ "Log", "a00123.html#a8344f9ceeb30dcf734ab9ff87bd7adb9", null ],
+    [ "Log", "a00123.html#a6fc75db7ca7b9d0237c3d54887a52ce9", null ],
+    [ "LogAsync", "a00123.html#a212368e0f0dd3b81a9eede2fef26f33e", null ],
+    [ "LogAsync", "a00123.html#a0c108e894178472c9946d6c2436a7744", null ],
+    [ "Remove", "a00123.html#a5b23f57e88e9bdfcf379f3ce464d281c", null ],
+    [ "RemoveAt", "a00123.html#ae91bb9a04b450bf1cd164de23869e1bb", null ],
+    [ "Count", "a00123.html#a96de394afef77a06bec6b95dad032eb3", null ],
+    [ "IsReadOnly", "a00123.html#a1b03c8d42d210035c3e80204f0451846", null ],
+    [ "this[int index]", "a00123.html#a819f425ef4bb444cb739c14822aa3a2f", null ],
+    [ "this[int index]", "a00123.html#a08fb2be497a11d23be95ec2ec5648399", null ]
 ];

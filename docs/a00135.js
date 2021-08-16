@@ -1,8 +1,15 @@
 var a00135 =
 [
-    [ "WriteToFile", "a00135.html#afbe2a060a85e346c61f6ef65773bbeb1", null ],
-    [ "DirectoryName", "a00135.html#a18dd7b0e4a848f4f1f9137d097f2d180", null ],
-    [ "Extension", "a00135.html#aaecb160d353238d8d61a28b296f3d96e", null ],
-    [ "FullName", "a00135.html#aac781fd13588d701ada9f22f17621188", null ],
-    [ "TextEncoding", "a00135.html#a8cd5915ca5c816a34f872548e3f67206", null ]
+    [ "GetTimestamp", "a00135.html#a14400de9e979afb926056b12c254981f", null ],
+    [ "Culture", "a00135.html#ad930b02283010655d1f204a67be4e827", null ],
+    [ "DateSeparator", "a00135.html#aa6197b3e6b7b3a081586c76e3dae08a5", null ],
+    [ "Day_Month_Year_Hour12_Min_Sec", "a00135.html#a4e44c8a4c4eeb7c924ceb27f64761d16", null ],
+    [ "Day_Month_Year_Hour24_Min_Sec", "a00135.html#ab094e02bb191a113c7cbd9950cecf41a", null ],
+    [ "Format", "a00135.html#aea2ef96f21ba5563968c9c2ad7a7f38a", null ],
+    [ "Month_Day_Year_Hour12_Min_Sec", "a00135.html#a85eaa5c0ce7271a841787a1acd6bf4de", null ],
+    [ "Month_Day_Year_Hour24_Min_Sec", "a00135.html#ae8693da8a68a19c1f2f0cba6b2041cbe", null ],
+    [ "Year_Day_Month_Hour12_Min_Sec", "a00135.html#a776d41072005b61aa9db548fab083428", null ],
+    [ "Year_Day_Month_Hour24_Min_Sec", "a00135.html#afd71910f29c7a590b4eef2b6944d4f83", null ],
+    [ "Year_Month_Day_Hour12_Min_Sec", "a00135.html#aea09e5cca88e8ea2a2eb51549d22166d", null ],
+    [ "Year_Month_Day_Hour24_Min_Sec", "a00135.html#aedff67cb061655d708fe8c3871dd897b", null ]
 ];

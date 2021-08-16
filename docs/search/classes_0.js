@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['databaselogger_80',['DatabaseLogger',['../a00103.html',1,'BasicxLogger']]]
+  ['databaselogger_81',['DatabaseLogger',['../a00111.html',1,'BasicxLogger']]]
 ];

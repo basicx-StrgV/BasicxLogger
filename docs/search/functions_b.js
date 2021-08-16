@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['txtlogfile_124',['TxtLogFile',['../a00087.html#a0f7950e58859fb49a095bc072591abea',1,'BasicxLogger::Files::TxtLogFile']]]
+  ['sqlserverdatabase_126',['SqlServerDatabase',['../a00083.html#ab74a31d1c024e3def3655a58107813bc',1,'BasicxLogger::Databases::SqlServerDatabase']]]
 ];

@@ -1,7 +1,7 @@
 var a00131 =
 [
-    [ "LogToDatabase", "a00131.html#a2e6c197735c8242e2452366052e9bf24", null ],
-    [ "Database", "a00131.html#ab58aafec5825c1769c2b5c69a5807176", null ],
-    [ "Server", "a00131.html#a3f0e72244ea298d584e89ac4cd6ad3e0", null ],
-    [ "Table", "a00131.html#a095a12e912e764be0685aa6883b99dc3", null ]
+    [ "Id", "a00131.html#a8b463df9733bba38a3505d9ccfaec3fb", null ],
+    [ "Message", "a00131.html#aa0d84021b3283b1fcc117980dcd12a42", null ],
+    [ "Tag", "a00131.html#affc2552457e60dbf1b71d87a3956e36d", null ],
+    [ "Timestamp", "a00131.html#ab02ba3e9fd81b3430d567e9c68e212d7", null ]
 ];

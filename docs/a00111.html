@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: BasicxLogger.JsonLogger&lt; T &gt; Class Template Reference</title>
+<title>BasicxLogger: BasicxLogger.DatabaseLogger Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">2.0.2</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
   </td>
  </tr>
@@ -88,154 +88,248 @@ $(document).ready(function(){initNavTree('a00111.html',''); initResizable(); });
 <a href="#properties">Properties</a> &#124;
 <a href="a00108.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BasicxLogger.JsonLogger&lt; T &gt; Class Template Reference</div>  </div>
+<div class="title">BasicxLogger.DatabaseLogger Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A logger that allows you to log your owne objects to a json file  
+<p>Logger that contains everything needed to log to an MySql database.  
  <a href="a00111.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for BasicxLogger.DatabaseLogger:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="a00111.png" usemap="#BasicxLogger.DatabaseLogger_map" alt=""/>
+  <map id="BasicxLogger.DatabaseLogger_map" name="BasicxLogger.DatabaseLogger_map">
+<area href="a00147.html" title="Interface for BasicxLogger" alt="BasicxLogger.Base.ILogger" shape="rect" coords="0,0,186,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afd6043f711ff9a0bf3d731e475dac51f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#afd6043f711ff9a0bf3d731e475dac51f">JsonLogger</a> (<a class="el" href="a00079.html">JsonLogFile</a> jsonLogFile)</td></tr>
-<tr class="memdesc:afd6043f711ff9a0bf3d731e475dac51f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the BasicxLogger.JsonLogger&lt;T&gt; class.  <a href="a00111.html#afd6043f711ff9a0bf3d731e475dac51f">More...</a><br /></td></tr>
-<tr class="separator:afd6043f711ff9a0bf3d731e475dac51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bc08f7ffe7643cb22e3b1ade2f083ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a7bc08f7ffe7643cb22e3b1ade2f083ef">Log</a> (T logObject)</td></tr>
-<tr class="memdesc:a7bc08f7ffe7643cb22e3b1ade2f083ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the given object to the log file.  <a href="a00111.html#a7bc08f7ffe7643cb22e3b1ade2f083ef">More...</a><br /></td></tr>
-<tr class="separator:a7bc08f7ffe7643cb22e3b1ade2f083ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfb2ae408810788b9d3556061ab03f21"><td class="memItemLeft" align="right" valign="top">async Task&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#adfb2ae408810788b9d3556061ab03f21">LogAsync</a> (T logObject)</td></tr>
-<tr class="memdesc:adfb2ae408810788b9d3556061ab03f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous adds the given object to the log file.  <a href="a00111.html#adfb2ae408810788b9d3556061ab03f21">More...</a><br /></td></tr>
-<tr class="separator:adfb2ae408810788b9d3556061ab03f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b4913c2cf078baf1c1faa1e0499f088"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a6b4913c2cf078baf1c1faa1e0499f088">DatabaseLogger</a> (<a class="el" href="a00139.html">ILogDatabase</a> database)</td></tr>
+<tr class="memdesc:a6b4913c2cf078baf1c1faa1e0499f088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="a00111.html" title="Logger that contains everything needed to log to an MySql database.">BasicxLogger.DatabaseLogger</a> class.  <a href="a00111.html#a6b4913c2cf078baf1c1faa1e0499f088">More...</a><br /></td></tr>
+<tr class="separator:a6b4913c2cf078baf1c1faa1e0499f088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06d9097b805160ee0895194373fb58bd"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a06d9097b805160ee0895194373fb58bd">Log</a> (string message)</td></tr>
+<tr class="memdesc:a06d9097b805160ee0895194373fb58bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the given message to the table.  <a href="a00111.html#a06d9097b805160ee0895194373fb58bd">More...</a><br /></td></tr>
+<tr class="separator:a06d9097b805160ee0895194373fb58bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71ea44b998b15e87003543bdeca0a682"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a71ea44b998b15e87003543bdeca0a682">Log</a> (<a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> messageTag, string message)</td></tr>
+<tr class="memdesc:a71ea44b998b15e87003543bdeca0a682"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the given message to the table.  <a href="a00111.html#a71ea44b998b15e87003543bdeca0a682">More...</a><br /></td></tr>
+<tr class="separator:a71ea44b998b15e87003543bdeca0a682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afda6134c4cabd598e2ef5b2be183eafe"><td class="memItemLeft" align="right" valign="top">async Task&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#afda6134c4cabd598e2ef5b2be183eafe">LogAsync</a> (string message)</td></tr>
+<tr class="memdesc:afda6134c4cabd598e2ef5b2be183eafe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous writes the given message to the table.  <a href="a00111.html#afda6134c4cabd598e2ef5b2be183eafe">More...</a><br /></td></tr>
+<tr class="separator:afda6134c4cabd598e2ef5b2be183eafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29848c1e4a6b9f12ab6fda8df3ff289d"><td class="memItemLeft" align="right" valign="top">async Task&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a29848c1e4a6b9f12ab6fda8df3ff289d">LogAsync</a> (<a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> messageTag, string message)</td></tr>
+<tr class="memdesc:a29848c1e4a6b9f12ab6fda8df3ff289d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous writes the given message to table.  <a href="a00111.html#a29848c1e4a6b9f12ab6fda8df3ff289d">More...</a><br /></td></tr>
+<tr class="separator:a29848c1e4a6b9f12ab6fda8df3ff289d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:ad65c6308350d2ea61df7abbbe1a41473"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00079.html">JsonLogFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#ad65c6308350d2ea61df7abbbe1a41473">LogFile</a><code> [get]</code></td></tr>
-<tr class="memdesc:ad65c6308350d2ea61df7abbbe1a41473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="a00079.html" title="Class that represents a log file with the file extension .json">BasicxLogger.Files.JsonLogFile</a> that is used by the logger.  <a href="a00111.html#ad65c6308350d2ea61df7abbbe1a41473">More...</a><br /></td></tr>
-<tr class="separator:ad65c6308350d2ea61df7abbbe1a41473"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7e853e00c6f1c830e08375294ef66d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00139.html">ILogDatabase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a7d7e853e00c6f1c830e08375294ef66d">Database</a><code> [get]</code></td></tr>
+<tr class="memdesc:a7d7e853e00c6f1c830e08375294ef66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the database that the logger uses.  <a href="a00111.html#a7d7e853e00c6f1c830e08375294ef66d">More...</a><br /></td></tr>
+<tr class="separator:a7d7e853e00c6f1c830e08375294ef66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38e8b949b02c2bc63abc3f78e5ffe7fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00135.html">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a38e8b949b02c2bc63abc3f78e5ffe7fa">MessageTimestamp</a> = <a class="el" href="a00135.html#aedff67cb061655d708fe8c3871dd897b">Timestamp.Year_Month_Day_Hour24_Min_Sec</a><code> [get]</code></td></tr>
+<tr class="memdesc:a38e8b949b02c2bc63abc3f78e5ffe7fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or Sets the <a class="el" href="a00135.html" title="Timestamp class to configure and create timestamps">BasicxLogger.Timestamp</a> that is used by the logger.  <a href="a00111.html#a38e8b949b02c2bc63abc3f78e5ffe7fa">More...</a><br /></td></tr>
+<tr class="separator:a38e8b949b02c2bc63abc3f78e5ffe7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a494a2575a8fd69a34521fd1827cdf691"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a494a2575a8fd69a34521fd1827cdf691">DefaultTag</a> = <a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5a334c4a4c42fdb79d7ebc3e73b517e6f8">LogTag.none</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a494a2575a8fd69a34521fd1827cdf691"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or Sets a default message tag that will be used if no tag is selected.  <a href="a00111.html#a494a2575a8fd69a34521fd1827cdf691">More...</a><br /></td></tr>
+<tr class="separator:a494a2575a8fd69a34521fd1827cdf691"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e9286a3ab7fcc23da8958648186fafd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a1e9286a3ab7fcc23da8958648186fafd">UseId</a> = true<code> [get, set]</code></td></tr>
+<tr class="memdesc:a1e9286a3ab7fcc23da8958648186fafd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or Sets if each log entry should contain a unique id or not.  <a href="a00111.html#a1e9286a3ab7fcc23da8958648186fafd">More...</a><br /></td></tr>
+<tr class="separator:a1e9286a3ab7fcc23da8958648186fafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_a00147"><td colspan="2" onclick="javascript:toggleInherit('properties_a00147')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="a00147.html">BasicxLogger.Base.ILogger</a></td></tr>
+<tr class="memitem:a34df8ae5862dc54e74f2b5d751e31868 inherit properties_a00147"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00135.html">Timestamp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00147.html#a34df8ae5862dc54e74f2b5d751e31868">MessageTimestamp</a><code> [get]</code></td></tr>
+<tr class="memdesc:a34df8ae5862dc54e74f2b5d751e31868 inherit properties_a00147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="a00135.html" title="Timestamp class to configure and create timestamps">BasicxLogger.Timestamp</a> that is used by the logger.  <a href="a00147.html#a34df8ae5862dc54e74f2b5d751e31868">More...</a><br /></td></tr>
+<tr class="separator:a34df8ae5862dc54e74f2b5d751e31868 inherit properties_a00147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac846558ed82a70994353b68635e0705b inherit properties_a00147"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00147.html#ac846558ed82a70994353b68635e0705b">DefaultTag</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ac846558ed82a70994353b68635e0705b inherit properties_a00147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or Sets a default message tag that will be used if no tag is selected.  <a href="a00147.html#ac846558ed82a70994353b68635e0705b">More...</a><br /></td></tr>
+<tr class="separator:ac846558ed82a70994353b68635e0705b inherit properties_a00147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d3acb508fa0b807f9b9e7be74138c97 inherit properties_a00147"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00147.html#a1d3acb508fa0b807f9b9e7be74138c97">UseId</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a1d3acb508fa0b807f9b9e7be74138c97 inherit properties_a00147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or Sets if each log entry should contain a unique id or not.  <a href="a00147.html#a1d3acb508fa0b807f9b9e7be74138c97">More...</a><br /></td></tr>
+<tr class="separator:a1d3acb508fa0b807f9b9e7be74138c97 inherit properties_a00147"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A logger that allows you to log your owne objects to a json file </p>
+<div class="textblock"><p>Logger that contains everything needed to log to an MySql database. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00023">23</a> of file <a class="el" href="a00026_source.html">JsonLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00023">23</a> of file <a class="el" href="a00023_source.html">DatabaseLogger.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afd6043f711ff9a0bf3d731e475dac51f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd6043f711ff9a0bf3d731e475dac51f">&#9670;&nbsp;</a></span>JsonLogger()</h2>
+<a id="a6b4913c2cf078baf1c1faa1e0499f088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b4913c2cf078baf1c1faa1e0499f088">&#9670;&nbsp;</a></span>DatabaseLogger()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00111.html">BasicxLogger.JsonLogger</a>&lt; T &gt;.<a class="el" href="a00111.html">JsonLogger</a> </td>
+          <td class="memname">BasicxLogger.DatabaseLogger.DatabaseLogger </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00079.html">JsonLogFile</a>&#160;</td>
-          <td class="paramname"><em>jsonLogFile</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00139.html">ILogDatabase</a>&#160;</td>
+          <td class="paramname"><em>database</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes a new instance of the BasicxLogger.JsonLogger&lt;T&gt; class. </p>
+<p>Initializes a new instance of the <a class="el" href="a00111.html" title="Logger that contains everything needed to log to an MySql database.">BasicxLogger.DatabaseLogger</a> class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">jsonLogFile</td><td>The json log file used by the logger</td></tr>
+    <tr><td class="paramname">database</td><td>The database the logger should use.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00038">38</a> of file <a class="el" href="a00026_source.html">JsonLogger.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00047">47</a> of file <a class="el" href="a00023_source.html">DatabaseLogger.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7bc08f7ffe7643cb22e3b1ade2f083ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bc08f7ffe7643cb22e3b1ade2f083ef">&#9670;&nbsp;</a></span>Log()</h2>
+<a id="a71ea44b998b15e87003543bdeca0a682"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71ea44b998b15e87003543bdeca0a682">&#9670;&nbsp;</a></span>Log() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a00111.html">BasicxLogger.JsonLogger</a>&lt; T &gt;.Log </td>
+          <td class="memname">string BasicxLogger.DatabaseLogger.Log </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>logObject</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a>&#160;</td>
+          <td class="paramname"><em>messageTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds the given object to the log file. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. </p>
+<p>Writes the given message to the table. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">logObject</td><td>The object that will be added to the json file </td></tr>
+    <tr><td class="paramname">message</td><td>The message that will be writen to the table</td></tr>
+    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>The unique id for the log entry if <a class="el" href="a00111.html#a1e9286a3ab7fcc23da8958648186fafd" title="Gets or Sets if each log entry should contain a unique id or not.">BasicxLogger.DatabaseLogger.UseId</a> is true or null if <a class="el" href="a00111.html#a1e9286a3ab7fcc23da8958648186fafd" title="Gets or Sets if each log entry should contain a unique id or not.">BasicxLogger.DatabaseLogger.UseId</a> is false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00063">63</a> of file <a class="el" href="a00026_source.html">JsonLogger.cs</a>.</p>
+<p>Implements <a class="el" href="a00147.html#a0394316ba2835db3b5355f104dd7f089">BasicxLogger.Base.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00096">96</a> of file <a class="el" href="a00023_source.html">DatabaseLogger.cs</a>.</p>
 
 </div>
 </div>
-<a id="adfb2ae408810788b9d3556061ab03f21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfb2ae408810788b9d3556061ab03f21">&#9670;&nbsp;</a></span>LogAsync()</h2>
+<a id="a06d9097b805160ee0895194373fb58bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06d9097b805160ee0895194373fb58bd">&#9670;&nbsp;</a></span>Log() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">async Task <a class="el" href="a00111.html">BasicxLogger.JsonLogger</a>&lt; T &gt;.LogAsync </td>
+          <td class="memname">string BasicxLogger.DatabaseLogger.Log </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>logObject</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Asynchronous adds the given object to the log file. </p>
-<p>If the log file and/or directory is missing, the method will automatically create them. </p>
+<p>Writes the given message to the table. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">logObject</td><td>The object that will be added to the json file </td></tr>
+    <tr><td class="paramname">message</td><td>The message that will be writen to the table</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">System.ArgumentException</td><td></td></tr>
-    <tr><td class="paramname">System.ArgumentNullException</td><td></td></tr>
-    <tr><td class="paramname">System.NotSupportedException</td><td></td></tr>
-    <tr><td class="paramname">System.NullReferenceException</td><td></td></tr>
-    <tr><td class="paramname">System.UnauthorizedAccessException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.IOException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.PathTooLongException</td><td></td></tr>
-    <tr><td class="paramname">System.IO.DirectoryNotFoundException</td><td></td></tr>
-    <tr><td class="paramname">System.Security.SecurityException</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>The unique id for the log entry if <a class="el" href="a00111.html#a1e9286a3ab7fcc23da8958648186fafd" title="Gets or Sets if each log entry should contain a unique id or not.">BasicxLogger.DatabaseLogger.UseId</a> is true or null if <a class="el" href="a00111.html#a1e9286a3ab7fcc23da8958648186fafd" title="Gets or Sets if each log entry should contain a unique id or not.">BasicxLogger.DatabaseLogger.UseId</a> is false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00094">94</a> of file <a class="el" href="a00026_source.html">JsonLogger.cs</a>.</p>
+<p>Implements <a class="el" href="a00147.html#ad952986f84b4e23e7c14dbdfb89e9cce">BasicxLogger.Base.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00061">61</a> of file <a class="el" href="a00023_source.html">DatabaseLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a29848c1e4a6b9f12ab6fda8df3ff289d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29848c1e4a6b9f12ab6fda8df3ff289d">&#9670;&nbsp;</a></span>LogAsync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;string&gt; BasicxLogger.DatabaseLogger.LogAsync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a>&#160;</td>
+          <td class="paramname"><em>messageTag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asynchronous writes the given message to table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message that will be writen to the table</td></tr>
+    <tr><td class="paramname">messageTag</td><td>A Tag that will be added to the message, to make it easy to distinguish between differen log messages </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The unique id for the log entry if <a class="el" href="a00111.html#a1e9286a3ab7fcc23da8958648186fafd" title="Gets or Sets if each log entry should contain a unique id or not.">BasicxLogger.DatabaseLogger.UseId</a> is true or null if <a class="el" href="a00111.html#a1e9286a3ab7fcc23da8958648186fafd" title="Gets or Sets if each log entry should contain a unique id or not.">BasicxLogger.DatabaseLogger.UseId</a> is false. </dd></dl>
+
+<p>Implements <a class="el" href="a00147.html#a988dbc82b0ab01f15b0f2fc7447c65c3">BasicxLogger.Base.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00153">153</a> of file <a class="el" href="a00023_source.html">DatabaseLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="afda6134c4cabd598e2ef5b2be183eafe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afda6134c4cabd598e2ef5b2be183eafe">&#9670;&nbsp;</a></span>LogAsync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;string&gt; BasicxLogger.DatabaseLogger.LogAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asynchronous writes the given message to the table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message that will be writen to the table</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The unique id for the log entry if <a class="el" href="a00111.html#a1e9286a3ab7fcc23da8958648186fafd" title="Gets or Sets if each log entry should contain a unique id or not.">BasicxLogger.DatabaseLogger.UseId</a> is true or null if <a class="el" href="a00111.html#a1e9286a3ab7fcc23da8958648186fafd" title="Gets or Sets if each log entry should contain a unique id or not.">BasicxLogger.DatabaseLogger.UseId</a> is false. </dd></dl>
+
+<p>Implements <a class="el" href="a00147.html#acdb969cc872708b2be2a63f33d0c99af">BasicxLogger.Base.ILogger</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00129">129</a> of file <a class="el" href="a00023_source.html">DatabaseLogger.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
-<a id="ad65c6308350d2ea61df7abbbe1a41473"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad65c6308350d2ea61df7abbbe1a41473">&#9670;&nbsp;</a></span>LogFile</h2>
+<a id="a7d7e853e00c6f1c830e08375294ef66d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d7e853e00c6f1c830e08375294ef66d">&#9670;&nbsp;</a></span>Database</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -244,7 +338,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00079.html">JsonLogFile</a> <a class="el" href="a00111.html">BasicxLogger.JsonLogger</a>&lt; T &gt;.LogFile</td>
+          <td class="memname"><a class="el" href="a00139.html">ILogDatabase</a> BasicxLogger.DatabaseLogger.Database</td>
         </tr>
       </table>
   </td>
@@ -253,24 +347,100 @@ Properties</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> JsonLogFile(</div>
-<div class="line">            String.Format(<span class="stringliteral">&quot;{0}/{1}/&quot;</span>, Environment.CurrentDirectory, <span class="stringliteral">&quot;Logs&quot;</span>), <span class="stringliteral">&quot;Log&quot;</span>)</div>
-</div><!-- fragment -->
-<p>Gets the <a class="el" href="a00079.html" title="Class that represents a log file with the file extension .json">BasicxLogger.Files.JsonLogFile</a> that is used by the logger. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00029">29</a> of file <a class="el" href="a00026_source.html">JsonLogger.cs</a>.</p>
+<p>Gets the database that the logger uses. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00028">28</a> of file <a class="el" href="a00023_source.html">DatabaseLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a494a2575a8fd69a34521fd1827cdf691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a494a2575a8fd69a34521fd1827cdf691">&#9670;&nbsp;</a></span>DefaultTag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5">LogTag</a> BasicxLogger.DatabaseLogger.DefaultTag = <a class="el" href="a00062.html#a0768f6cb40899c29cccd5471f354b2b5a334c4a4c42fdb79d7ebc3e73b517e6f8">LogTag.none</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or Sets a default message tag that will be used if no tag is selected. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00036">36</a> of file <a class="el" href="a00023_source.html">DatabaseLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a38e8b949b02c2bc63abc3f78e5ffe7fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38e8b949b02c2bc63abc3f78e5ffe7fa">&#9670;&nbsp;</a></span>MessageTimestamp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00135.html">Timestamp</a> BasicxLogger.DatabaseLogger.MessageTimestamp = <a class="el" href="a00135.html#aedff67cb061655d708fe8c3871dd897b">Timestamp.Year_Month_Day_Hour24_Min_Sec</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or Sets the <a class="el" href="a00135.html" title="Timestamp class to configure and create timestamps">BasicxLogger.Timestamp</a> that is used by the logger. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00032">32</a> of file <a class="el" href="a00023_source.html">DatabaseLogger.cs</a>.</p>
+
+</div>
+</div>
+<a id="a1e9286a3ab7fcc23da8958648186fafd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9286a3ab7fcc23da8958648186fafd">&#9670;&nbsp;</a></span>UseId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BasicxLogger.DatabaseLogger.UseId = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or Sets if each log entry should contain a unique id or not. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00023_source.html#l00040">40</a> of file <a class="el" href="a00023_source.html">DatabaseLogger.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00026_source.html">JsonLogger.cs</a></li>
+<li><a class="el" href="a00023_source.html">DatabaseLogger.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00059.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00111.html">JsonLogger</a></li>
+    <li class="navelem"><a class="el" href="a00062.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="a00111.html">DatabaseLogger</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

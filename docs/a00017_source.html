@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BasicxLogger: NoLoggerAddedException.cs Source File</title>
+<title>BasicxLogger: IdHandler.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="basicxLoggerIconMini.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">BasicxLogger
-   &#160;<span id="projectnumber">2.0.2</span>
+   &#160;<span id="projectnumber">2.1.0</span>
    </div>
   </td>
  </tr>
@@ -84,7 +84,7 @@ $(document).ready(function(){initNavTree('a00017_source.html',''); initResizable
 
 <div class="header">
   <div class="headertitle">
-<div class="title">NoLoggerAddedException.cs</div>  </div>
+<div class="title">IdHandler.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
@@ -93,34 +93,31 @@ $(document).ready(function(){initNavTree('a00017_source.html',''); initResizable
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//--------------------------------------------------//</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="a00061.html">    7</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00061.html">BasicxLogger.Exceptions</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00062.html">BasicxLogger</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00099.html">   13</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="a00099.html">NoLoggerAddedException</a> : Exception</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="a00099.html#ae0a4e1012f992fac3163bf20fe87df81">   18</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00099.html#ae0a4e1012f992fac3163bf20fe87df81">NoLoggerAddedException</a>()</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="a00103.html">   12</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class </span><a class="code" href="a00103.html">IdHandler</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a00103.html#a8dd271923e3c6ac7af3b526f2691fe25">   20</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">string</span> <a class="code" href="a00103.html#a8dd271923e3c6ac7af3b526f2691fe25">UniqueId</a> { <span class="keyword">get</span> { <span class="keywordflow">return</span> GenerateUniqueId(); } }</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a00099.html#a0e40dfd110875d09532d86cc5c5f3747">   25</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00099.html#a0e40dfd110875d09532d86cc5c5f3747">NoLoggerAddedException</a>(<span class="keywordtype">string</span> message) : base(message)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a00099.html#a8639071b54cb44ddb10b154af81ed8cd">   32</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="a00099.html#a8639071b54cb44ddb10b154af81ed8cd">NoLoggerAddedException</a>(<span class="keywordtype">string</span> message, Exception inner) : base(message, inner)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="ttc" id="aa00061_html"><div class="ttname"><a href="a00061.html">BasicxLogger.Exceptions</a></div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00007">NoLoggerAddedException.cs:8</a></div></div>
-<div class="ttc" id="aa00099_html"><div class="ttname"><a href="a00099.html">BasicxLogger.Exceptions.NoLoggerAddedException</a></div><div class="ttdoc">The exception that is thrown when a Log method of the BasicxLogger.MultiLogger is called but no Basic...</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00013">NoLoggerAddedException.cs:14</a></div></div>
-<div class="ttc" id="aa00099_html_a0e40dfd110875d09532d86cc5c5f3747"><div class="ttname"><a href="a00099.html#a0e40dfd110875d09532d86cc5c5f3747">BasicxLogger.Exceptions.NoLoggerAddedException.NoLoggerAddedException</a></div><div class="ttdeci">NoLoggerAddedException(string message)</div><div class="ttdoc">Initializes a new instance of the BasicxLogger.Exceptions.NoLoggerAddedException class</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00025">NoLoggerAddedException.cs:25</a></div></div>
-<div class="ttc" id="aa00099_html_a8639071b54cb44ddb10b154af81ed8cd"><div class="ttname"><a href="a00099.html#a8639071b54cb44ddb10b154af81ed8cd">BasicxLogger.Exceptions.NoLoggerAddedException.NoLoggerAddedException</a></div><div class="ttdeci">NoLoggerAddedException(string message, Exception inner)</div><div class="ttdoc">Initializes a new instance of the BasicxLogger.Exceptions.NoLoggerAddedException class</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00032">NoLoggerAddedException.cs:32</a></div></div>
-<div class="ttc" id="aa00099_html_ae0a4e1012f992fac3163bf20fe87df81"><div class="ttname"><a href="a00099.html#ae0a4e1012f992fac3163bf20fe87df81">BasicxLogger.Exceptions.NoLoggerAddedException.NoLoggerAddedException</a></div><div class="ttdeci">NoLoggerAddedException()</div><div class="ttdoc">Initializes a new instance of the BasicxLogger.Exceptions.NoLoggerAddedException class</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00018">NoLoggerAddedException.cs:18</a></div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">string</span> GenerateUniqueId()</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordtype">string</span> idPartOne = <span class="keywordtype">int</span>.Parse(DateTime.UtcNow.ToString(<span class="stringliteral">&quot;yyyyMMdd&quot;</span>)).ToString(<span class="stringliteral">&quot;X&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordtype">string</span> idPartTwo = <span class="keywordtype">int</span>.Parse(DateTime.UtcNow.ToString(<span class="stringliteral">&quot;HHmmss&quot;</span>)).ToString(<span class="stringliteral">&quot;X&quot;</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordtype">string</span> idPartThree = <span class="keywordtype">int</span>.Parse(DateTime.UtcNow.ToString(<span class="stringliteral">&quot;fffffff&quot;</span>)).ToString(<span class="stringliteral">&quot;X&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordtype">string</span> uniqueId = idPartOne + idPartTwo + idPartThree;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">return</span> uniqueId;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="ttc" id="aa00062_html"><div class="ttname"><a href="a00062.html">BasicxLogger</a></div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00010">SqlServerDatabase.cs:11</a></div></div>
+<div class="ttc" id="aa00103_html"><div class="ttname"><a href="a00103.html">BasicxLogger.IdHandler</a></div><div class="ttdoc">A static class used for id generation</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00012">IdHandler.cs:13</a></div></div>
+<div class="ttc" id="aa00103_html_a8dd271923e3c6ac7af3b526f2691fe25"><div class="ttname"><a href="a00103.html#a8dd271923e3c6ac7af3b526f2691fe25">BasicxLogger.IdHandler.UniqueId</a></div><div class="ttdeci">static string UniqueId</div><div class="ttdoc">Gets a unique id string</div><div class="ttdef"><b>Definition:</b> <a href="a00017_source.html#l00020">IdHandler.cs:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_1b2608002e52b65fcd0713159a247772.html">Exceptions</a></li><li class="navelem"><b>NoLoggerAddedException.cs</b></li>
+    <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_925cbf1a02082bc0db71a948a17520b7.html">BasicxLogger</a></li><li class="navelem"><a class="el" href="dir_4b9d4dd8dd7e0f90ae3a29d1d5988f0f.html">Components</a></li><li class="navelem"><a class="el" href="dir_99c1db09e0428b24dde0dd5fc939f34b.html">IdHandler</a></li><li class="navelem"><b>IdHandler.cs</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

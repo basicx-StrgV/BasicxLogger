@@ -1,9 +1,8 @@
 var a00083 =
 [
-    [ "LogLogFile", "a00083.html#a9682fb2a1d2ca93dc4426690ab8716cd", null ],
-    [ "WriteToFile", "a00083.html#a68f31857ed612665bae6d1c645296a71", null ],
-    [ "DirectoryName", "a00083.html#add3dc74a11107d89c2b81f3bf77a3d90", null ],
-    [ "Extension", "a00083.html#a9b6d1007eecc88e41cb852a37d3d244f", null ],
-    [ "FullName", "a00083.html#a6c128285934466290714f5f26f2a7eff", null ],
-    [ "TextEncoding", "a00083.html#a4f70f231fd45329ef2acdca2c7cef1d7", null ]
+    [ "SqlServerDatabase", "a00083.html#ab74a31d1c024e3def3655a58107813bc", null ],
+    [ "LogToDatabase", "a00083.html#a2a152970858a1b2f356eb58e50ad2010", null ],
+    [ "Database", "a00083.html#a5015cda61b6e0b77c6ed88ed975ef8b8", null ],
+    [ "Server", "a00083.html#a652eb0b7e25dcd6f806b5d292a0a9199", null ],
+    [ "Table", "a00083.html#a77e09fa0186a479533007f34d1dbf771", null ]
 ];

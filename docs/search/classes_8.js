@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['xmllogfile_96',['XmlLogFile',['../a00091.html',1,'BasicxLogger::Files']]]
+  ['timestamp_96',['Timestamp',['../a00135.html',1,'BasicxLogger']]],
+  ['txtlogfile_97',['TxtLogFile',['../a00095.html',1,'BasicxLogger::Files']]]
 ];

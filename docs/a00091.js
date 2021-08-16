@@ -1,9 +1,9 @@
 var a00091 =
 [
-    [ "XmlLogFile", "a00091.html#a1a9bdf71c8650b11192cc4b20b51d107", null ],
-    [ "WriteToFile", "a00091.html#a7fea6826b84c503801a0e4e98f264902", null ],
-    [ "DirectoryName", "a00091.html#a989af394e931b432ace1cf9b85dc9855", null ],
-    [ "Extension", "a00091.html#af2938cf1fa214c39bf8120495be28691", null ],
-    [ "FullName", "a00091.html#ad4714b43a089c4939cc2f78c3a819a98", null ],
-    [ "TextEncoding", "a00091.html#a992c0858db2e2d3e5ad77bbad87820d1", null ]
+    [ "LogLogFile", "a00091.html#a9682fb2a1d2ca93dc4426690ab8716cd", null ],
+    [ "WriteToFile", "a00091.html#a68f31857ed612665bae6d1c645296a71", null ],
+    [ "DirectoryName", "a00091.html#add3dc74a11107d89c2b81f3bf77a3d90", null ],
+    [ "Extension", "a00091.html#a9b6d1007eecc88e41cb852a37d3d244f", null ],
+    [ "FullName", "a00091.html#a6c128285934466290714f5f26f2a7eff", null ],
+    [ "TextEncoding", "a00091.html#a4f70f231fd45329ef2acdca2c7cef1d7", null ]
 ];

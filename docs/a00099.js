@@ -1,6 +1,9 @@
 var a00099 =
 [
-    [ "NoLoggerAddedException", "a00099.html#ae0a4e1012f992fac3163bf20fe87df81", null ],
-    [ "NoLoggerAddedException", "a00099.html#a0e40dfd110875d09532d86cc5c5f3747", null ],
-    [ "NoLoggerAddedException", "a00099.html#a8639071b54cb44ddb10b154af81ed8cd", null ]
+    [ "XmlLogFile", "a00099.html#a1a9bdf71c8650b11192cc4b20b51d107", null ],
+    [ "WriteToFile", "a00099.html#a7fea6826b84c503801a0e4e98f264902", null ],
+    [ "DirectoryName", "a00099.html#a989af394e931b432ace1cf9b85dc9855", null ],
+    [ "Extension", "a00099.html#af2938cf1fa214c39bf8120495be28691", null ],
+    [ "FullName", "a00099.html#ad4714b43a089c4939cc2f78c3a819a98", null ],
+    [ "TextEncoding", "a00099.html#a992c0858db2e2d3e5ad77bbad87820d1", null ]
 ];
