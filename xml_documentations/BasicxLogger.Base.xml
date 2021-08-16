@@ -158,7 +158,7 @@
         </member>
         <member name="T:BasicxLogger.Base.ILogDatabase">
             <summary>
-            Interface that represents a database for the <see cref="!:BasicxLogger.DatabaseLogger"/>
+            Interface that represents a database for the DatabaseLogger
             </summary>
         </member>
         <member name="P:BasicxLogger.Base.ILogDatabase.Server">
@@ -187,7 +187,7 @@
         </member>
         <member name="T:BasicxLogger.Base.ILogFile">
             <summary>
-            Interface that represents a file for the <see cref="!:BasicxLogger.FileLogger"/>
+            Interface that represents a file for the FileLogger
             </summary>
         </member>
         <member name="P:BasicxLogger.Base.ILogFile.TextEncoding">
@@ -245,8 +245,8 @@
             </summary>
             <param name="message">The message that will be logged</param>
             <returns>
-            The unique id for the log entry if <see cref="!:BasicxLogger.ILogger.UseId"/> is true 
-            or null if <see cref="!:BasicxLogger.ILogger.UseId"/> is false.
+            The unique id for the log entry if <see cref="P:BasicxLogger.Base.ILogger.UseId"/> is true 
+            or null if <see cref="P:BasicxLogger.Base.ILogger.UseId"/> is false.
             </returns>
         </member>
         <member name="M:BasicxLogger.Base.ILogger.Log(BasicxLogger.LogTag,System.String)">
@@ -258,8 +258,8 @@
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
             </param>
             <returns>
-            The unique id for the log entry if <see cref="!:BasicxLogger.ILogger.UseId"/> is true 
-            or null if <see cref="!:BasicxLogger.ILogger.UseId"/> is false.
+            The unique id for the log entry if <see cref="P:BasicxLogger.Base.ILogger.UseId"/> is true 
+            or null if <see cref="P:BasicxLogger.Base.ILogger.UseId"/> is false.
             </returns>
         </member>
         <member name="M:BasicxLogger.Base.ILogger.LogAsync(System.String)">
@@ -268,8 +268,8 @@
             </summary>
             <param name="message">The message that will be logged</param>
             <returns>
-            The unique id for the log entry if <see cref="!:BasicxLogger.ILogger.UseId"/> is true 
-            or null if <see cref="!:BasicxLogger.ILogger.UseId"/> is false.
+            The unique id for the log entry if <see cref="P:BasicxLogger.Base.ILogger.UseId"/> is true 
+            or null if <see cref="P:BasicxLogger.Base.ILogger.UseId"/> is false.
             </returns>
         </member>
         <member name="M:BasicxLogger.Base.ILogger.LogAsync(BasicxLogger.LogTag,System.String)">
@@ -281,8 +281,8 @@
             A Tag that will be added to the message, to make it easy to distinguish between differen log messages
             </param>
             <returns>
-            The unique id for the log entry if <see cref="!:BasicxLogger.ILogger.UseId"/> is true 
-            or null if <see cref="!:BasicxLogger.ILogger.UseId"/> is false.
+            The unique id for the log entry if <see cref="P:BasicxLogger.Base.ILogger.UseId"/> is true 
+            or null if <see cref="P:BasicxLogger.Base.ILogger.UseId"/> is false.
             </returns>
         </member>
     </members>

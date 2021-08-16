@@ -5,7 +5,7 @@
 namespace BasicxLogger.Base
 {
     /// <summary>
-    /// Interface that represents a database for the <see cref="BasicxLogger.DatabaseLogger"/>
+    /// Interface that represents a database for the DatabaseLogger
     /// </summary>
     public interface ILogDatabase
     {

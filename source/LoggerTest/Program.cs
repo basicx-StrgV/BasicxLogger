@@ -57,9 +57,6 @@ namespace LoggerTest
 
         private void CustomTest()
         {
-            MultiLogger multiLogger = new MultiLogger();
-            multiLogger.Add(_txtFileLogger);
-            multiLogger.Log("Test");
         }
 
         private void DefaultTest()

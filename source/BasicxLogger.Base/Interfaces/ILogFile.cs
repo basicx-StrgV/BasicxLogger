@@ -7,7 +7,7 @@ using System.Text;
 namespace BasicxLogger.Base
 {
     /// <summary>
-    /// Interface that represents a file for the <see cref="BasicxLogger.FileLogger"/>
+    /// Interface that represents a file for the FileLogger
     /// </summary>
     public interface ILogFile
     {

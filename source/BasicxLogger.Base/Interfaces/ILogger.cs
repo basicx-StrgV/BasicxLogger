@@ -30,8 +30,8 @@ namespace BasicxLogger.Base
         /// </summary>
         /// <param name="message">The message that will be logged</param>
         /// <returns>
-        /// The unique id for the log entry if <see cref="BasicxLogger.ILogger.UseId"/> is true 
-        /// or null if <see cref="BasicxLogger.ILogger.UseId"/> is false.
+        /// The unique id for the log entry if <see cref="BasicxLogger.Base.ILogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.Base.ILogger.UseId"/> is false.
         /// </returns>
         string Log(string message);
         /// <summary>
@@ -42,8 +42,8 @@ namespace BasicxLogger.Base
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
         /// <returns>
-        /// The unique id for the log entry if <see cref="BasicxLogger.ILogger.UseId"/> is true 
-        /// or null if <see cref="BasicxLogger.ILogger.UseId"/> is false.
+        /// The unique id for the log entry if <see cref="BasicxLogger.Base.ILogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.Base.ILogger.UseId"/> is false.
         /// </returns>
         string Log(LogTag messageTag, string message);
         /// <summary>
@@ -51,8 +51,8 @@ namespace BasicxLogger.Base
         /// </summary>
         /// <param name="message">The message that will be logged</param>
         /// <returns>
-        /// The unique id for the log entry if <see cref="BasicxLogger.ILogger.UseId"/> is true 
-        /// or null if <see cref="BasicxLogger.ILogger.UseId"/> is false.
+        /// The unique id for the log entry if <see cref="BasicxLogger.Base.ILogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.Base.ILogger.UseId"/> is false.
         /// </returns>
         Task<string> LogAsync(string message);
         /// <summary>
@@ -63,8 +63,8 @@ namespace BasicxLogger.Base
         /// A Tag that will be added to the message, to make it easy to distinguish between differen log messages
         /// </param>
         /// <returns>
-        /// The unique id for the log entry if <see cref="BasicxLogger.ILogger.UseId"/> is true 
-        /// or null if <see cref="BasicxLogger.ILogger.UseId"/> is false.
+        /// The unique id for the log entry if <see cref="BasicxLogger.Base.ILogger.UseId"/> is true 
+        /// or null if <see cref="BasicxLogger.Base.ILogger.UseId"/> is false.
         /// </returns>
         Task<string> LogAsync(LogTag messageTag, string message);
     }
