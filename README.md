@@ -19,11 +19,6 @@ write to different types of log files or write logs to a database.
 It is designed to be as easy to use as possibel without losing functionalities and  
 to be modular so it is easy to add features and extensions. 
 
-## 👥 Contributing
-
-Working alone is not always easy and takes longer.  
-If you want to help, making this library better, you can find informations [here](https://github.com/basicx-StrgV/BasicxLogger/blob/main/.github/CONTRIBUTING.md).
-
 ## ⭐ Features
 
 - Easy to use
