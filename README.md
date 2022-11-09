@@ -1,15 +1,10 @@
 
 ![BasicxLogger](https://raw.githubusercontent.com/basicx-StrgV/BasicxLogger/main/graphics/repositoryBanner.png)
 
-
-[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/basicx-StrgV/BasicxLogger?label=Version)](https://github.com/basicx-StrgV/BasicxLogger/releases)
-[![Nuget](https://img.shields.io/nuget/dt/BasicxLogger?label=NuGet%20Downloads)](https://www.nuget.org/packages/BasicxLogger/)
-
-
-
-| Main    | Develop |
-| ------- | ------- |
-[![CodeQL_main](https://github.com/basicx-StrgV/BasicxLogger/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/basicx-StrgV/BasicxLogger/actions/workflows/codeql-analysis.yml) |  [![CodeQL_develop](https://github.com/basicx-StrgV/BasicxLogger/actions/workflows/codeql-analysis.yml/badge.svg?branch=develop)](https://github.com/basicx-StrgV/BasicxLogger/actions/workflows/codeql-analysis.yml) |
+# ❗ Attention
+This project was my first “bigger” project and my first GitHub project.  
+I mainly did it to learn and test.  
+Because I don't use the library and there are much better alternatives, the liberty will not receive any more updates, including security patches.
 
 ## ❓ What is BasicxLogger
 
@@ -41,10 +36,6 @@ You can get the nuget package here: https://www.nuget.org/packages/BasicxLogger/
 ### ➕ Extensions
 
 MySql Database for the DatabaseLogger: https://www.nuget.org/packages/BasicxLogger.Databases.MySqlDatabase/
-
-## 📖 Documentation
-
-You can finde the documentation here: https://basicx-strgv.github.io/BasicxLogger/
 
 ## 📋 Samples
 
