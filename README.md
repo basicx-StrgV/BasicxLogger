@@ -4,7 +4,7 @@
 # ❗ Attention
 This project was my first “bigger” project and my first GitHub project.  
 I mainly did it to learn and test.  
-Because I don't use the library and there are much better alternatives, the library will not receive any more updates, including security patches.
+Because I don't use the library and there are much better alternatives, the library will not receive any updates, including security patches.
 
 ## ❓ What is BasicxLogger
 
