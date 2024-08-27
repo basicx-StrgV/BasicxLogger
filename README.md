@@ -2,8 +2,9 @@
 ![BasicxLogger](https://raw.githubusercontent.com/basicx-StrgV/BasicxLogger/main/graphics/repositoryBanner.png)
 
 # ❗ Attention
+**This repository is intended as a reference and archive.**  
 This project was my first “bigger” project and my first GitHub project.  
-I mainly did it to learn and test.  
+I mainly did it for fun and to learn something.
 Because I don't use the library and there are much better alternatives, the library will not receive any updates, including security patches.
 
 ## ❓ What is BasicxLogger
